@@ -117,3 +117,109 @@ GET https://api.divar.ir/v1/open-platform/assets/brand-model/{{category}}
     ]
 }
 ```
+
+## رنگها
+
+درخواست
+
+```http request
+GET https://api.divar.ir/v1/open-platform/assets/color/{{category}}
+```
+
+فقط دسته‌بندی‌های `light` و `mobile-phones` دارای رنگ هستند.
+
+پاسخ
+
+```json5
+{
+    "colors": [
+        {
+            "display": "آبی",
+            "slug": "آبی"
+        },
+        {
+            "display": "آلبالویی",
+            "slug": "آلبالویی"
+        },
+        /// ...
+    ]
+}
+```
+
+## حافظههایداخلی
+
+```http request
+GET https://api.divar.ir//v1/open-platform/assets/internal-storage
+```
+
+فقط دسته‌بندی‌ `mobile-phones` دارای حافظه ی داخلی هست.
+
+پاسخ
+
+```json5
+{
+    "internal_storages": [
+        {
+            "display": "مطرح نیست",
+            "slug": "irrelevant"
+        },
+        {
+            "display": "۵۱۲ مگابایت",
+            "slug": "512MB"
+        },
+      /// ...
+      ]
+}
+```
+
+## رممموریها
+
+```http request
+GET https://api.divar.ir//v1/open-platform/assets/ram-memory
+```
+
+فقط دسته‌بندی‌ `mobile-phones` دارای رم مموری هست.
+
+پاسخ
+
+```json5
+{
+    "ram_memories": [
+        {
+            "display": "مطرح نیست",
+            "slug": "irrelevant"
+        },
+        {
+            "display": "۵۱۲ مگابایت",
+            "slug": "512MB"
+        },
+      /// ...
+      ]
+}
+```
+
+## وضعیتبدنهها
+
+```http request
+GET https://api.divar.ir//v1/open-platform/assets/body-status
+```
+
+فقط دسته‌بندی‌ `light` دارای وضعیت بدنه هست.
+
+پاسخ
+
+```json5
+{
+    "body_status": [
+        {
+            "display": "سالم و بی‌خط و خش",
+            "slug": "intact"
+        },
+        {
+            "display": "خط و خش جزیی",
+            "slug": "some-scratches"
+        },
+      /// ...
+      ]
+}
+```
