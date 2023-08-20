@@ -118,7 +118,7 @@ GET https://api.divar.ir/v1/open-platform/assets/brand-model/{{category}}
 }
 ```
 
-## رنگها
+## رنگ‌ها
 
 درخواست
 
@@ -146,7 +146,7 @@ GET https://api.divar.ir/v1/open-platform/assets/color/{{category}}
 }
 ```
 
-## حافظههایداخلی
+## حافظه‌های‌داخلی
 
 ```http request
 GET https://api.divar.ir//v1/open-platform/assets/internal-storage
@@ -172,7 +172,7 @@ GET https://api.divar.ir//v1/open-platform/assets/internal-storage
 }
 ```
 
-## رممموریها
+## رم‌مموری‌ها
 
 ```http request
 GET https://api.divar.ir//v1/open-platform/assets/ram-memory
@@ -198,7 +198,7 @@ GET https://api.divar.ir//v1/open-platform/assets/ram-memory
 }
 ```
 
-## وضعیتبدنهها
+## وضعیت‌بدنه‌ها
 
 ```http request
 GET https://api.divar.ir//v1/open-platform/assets/body-status
