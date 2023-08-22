@@ -1,4 +1,4 @@
-# است‌ها
+# اَسِت‌ها assets
 
 است‌ها مقادیر اینام‌های پرکاربرد دیوار هستند که برای تولید افزونه یا خواندن
 منابعی که از دیوار دریافت میکنید کاربرد دارند. برای مثال در جستجوی آگهی برای
@@ -90,6 +90,17 @@ GET https://api.divar.ir/v1/open-platform/assets/district
 GET https://api.divar.ir/v1/open-platform/assets/district/tehran
 ```
 
+لیست شهرهای دارای محله به شرح زیر است:
+- shiraz
+- isfahan
+- rasht
+- qom
+- tehran
+- karaj
+- ahvaz
+- mashhad
+
+
 ## برندمدل‌ها
 
 ریکوئست
@@ -146,13 +157,11 @@ GET https://api.divar.ir/v1/open-platform/assets/color/{{category}}
 }
 ```
 
-## حافظه‌های‌داخلی
+## حافظه‌داخلی
 
 ```http request
 GET https://api.divar.ir//v1/open-platform/assets/internal-storage
 ```
-
-فقط دسته‌بندی‌ `mobile-phones` دارای حافظه ی داخلی هست.
 
 پاسخ
 
@@ -167,18 +176,17 @@ GET https://api.divar.ir//v1/open-platform/assets/internal-storage
             "display": "۵۱۲ مگابایت",
             "slug": "512MB"
         },
-      /// ...
+        /// ...
       ]
 }
 ```
 
-## رم‌مموری‌ها
+## رم‌مموری‌
 
 ```http request
 GET https://api.divar.ir//v1/open-platform/assets/ram-memory
 ```
 
-فقط دسته‌بندی‌ `mobile-phones` دارای رم مموری هست.
 
 پاسخ
 
@@ -193,18 +201,16 @@ GET https://api.divar.ir//v1/open-platform/assets/ram-memory
             "display": "۵۱۲ مگابایت",
             "slug": "512MB"
         },
-      /// ...
+        /// ...
       ]
 }
 ```
 
-## وضعیت‌بدنه‌ها
+## وضعیت‌بدنه
 
 ```http request
 GET https://api.divar.ir//v1/open-platform/assets/body-status
 ```
-
-فقط دسته‌بندی‌ `light` دارای وضعیت بدنه هست.
 
 پاسخ
 
@@ -219,7 +225,7 @@ GET https://api.divar.ir//v1/open-platform/assets/body-status
             "display": "خط و خش جزیی",
             "slug": "some-scratches"
         },
-      /// ...
+        /// ...
       ]
 }
 ```
