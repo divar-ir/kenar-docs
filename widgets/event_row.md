@@ -1,7 +1,7 @@
 # Event Row
 
 <div dir="rtl"> 
-ویجت event row دارای یکی از دو فرمت زیر است
+ویجت event row دارای فرمت زیر است
 </div>
 
 ```json

@@ -1,6 +1,6 @@
 # Selector Row
 <div dir="rtl">
-ویجت selector row دارای یکی از دو فرمت زیر است
+ویجت selector row دارای فرمت زیر است
 </div>
 
 ```json

@@ -1,6 +1,6 @@
 # title Row
 <div dir="rtl">
-ویجت title row دارای یکی از دو فرمت زیر است
+ویجت title row دارای فرمت زیر است
 </div>
 
 ```json

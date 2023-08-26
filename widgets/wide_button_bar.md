@@ -1,6 +1,6 @@
 # Wide Button Bar
 <div dir="rtl"> 
-ویجت wide button bar دارای یکی از دو فرمت زیر است
+ویجت wide button bar دارای فرمت زیر است
 </div>
 
 ```json

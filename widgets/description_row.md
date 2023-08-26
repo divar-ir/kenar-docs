@@ -1,5 +1,5 @@
 # Description Row
- ویجت description row دارای یکی از دو فرمت زیر است
+ ویجت description row دارای فرمت زیر است
 ```json
 {
     "widget_type": "DESCRIPTION_ROW",

@@ -1,6 +1,6 @@
 # Subtitle Row
 <div dir="rtl">
- ویجت subtitle row دارای یکی از دو فرمت زیر است
+ ویجت subtitle row دارای فرمت زیر است
 </div>
 
 ```json

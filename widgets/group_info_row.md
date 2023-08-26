@@ -1,6 +1,6 @@
 # Group Info Row
 <div dir="rtl"> 
-ویجت group info row دارای یکی از دو فرمت زیر است
+ویجت group info row دارای فرمت زیر است
 </div>
 
 ```json

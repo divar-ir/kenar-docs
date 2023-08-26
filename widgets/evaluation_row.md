@@ -1,6 +1,6 @@
 # Evaluation Row
 <div dir="rtl">
- ویجت evaluation row دارای یکی از دو فرمت زیر است
+ ویجت evaluation row دارای فرمت زیر است
 </div>
 
 ```json

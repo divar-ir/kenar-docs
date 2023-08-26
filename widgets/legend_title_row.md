@@ -1,6 +1,6 @@
 # Legend Title Row
 <div dir="rtl">
- ویجت legend title row دارای یکی از دو فرمت زیر است
+ ویجت legend title row دارای فرمت زیر است
 </div>
 
 ```json
