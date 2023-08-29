@@ -17,7 +17,7 @@ sequenceDiagram
 
 ### اپلود عکس
 
-در ابتدا با یک رکوئست PUT باینری عکس خود را به صورت زیر اپلود کنید.
+در ابتدا با یک رکوئست PUT باینری عکس خود را به صورت زیر اپلود کنید. (ترجیحا فرمت عکس ها jpeg باشد)
 
 ```http request
 PUT /v2/image-service/open-platform/image.jpg HTTP/1.1
