@@ -70,7 +70,7 @@ Content-Length: 901
                     "title": "یک اونت رو",
                     "subtitle": "اطلاعات بیشتر اونت رو",
                     "has_divider": true,
-                    "image_url": "https://s100.divarcdn.com/static/images/open-platform/57c76b48-d381-4b8a-b34f-355f6869b6ed.jpg"
+                    "image_url": "57c76b48-d381-4b8a-b34f-355f6869b6ed.jpg"
                 }
             }
         ]
@@ -79,8 +79,6 @@ Content-Length: 901
 ```
 
 همانطور که مشاهده می کنید در ویجت `EVENT_ROW` عکسمان رو قرار داده ایم.
-
-**نکته**:  `/https://s100.divarcdn.com/static/images/open-platform` حتما قبل از id عکس اضافه شود.
 
 ### ویجت های عکس دار
 - EVENT_ROW
