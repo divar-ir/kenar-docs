@@ -36,8 +36,8 @@ X-Debug-Token: {{debug_token}}
     }
     "link_in_spec": "https://your.site.ir",
     "semantic": {
-        "model_year": 1398,
-        "mileage": 100000
+        "year": 1398,
+        "usage": 100000
     },
     "notes": "any notes you want to get back on list api"
 }
