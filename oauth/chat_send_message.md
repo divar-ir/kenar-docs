@@ -2,8 +2,8 @@
 
 | CHAT SEND MESSAGE |                     |
 |-----------------------|---------------------|
-| API Permissions       | CHAT_SEND_MESSAGE       |
-| OAuth Permissions     | CHAT_SEND_MESSAGE |
+| API Permissions       | CHAT_SEND_MESSAGE_OAUTH       |
+| OAuth Permissions     | CHAT_SEND_MESSAGE_OAUTH |
 | Resource ID           | BASE64(user_id:post_token:peer_id) |
 
 مثال از اسکوپ
