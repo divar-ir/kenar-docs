@@ -67,9 +67,9 @@ sequenceDiagram
     participant Divar Services
     Third-Party->>Kenar: Sends Create Addon Request with appropriate fields
     Note over Kenar: Validates the request
-    alt request data is invalid:
+    alt request data is invalid
         Kenar--x Third-Party: Responds with appropriate validation error
-    else request data is valid:
+    else request data is valid
         Kenar->> Third-Party: Responds with empty JSON object and an Ok status code.
     end
     loop until attachment
