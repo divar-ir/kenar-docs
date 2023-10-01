@@ -4,10 +4,10 @@
 منابعی که از دیوار دریافت میکنید کاربرد دارند. برای مثال در جستجوی آگهی برای
 فیلتر کردن روی مقادیر برند-مدل خودرو از است برند-مدل میتوانید گزینه‌های موجود را دریافت کنید.
 
-> اگرچه مقادیر است به ندرت تغییر میکنند، اما تضمینی برای ثابت ماندن ریسپانس نیست و هر زمان و بدون اطلاع تغییر خواهد کرد.
-> اما ساختمان داده دارای تغییر شکننده نخواهد بود.
+> اگرچه این مقادیر ثابت هستند و به ندرت تغییر میکنند، اما تضمینی برای ثابت ماندن پاسخ دریافتی نیست و ممکن است هر زمان و بدون اطلاع تغییر کنند.
+> البته ساختمان دادهٔ پاسخ، تغییری که باعث بروز خطا شود، نخواهد داشت.
 
-## دسته‌بندی‌ها
+## دسته‌ها
 
 درخواست
 
@@ -15,9 +15,9 @@
 GET https://api.divar.ir/v1/open-platform/assets/category
 ```
 
-پاسخ
+نمونهٔ پاسخ
 
-```json5
+```JSON
 {
     "categories": [
         {
@@ -41,9 +41,9 @@ GET https://api.divar.ir/v1/open-platform/assets/category
 GET https://api.divar.ir/v1/open-platform/assets/city
 ```
 
-پاسخ
+نمونهٔ پاسخ
 
-```json5
+```JSON
 {
     "cities": [
         {
@@ -70,9 +70,9 @@ GET https://api.divar.ir/v1/open-platform/assets/city
 GET https://api.divar.ir/v1/open-platform/assets/district
 ```
 
-پاسخ
+نمونهٔ پاسخ
 
-```json5
+```JSON
 {
     "districts": [
         {
@@ -84,13 +84,8 @@ GET https://api.divar.ir/v1/open-platform/assets/district
 }
 ```
 
-برای دریافت محله‌های یک شهر خاص میتوان آنرا از طریق فانکشن زیر دریافت کرد
-
-```http request
-GET https://api.divar.ir/v1/open-platform/assets/district/tehran
-```
-
-لیست شهرهای دارای محله به شرح زیر است:
+### محله‌های یک شهر
+می‌توانید محله‌های شهرهای زیر را از آدرسی که در ادامه می‌بینید دریافت کنید:
 - shiraz
 - isfahan
 - rasht
@@ -100,20 +95,22 @@ GET https://api.divar.ir/v1/open-platform/assets/district/tehran
 - ahvaz
 - mashhad
 
+```http request
+GET https://api.divar.ir/v1/open-platform/assets/district/{{city}}
+```
 
-## برندمدل‌ها
 
-ریکوئست
+## برند-مدل‌ها
+
+در دسته‌های `light` برای خودرو و `mobile-phones` برای کالاهای دیجیتال می‌توانید از آدرس زیر لیست برند‌مدل‌ها را دریافت کنید:
 
 ```http request
 GET https://api.divar.ir/v1/open-platform/assets/brand-model/{{category}}
 ```
 
-فقط دسته‌بندی‌های `light` و `mobile-phones` دارای برندمدل هستند.
+نمونهٔ پاسخ
 
-ریسپانس
-
-```json5
+```JSON
 {
     "brand_models": [
         {
@@ -131,17 +128,14 @@ GET https://api.divar.ir/v1/open-platform/assets/brand-model/{{category}}
 
 ## رنگ‌ها
 
-درخواست
+مشابه برند-مدل، برای دسته‌بندی‌های `light` و `mobile-phones` می‌توانید لیست رنگ‌های موجود در دیوار را از آدرس زیر دریافت کنید.
 
 ```http request
 GET https://api.divar.ir/v1/open-platform/assets/color/{{category}}
 ```
+نمونه پاسخ
 
-فقط دسته‌بندی‌های `light` و `mobile-phones` دارای رنگ هستند.
-
-پاسخ
-
-```json5
+```JSON
 {
     "colors": [
         {
@@ -163,9 +157,9 @@ GET https://api.divar.ir/v1/open-platform/assets/color/{{category}}
 GET https://api.divar.ir//v1/open-platform/assets/internal-storage
 ```
 
-پاسخ
+نمونهٔ پاسخ
 
-```json5
+```JSON
 {
     "internal_storages": [
         {
@@ -188,9 +182,9 @@ GET https://api.divar.ir//v1/open-platform/assets/ram-memory
 ```
 
 
-پاسخ
+نمونهٔ پاسخ
 
-```json5
+```JSON
 {
     "ram_memories": [
         {
@@ -212,9 +206,9 @@ GET https://api.divar.ir//v1/open-platform/assets/ram-memory
 GET https://api.divar.ir//v1/open-platform/assets/body-status
 ```
 
-پاسخ
+نمونهٔ پاسخ
 
-```json5
+```JSON
 {
     "body_status": [
         {

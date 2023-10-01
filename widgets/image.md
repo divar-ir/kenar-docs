@@ -1,23 +1,23 @@
-# عکس در ویجت ها
+# درج تصویر در ویجت‌ها
 
-تعدادی از ویجت ها از عکس پشتیبانی می‌کنند. برای قرار دادن عکس در این ویجت ها باید ابتدا آن‌ها اپلود کنید. فلوی ثبت عکس در ویجت به صورت زیر می باشد.
+تعدادی از ویجت‌های دیوار امکان نمایش تصویر در قسمتی از خود را دارند. برای اضافه کردن تصویر به ویجت مورد نظر ابتدا باید تصویر را آپلود کنید و سپس شناسهٔ آت را در مشخصات ویجت قرار دهید.
 
 ```mermaid
 sequenceDiagram
     participant Third-Party
     participant Kenar
     participant Divar Image Service
-    Third-Party->>Divar Image Service: Upload Binary Image
-    Divar Image Service->>Third-Party: Creates temporary image and returns its ID
-    Third-Party->>Kenar: Uses the given ID in some widget
+    Third-Party->>+Divar Image Service: Upload Binary Image
+    Divar Image Service->>-Third-Party: Creates temporary image and returns its ID
+    Third-Party->>+Kenar: Uses the given ID in some widget
     Kenar->>Divar Image Service: Sends Make Permanent request with the given ID
     Divar Image Service->>Kenar: Makes Permanent image and returns a new ID
-    Kenar->>Third-Party: Creates widget with the new image ID and responds with success
+    Kenar->>-Third-Party: Creates widget with the new image ID and responds with success
 ```
 
-### اپلود عکس
+### آپلود تصویر
 
-در ابتدا با یک رکوئست PUT باینری عکس خود را به صورت زیر اپلود کنید. (ترجیحا فرمت عکس ها jpeg باشد)
+در ابتدا با یک رکوئست PUT باینری فایل تصویر خود را به صورت زیر آپلود کنید. (ترجیحا فرمت عکس ها jpeg باشد)
 
 ```http request
 PUT /v2/image-service/open-platform/image.jpg HTTP/1.1
@@ -27,20 +27,22 @@ Content-Length: 22
 
 "<file contents here>"
 ```
-دفت شود که`image.jpg` انتهای url یک نام ثابت است و ربطی به نام عکس اپلودی ندارد!(در تمام رکوئست ها `image.jpg` بگذارید)
 
-پس از ارسال رکوئست پاسخ زیر دریافت می‌شود.
+دفت شود که`image.jpg` انتهای url یک نام ثابت است و ربطی به نام عکس آپلودشده ندارد! (در تمام رکوئست ها `image.jpg` بگذارید)
+
+پس از ارسال درخواست، چنین پاسخی دریافت می‌شود.
 
 ```json5
 {
-    "image_name": "57c76b48-d381-4b8a-b34f-355f6869b6ed.jpg"
+  image_name: "57c76b48-d381-4b8a-b34f-355f6869b6ed.jpg",
 }
 ```
 
-### ساخت افزونه
+### درج تصویر در افزونه
 
-حال در رکوئست ساخت افزونه از id عکس دریافت شده استفاده میکنیم.
+حال در محل مورد نظرتان برای درج تصویر، `id` دریافتی از درخواست قبلی را قرار دهید.
 
+برای مثال در نمونه درخواست زیر در ویجت `EVENT_ROW` تصویر مورد نظرمان را قرار دادیم.
 
 ```http request
 POST //v1/open-platform/add-ons/post/AZqfx5i2 HTTP/1.1
@@ -78,13 +80,10 @@ Content-Length: 901
 }
 ```
 
-همانطور که مشاهده می کنید در ویجت `EVENT_ROW` عکسمان رو قرار داده ایم.
-
-در ویجت های عکس دار هم همانند `Legend Title Row` می‌توانید از `logo` برای استفاده از لوگو اپتون تو کنار استفاده کنید.
-
+علاوه بر درج تصویر دلخواه می‌توان به جای `{id}` مقدار `logo` را به عنوان `image_url` فرستاد تا لوگوی اپ شما که در پنل کنار دیوار قابل تنظیم است، در ویجت درج شود.
 ### ویجت های عکس دار
-- [EVENT_ROW](./event_row.md)
-- [IMAGE_CAROUSEL_ROW](./image_carousel_row.md)
-
-در صورتی که هنگام ساخت افزونه پیام `one or more widgets not allowed` رو دریافت می‌کنید به این منظور است که شما دسترسی ساخت یک نوع ویجت از ویجت هایی که در درخواستتان هست را ندارید برای دریافت دسترسی با پشتیبانی در ارتباط باشید.
-
+<ul dir="rtl">
+<li><a href="event_row.md">EVENT_ROW</a></li>
+<li><a href="image_carousel_row.md">IMAGE_CAROUSEL_ROW</a></li>
+<li><a href="legend_title_row.md">LEGEND_TITLE_ROW</a> این ویجت فقط از مقدار <code>logo</code> برای تصویر پشتیبانی می‌کند و امکان درج تصویر آپلودشده را در آن ندارید.</li>
+<ul>
