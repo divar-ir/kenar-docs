@@ -1,4 +1,4 @@
-### الصاق افزونه تایید شده
+### درج افزونه تأیید شده
 
 | CREATE APPROVED ADDON |                     |
 |-----------------------|---------------------|
@@ -6,7 +6,6 @@
 | OAuth Permissions     | ADDON_USER_APPROVED |
 | Resource ID           | post_token          |
 
-با استفاده از access_token می توانید شماره همراه کاربر احراز شده را دریافت کنید. کافیست رکوئست زیر را بزنید.
 ```http request
 POST https://api.divar.ir/v1/open-platform/users
 Content-Type: application/json
