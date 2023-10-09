@@ -72,7 +72,13 @@ x-access-token: {{access_token}}
 
 ```JSON
 {
-    "extra_data":   {"your_custom_key":"اطلاعاتی که در درخواست ارسال پیام در مرحلهٔ قبل فرستادید"},
+    "extra_data": {
+        "provider_data": {"your_custom_key":"اطلاعاتی که در درخواست ارسال پیام در مرحلهٔ قبل فرستادید"},
+        "location": { // for location messages
+            "latitude": 35.683374373999364,
+            "longitude": 51.34850978851319
+        }    
+    },
     callback_url: "آدرسی که کاربر پس از انجام فرایند در سرویس شما باید به آن هدایت شود",
     post_token:   "توکن آگهی",
     user_id:      "شناسهٔ کسی که روی لینک کلیک کرده یا فرایند را شروع کرده",
