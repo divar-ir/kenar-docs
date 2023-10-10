@@ -6,7 +6,7 @@
 
 برای سهولت کار شما، ما اطلاعات قابل انتشار آگهی را به شکل کوئری پارامز در کنار پارامترهایی که خودتان قرار داده‌اید قرار داده‌ایم. در اینجا چند نمونه از این اطلاعات را براش شما تشریح میکنیم.
 
-```http
+```text
 https://example.com/service_path/?
     app_slug=example_app&
     body_chassis_status.back_chassis_status=healthy&
