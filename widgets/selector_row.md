@@ -18,7 +18,15 @@
         "notification_text": "",
         "description": "نوتیفیکیشن",
         "has_arrow": true,
-        "small": true
+        "small": true,
+        "action": {
+            "type": "LOAD_WEB_VIEW_PAGE",
+            "fallback_link": "https://your.website.com",
+            "payload": {
+                "@type": "type.googleapis.com/widgets.LoadWebViewPagePayload",
+                "url": "https://your.website.com"
+            }
+        }
     }
 }
 ```
@@ -37,7 +45,7 @@
 - icon: این فیلد تایپ `json` دارد :
   - icon_name: اسم آیکون از لیست آیکون های دیوار است . این آیکون در کنار ویجت قرار میگیرد
   - ~~icon_color: رنگ آیکون که میتواند از لیست رنگ های دیوار اننخاب شود.~~
-- action: همانطور که در [اینجا](actions/index.md) توضیح دادیم یکی از دو اکشن تعریف شده را میپذیرد
+- action: همانطور که در [اینجا](./actions/ReadMe.md) توضیح دادیم یکی از دو اکشن تعریف شده را میپذیرد
 
 
 # اعتبارسنجی ویجت:
