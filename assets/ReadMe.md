@@ -86,19 +86,20 @@ GET https://api.divar.ir/v1/open-platform/assets/district
 
 ### محله‌های یک شهر
 می‌توانید محله‌های شهرهای زیر را از آدرسی که در ادامه می‌بینید دریافت کنید:
-- shiraz
-- isfahan
-- rasht
-- qom
 - tehran
 - karaj
-- ahvaz
 - mashhad
+- isfahan
+- shiraz
+- rasht
+- qom
+- ahvaz
 
 ```http request
 GET https://api.divar.ir/v1/open-platform/assets/district/{{city}}
 ```
 
+> سایر شهرهای دیوار دارای محله نیستند.
 
 ## برند-مدل‌ها
 
