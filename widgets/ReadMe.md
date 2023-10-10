@@ -47,7 +47,8 @@
 [قسمت اکشن‌ها](./actions/ReadMe.md)
 توضیح داده شده است.
 
-### آیکان‌ها و رنگ‌ها
+### آیکون‌ها و رنگ‌ها
 
-- [آیکان‌ها](./icons.md)
+- [فیگمای آیکون‌ها و رنگ‌ها و ویجت‌های دیوار](https://www.figma.com/file/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?type=design&node-id=2-4&mode=design&t=RbiQ2ay29ombNJKz-11)
+
 - [رنگ‌ها](./colors.md)
