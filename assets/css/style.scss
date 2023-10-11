@@ -7,13 +7,14 @@
 html, body{direction: rtl;}
 body{
     padding: 0 16px;
-    @media screen and (min-width:500) {
+    @media screen and (min-width:500px) {
         margin: 40px;
         border: 1px solid #bbb;
         border-radius: 16px;
     }
 }
-*{font-family:"Vazirmatn",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";}
+* {font-family:"Vazirmatn",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";}
+
 .markdown-body{
     h1, h2, h3, h4, h5, h6{
         display: flex;
