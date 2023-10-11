@@ -5,3 +5,13 @@
 /* This file overrides the default CSS styles for GitHub Pages. */
 
 html, body{direction: rtl;}
+.markdown-body{
+    h1, h2, h3, h4, h5, h6{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+    }
+    .highlight pre, pre{
+        direction: ltr;
+    }
+}
