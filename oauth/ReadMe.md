@@ -31,7 +31,7 @@ https://open-platform-redirect.divar.ir/oauth?response_type=code&client_id=your-
 </tr>
 <tr>
 <td><code>redirect_uri</code></td>
-<td>آدرس مورد نظر شما برای هدایت کاربر بعد از پاسخ به درخواست دسترسی‌ها، این URL نباید شامل هیچ پارامتری باشد</td>
+<td>آدرس مورد نظر شما به صورت urlencodedبرای هدایت کاربر بعد از پاسخ به درخواست دسترسی‌ها، این URL نباید شامل هیچ پارامتری باشد.(حتما ادرس را url encode کنید)</td>
 </tr>
 <tr>
 <td><code>scope</code></td>
