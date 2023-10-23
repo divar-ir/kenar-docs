@@ -34,7 +34,7 @@ x-access-token: {{access_token}}
     "type": "TEXT",
     "message": "متن پیام",
     "sender_btn": {
-        "action": "آدرس صفحهٔ مورد نظر برای باز شدن هنگام کلیک",
+        "action": "LINK",
         "data": {
             "icon_name": "نام آیکون مورد نظر برای این دکمه",
             "extra_data": {
@@ -44,10 +44,12 @@ x-access-token: {{access_token}}
         }
     },
     "receiver_btn": {
-        "action": "آدرس صفحهٔ مورد نظر برای باز شدن هنگام کلیک",
+        "action": "LINK",
         "data": {
             "icon_name": "نام آیکون مورد نظر برای این دکمه",
-            "your_custom_key":"اطلاعاتی که در ادامه هنگام کلیک روی دکمه نیاز داریم",
+            "extra_data": {
+                "your_custom_key":"اطلاعاتی که در ادامه هنگام کلیک روی دکمه نیاز داریم"
+            },
             "caption": "متن دکمهٔ زیر پیام برای طرف گیرنده"
         }
     }
