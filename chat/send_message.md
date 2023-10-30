@@ -56,6 +56,39 @@ x-access-token: {{access_token}}
 }
 ```
 
+نمونهٔ درخواست ارسالی برای ارسال پیام در یک چت مشخص با لینک مستقیم
+
+```http request
+POST https://api.divar.ir/v2/open-platform/chat/conversation
+Content-Type: application/json
+x-api-key: {{apikey}}
+x-access-token: {{access_token}}
+
+{
+    "user_id": "شناسهٔ کاربری که می خواهیم پیامی از سمت او وارد مکالمه کنیم",
+    "post_token": "توکن آگهی مورد مکالمه",
+    "peer_id": "شناسهٔ طرف مقابل در مکالمه",
+    "type": "TEXT",
+    "message": "متن پیام",
+    "sender_btn": {
+        "action": "DIRECT_LINK",
+        "data": {
+            "icon_name": "نام آیکون مورد نظر برای این دکمه",
+            "direct_link": "آدرس صفحهٔ مورد نظر برای باز شدن هنگام کلیک",
+            "caption": "متن دکمهٔ زیر پیام برای طرف فرستنده"
+        }
+    },
+    "receiver_btn": {
+        "action": "DIRECT_LINK",
+        "data": {
+            "icon_name": "نام آیکون مورد نظر برای این دکمه",
+            "direct_link": "آدرس صفحهٔ مورد نظر برای باز شدن هنگام کلیک",
+            "caption": "متن دکمهٔ زیر پیام برای طرف گیرنده"
+        }
+    }
+}
+```
+
 نمونهٔ پاسخ
 
 ```json
