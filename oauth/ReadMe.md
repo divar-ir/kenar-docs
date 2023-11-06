@@ -7,7 +7,7 @@
 ### ارسال کاربر به صفحهٔ درخواست اجازه‌
 
 در این استاندارد شروع فرایند از سایت یا اپلیکیشن خارجی(غیر دیوار) است.
-ابتدا سایت شما کاربر را به سایت دیوار برای دریافت اجازه ریدایرکت میکند. URL صفحه‌ای که کاربر را به آن هدایت می‌کنید : شده باید به صورت زیر باشد:
+ابتدا سایت شما کاربر را به سایت دیوار برای دریافت اجازه ریدایرکت میکند. URL صفحه‌ای که کاربر را به آن هدایت می‌کنید باید به صورت زیر باشد:
 
 ```
 https://open-platform-redirect.divar.ir/oauth?response_type=code&client_id=your-client-id&redirect_uri=your-redirect-url&scope=ADDON_USER_APPROVED__AZTH74V2+USER_PHONE&state=some-random-state
