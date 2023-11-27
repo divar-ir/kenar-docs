@@ -7,7 +7,7 @@
 | Resource ID           | post_token          |
 
 ```http request
-POST https://api.divar.ir/v1/open-platform/users
+POST https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
 Content-Type: application/json
 x-api-key: {{apikey}}
 x-access-token: {{access_token}}
@@ -33,7 +33,5 @@ x-access-token: {{access_token}}
 ریسپانس
 
 ```json
-{
-    "id": "123"
-}
+{}
 ```
