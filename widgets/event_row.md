@@ -11,7 +11,6 @@
     "@type": "type.googleapis.com/widgets.EventRowData",
     "title": "کیفیت کارشناسی",
     "subtitle": "با ۱ سال گارانتی قیمت",
-    "has_indicator": true,
     "label": "تضمینی",
     "has_divider": true,
     "image_url": "e7172fc8-2a9c-43c7-927d-93ac7477eb06.jpg",
