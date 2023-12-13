@@ -15,7 +15,6 @@
 DELETE https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
 Content-Type: application/json
 x-api-key: {{apikey}}
-X-Debug-Token: {{debug_token}}
 ```
 
 بر اساس استتوس کد میتوانید موفقیت آمیز بودن فانکشن را بسینجید.
