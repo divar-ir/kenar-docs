@@ -1,6 +1,6 @@
 # کلیدهای API
 
-> - *در این مطلب می‌خوانید*: [کلید API چیست؟](.) | [امنیت کلیدها](.) |  [ساخت و حذف کلیدها](.) | [دسترسی‌های پرکاربرد](.)
+> - *در این مطلب می‌خوانید*: [کلید API چیست؟](.) | [امنیت کلیدها](.) |  [ساخت](#ساختن-کلید-جدید) [و حذف کلیدها](.) | [دسترسی‌های پرکاربرد](.)
 > - *پیش‌نیازها*: آشنایی عمومی با [**کنار دیوار**](/)، داشتن حساب و اپلیکیشن در پنل
 
 
@@ -38,8 +38,8 @@ x-api-key: {{apikey}}
 
 <div align="center">
 
-<img src="img/wire-puzzle-dark.svg#gh-dark-mode-only" height="156px"/>
-<img src="img/wire-puzzle-light.svg#gh-light-mode-only" height="156px"/>
+<img src="/img/wire-puzzle-dark.svg#gh-dark-mode-only" height="156px"/>
+<img src="/img/wire-puzzle-light.svg#gh-light-mode-only" height="156px"/>
 
 </div>
 
