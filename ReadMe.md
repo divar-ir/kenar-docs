@@ -166,6 +166,8 @@
 [راهنما » افزونه‌های چت »‌ تست]: ./chat/test_environment.md
 [احراز باز]: https://oauth.net/2/
 [احراز باز » ابزارها]: https://oauth.net/code/
+[تیکت پرداخت]: ./payment-ticket/payment_ticket.md
+
 
 
 <br><br>
