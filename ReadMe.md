@@ -142,6 +142,7 @@
   - [افزونه‌های چت » محیط تست][راهنما » افزونه‌های چت »‌ تست]
 - [احراز باز][راهنما » احراز باز]
   - [احراز باز » ابزارها][احراز باز » ابزارها]
+- [تیکت پرداخت][تیکت پرداخت]
 
 [فرم ثبت‌نام]: https://docs.google.com/forms/d/1DmO0gYv3fpjzNV_zh1EEZiaKIkSDq3KXQijQKlMtIfg/edit
 [پنل کنار]: https://kenar.divar.ir/admin
