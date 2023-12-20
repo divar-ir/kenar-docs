@@ -150,6 +150,7 @@
   - [افزونه‌های چت » محیط تست][راهنما » افزونه‌های چت »‌ تست]
 - [احراز باز][راهنما » احراز باز]
   - [احراز باز » ابزارها][احراز باز » ابزارها]
+- [تیکت پرداخت][تیکت پرداخت]
 
 [فرم ثبت‌نام]: https://docs.google.com/forms/d/1DmO0gYv3fpjzNV_zh1EEZiaKIkSDq3KXQijQKlMtIfg/edit
 [پنل کنار]: https://kenar.divar.ir/admin
@@ -176,7 +177,7 @@
 [احراز باز » ابزارها]: https://oauth.net/code/
 [راهنما » کلیدها]: ./management/api-keys.md
 [راهنما » کلیدها » امنیت]: ./management/api-keys.md#امنیت-کلیدها
-
+[تیکت پرداخت]: ./payment-ticket/payment_ticket.md
 
 <br><br>
 
