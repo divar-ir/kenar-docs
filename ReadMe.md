@@ -177,7 +177,7 @@
 [احراز باز » ابزارها]: https://oauth.net/code/
 [راهنما » کلیدها]: ./management/api-keys.md
 [راهنما » کلیدها » امنیت]: ./management/api-keys.md#امنیت-کلیدها
-[تیکت پرداخت]: ./payment-ticket/payment_ticket.md
+[تیکت پرداخت]: ./payment-ticket
 
 <br><br>
 
