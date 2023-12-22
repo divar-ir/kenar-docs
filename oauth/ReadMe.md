@@ -191,13 +191,13 @@ x-api-key: {{apikey}}
 [oauth]: https://oauth.net/2/
 [oauth > tools]: https://oauth.net/code/
 [راهنما » کلید]: /management/api-keys.md
-[گام اول]: #گام-اول-درخواست-اجازه
-[گام دوم]: #گام-دوم-بازگشت-به-اپلیکیشن
-[گام سوم]: #گام-سوم-دریافت-توکن
-[گام چهارم]: #گام-چهارم-استفاده-از-توکن
+[گام اول]: /oauth/ReadMe.md#%EF%B8%8F-گام-اول-درخواست-اجازه
+[گام دوم]: /oauth/ReadMe.md#%EF%B8%8F-گام-دوم-بازگشت-به-اپلیکیشن
+[گام سوم]: /ReadMe.md#%EF%B8%8F-گام-سوم-دریافت-توکن
+[گام چهارم]: /oauth/ReadMe.md#-گام-چهارم-استفاده-از-توکن
 [راهنما » اسلاگ]: /management#slug
 [urlencode]: https://www.w3schools.com/tags/ref_urlencode.ASP
-[اجازه‌ها]: #اجازهها-scope
+[اجازه‌ها]: /oauth/ReadMe.md#-اجازهها-scope
 [oauth > state]: https://stackoverflow.com/questions/26132066/what-is-the-purpose-of-the-state-parameter-in-oauth-authorization-request
 [راهنما » مدیریت اپ]: /management
 [base64]: https://developer.mozilla.org/en-US/docs/Glossary/Base64
