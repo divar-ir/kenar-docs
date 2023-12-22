@@ -157,12 +157,12 @@ https://oauth-redirect.my-app.ir
 ```http request
 POST https://api.divar.ir/v1/open-platform/oauth/access_token
 Content-Type: application/json
-x-api-key: {{apikey}}
+x-api-key: {{api_key}}
 
 {
   "code": "c87sDtaqmWwgis7dYyukMqy6KAArNUFkukAPW8O90GmiEJkdmSTWH4KjSkNUP6FZ",
   "client_id": "{{app_slug}}",
-  "client_secret": "{{oauth_key}}",
+  "client_secret": "{{api_key}}",
   "grant_type": "authorization_code",
 }
 ```
@@ -182,9 +182,45 @@ x-api-key: {{apikey}}
 }
 ```
 
+- پارامتر `access_token`: با استفاده از این پارامتر می‌توانید از قابلیت‌های نیازمند اجازه‌ [استفاده کنید][step 4].
+- پارامتر `expires`: توکن دریافت شده تا این تاریخ معتبر خواهد بود. تاریخ به [فرمت unix][unix time] ارائه شده.
+- پارامتر `refresh_token`: با استفاده از این پارامتر می‌توانید توکن جدیدی قبل از انقضای توکن قبلی دریافت کنید:
+
+```http request
+POST https://api.divar.ir/v1/open-platform/oauth/access_token
+Content-Type: application/json
+x-api-key: {{api_key}}
+
+{
+  "refresh_token": "uXvX61ZI0wA7CDqk...",
+  "grant_type": "refresh_token"
+}
+```
+
 <br>
 
 ## 🔮 گام چهارم: استفاده از توکن
+
+پس از دریافت توکن با اجازه‌های مورد نیاز، می‌توانید از قابلیت‌های نیازمند این اجازه‌ها استفاده کنید. توکن دریافتی در [گام قبل][step 3] را در هدر `x-access-token` قرار دهید و API مربوط به قابلیت مورد نظر را فراخوانی کنید.
+
+<br>
+
+> 💡***مثال*** \
+> برای دریافت شماره‌ی تلفن کاربر، پس از طی مراحل کسب اجازه از کاربر، درخواستی به شکل زیر ارسال نمایید:
+> ```http request
+> POST https://api.divar.ir/v1/open-platform/users
+> Content-Type: application/json
+> x-api-key: {{api_key}}
+> x-access-token: {{access_token}}
+> ```
+> پاسخ این درخواست به شکل زیر خواهد بود:
+> ```json
+> {
+>   "phone_numbers": ["09990000000"]
+> }
+> ```
+> دقت کنید که هم کلید API (`api_key`) هم توکن اجازه‌ی کاربر (`access_token`) هر دو برای فراخوانی این قابلیت‌ها لازم‌اند. 
+
 
 [راهنما » ساخت افزونه]: /addons/approved_addon.md
 [راهنما » اطلاعات کاربر]: /oauth/get_user.md
@@ -203,6 +239,8 @@ x-api-key: {{apikey}}
 [base64]: https://developer.mozilla.org/en-US/docs/Glossary/Base64
 [راهنما » ارسال پیام]: /chat/send_message.md
 [راهنما » دسترسی]: /management/api-keys.md#دسترسیهای-پرکاربرد
+[unix time]: https://en.wikipedia.org/wiki/Unix_time 
+
 
 <br><br>
 
