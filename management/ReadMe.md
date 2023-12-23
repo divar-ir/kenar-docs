@@ -82,7 +82,7 @@ https://your.app.ir
 در مکالمات مرتبط، اپلیکیشن شما به کاربرها (به طرق مختلف) معرفی می‌شود. در صورت انتخاب کاربر، ابتدا درخواستی به شکل زیر به آدرس مشخص شده در پارامتر `Session Initialization URL` اپلیکیشن زده می‌شود:
 
 ```http
-GET https://your.app.ir
+POST https://your.app.ir
 Content-Type: application/json
 authorization: {{ Divar Identification Key }}
 
