@@ -177,13 +177,15 @@ x-api-key: {{api_key}}
 ```json
 {
   "access_token": "f2mjqwiYDigBwGYg2...",
-  "refresh_token": "uXvX61ZI0wA7CDqk...",
   "expires": 1692457372
 }
 ```
 
 - پارامتر `access_token`: با استفاده از این پارامتر می‌توانید از قابلیت‌های نیازمند اجازه‌ [استفاده کنید][step 4].
 - پارامتر `expires`: توکن دریافت شده تا این تاریخ معتبر خواهد بود. تاریخ به [فرمت unix][unix time] ارائه شده.
+
+
+<!--
 - پارامتر `refresh_token`: با استفاده از این پارامتر می‌توانید توکن جدیدی قبل از انقضای توکن قبلی دریافت کنید:
 
 ```http request
@@ -196,6 +198,7 @@ x-api-key: {{api_key}}
   "grant_type": "refresh_token"
 }
 ```
+-->
 
 <br>
 
