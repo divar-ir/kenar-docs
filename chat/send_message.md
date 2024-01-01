@@ -1,4 +1,4 @@
-### ارسال پیام در مکالمه
+### دسترسی ارسال پیام در یک مکالمه
 
 | CHAT SEND MESSAGE |                                    |
 | ----------------- | ---------------------------------- |
@@ -18,6 +18,15 @@ resource_id = BASE64(e9ba8a81-9583-4f7c-af54-b07df089d971:AZf3Uqr3:1697004f-e902
 Scope:
 CHAT_SEND_MESSAGE_OAUTH__ZTliYThhODEtOTU4My00ZjdjLWFmNTQtYjA3ZGYwODlkOTcxOkFaZjNVcXIzOjE2OTcwMDRmLWU5MDItNDRjMi1iYmJlLWJmOGUyMGQ1NGJmZg==
 ```
+
+### دسترسی ارسال پیام در تمام مکالمات یک آگهی
+
+| CHAT SEND MESSAGE |                                                 |
+| ----------------- | ------------------------------------------------|
+| API Permissions   | CHAT_SEND_MESSAGE_OAUTH                         |
+| OAuth Permissions | CHAT_SEND_MESSAGE_POST_CONVERSATIONS            |
+| Resource ID       | post_token                                      |
+
 
 نمونهٔ درخواست ارسالی برای ارسال پیام در یک چت مشخص
 
