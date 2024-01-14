@@ -2,8 +2,8 @@
 
 <div align="right">
 
-<img src="logo-dark.svg#gh-dark-mode-only" height="72px"/>
-<img src="logo-light.svg#gh-light-mode-only" height="72px"/>
+<img src="img/logo-dark.svg#gh-dark-mode-only" height="72px"/>
+<img src="img/logo-light.svg#gh-light-mode-only" height="72px"/>
 
 </div>
 
@@ -81,6 +81,7 @@
 ۵. شما می‌توانید به پیام‌های ارسالی در مکالمه، دکمه‌هایی برای طرفین مکالمه ضمیمه کنید که کاربران با استفاده از آن‌ها، [با برنامهٔ شما تعامل نمایند][راهنما » افزونه‌های چت » ارسال پیام‌ » دکمه].\
 ۶. بعد از پایان تعامل، برنامهٔ شما باید کاربر را [به دیوار برگرداند][راهنما » مدیریت اپ »‌ تعامل در چت].
 
+<img src="img/chat-flow.png" />
 
 <br>
 
