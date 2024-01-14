@@ -1,10 +1,10 @@
 ### دسترسی خواندن پیام‌های تمام مکالمات یک آگهی
 
-| CHAT SEND MESSAGE |                                                 |
-| ----------------- | ------------------------------------------------|
-| API Permissions   | CHAT_READ_POST_CONVERSATIONS                    |
-| OAuth Permissions | CHAT_READ_POST_CONVERSATIONS                    |
-| Resource ID       | post_token                                      |
+| CHAT READ POST CONVERSATIONS |                                      |
+| ---------------------------- | -------------------------------------|
+| API Permissions              | CHAT_READ_POST_CONVERSATIONS         |
+| OAuth Permissions            | CHAT_READ_POST_CONVERSATIONS         |
+| Resource ID                  | post_token                           |
 
 
 بعد از گرفتن دسترسی خواندن پیام‌ها، با صدا زدن این
