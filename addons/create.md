@@ -34,7 +34,6 @@ X-Debug-Token: {{debug_token}}
             }
         ]
     }
-    "link_in_spec": "https://your.site.ir",
     "semantic": {
         "year": 1398,
         "usage": 100000
