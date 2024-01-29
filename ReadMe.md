@@ -2,8 +2,7 @@
 
 <div align="right">
 
-<img src="img/logo-dark.svg#gh-dark-mode-only" height="72px"/>
-<img src="img/logo-light.svg#gh-light-mode-only" height="72px"/>
+<img src="img/logo.svg" height="72px"/>
 
 </div>
 
