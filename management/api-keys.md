@@ -135,8 +135,7 @@ x-api-key: {{apikey}}
 
 <div align="center">
 
-<img src="/img/wire-puzzle-dark.svg#gh-dark-mode-only" height="156px"/>
-<img src="/img/wire-puzzle-light.svg#gh-light-mode-only" height="156px"/>
+<img src="/img/wire-puzzle.svg" height="156px"/>
 
 </div>
 
