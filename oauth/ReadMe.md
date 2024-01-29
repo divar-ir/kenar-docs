@@ -157,7 +157,6 @@ https://oauth-redirect.my-app.ir
 ```http request
 POST https://api.divar.ir/v1/open-platform/oauth/access_token
 Content-Type: application/json
-x-api-key: {{api_key}}
 
 {
   "code": "c87sDtaqmWwgis7dYyukMqy6KAArNUFkukAPW8O90GmiEJkdmSTWH4KjSkNUP6FZ",
