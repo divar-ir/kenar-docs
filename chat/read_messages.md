@@ -39,11 +39,11 @@ x-access-token: {{access_token}}
             "data": {
                 "text": ""
             },
-            "from": {
+            "sender": {
                 "id": "",
                 "is_supply": bool
             },
-            "to": {
+            "receiver": {
                 "id": "",
                 "is_supply": bool
             },
@@ -113,7 +113,7 @@ authorization: {{ identification_key }}
     "data": {
       "text": ""
     },
-    "from": {
+    "sender": {
       "id": "",
       "is_supply": bool
     },
@@ -124,7 +124,7 @@ authorization: {{ identification_key }}
       "title": ""
     },
     "sent_at": "",
-    "to": {
+    "receiver": {
       "id": "",
       "is_supply": bool
     },
