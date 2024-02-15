@@ -134,7 +134,7 @@
 [lighthouse]: https://developer.chrome.com/docs/lighthouse/performance/performance-scoring
 [lhtest]: https://lighthouse-metrics.com/
 [return]: misc
-[ss]: user-addons/user-addons
+[ss]: user-addons/user-addons.md
 
 [gen]: #الزامات-عمومی
 [qual]: #کیفیت-سرویس
