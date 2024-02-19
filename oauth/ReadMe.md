@@ -171,8 +171,21 @@ Content-Type: application/json
   - کلید را همچنان در هدر `x-api-key` نیز قرار دهید.
 
 <br>
- 
-پاسخ به چنین درخواستی به شکل زیر خواهد بود: 
+
+همچنین در صورتی که ترجیح می‌دهید Content-Type درخواست خود را x-www-form-urlencoded قرار دهید،‌ می‌توانید درخواستی به شکل زیر بفرستید:
+```http request
+POST https://api.divar.ir/v1/open-platform/oauth/url_encoded_access_token
+Content-Type: application/x-www-form-urlencoded
+
+code: "c87sDtaqmWwgis7dYyukMqy6KAArNUFkukAPW8O90GmiEJkdmSTWH4KjSkNUP6FZ"
+client_id: "{{app_slug}}"
+client_secret: "{{api_key}}"
+grant_type: "authorization_code"
+```
+
+<br>
+
+پاسخ به این درخواست‌ها به شکل زیر خواهد بود:
 ```json
 {
   "access_token": "f2mjqwiYDigBwGYg2...",
