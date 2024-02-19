@@ -79,3 +79,14 @@ x-api-key: {{api-key}}
     "id": "812d56e6-e44d-45e7-8932-f9acbd416999"
 }
 ```
+
+# حذف افزونه کاربر
+
+برای حذف افزونه کاربر میتوان از ریکوئست زیر استفاده نمود:
+
+```http request
+DELETE https://api.divar.ir/v1/open-platform/addons/user/{{id}}
+x-api-key: {{api-key}}
+```
+
+با در دست داشتن آیدی (uuid) افزونه کاربر متناظر میتوانید اقدام به حذف آن نمائید.
