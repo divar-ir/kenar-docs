@@ -177,10 +177,9 @@
 - [تیکت پرداخت][راهنما » تیکت پرداخت]
 
 [فرم ثبت‌نام]: https://docs.google.com/forms/d/1DmO0gYv3fpjzNV_zh1EEZiaKIkSDq3KXQijQKlMtIfg/edit
-[پنل کنار]: https://kenar.divar.ir/admin
+[پنل کنار]: https://divar.ir/kenar
 [تلگرام کنار]: https://t.me/kenar_divar
-[پنل کنار » اپ‌ها]: https://kenar.divar.ir/admin/info/apps
-[پنل کنار‌ » کلیدها]: https://kenar.divar.ir/admin/info/apikeys
+[پنل کنار » اپ‌ها]: https://divar.ir/kenar/management/apps
 [راهنما » مدیریت اپ]: ./management
 [راهنما » مدیریت اپ »‌ تعامل در آگهی]: /management#تعامل-با-کاربر-پس-از-ثبت-آگهی
 [راهنما » مدیریت اپ »‌ تعامل در چت]: /management#تعامل-با-کاربر-در-چت
