@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "7e976d5e-1e8e-47fb-8a4b-cb34aaf7ff5b",
-		"name": "Divsr/Kenar",
+		"name": "Divar/Kenar",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32636227"
 	},
@@ -1599,12 +1599,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.divar.ir/v1/open-platform/oauth/authorize",
-							"protocol": "https",
+							"raw": "{{host}}/v1/open-platform/oauth/authorize",
 							"host": [
-								"api",
-								"divar",
-								"ir"
+								"{{host}}"
 							],
 							"path": [
 								"v1",
@@ -1666,107 +1663,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "Find Post",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"city\": \"tehran\",\n    \"category\": \"light\",\n    \"query\": {\n        \"brand_model\": {\n            \"value\": [\"Pride 111 EX\"]\n        },\n        \"production-year\": {\n            \"min\": 1385,\n            \"max\": 1390\n        },\n        \"usage\": {\n            \"max\": 200000\n        }\n    }\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/v1/open-platform/finder/post",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"v1",
-										"open-platform",
-										"finder",
-										"post"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Sun, 09 Jul 2023 11:55:06 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding"
-								},
-								{
-									"key": "Grpcgateway-Content-Type",
-									"value": "application/grpc"
-								},
-								{
-									"key": "vary",
-									"value": "Origin"
-								},
-								{
-									"key": "Access-Control-Allow-Credentials",
-									"value": "true"
-								},
-								{
-									"key": "Access-Control-Expose-Headers",
-									"value": "X-JWT-REFRESH, X-JWT-ERROR"
-								},
-								{
-									"key": "X-Datacenter",
-									"value": "afra"
-								},
-								{
-									"key": "Strict-Transport-Security",
-									"value": "max-age=31536000"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "gzip"
-								},
-								{
-									"key": "X-ZRK-US",
-									"value": "200"
-								},
-								{
-									"key": "Server",
-									"value": "Delivery"
-								},
-								{
-									"key": "X-ZRK-SN",
-									"value": "1034"
-								},
-								{
-									"key": "Accept-Ranges",
-									"value": "bytes"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"posts\": [\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-07-09T13:55:42.185037\",\n            \"post_data\": {\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نقره\\u200cای\",\n                \"description\": \"سلام کاپوت گلگیر و دوتا در سمت راننده تعویض گلیگیر سمت راننده رنگ می\\u200cباشد سقف و ستون پلمپ کولر یخ یخ فنی سالم سالمه ۱سال بیشترع ماشین دستمه همه موتوری نو هست بیمه۷ماه داره لاستیک ۸۰ \\nماشین تمیزیه فرمون هیدرولیک نیس ظبطم داره سونی \\nتخفیف پایع معامله فقط زنگ اس و چت جواب داده نمیشه بازدید اسلامشهر\",\n                \"fuel_type\": \"benzine\",\n                \"images\": [\n                    \"/pictures/AZouISWL.jpg\",\n                    \"/pictures/AZouISWL.1.jpg\",\n                    \"/pictures/AZouISWL.2.jpg\",\n                    \"/pictures/AZouISWL.3.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 167000000\n                },\n                \"production-year\": 1389,\n                \"title\": \"پراید 111 EX، مدل ۱۳۸۹\",\n                \"usage\": 191000\n            },\n            \"token\": \"AZouISWL\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-07-09T01:53:04.617089\",\n            \"post_data\": {\n                \"body_status\": \"intact\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نوک\\u200cمدادی\",\n                \"description\": \"پراید 111 خیلی تمیز رخ مدل 97. دزدگیر. روکش . کولر یخ یخ . معاینه فنی. لاستیک ها نو. . مدارک کامل آماده انتقال. اسپرت  بسیار تمیز .\\nخریدار واقعی  شامل تخفیف میباشد\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZpCOdfy.jpg\",\n                    \"/pictures/AZpCOdfy.1.jpg\",\n                    \"/pictures/AZpCOdfy.2.jpg\",\n                    \"/pictures/AZpCOdfy.3.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 200000000\n                },\n                \"production-year\": 1389,\n                \"title\": \"پراید ١١١.اسپرت مدل ١٣٨٩\",\n                \"usage\": 135000\n            },\n            \"token\": \"AZpCOdfy\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-07-06T23:53:24.244035\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"سفید صدفی\",\n                \"description\": \"سلام \\nمعاوضه با پارس مدل 86 یا پژو 206 مدل 87 یا پژو405 مدل 90\\nماشین داخل و خارج تمیز بوده و بسیار با حساسیت نگهداری شده\\nاین آگهی صرفا برای معاوضه است.\\nیاحق\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZnKiPtc.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 207000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 174000\n            },\n            \"token\": \"AZnKiPtc\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-07-06T20:00:54.569942\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نوک\\u200cمدادی\",\n                \"description\": \"سلام ۱۱۱ آخر ۸۹ فرمان هیدرولیک . ای بی اس .شیشه دودی. ظبط بلوتوثی . باطری نو انداختم روغن تازه .تعویض شده . لنت تعویض شده .کم کارکرد نسبت ب مدلش. دوبند انگشت خودم رنگ زدم دره عقب رانده .کولر سالم و یخ\\nب خریدار واقعی تخفیف داده میشود.\\nلطفا فقط تماس بگیرید ممنون\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZmueueX.jpg\",\n                    \"/pictures/AZmueueX.1.jpg\",\n                    \"/pictures/AZmueueX.2.jpg\",\n                    \"/pictures/AZmueueX.3.jpg\",\n                    \"/pictures/AZmueueX.4.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 190000000\n                },\n                \"production-year\": 1389,\n                \"title\": \"پراید۱۱۱Ex\",\n                \"usage\": 2800\n            },\n            \"token\": \"AZmueueX\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-07-06T19:09:46.932817\",\n            \"post_data\": {\n                \"body_status\": \"half-paint\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نقره\\u200cای\",\n                \"description\": \"سلام ماشین سالم هستش رخ خوب و تمیزی داره سواری عالی به خاطر خط و خش رنگ شده و اگر سوالی داشتید فقط تماس پاسخگو هستم با تشکر یاحق\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZm-NExJ.jpg\",\n                    \"/pictures/AZm-NExJ.1.jpg\",\n                    \"/pictures/AZm-NExJ.2.jpg\",\n                    \"/pictures/AZm-NExJ.3.jpg\",\n                    \"/pictures/AZm-NExJ.4.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 203000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 175600\n            },\n            \"token\": \"AZm-NExJ\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-07-01T13:48:12.268382\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"سفید\",\n                \"description\": \"با سلام \\nفقط اقساط\\nلطفا اول آگهی رو مطالعه کنید بعد تماس بگیرید\\nشرایط اقساط\\nداشتن دست چک صیادی به نام خریدار الزامی میباشد\\n\\nاقساط برای ساکنین تهران و حومه و کرج\\nاقساط از ۶ ماه تا ۱۲ ماه\\nپلاک و کارت خودرو به نام خریدار \\n\\nنهایت تا ۵۰٪ قیمت خودرو اقساط میشود\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZS6MVIA.jpg\",\n                    \"/pictures/AZS6MVIA.1.jpg\",\n                    \"/pictures/AZS6MVIA.2.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 200000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 120000\n            },\n            \"token\": \"AZS6MVIA\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-27T13:24:21.266696\",\n            \"post_data\": {\n                \"body_status\": \"two-spots-paint\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"خاکستری\",\n                \"description\": \"پراید ۱۱۱مدل ۹۰\\nسه لگه رنگ دارد\\nتمامی شاسی ها سالم عکس کارشناسی داخل عکس ها \\nفنی واقعا سالم به شرط کارشناسی \\n۱۱ماه بیمه دارد\\nکولر بخاری همه سالم \\nماشین بدون تصادف هستش عکس قبل رنگش رو\\u200c دارم که مال زیبایی رنگ کردم\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZZ667Jx.jpg\",\n                    \"/pictures/AZZ667Jx.1.jpg\",\n                    \"/pictures/AZZ667Jx.2.jpg\",\n                    \"/pictures/AZZ667Jx.3.jpg\",\n                    \"/pictures/AZZ667Jx.4.jpg\",\n                    \"/pictures/AZZ667Jx.5.jpg\",\n                    \"/pictures/AZZ667Jx.6.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 220000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 150000\n            },\n            \"token\": \"AZZ667Jx\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-25T09:23:39.005098\",\n            \"post_data\": {\n                \"body_status\": \"some-paint\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نوک\\u200cمدادی\",\n                \"description\": \"خوررو از جلو تصادف جزیئ داشته ولی فوق العاده فنی سالم و ظاهر خوبی داره\",\n                \"fuel_type\": \"benzine\",\n                \"images\": [\n                    \"/pictures/AZH-BJxn.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 165000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 SX، مدل ۱۳۹۰\",\n                \"usage\": 200000\n            },\n            \"token\": \"AZH-BJxn\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-24T15:56:35.390487\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نقره\\u200cای\",\n                \"description\": \"خودرو سالم و بدون رنگ است \\nفنی کاملا سالم \\nکم کارکرد\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZWCOe9O.jpg\",\n                    \"/pictures/AZWCOe9O.1.jpg\",\n                    \"/pictures/AZWCOe9O.2.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 198000000\n                },\n                \"production-year\": 1389,\n                \"title\": \"پراید ۱۱۱سالم\",\n                \"usage\": 125000\n            },\n            \"token\": \"AZWCOe9O\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-22T19:48:51.382887\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نوک\\u200cمدادی\",\n                \"description\": \"تخفیف جزعی پای معامله\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZUKXKyL.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 230000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 170000\n            },\n            \"token\": \"AZUKXKyL\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-21T20:08:12.231753\",\n            \"post_data\": {\n                \"body_status\": \"paintless-dent-removal\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"مشکی\",\n                \"description\": \"سلام ماشین متوری سالمه هیدرولیکش خراب شده کم میکنم ازش ماشین بدون رنگه چراغ جلو هدلایت چراغ عقب اسپرت .اگزوز هاوارد ۷۰۶ روکش چرم کف پایی سه بعدی .چون پول لازمم میفروشم\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZTaiqL1.jpg\",\n                    \"/pictures/AZTaiqL1.1.jpg\",\n                    \"/pictures/AZTaiqL1.2.jpg\",\n                    \"/pictures/AZTaiqL1.3.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 170000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 190000\n            },\n            \"token\": \"AZTaiqL1\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-20T19:23:25.056994\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"سفید\",\n                \"description\": \"دزدگیر دارد-رینگ آلومینیوم -ضبط فلش خور و باند دارد-لاستیک سالم -بدون باربند-روکش صندلی نو-موتور کاملا سالم -دینام و کولر و باتری سالم -تخفیف جزئی دارد-خریدار واقعی تماس بگیرد-جهت بازدید هماهنگ نمایید -\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZRqs1hp.jpg\",\n                    \"/pictures/AZRqs1hp.1.jpg\",\n                    \"/pictures/AZRqs1hp.2.jpg\",\n                    \"/pictures/AZRqs1hp.3.jpg\",\n                    \"/pictures/AZRqs1hp.4.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 235000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"فروش  پرایدسفید رنگ\",\n                \"usage\": 123000\n            },\n            \"token\": \"AZRqs1hp\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-07-02T00:07:59.596165\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"دلفینی\",\n                \"description\": \"سالم سالم\\nشاسی پلمپ جلو وعقب بدون ضربه\\nبدون رنگ  \\nخط وخش دارد\\nدزد گیر تصویری \\nماشین همش خواب بوده\\nمصرفی عوض شده\\nوایر و صافی بنزین و لنت \\nدوستان عزیز ارزونتر هست حتما بخرید اصلا وقت خودتونو نگیرید\\nموتور طرح وسپا بکارم میاد\\nتشکر ازدیوار \\nچت هم فعال و اس ام اس\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZNS2Vut.jpg\",\n                    \"/pictures/AZNS2Vut.1.jpg\",\n                    \"/pictures/AZNS2Vut.2.jpg\",\n                    \"/pictures/AZNS2Vut.3.jpg\",\n                    \"/pictures/AZNS2Vut.4.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 225000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 120000\n            },\n            \"token\": \"AZNS2Vut\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-17T20:34:00.141061\",\n            \"post_data\": {\n                \"body_status\": \"some-paint\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"سفید\",\n                \"description\": \"پراید۱۱۱مدل ۹۰ فنی به شرط کم کا کرد واقعی بیمه۱۰ ماه معاینه ۴ماه روکش صندلی ضبط باند ودزدگیر ...با پراید مدل پایین معاوضه میکنم...\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZNaeckp.jpg\",\n                    \"/pictures/AZNaeckp.1.jpg\",\n                    \"/pictures/AZNaeckp.2.jpg\",\n                    \"/pictures/AZNaeckp.3.jpg\",\n                    \"/pictures/AZNaeckp.4.jpg\",\n                    \"/pictures/AZNaeckp.5.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 200000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 102000\n            },\n            \"token\": \"AZNaeckp\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-20T20:37:17.270084\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نوک\\u200cمدادی\",\n                \"description\": \"ماشین بسیار کم کارکرده و موتوری بسیار سالمه\\nسینی صندوق ضربه خیلی جزئی داشته\\nضربه شاسی جلو سمت راننده هم در حد فشار خیلی کم سپر به جدوله\\nضبط پایونیر فلش\\u200cخور و کابل خور داره\\nشیشه\\u200cها دودیه\\nروغن\\u200cهاش هم باید ۳هزار کیلومتر دیگه عوض بشه.\\nتسمه\\u200cها رو ۹۰هزارتا تعویض شده.\\nلنت ترمز\\u200cهای جلو هم تازه عوض شده.\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZMubFMh.jpg\",\n                    \"/pictures/AZMubFMh.1.jpg\",\n                    \"/pictures/AZMubFMh.2.jpg\",\n                    \"/pictures/AZMubFMh.3.jpg\",\n                    \"/pictures/AZMubFMh.4.jpg\",\n                    \"/pictures/AZMubFMh.5.jpg\",\n                    \"/pictures/AZMubFMh.6.jpg\",\n                    \"/pictures/AZMubFMh.7.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 205000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 SX، مدل ۱۳۹۰\",\n                \"usage\": 108000\n            },\n            \"token\": \"AZMubFMh\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-16T13:34:25.480252\",\n            \"post_data\": {\n                \"body_status\": \"intact\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"خاکستری\",\n                \"description\": \"فوری فروشی\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZMOjIKA.jpg\",\n                    \"/pictures/AZMOjIKA.1.jpg\",\n                    \"/pictures/AZMOjIKA.2.jpg\",\n                    \"/pictures/AZMOjIKA.3.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 210000000\n                },\n                \"production-year\": 1389,\n                \"title\": \"خودرو پراید١١١ مدل ١٣٨٩ اسپرت\",\n                \"usage\": 135000\n            },\n            \"token\": \"AZMOjIKA\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-16T11:38:46.748288\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نوک\\u200cمدادی\",\n                \"description\": \"ماشین کاملا بی رنگ فقط شاسی جلو سمت راننده ترک داره جوش خورده\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZMOB8sJ.jpg\",\n                    \"/pictures/AZMOB8sJ.1.jpg\",\n                    \"/pictures/AZMOB8sJ.2.jpg\",\n                    \"/pictures/AZMOB8sJ.3.jpg\",\n                    \"/pictures/AZMOB8sJ.4.jpg\",\n                    \"/pictures/AZMOB8sJ.5.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 195000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 SX، مدل ۱۳۹۰\",\n                \"usage\": 178000\n            },\n            \"token\": \"AZMOB8sJ\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-16T18:40:55.55741\",\n            \"post_data\": {\n                \"body_status\": \"some-paint\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"نوک\\u200cمدادی\",\n                \"description\": \"با سلام خودرو از لحاظ فنی درجه یک و پرشتاب\\nلاستیک نو\\nکولر روشن\\nبدون هزینه اماده مسافرت\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZImQSdF.jpg\",\n                    \"/pictures/AZImQSdF.1.jpg\",\n                    \"/pictures/AZImQSdF.2.jpg\",\n                    \"/pictures/AZImQSdF.3.jpg\",\n                    \"/pictures/AZImQSdF.4.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 170000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 SX، مدل ۱۳۹۰\",\n                \"usage\": 180000\n            },\n            \"token\": \"AZImQSdF\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-13T16:51:32.038865\",\n            \"post_data\": {\n                \"body_status\": \"some-paint\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"آبی\",\n                \"description\": \"خودرو بسیار بسیار تمیزه صرفا بخاطر مشکل مالی میفروشم سرحال و پرشتاب\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZDGS5GL.jpg\",\n                    \"/pictures/AZDGS5GL.1.jpg\",\n                    \"/pictures/AZDGS5GL.2.jpg\",\n                    \"/pictures/AZDGS5GL.3.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 187000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 SX، مدل ۱۳۹۰\",\n                \"usage\": 190000\n            },\n            \"token\": \"AZDGS5GL\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-09T21:31:45.89699\",\n            \"post_data\": {\n                \"body_status\": \"some-scratches\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"سفید\",\n                \"description\": \"۱۱۱سالم فقط سر گلگیر رنگ داره،تصادف نداشته،لاستیک۹۰درصد ،دزدگیر تصویری،بیمه تا برج۱۲،معاینه تا برج ۹،شیشه دودیusa،کولر روشن\\nماشین ۱۳۹۰/۱۲/۲۰ تحویل شده\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZDi2C7N.jpg\",\n                    \"/pictures/AZDi2C7N.1.jpg\",\n                    \"/pictures/AZDi2C7N.2.jpg\",\n                    \"/pictures/AZDi2C7N.3.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 200000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 124000\n            },\n            \"token\": \"AZDi2C7N\"\n        },\n        {\n            \"business_type\": \"PERSONAL\",\n            \"last_modified\": \"2023-06-11T09:42:30.502782\",\n            \"post_data\": {\n                \"body_status\": \"intact\",\n                \"brand_model\": \"Pride 111 EX\",\n                \"category\": \"light\",\n                \"color\": \"سفید\",\n                \"description\": \"ماشین از همه نظر سالم هست تعویض اتاق۱۳۹۸ خود شرکت سایپا تعویض شده درسندش خورده ماشین از هر نظر سالم هستش ماشین در پردیس هستش\",\n                \"fuel_type\": \"benzine\",\n                \"gearbox\": \"manual\",\n                \"images\": [\n                    \"/pictures/AZBqtUV8.jpg\",\n                    \"/pictures/AZBqtUV8.1.jpg\",\n                    \"/pictures/AZBqtUV8.2.jpg\"\n                ],\n                \"price\": {\n                    \"mode\": \"مقطوع\",\n                    \"value\": 225000000\n                },\n                \"production-year\": 1390,\n                \"title\": \"پراید 111 EX، مدل ۱۳۹۰\",\n                \"usage\": 170000\n            },\n            \"token\": \"AZBqtUV8\"\n        }\n    ]\n}"
-						}
-					]
+					"response": []
 				}
 			]
 		},
@@ -1790,12 +1687,9 @@
 							}
 						],
 						"url": {
-							"raw": "https://api.divar.ir/v1/open-platform/users",
-							"protocol": "https",
+							"raw": "{{host}}/v1/open-platform/users",
 							"host": [
-								"api",
-								"divar",
-								"ir"
+								"{{host}}"
 							],
 							"path": [
 								"v1",
@@ -1827,12 +1721,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.divar.ir/v2/open-platform/chat/conversation",
-							"protocol": "https",
+							"raw": "{{host}}/v2/open-platform/chat/conversation",
 							"host": [
-								"api",
-								"divar",
-								"ir"
+								"{{host}}"
 							],
 							"path": [
 								"v2",
@@ -1856,12 +1747,9 @@
 							}
 						],
 						"url": {
-							"raw": "https://api.divar.ir/v1/open-platform/chat/conversation-messages?user_id={{user_id}}&peer_id={{peer_id}}&post_token={{post_token}}",
-							"protocol": "https",
+							"raw": "{{host}}/v1/open-platform/chat/conversation-messages?user_id={{user_id}}&peer_id={{peer_id}}&post_token={{post_token}}",
 							"host": [
-								"api",
-								"divar",
-								"ir"
+								"{{host}}"
 							],
 							"path": [
 								"v1",
