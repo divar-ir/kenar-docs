@@ -40,6 +40,7 @@
 
 # پروژه‌های قدرت‌گرفته از کنار دیوار
 ⏺ [مستر دیاگ](https://github.com/amirsalarsafaei/mrdiag)
+ [ریتینو](https://github.com/mohammadmasoumi/ratino)
 
 # نمای کلی و پیش‌نیاز‌ها
 
