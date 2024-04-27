@@ -6,7 +6,7 @@
     "fallback_link": "https://your.website.com",
     "payload": {
         "@type": "type.googleapis.com/widgets.OpenWebPagePayload",
-        "url": "https://your.website.com"
+        "link": "https://your.website.com"
     }
 }
 ```
