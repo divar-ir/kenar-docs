@@ -16,7 +16,6 @@ x-access-token: {{access-token}}
 x-api-key: {{api-key}}
 
 {
-    "categories": [],
     "notes": "test note",
     "phone": "09120000000",
     "semantic": {"national-id": "12345678"},
