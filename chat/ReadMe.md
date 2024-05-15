@@ -87,7 +87,7 @@ authorization: {{ Divar Identification Key }}
 
 <div align="center">
 
-<img src="img/wire-puzzle.svg" height="156px"/>
+<img src="../img/wire-puzzle.svg" height="156px"/>
 
 </div>
 
