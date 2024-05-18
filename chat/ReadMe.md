@@ -29,7 +29,7 @@ authorization: {{ Divar Identification Key }}
     "post_token": "توکن آگهی",
     "user_id": "شناسهٔ کسی که روی لینک کلیک کرده یا فرایند را شروع کرده",
     "peer_id": "شناسهٔ طرف مقابل چت",
-    "Supplier": {
+    "supplier": {
       "id": "شناسهٔ کاربر فروشنده (صاحب آگهی)"
     },
     "demand": {
@@ -87,7 +87,7 @@ authorization: {{ Divar Identification Key }}
 
 <div align="center">
 
-<img src="img/wire-puzzle.svg" height="156px"/>
+<img src="../img/wire-puzzle.svg" height="156px"/>
 
 </div>
 
