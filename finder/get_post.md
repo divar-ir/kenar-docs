@@ -10,7 +10,7 @@
 درخواست
 
 ```http request
-POST https://api.divar.ir/v1/open-platform/finder/post/{{token}}
+GET https://api.divar.ir/v1/open-platform/finder/post/{{token}}
 x-api-key: {{apikey}}
 ```
 

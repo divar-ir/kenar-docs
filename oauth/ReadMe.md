@@ -49,6 +49,7 @@ https://open-platform-redirect.divar.ir/oauth?response_type=code
 - *پارامتر `redirect_uri`*: آدرسی از اپلیکیشن که کاربر بعد از صدور (یا رد) اجازه‌های درخواستی به آن هدایت شود.
   - هیچ پارامتری در این آدرس قرار ندهید!
   - مقدار `redirect_uri` حتما باید [URL encode][urlencode] شده باشد.
+  - این آدرس باید با یکی از آدرس هایی که در [پنل کنار][پنل کنار] به منظور آدرس‌های مجاز برای هدایت از OAuth تنظیم کرده‌اید مطابقت داشته باشد.
 - *پارامتر `scope`*: اجازه‌های مورد نیاز را در این پارامتر لیست  و با `+` از هم جدا کنید. [در مورد اجازه‌ها اینجا را بخوانید][اجازه‌ها].
 - *پارامتر `state`*: یک مقدار دلخواه که در بازگشت کاربر به اپلیکیشن شما مجدد در پارامترهای URL قرار می‌گیرد.
   - با استفاده از پارامتر `state` می‌توانید منشاء درخواست بازگشته را احراز نمایید.
@@ -82,6 +83,15 @@ https://open-platform-redirect.divar.ir/oauth?response_type=code
 > برای دریافت اجازه‌ی دسترسی به شماره‌ی تلفن کاربر، پارامتر scope را به شکل زیر تنظیم کنید:
 > ```url
 > &scope=USER_PHONE
+> ```
+
+<br>
+
+>💡 ***مثال*** \
+> برای دریافت اجازه‌ی دسترسی برای ارسال پیام به کاربر، می‌بایست اطلاعات دریافتی شامل user_id, post_token, peer_id را با اسنفاده از «:» را به هم به چسبانید «user_id:post_token:peer_id» سپس با استفاده از base64 کد کرده و از طریق پارامتر scope به شکل زیر ارسال نمایید:
+> 
+> ```url
+> &scope=CHAT_SEND_MESSAGE_OAUTH__BASE64_CODING_REQUEST_DATA
 > ```
 
 <br>
@@ -157,7 +167,6 @@ https://oauth-redirect.my-app.ir
 ```http request
 POST https://api.divar.ir/v1/open-platform/oauth/access_token
 Content-Type: application/json
-x-api-key: {{api_key}}
 
 {
   "code": "c87sDtaqmWwgis7dYyukMqy6KAArNUFkukAPW8O90GmiEJkdmSTWH4KjSkNUP6FZ",
@@ -172,8 +181,21 @@ x-api-key: {{api_key}}
   - کلید را همچنان در هدر `x-api-key` نیز قرار دهید.
 
 <br>
- 
-پاسخ به چنین درخواستی به شکل زیر خواهد بود: 
+
+همچنین در صورتی که ترجیح می‌دهید Content-Type درخواست خود را x-www-form-urlencoded قرار دهید،‌ می‌توانید درخواستی به شکل زیر بفرستید:
+```http request
+POST https://api.divar.ir/v1/open-platform/oauth/url_encoded_access_token
+Content-Type: application/x-www-form-urlencoded
+
+code: "c87sDtaqmWwgis7dYyukMqy6KAArNUFkukAPW8O90GmiEJkdmSTWH4KjSkNUP6FZ"
+client_id: "{{app_slug}}"
+client_secret: "{{api_key}}"
+grant_type: "authorization_code"
+```
+
+<br>
+
+پاسخ به این درخواست‌ها به شکل زیر خواهد بود:
 ```json
 {
   "access_token": "f2mjqwiYDigBwGYg2...",
@@ -227,6 +249,7 @@ x-api-key: {{api_key}}
 
 [راهنما » ساخت افزونه]: /addons/approved_addon.md
 [راهنما » اطلاعات کاربر]: /oauth/get_user.md
+[پنل کنار]: https://divar.ir/kenar
 [oauth]: https://oauth.net/2/
 [oauth > tools]: https://oauth.net/code/
 [راهنما » کلید]: /management/api-keys.md
@@ -249,8 +272,7 @@ x-api-key: {{api_key}}
 
 <div align="center">
 
-<img src="/img/wire-puzzle-dark.svg#gh-dark-mode-only" height="156px"/>
-<img src="/img/wire-puzzle-light.svg#gh-light-mode-only" height="156px"/>
+<img src="/img/wire-puzzle.svg" height="156px"/>
 
 </div>
 
