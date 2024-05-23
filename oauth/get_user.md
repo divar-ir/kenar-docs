@@ -5,6 +5,7 @@
 |-------------------|---------------|
 | API Permissions   | USER_RETRIEVE |
 | OAuth Permissions | USER_PHONE    |
+| Resource ID | USER_PHONE    |
 
 با استفاده از access_token می توانید شماره همراه کاربر احراز شده را دریافت کنید. کافیست رکوئست زیر را بزنید.
 ```http request

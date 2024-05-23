@@ -5,6 +5,7 @@
 |-------------------|----------------|
 | API Permissions   | GET_USER_POSTS |
 | OAuth Permissions | USER_POSTS_GET |
+| Resource ID | USER_POSTS_GET |
 
 با استفاده از access_token می توانید آگهی‌های کاربر احراز شده را دریافت کنید. کافیست رکوئست زیر را بزنید.
 ```http request

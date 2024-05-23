@@ -167,14 +167,14 @@
 |  /finder/post/{{token}}  |  GET  |  دریافت اطلاعات یک آگهی  |  GET_POST  | - |
 |  /finder/user-posts  |  POST  |  دریافت آگهی‌های یک کاربر  |  GET_USER_POSTS  |  USER_POSTS_GET  |
 |  /finder/posts  |  POST  |  جستجوی آگهی بر اساس شهر و محله، دسته، کلیدواژه  |  SEARCH_POST  | - |
-|  /users  |  POST  |  دریافت اطلاعات تماس یک کاربر  |  USER_RETRIEVE  |  USER_RETRIEVE  |
+|  /users  |  POST  |  دریافت اطلاعات تماس یک کاربر  |  USER_RETRIEVE  |  USER_PHONE  |
 |  /addons/user/{{phone}}  |  POST  |  درج افزونه برای همهٔ آگهی‌های یک کاربر  |  USER_ADDON_CREATE  | USER_ADDON_CREATE  |
 |  /addons/user/{{id}}  |  DELETE  |  حذف یک افزونهٔ درج شده از همهٔ آگهی‌های یک کاربر  |  USER_ADDON_CREATE  | USER_ADDON_CREATE  |
 |  /verifications/user/{{phone}}  |  POST  |  درج اطلاعات احراز به یک کاربر |  USER_VERIFICATION_CREATE  | USER_VERIFICATION_CREATE  |
 |  /verifications/user/{{phone}}  |  DELETE  |  حذف اطلاعات احراز درج شده برای یک کاربر |  USER_VERIFICATION_CREATE  | USER_VERIFICATION_CREATE  |
 |  /payment-ticket/validate  |  POST  |  بررسی معتبر بودن تیکت پرداخت |  -  | -  |
-|  /chat/conversation  |  POST  |  ارسال پیام در یک چت  |  CHAT_SEND_MESSAGE_OAUTH  | CHAT_SEND_MESSAGE_OAUTH  |
-|  /chat/conversation-messages?user_id={{user_id}}&peer_id={{peer_id}}&post  |  POST  |  دریافت پیام‌های یک چت  |  CHAT_READ_CONVERSATION  | CHAT_READ_CONVERSATION  |
+|  /chat/conversation  |  POST  |  ارسال پیام در یک چت  |  CHAT_SEND_MESSAGE_OAUTH  | CHAT_MESSAGE_SEND  |
+|  /chat/conversation-messages?user_id={{user_id}}&peer_id={{peer_id}}&post  |  POST  |  دریافت پیام‌های یک چت  |  CHAT_READ_CONVERSATION  | CHAT_CONVERSATION_READ  |
 |  /assets/category  |  GET  |  فهرست دسته‌ها  |  -  | - |
 |  /assets/city  |  GET  |  فهرست شهرها  |  -  | - |
 |  /assets/district/{{city}}  |  GET  |  فهرست همهٔ محله‌ها یا محله‌های یک شهر با تنظیم شهر در آدرس  |  -  | - |
@@ -189,13 +189,13 @@
 # احراز باز
 برای ارسال درخواست‌هایی که نیاز به دریافت مجوز از کاربر دارد از OAuth استفاده کنید. فرایند در یافت کلید دسترسی را در ادامه می‌بینید. جزییات اسکو‌پ‌های دسترسی را در مستندات هر درخواست و همچنین صفحهٔ اسکوپ‌ها می‌توانید ببینید
 ### گام اول (درخواست اجازه از کاربر)
-`Redirect https://open-platform-redirect.divar.ir/oauth`
+`Redirect https://api.divar.ir/oauth2/auth`
 |  نام پارامتر  |     مقدار  |        توضیحات  |
 |-----------------|------------|------------|
 | response_type   | code       |  مقدار بازگشتی بعد از ریدایرکت کاربر از صفحهٔ احراز باز دیوار به صفحهٔ شما که در پارامتر `redirect_uri` مشخص می‌کنید |
 | client_id       | <app-slug> |  نام یکتای برنامهٔ شما که در قسمت مدیریت برنامه‌ٔ پنل کنار دیوار می‌توانید ببینید |
 | redirect_uri    | <url>      |  آدرسی از برنامهٔ شما که کاربر بعد از صدور (یا رد) اجازه‌های درخواستی به آن هدایت شود. (این آدرس باید URL encoded باشد، در فهرست آدرس‌های مجاز برنامهٔ شما در پنل کنار ثبت شده‌باشد و هیچ پارامتری در آن نباشد.) |
-| scope           | <scope>    |  جازه‌های مورد نیاز برای دریافت از کاربر که با + از هم جدا شدند. |
+| scope           | <scope>    |  جازه‌های مورد نیاز برای دریافت از کاربر که با اسپیس (‍‍`" "`) از هم جدا شدند. |
 | state           | <state>    |  ک مقدار دلخواه که در بازگشت کاربر به اپلیکیشن شما مجدد در پارامترهای URL قرار می‌گیرد. |
 ### گام دوم (بازگشت به برنامهٔ شما)
 کاربر به آدرس `redirect_uri` که در گام اول مشخص کردید با پارامترهای زیر ریدایرکت می‌شود.
@@ -205,20 +205,22 @@
 | state     | <state> | مقداری که در پارامتر `state` در بخش قبل قرار دادید را عیناً این قسمت دریافت می‌کنید. |
 ### گام سوم (دریافت توکن)
 در صورت موافقت کاربر و دریافت `code` در هنگام بازگشت به برنامه، می‌توانید با درخواست زیر `access token` دریافت کنید.
+دقت شود در این درخواست هدر `Content-Type` حتما باید `application/x-www-form-urlencoded` باشد.
 ```http request
-POST https://api.divar.ir/v1/open-platform/oauth/access_token
+POST https://api.divar.ir/oauth2/token
 
 {
   "code": "c87sDtaqmWwgis7dYyukMqy6KAArNUFkukAPW8O90GmiEJkdmSTWH4KjSkNUP6FZ",
   "client_id": "{{app_slug}}",
-  "client_secret": "{{api_key}}",
+  "client_secret": "{{client_secret}}",
   "grant_type": "authorization_code",
+  "redirect_uri": "your redirect_uri"
 }
 ```
 |  نام پارامتر  |  مقدار  |  توضیحات  |
 |-----------|---------|---------------|
 | code      | code    | اگر کاربر با درخواست اجازهٔ شما موافقت کرده‌باشد، این مقدار را خواهید داشت. در غیر این صورت می‌توانید خطای متناسب به کاربر نمایش دهید.|
-| state     | <state> | مقداری که در پارامتر `state` در بخش قبل قرار دادید را عیناً این قسمت دریافت می‌کنید. |
+| redirect_uri     | <redirect_uri> | با همان مقداری که برای ریکوئست اول (گرفتن کد در گام اول) قرار داده شده است پر شود. |
 ## دریافت اطلاعات یک آگهی
 
 # دسترسی سریع
