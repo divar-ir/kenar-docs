@@ -3,7 +3,7 @@
 | CREATE APPROVED ADDON |                     |
 |-----------------------|---------------------|
 | API Permissions       | ADD_ON_CREATE       |
-| OAuth Permissions     | ADDON_USER_APPROVED |
+| OAuth Permissions     | POST_ADDON_CREATE |
 | Resource ID           | post_token          |
 
 ```http request
