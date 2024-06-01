@@ -4,7 +4,6 @@
 |--------------------------|--------------------------|
 | API Permissions          | USER_VERIFICATION_CREATE |
 | OAuth Permissions        | USER_VERIFICATION_CREATE |
-| Resource ID              | phone                    |
 | Rate Limit               | Unlimited                |
 
 
