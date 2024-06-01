@@ -4,7 +4,6 @@
 |-------------------|-------------------|
 | API Permissions   | USER_ADDON_CREATE |
 | OAuth Permissions | USER_ADDON_CREATE |
-| Resource ID       | phone             |
 | Rate Limit        | Unlimited         |
 
 
