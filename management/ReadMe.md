@@ -165,7 +165,7 @@ authorization: {{ Divar Identification Key }}
 [راهنما » احراز باز]: /oauth
 [پنل کنار » اپ‌ها]: https://kenar.divar.ir/admin/info/apps
 [راهنما » اطلاعات آگهی]: /finder/get_post.md 
-[راهنما » ساخت افزونه]: /addons/approved_addon.md
+[راهنما » ساخت افزونه]: /addons/create.md
 [راهنما » افزونه‌ها]: /addons
 [راهنما » بازگشت کاربر]: /misc
 [آگهی]: #تعامل-با-کاربر-پس-از-ثبت-آگهی
