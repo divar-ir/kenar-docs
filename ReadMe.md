@@ -175,29 +175,28 @@
 در این قسمت فهرست ‌درخواست‌ها، پارامترها و دسترسی‌های لازم برای هر کدام را می‌بینید. جزییات بیشتر در مورد هر درخواست را در صفحهٔ جزییات مربوط به درخواست مورد نظر می‌توانید بیابید.\
 همهٔ آدرس‌های زیر با `https://api.divar.ir/v1/open-platform/users` شروع می‌شوند. 
 
-|  endpoint  |  method  | توضیحات  | دسترسی‌های لازم برای اپ  | دسترسی‌های احراز باز لازم  |
-|--|--|--|--|--|
-|  /finder/post/{{token}}  |  GET  |  دریافت اطلاعات یک آگهی  |  GET_POST  | - |
-|  /finder/user-posts  |  POST  |  دریافت آگهی‌های یک کاربر  |  GET_USER_POSTS  |  USER_POSTS_GET  |
-|  /finder/posts  |  POST  |  جستجوی آگهی بر اساس شهر و محله، دسته، کلیدواژه  |  SEARCH_POST  | - |
-|  /users  |  POST  |  دریافت اطلاعات تماس یک کاربر  |  USER_RETRIEVE  |  USER_PHONE  |
-|  /addons/user/{{phone}}  |  POST  |  درج افزونه برای همهٔ آگهی‌های یک کاربر  |  USER_ADDON_CREATE  | USER_ADDON_CREATE  |
-|  /addons/user/{{id}}  |  DELETE  |  حذف یک افزونهٔ درج شده از همهٔ آگهی‌های یک کاربر  |  USER_ADDON_CREATE  | USER_ADDON_CREATE  |
-|  /verifications/user/{{phone}}  |  POST  |  درج اطلاعات احراز به یک کاربر |  USER_VERIFICATION_CREATE  | USER_VERIFICATION_CREATE  |
-|  /verifications/user/{{phone}}  |  DELETE  |  حذف اطلاعات احراز درج شده برای یک کاربر |  USER_VERIFICATION_CREATE  | USER_VERIFICATION_CREATE  |
-|  /payment-ticket/validate  |  POST  |  بررسی معتبر بودن تیکت پرداخت |  -  | -  |
-|  /chat/conversation  |  POST  |  ارسال پیام در یک چت  |  CHAT_SEND_MESSAGE_OAUTH  | CHAT_MESSAGE_SEND  |
-|  /chat/conversation-messages?user_id={{user_id}}&peer_id={{peer_id}}&post  |  POST  |  دریافت پیام‌های یک چت  |  CHAT_READ_CONVERSATION  | CHAT_CONVERSATION_READ  |
-|  /assets/category  |  GET  |  فهرست دسته‌ها  |  -  | - |
-|  /assets/city  |  GET  |  فهرست شهرها  |  -  | - |
-|  /assets/district/{{city}}  |  GET  |  فهرست همهٔ محله‌ها یا محله‌های یک شهر با تنظیم شهر در آدرس  |  -  | - |
-|  /assets/brand-model/light |  GET  |  فهرست برندمدل‌ها در دستهٔ خودروی سواری  |  -  | - |
-|  /assets/body-status |  GET  |  فهرست نام‌های مربوط به وضعیت بدنه برای دستهٔ خودروی سواری  |  -  | - |
-|  /assets/color/light |  GET  |  فهرست رنگ‌ها در دستهٔ خودروی سواری  |  -  | - |
-|  /assets/brand-model/mobile-phones |  GET  |  فهرست برندمدل‌ها در دستهٔ گوشی موبایل  |  -  | - |
-|  /assets/color/mobile-phones |  GET  |  فهرست رنگ‌ها در دستهٔ گوشی موبایل  |  -  | - |
-|  /assets/internal-storage |  GET  |  فهرست نام‌ها و مقدار مربوط به حافظهٔ داخلی در دسته‌های مرتبط دیجیتال  |  -  | - |
-|  /assets/ram-memory |  GET  |  فهرست نام‌ها و مقدار مربوط به حافظهٔ RAM در دسته‌های مرتبط دیجیتال  |  -  | - |
+|endpoint|method|توضیحات|دسترسی‌های لازم برای اپ|دسترسی‌های احراز باز لازم|مستندات|
+|--|--|--|--|--|--|
+|/finder/post/{{token}}|GET|دریافت اطلاعات یک آگهی|GET_POST|-|[اطلاعات آگهی][راهنما » اطلاعات آگهی]|
+|/finder/user-posts|POST|دریافت آگهی‌های یک کاربر|GET_USER_POSTS|USER_POSTS_GET|[آگهی‌های کاربر][راهنما » آگهی‌های کاربر]|
+|/finder/posts|POST|جستجوی آگهی بر اساس شهر و محله، دسته، کلیدواژه|SEARCH_POST|-|[جستجو در آگهی‌ها][راهنما » اطلاعات آگهی » جستجو]|
+|/users|POST|دریافت اطلاعات تماس یک کاربر|USER_RETRIEVE|USER_PHONE|[اطلاعات کاربر][راهنما » اطلاعات کاربر]|
+|/addons/user/{{phone}}|POST|درج افزونه برای همهٔ آگهی‌های یک کاربر|USER_ADDON_CREATE|USER_ADDON_CREATE|[درج افزونه‌ی کاربر][راهنما » افزونه‌های کاربر » الصاق]|
+|/addons/user/{{id}}|DELETE|حذف یک افزونهٔ درج شده از همهٔ آگهی‌های یک کاربر|USER_ADDON_CREATE|USER_ADDON_CREATE|[حذف افزونه کاربر][راهنما » افزونه‌های کاربر » حذف]|
+|/verifications/user/{{phone}}|POST|درج اطلاعات احراز به یک کاربر|USER_VERIFICATION_CREATE|USER_VERIFICATION_CREATE|[درج احراز کاربر][راهنما » اطلاعات احراز کاربر » درج]|
+|/verifications/user/{{phone}}|DELETE|حذف اطلاعات احراز درج شده برای یک کاربر|USER_VERIFICATION_CREATE|USER_VERIFICATION_CREATE|[درج احراز کاربر][راهنما » اطلاعات احراز کاربر » حذف]|
+|/payment-ticket/validate|POST|بررسی معتبر بودن تیکت پرداخت|-|-|[بررسی صحت تیکت پرداخت][راهنما » تیکت پرداخت » بررسی صحت]|
+|/chat/conversation|POST|ارسال پیام در یک چت|CHAT_SEND_MESSAGE_OAUTH|CHAT_MESSAGE_SEND|[ارسال پیام در چت][راهنما » افزونه‌های چت » ارسال پیام]|
+|/assets/category|GET|فهرست دسته‌ها|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/city|GET|فهرست شهرها|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/district/{{city}}|GET|فهرست همهٔ محله‌ها یا محله‌های یک شهر با تنظیم شهر در آدرس|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/brand-model/light|GET|فهرست برندمدل‌ها در دستهٔ خودروی سواری|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/body-status|GET|فهرست نام‌های مربوط به وضعیت بدنه برای دستهٔ خودروی سواری|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/color/light|GET|فهرست رنگ‌ها در دستهٔ خودروی سواری|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/brand-model/mobile-phones|GET|فهرست برندمدل‌ها در دستهٔ گوشی موبایل|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/color/mobile-phones|GET|فهرست رنگ‌ها در دستهٔ گوشی موبایل|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/internal-storage|GET|فهرست نام‌ها و مقدار مربوط به حافظهٔ داخلی در دسته‌های مرتبط دیجیتال|-|-|[مقادیر][راهنما » مقادیر]|
+|/assets/ram-memory|GET|فهرست نام‌ها و مقدار مربوط به حافظهٔ RAM در دسته‌های مرتبط دیجیتال|-|-|[مقادیر][راهنما » مقادیر]|
 
 # احراز باز
 برای ارسال درخواست‌هایی که نیاز به دریافت مجوز از کاربر دارد از OAuth استفاده کنید. فرایند در یافت کلید دسترسی را در ادامه می‌بینید. جزییات اسکو‌پ‌های دسترسی را در مستندات هر درخواست و همچنین صفحهٔ اسکوپ‌ها می‌توانید ببینید
@@ -263,34 +262,54 @@ POST https://api.divar.ir/oauth2/token
 [پنل کنار]: https://divar.ir/kenar
 [تلگرام کنار]: https://t.me/kenar_divar
 [پنل کنار » اپ‌ها]: https://divar.ir/kenar/management/apps
+
 [راهنما » مدیریت اپ]: ./management
 [راهنما » مدیریت اپ »‌ تعامل در آگهی]: /management#تعامل-با-کاربر-پس-از-ثبت-آگهی
 [راهنما » مدیریت اپ »‌ تعامل در چت]: /management#تعامل-با-کاربر-در-چت
+
 [راهنما » اطلاعات آگهی]: ./finder/get_post.md
-[راهنما » اطلاعات کاربر]: ./oauth/get_user.md
 [راهنما » آگهی‌های کاربر]: ./finder/get_user_posts.md
+
 [راهنما » احراز باز]: ./oauth
+[راهنما » اطلاعات کاربر]: ./oauth/get_user.md
+
 [راهنما » افزونه‌های آگهی]: ./addons
 [راهنما » افزونه‌های آگهی » ساخت]: ./addons/approved_addon.md
 [راهنما » افزونه‌های آگهی » حذف]: ./addons/delete.md
 [راهنما » افزونه‌های آگهی » معنی]: ./addons/semantic.md
 [راهنما » افزونه‌های آگهی » تست]: ./addons/test_environment.md
+
 [راهنما » ویجت‌ها]: ./widgets
 [راهنما » بازگشت کاربر]: ./misc
+
 [راهنما » افزونه‌های چت]: ./chat
 [راهنما » افزونه‌های چت » ارسال پیام]: ./chat/send_message.md
 [راهنما » افزونه‌های چت » ارسال پیام‌ » دکمه]: ./chat/send_message.md#کلیک-کاربر-روی-دکمهٔ-درج-شده-زیر-پیام
 [راهنما » افزونه‌های چت »‌ تست]: ./chat/test_environment.md
+
 [احراز باز]: https://oauth.net/2/
 [احراز باز » ابزارها]: https://oauth.net/code/
+
 [راهنما » کلیدها]: ./management/api-keys.md
 [راهنما » کلیدها » امنیت]: ./management/api-keys.md#امنیت-کلیدها
+
 [راهنما » افزونه‌های کاربر]: ./user-addons
 [راهنما » افزونه‌های کاربر » اطلاعات معنایی]: ./user-addons/semantic.md
+[راهنما » افزونه‌های کاربر » الصاق]: ./user-addons/user-addons.md
+[راهنما » افزونه‌های کاربر » حذف]: ./user-addons/user-addons.md#حذف-افزونه-کاربر
+
+[راهنما » اطلاعات احراز کاربر]: ./user-verification
+[راهنما » اطلاعات احراز کاربر » درج]: ./user-verification/create.md
+[راهنما » اطلاعات احراز کاربر » حذف]: ./user-verification/delete.md
+
 [راهنما » تیکت پرداخت]: ./payment-ticket
+[راهنما » تیکت پرداخت » بررسی صحت]: ./payment-ticket/validate.md
+
 [postman_collection]: ./Divar-Kenar.postman_collection.json
 [ایشوی جدید]: https://github.com/divar-ir/kenar-docs/issues/new
+
 [راهنما » آگهی]: ./finder
+[راهنما » مقادیر]: ./assets
 [راهنما » اطلاعات آگهی » جستجو]: ./finder/search_post.md
 
 <br><br>
