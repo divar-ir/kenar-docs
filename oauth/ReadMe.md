@@ -276,7 +276,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 
-[راهنما » ساخت افزونه]: /addons/approved_addon.md
+[راهنما » ساخت افزونه]: /addons/create.md
 [راهنما » اطلاعات کاربر]: /oauth/get_user.md
 [پنل کنار]: https://divar.ir/kenar
 [oauth]: https://oauth.net/2/

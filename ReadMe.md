@@ -271,7 +271,7 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » آگهی‌های کاربر]: ./finder/get_user_posts.md
 [راهنما » احراز باز]: ./oauth
 [راهنما » افزونه‌های آگهی]: ./addons
-[راهنما » افزونه‌های آگهی » ساخت]: ./addons/approved_addon.md
+[راهنما » افزونه‌های آگهی » ساخت]: ./addons/create.md
 [راهنما » افزونه‌های آگهی » حذف]: ./addons/delete.md
 [راهنما » افزونه‌های آگهی » معنی]: ./addons/semantic.md
 [راهنما » افزونه‌های آگهی » تست]: ./addons/test_environment.md

@@ -1,11 +1,41 @@
 # الصاق افزونه آگهی
 
-| Create Post AddOn |               |
-|-------------------|---------------|
-| Permissions       | ADD_ON_CREATE |
-| Default Rate      | 100 R/WEEK    |
+# افزونه تایید شده
+اکثر برنامه ها برای منتشر شدن باید اجازه کاربر را جهت درج افزونه طبق فرایند [احراز باز](../oauth) دریافت کنند.
+
+
+| ویژگی ها                | توضیحات                                                                                                               |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| پرمیشن مورد نیاز برنامه | ADD_ON_CREATE                                                                                                         |
+| Oauth Scope             | POST_ADDON_CREATE__{POST_TOKEN} که در اینجا POST_TOKEN برابر با توکن آگهی میباشد (نمونه: POST_ADDON_CREATE__gZ5ZolKk) |
+| محدودیت تعداد فراخوانی  | دارد                                                                                                                  |
 
 ---
+
+
+در هنگام فراخوانی این اندپوینت صرفا اعتبار سنجی مقادیر و فرمت اطلاعات داده شده انجام می‌شود.
+ در صورت رد شدن هر یک از اعتبار سنجی ها در ریسپانس ارور پس‌داده خواهد شد.
+  بعد از اعتبار سنجی ریسپانس موفق یا علت رد درخواست الصاق افزونه پس داده میشود در حالی که الصاق افزونه هنوز انجام نشده است.
+   پس از مدتی افزونه برای آگهی تولید میشود و از ریسپانس کد ۲۰۰ میتوانید مطمئن باشید حتما افزونه شما ساخته خواهد شد.
+
+نکته: تنها اعتبار سنجی که انجام نمی‌شود توکن آگهی می‌باشد در صورت اشتباه بودن این مقدار افزونه ساخته نمی‌شود و در ریسپانس قبول شده خواهید دید پس از صحت توکن اطمینان حاصل نمائید.
+
+```mermaid
+sequenceDiagram
+    actor Third-Party
+    participant Kenar
+    participant Divar Services
+    Third-Party->>Kenar: Sends Create Addon Request with appropriate fields
+    Note over Kenar: Validates the request
+    alt request data is invalid
+        Kenar--x Third-Party: Responds with appropriate validation error
+    else request data is valid
+        Kenar->> Third-Party: Responds with empty JSON object and an Ok status code.
+    end
+    loop until attachment
+        Kenar->>Divar Services: Sends Attach Addon Request
+    end
+```
 
 برای الصاق افزونه روی آگهی لازم است
 API
@@ -18,6 +48,7 @@ POST https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
 Content-Type: application/json
 x-api-key: {{apikey}}
 X-Debug-Token: {{debug_token}}
+x-access-token: {{access_token}}
 
 {
     "widgets": {
@@ -26,8 +57,8 @@ X-Debug-Token: {{debug_token}}
                 "widget_type": "LEGEND_TITLE_ROW",
                 "data": {
                     "@type": "type.googleapis.com/widgets.LegendTitleRowData",
-                    "title": "کارشناسی دمپایی",
-                    "subtitle": "کارشناسی",
+                    "title": "تایتل اصلی افزونه",
+                    "subtitle": "سابتایتل",
                     "has_divider": true,
                     "image_url": "logo"
                 }
@@ -55,44 +86,9 @@ X-Debug-Token: {{debug_token}}
 {}
 ```
 
-## نحوه عملکرد
-
-
-> برای افزایش پایداری و ریسپانس تایم الصاق افزونه به صورت ناهنگام(Async) انجام می‌شود. به همین دلیل id در ریسپانس برگردانده نمی‌شود.
-
-در هنگام کال این تابع صرفا اعتبار سنجی مقادیر و فرمت اطلاعات داده شده انجام می‌شود.
- در صورت رد شدن هر یک از اعتبار سنجی ها در ریسپانس ارور پس‌داده خواهد شد.
-  بعد از اعتبار سنجی ریسپانس موفق یا علت رد درخواست الصاق افزونه پس داده میشود در حالی که الصاق افزونه هنوز انجام نشده است.
-   پس از مدتی افزونه برای آگهی تولید میشود و از ریسپانس کد ۲۰۰ میتوانید مطمئن باشید حتما افزونه شما ساخته خواهد شد.
-
-نکته: تنها اعتبار سنجی که انجام نمی‌شود توکن آگهی/پروفایل می‌باشد در صورت اشتباه بودن این مقدار افزونه ساخته نمی‌شود و در ریسپانس قبول شده خواهید دید پس از صحت توکن اطمینان حاصل نمائید.
-
-```mermaid
-sequenceDiagram
-    actor Third-Party
-    participant Kenar
-    participant Divar Services
-    Third-Party->>Kenar: Sends Create Addon Request with appropriate fields
-    Note over Kenar: Validates the request
-    alt request data is invalid
-        Kenar--x Third-Party: Responds with appropriate validation error
-    else request data is valid
-        Kenar->> Third-Party: Responds with empty JSON object and an Ok status code.
-    end
-    loop until attachment
-        Kenar->>Divar Services: Sends Attach Addon Request
-    end
-```
 # جایگاه نمایش افزونه ها
-افزونه هایی که با تایید کاربر از طریق اوآت الصاق شده باشند، به جای نمایش در انتهای صفحه آگهی، پیش از قسمت توضیحات آگهی، نمایش داده میشوند.
-
-# افزونه تایید شده
-اکثر اپ ها برای منتشر شدن باید اجازه کاربر را جهت درج افزونه طبق فرایند [احراز باز](../oauth) دریافت کنند.
-برای درج افزونه تایید شده می‌توانید با توجه به نیاز، از دو اسکوپ زیر استفاده کنید.
-| اسکوپ احراز باز                 | توضیحات                                          | مثال                        |
-|---------------------------------|--------------------------------------------------|-----------------------------|
-| POST_ADDON_CREATE__{POST_TOKEN} | درج افزونه بر روی یک اگهی کاربر با توکن gZ5ZolKk | POST_ADDON_CREATE__gZ5ZolKk |
-| USER_POSTS_ADDON_CREATE         | درج افزونه بر روی تمام آگهی های یک کاربر         | USER_POSTS_ADDON_CREATE     |
+افزونه هایی که با تایید کاربر از طریق اوآت الصاق شده باشند، به جای نمایش در انتهای صفحه آگهی، پیش از قسمت توضیحات آگهی، نمایش داده میشوند. در [اینجا](approved_addon.png) نمونه ی یک افزونه ی تایید شده را مشاهده میکنید.
 
 
-و با استفاده از اکسز توکن گرفته شده در فرایند احراز باز افزونه درج کنید.
+
+> تنها برنامه ها با نوع خدمت ارزیابی قیمت ، نیازی به احراز باز (اجازه ی کاربر برای درج افزونه روی آگهی) نمیباشند.
