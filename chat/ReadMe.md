@@ -81,7 +81,7 @@ authorization: {{ Divar Identification Key }}
 [راهنما » احراز باز]: /oauth
 [امکانات چت]: /chat/#دسترسی-سریع
 [چت»ارسال پیام]: /chat/send_message.md
-[چت»دریافت پیام]: /chat/read_messages.md
+[چت»دریافت پیام]: /chat/snap-read-messages.md
 
 <br><br>
 
