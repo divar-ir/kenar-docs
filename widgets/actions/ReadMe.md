@@ -7,4 +7,3 @@
 در حال حاضر در افزونه های کنار دیوار ، دو اکشن زیر ساپورت میشوند:
 
 - [LoadWebViewPage](./load_web_view_page.md)
-- [OpenWebPage](./open_web_page.md)
