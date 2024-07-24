@@ -47,7 +47,7 @@ Content-Length: 22
 ```http request
 POST //v1/open-platform/add-ons/post/AZqfx5i2 HTTP/1.1
 Host: api.divar.ir
-X-Debug-Token: JNbtiaMZ
+
 Content-Type: application/json
 x-api-key: 9Hh7JDAYLwuAtM9Y5A1hc3WSfBM4-_QfZ5R2HZTdArhN-fa8uLAtIn699zfNR_kxd9Qnnvf-id3W_a2QlwrrIVyBigaQQfiSjNGQCu1oKge-gg4fboPIksgkbZpslbsFz-jGVL2GE-hLp2wTbxitzKr_McZ2RWYDYPmsBk2ol3b_O9k2PCz8V-X5hN0U9GsmRBfaiUDp7bK1KSWZA-KiRYkIPt3_jiTJ6AeX-Xp8vGkdEW4yfx0eZOPDIve6a3ND
 Content-Length: 901
