@@ -1,4 +1,5 @@
 ## دسترسی خواندن در لحظه پیام‌های تمام مکالمات یک آگهی (آزمایشی)
+توجه شود که این فیچر نسخه آزمایشی بوده و ممکن است دچار تغییرات Backward Incompatible شود.
 - SCOPE: CHAT_POST_CONVERSATIONS_READ
 - IDENTIFIER: POST_TOKEN
 
