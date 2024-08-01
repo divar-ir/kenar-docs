@@ -6,7 +6,8 @@
 | API Permissions   | USER_RETRIEVE |
 | OAuth Permissions | USER_PHONE    |
 
-با استفاده از access_token می توانید شماره همراه کاربر احراز شده را دریافت کنید. کافیست رکوئست زیر را بزنید.
+با استفاده از access_token می توانید شماره همراه کاربر احراز شده را دریافت کنید. کافیست رکوئست زیر را به صورت فرم ارسال کنید..
+
 ```http request
 POST https://api.divar.ir/v1/open-platform/users
 x-api-key: {{apikey}}
