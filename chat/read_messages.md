@@ -9,7 +9,7 @@ API
 دسترسی خود را ثبت کنید:
 
 ```http request
-POST https://api.divar.ir/v2/open-platform/chat/conversation
+POST https://api.divar.ir/v1/open-platform/notify/chat/post-conversations
 Content-Type: application/json
 x-api-key: {{apikey}}
 x-access-token: {{access_token}}
