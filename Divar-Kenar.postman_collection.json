@@ -1,16 +1,16 @@
 {
 	"info": {
-		"_postman_id": "7e976d5e-1e8e-47fb-8a4b-cb34aaf7ff5b",
+		"_postman_id": "63e0c343-7473-4922-8ccc-0de40ad82310",
 		"name": "Divar/Kenar",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32636227"
+		"_exporter_id": "11788929"
 	},
 	"item": [
 		{
-			"name": "finder",
+			"name": "Finder",
 			"item": [
 				{
-					"name": "find-post",
+					"name": "Find Post",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -140,7 +140,7 @@
 					]
 				},
 				{
-					"name": "get-post",
+					"name": "Get Post",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -159,48 +159,21 @@
 						},
 						"description": "دریافت اطلاعات یک پست"
 					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "post-addons",
-			"item": [
-				{
-					"name": "list",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/v1/open-platform/add-ons/post/{{token}}",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"v1",
-								"open-platform",
-								"add-ons",
-								"post",
-								"{{token}}"
-							]
-						},
-						"description": "دریافت مکمل‌های درج شده در آگهی"
-					},
 					"response": [
 						{
-							"name": "ListPostAddOns",
+							"name": "Get Post",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/v1/open-platform/add-ons/post/{{token}}",
+									"raw": "{{host}}/v1/open-platform/finder/post/{{token}}",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"v1",
 										"open-platform",
-										"add-ons",
+										"finder",
 										"post",
 										"{{token}}"
 									]
@@ -212,7 +185,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sun, 09 Jul 2023 11:55:33 GMT"
+									"value": "Tue, 06 Aug 2024 13:35:22 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -231,24 +204,16 @@
 									"value": "Accept-Encoding"
 								},
 								{
-									"key": "Grpcgateway-Content-Type",
+									"key": "grpcgateway-content-type",
 									"value": "application/grpc"
 								},
 								{
-									"key": "vary",
-									"value": "Origin"
+									"key": "x-datacenter",
+									"value": "neda"
 								},
 								{
-									"key": "Access-Control-Allow-Credentials",
-									"value": "true"
-								},
-								{
-									"key": "Access-Control-Expose-Headers",
-									"value": "X-JWT-REFRESH, X-JWT-ERROR"
-								},
-								{
-									"key": "X-Datacenter",
-									"value": "afra"
+									"key": "x-envoy-upstream-service-time",
+									"value": "25"
 								},
 								{
 									"key": "Strict-Transport-Security",
@@ -256,7 +221,7 @@
 								},
 								{
 									"key": "Content-Encoding",
-									"value": "gzip"
+									"value": "br"
 								},
 								{
 									"key": "X-ZRK-US",
@@ -272,7 +237,7 @@
 								},
 								{
 									"key": "X-ZRK-SN",
-									"value": "1034"
+									"value": "1004"
 								},
 								{
 									"key": "Accept-Ranges",
@@ -280,24 +245,148 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"addons\": [\n        {\n            \"meta_data\": {\n                \"id\": \"369\",\n                \"app\": {\n                    \"slug\": \"ehsandar\"\n                },\n                \"created_at\": \"2023-07-09T15:25:28.222729Z\"\n            },\n            \"token\": \"AZj2y9zD\",\n            \"widgets\": {\n                \"widget_list\": [\n                    {\n                        \"widget_type\": \"LEGEND_TITLE_ROW\",\n                        \"data\": {\n                            \"@type\": \"type.googleapis.com/widgets.LegendTitleRowData\",\n                            \"title\": \"کارشناسی دمپایی\",\n                            \"subtitle\": \"کارشناسی\",\n                            \"has_divider\": true\n                        }\n                    },\n                    {\n                        \"widget_type\": \"SCORE_ROW\",\n                        \"data\": {\n                            \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                            \"title\": \"فنی\",\n                            \"percentage_score\": 80,\n                            \"score_color\": \"SUCCESS_PRIMARY\",\n                            \"action\": {\n                                \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                                \"payload\": {\n                                    \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                                    \"url\": \"https://google.com/\"\n                                },\n                                \"fallback_link\": \"https://google.com/\"\n                            },\n                            \"has_divider\": true,\n                            \"icon\": {\n                                \"icon_name\": \"HISTORY\",\n                                \"icon_color\": \"SUCCESS_PRIMARY\"\n                            }\n                        }\n                    },\n                    {\n                        \"widget_type\": \"SCORE_ROW\",\n                        \"data\": {\n                            \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                            \"title\": \"قدرت در دست مادر ایرانی\",\n                            \"percentage_score\": 100,\n                            \"score_color\": \"ICON_PRIMARY\",\n                            \"action\": {\n                                \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                                \"payload\": {\n                                    \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                                    \"url\": \"https://google.com\"\n                                },\n                                \"fallback_link\": \"https://google.com\"\n                            },\n                            \"has_divider\": true,\n                            \"icon\": {\n                                \"icon_name\": \"CAR_ENGINE\",\n                                \"icon_color\": \"ICON_PRIMARY\"\n                            }\n                        }\n                    },\n                    {\n                        \"widget_type\": \"SCORE_ROW\",\n                        \"data\": {\n                            \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                            \"title\": \"بدنه\",\n                            \"percentage_score\": 35,\n                            \"score_color\": \"WARNING_SECONDARY\",\n                            \"action\": {\n                                \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                                \"payload\": {\n                                    \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                                    \"url\": \"https://google.com\"\n                                },\n                                \"fallback_link\": \"https://google.com\"\n                            },\n                            \"has_divider\": true,\n                            \"icon\": {\n                                \"icon_name\": \"CAR_HYDRAULICS\",\n                                \"icon_color\": \"WARNING_SECONDARY\"\n                            }\n                        }\n                    },\n                    {\n                        \"widget_type\": \"WIDE_BUTTON_BAR\",\n                        \"data\": {\n                            \"@type\": \"type.googleapis.com/widgets.WideButtonBarWidgetData\",\n                            \"button\": {\n                                \"title\": \"به سمت الودمپایی\",\n                                \"action\": {\n                                    \"type\": \"OPEN_WEB_PAGE\",\n                                    \"payload\": {\n                                        \"@type\": \"type.googleapis.com/widgets.OpenWebPagePayload\",\n                                        \"link\": \"https://google.com\"\n                                    },\n                                    \"fallback_link\": \"https://google.com\"\n                                }\n                            },\n                            \"style\": \"SECONDARY\"\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}"
+							"body": "{\n    \"state\": \"PUBLISHED\",\n    \"first_published_at\": \"2024-06-02T17:35:21.269585Z\",\n    \"token\": \"gZctX-wd\",\n    \"category\": \"laptops\",\n    \"city\": \"tehran\",\n    \"district\": \"valiasr\",\n    \"data\": {\n        \"brand\": \"HP - اچ\\u200cپی\",\n        \"color\": \"نقره\\u200cای\",\n        \"description\": \"لپ تاپ اچ پی 645 g4,فوق العاده تمیز بدون\\u200cایراد\\u200cو\\u200cخط گرافیک دار قدرتمند\\ncpu: ryzen5 2500u\\nram: 8 GB ddr4\\nssd: 256 GB\\ngpu: 1 GBAMD\\nscreen: 14'  fhd\\nهمراه با شارژر اورجینال \\nپشتیبانی از  انواع پورت ها  مختلف \\nدستگاه دارای ۲\\u200c هفته مهلت تست فنی بوده که کتبی همراه با فاکتور ارائه میشود \\nانواع مدل لپ تاپ های استوک  سرفیس پرو و سرفیس بوک و سرفیس لپ تاپ و برند های دیگر نیز موجود است \\nتماس جهت مشاوره از ۹صبح تا ۱۲ شب\",\n        \"hdmi_port\": true,\n        \"images\": [\n            \"https://s100.divarcdn.com/static/photo/afra/post/M7zZryeZtMONInnT8tMNVQ/88cebacb-d0a5-45dd-a740-d51b02fafde6.jpg\",\n            \"https://s100.divarcdn.com/static/photo/afra/post/Vy0fzDhGGVhai7Vm5cQVbw/0203c0e0-4451-4f62-9863-80e475472f2d.jpg\",\n            \"https://s100.divarcdn.com/static/photo/afra/post/_WBgG1fpp7_wkWaT-fgUrA/890f20ae-822f-474e-99fa-92cc5f569b83.jpg\",\n            \"https://s100.divarcdn.com/static/photo/afra/post/iF6HoUPxcjXACGMrFuIn_Q/1a0de625-cdb7-443d-8b10-e540dcdb4a4b.jpg\",\n            \"https://s100.divarcdn.com/static/photo/afra/post/kQ11l4eYUr9HCa0EtIw2dw/934aadc5-0409-46fd-bb64-78a1646c59f9.jpg\"\n        ],\n        \"internal_storage\": \"۲۵۶ گیگابایت\",\n        \"latitude\": 35.707144062427,\n        \"longitude\": 51.405458450317,\n        \"new_price\": 12800000,\n        \"os\": \"Windows 10\",\n        \"price\": {\n            \"mode\": \"مقطوع\",\n            \"value\": 12800000\n        },\n        \"processor\": \"Ryzen 5\",\n        \"ram_memory\": \"۸ گیگابایت\",\n        \"screen_size\": \"۱۴ اینچ تا ۱۶ اینچ\",\n        \"status\": \"like-new\",\n        \"title\": \"لپ تاپ HP مدل probook 645 G4\",\n        \"touch_screen\": true\n    }\n}"
 						}
 					]
 				},
 				{
-					"name": "delete",
+					"name": "Get User Posts",
 					"request": {
-						"method": "DELETE",
-						"header": [],
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{oauth_access_token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{host}}/v1/open-platform/add-ons/post/{{token}}",
+							"raw": "{{host}}/v1/open-platform/finder/user-posts",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"v1",
 								"open-platform",
-								"add-ons",
+								"finder",
+								"user-posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User Posts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "{{oauth_access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/v1/open-platform/finder/user-posts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"open-platform",
+										"finder",
+										"user-posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 06 Aug 2024 13:32:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "grpcgateway-content-type",
+									"value": "application/grpc"
+								},
+								{
+									"key": "x-datacenter",
+									"value": "neda"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "40"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "X-ZRK-US",
+									"value": "200"
+								},
+								{
+									"key": "Server",
+									"value": "Delivery"
+								},
+								{
+									"key": "X-ZRK-CS",
+									"value": "BYPASS"
+								},
+								{
+									"key": "X-ZRK-SN",
+									"value": "1004"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"posts\": [\n        {\n            \"token\": \"gZfC8VM6\",\n            \"title\": \"آئودی Q5\",\n            \"category\": \"light\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Post Addons",
+			"item": [
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/open-platform/addons/post/{{token}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"open-platform",
+								"addons",
 								"post",
 								"{{token}}"
 							]
@@ -311,14 +400,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/v1/open-platform/add-ons/post/{{token}}",
+									"raw": "{{host}}/v1/open-platform/addons/post/{{token}}",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"v1",
 										"open-platform",
-										"add-ons",
+										"addons",
 										"post",
 										"{{token}}"
 									]
@@ -395,16 +484,10 @@
 					]
 				},
 				{
-					"name": "create",
+					"name": "Create",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "X-Debug-Token",
-								"value": "{{debug-token}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"widgets\": {\n        \"widget_list\": [\n            {\n                \"widget_type\": \"SCORE_ROW\",\n                \"data\": {\n                    \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                    \"title\": \"فنی\",\n                    \"percentage_score\": 80,\n                    \"score_color\": \"SUCCESS_PRIMARY\",\n                    \"hasDivider\": true,\n                    \"icon\": {\n                        \"icon_name\": \"HISTORY\",\n                        \"icon_color\": \"SUCCESS_PRIMARY\"\n                    },\n                    \"action\": {\n                        \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                        \"fallback_link\": \"https://ehsandar.com/test\",\n                        \"payload\": {\n                            \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                            \"url\": \"https://ehsandar.com/test\"\n                        }\n                    }\n                }\n            },\n            {\n                \"widget_type\": \"SCORE_ROW\",\n                \"data\": {\n                    \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                    \"title\": \"قدرت در دست مادر ایرانی\",\n                    \"percentage_score\": 100,\n                    \"score_color\": \"ICON_PRIMARY\",\n                    \"hasDivider\": true,\n                    \"icon\": {\n                        \"icon_name\": \"CAR_ENGINE\",\n                        \"icon_color\": \"ICON_PRIMARY\"\n                    },\n                    \"action\": {\n                        \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                        \"fallback_link\": \"https://ehsandar.com\",\n                        \"payload\": {\n                            \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                            \"url\": \"https://ehsandar.com\"\n                        }\n                    }\n                }\n            },\n            {\n                \"widget_type\": \"SCORE_ROW\",\n                \"data\": {\n                    \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                    \"title\": \"بدنه\",\n                    \"percentage_score\": 35,\n                    \"score_color\": \"WARNING_SECONDARY\",\n                    \"hasDivider\": true,\n                    \"icon\": {\n                        \"icon_name\": \"CAR_HYDRAULICS\",\n                        \"icon_color\": \"WARNING_SECONDARY\"\n                    },\n                    \"action\": {\n                        \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                        \"fallback_link\": \"https://ehsandar.com\",\n                        \"payload\": {\n                            \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                            \"url\": \"https://ehsandar.com\"\n                        }\n                    }\n                }\n            },\n            {\n                \"widget_type\": \"WIDE_BUTTON_BAR\",\n                \"data\": {\n                    \"@type\": \"type.googleapis.com/widgets.WideButtonBarWidgetData\",\n                    \"style\": \"SECONDARY\",\n                    \"button\": {\n                        \"action\": {\n                            \"type\": \"OPEN_WEB_PAGE\",\n                            \"fallback_link\": \"https://ehsandar.com\",\n                            \"payload\": {\n                                \"@type\": \"type.googleapis.com/widgets.OpenWebPagePayload\",\n                                \"link\": \"https://ehsandar.com\"\n                            }\n                        },\n                        \"title\": \"به سمت الودمپایی\",\n                        \"disable\": false\n                    }\n                }\n            }\n        ]\n    }\n}",
@@ -445,14 +528,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/v1/open-platform/add-ons/post/{{token}}",
+									"raw": "{{host}}/v1/open-platform/addons/post/{{token}}",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"v1",
 										"open-platform",
-										"add-ons",
+										"addons",
 										"post",
 										"{{token}}"
 									]
@@ -527,6 +610,115 @@
 							"body": "{\n    \"id\": \"369\"\n}"
 						}
 					]
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/open-platform/addons/post/{{post_token}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"open-platform",
+								"addons",
+								"post",
+								"{{post_token}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Post Addons",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/v1/open-platform/addons/post/{{post_token}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"open-platform",
+										"addons",
+										"post",
+										"{{post_token}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 06 Aug 2024 13:55:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "grpcgateway-content-type",
+									"value": "application/grpc"
+								},
+								{
+									"key": "x-datacenter",
+									"value": "neda"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "12"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "X-ZRK-US",
+									"value": "200"
+								},
+								{
+									"key": "Server",
+									"value": "Delivery"
+								},
+								{
+									"key": "X-ZRK-CS",
+									"value": "BYPASS"
+								},
+								{
+									"key": "X-ZRK-SN",
+									"value": "1004"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"addons\": [\n        {\n            \"meta_data\": {\n                \"id\": \"29988609\",\n                \"app\": {\n                    \"slug\": \"UID\",\n                    \"service_type\": \"REPORT_VERIFICATION\"\n                },\n                \"created_at\": \"2024-08-06T15:29:16.246004Z\",\n                \"last_modified\": \"2024-08-06T15:29:16.246004Z\",\n                \"status\": \"ACTIVE\"\n            },\n            \"token\": \"gZiGQyjY\",\n            \"widgets\": {\n                \"widget_list\": [\n                    {\n                        \"widget_type\": \"LEGEND_TITLE_ROW\",\n                        \"data\": {\n                            \"@type\": \"type.googleapis.com/widgets.LegendTitleRowData\",\n                            \"title\": \"یوآیدی\",\n                            \"subtitle\": \"اپراتور اول احراز هویت ایران\",\n                            \"has_divider\": true,\n                            \"image_url\": \"https://s100.divarcdn.com/static/images/open-platform/uX-QF_O82MeZvpE4chmdIQ.jpg\"\n                        }\n                    },\n                    {\n                        \"widget_type\": \"EVENT_ROW\",\n                        \"data\": {\n                            \"@type\": \"type.googleapis.com/widgets.EventRowData\",\n                            \"title\": \"آرش عبادتي فرح آورنوبيجاري\",\n                            \"subtitle\": \"تایید احراز هویت\",\n                            \"image_url\": \"https://s100.divarcdn.com/static/images/open-platform/lIyGphmQSsqcZ1aISrDvKQ.jpg\",\n                            \"label\": \"هوش مصنوعی\",\n                            \"has_divider\": true,\n                            \"padded\": true,\n                            \"counter\": 1,\n                            \"icon\": {\n                                \"icon_name\": \"CAR_HYDRAULICS\"\n                            }\n                        }\n                    }\n                ]\n            },\n            \"score\": \"1001001\",\n            \"secondary_links\": {\n                \"secondary_linkages\": [\n                    {\n                        \"position\": \"POST_SPEC_TAIL\",\n                        \"widgets\": {\n                            \"widget_list\": [\n                                {\n                                    \"widget_type\": \"LEGEND_TITLE_ROW\",\n                                    \"data\": {\n                                        \"@type\": \"type.googleapis.com/widgets.LegendTitleRowData\",\n                                        \"title\": \"یوآیدی\",\n                                        \"subtitle\": \"اپراتور اول احراز هویت ایران\",\n                                        \"has_divider\": true,\n                                        \"image_url\": \"https://s100.divarcdn.com/static/images/open-platform/uX-QF_O82MeZvpE4chmdIQ.jpg\"\n                                    }\n                                },\n                                {\n                                    \"widget_type\": \"EVENT_ROW\",\n                                    \"data\": {\n                                        \"@type\": \"type.googleapis.com/widgets.EventRowData\",\n                                        \"title\": \"آرش عبادتي فرح آورنوبيجاري\",\n                                        \"subtitle\": \"تایید احراز هویت\",\n                                        \"image_url\": \"https://s100.divarcdn.com/static/images/open-platform/lIyGphmQSsqcZ1aISrDvKQ.jpg\",\n                                        \"label\": \"هوش مصنوعی\",\n                                        \"has_divider\": true,\n                                        \"padded\": true,\n                                        \"counter\": 1,\n                                        \"icon\": {\n                                            \"icon_name\": \"CAR_HYDRAULICS\"\n                                        }\n                                    }\n                                }\n                            ]\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}"
+						}
+					]
 				}
 			],
 			"event": [
@@ -551,10 +743,10 @@
 			]
 		},
 		{
-			"name": "assets",
+			"name": "Assets",
 			"item": [
 				{
-					"name": "categories",
+					"name": "Categories",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -670,7 +862,7 @@
 					]
 				},
 				{
-					"name": "cities",
+					"name": "Cities",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -786,7 +978,7 @@
 					]
 				},
 				{
-					"name": "districts",
+					"name": "Districts",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -902,7 +1094,7 @@
 					]
 				},
 				{
-					"name": "brand-models",
+					"name": "Brand Models",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1020,7 +1212,7 @@
 					]
 				},
 				{
-					"name": "colors",
+					"name": "Colors",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1138,7 +1330,7 @@
 					]
 				},
 				{
-					"name": "internal-storages",
+					"name": "Internal Storages",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1254,7 +1446,7 @@
 					]
 				},
 				{
-					"name": "ram-memories",
+					"name": "Ram Memories",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1370,7 +1562,7 @@
 					]
 				},
 				{
-					"name": "body-statuses",
+					"name": "Body Statuses",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1413,7 +1605,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sun, 09 Jul 2023 12:00:52 GMT"
+									"value": "Tue, 06 Aug 2024 11:53:04 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -1432,24 +1624,16 @@
 									"value": "Accept-Encoding"
 								},
 								{
-									"key": "Grpcgateway-Content-Type",
+									"key": "grpcgateway-content-type",
 									"value": "application/grpc"
 								},
 								{
-									"key": "vary",
-									"value": "Origin"
+									"key": "x-datacenter",
+									"value": "neda"
 								},
 								{
-									"key": "Access-Control-Allow-Credentials",
-									"value": "true"
-								},
-								{
-									"key": "Access-Control-Expose-Headers",
-									"value": "X-JWT-REFRESH, X-JWT-ERROR"
-								},
-								{
-									"key": "X-Datacenter",
-									"value": "afra"
+									"key": "x-envoy-upstream-service-time",
+									"value": "5"
 								},
 								{
 									"key": "Strict-Transport-Security",
@@ -1457,7 +1641,7 @@
 								},
 								{
 									"key": "Content-Encoding",
-									"value": "gzip"
+									"value": "br"
 								},
 								{
 									"key": "X-ZRK-US",
@@ -1473,7 +1657,7 @@
 								},
 								{
 									"key": "X-ZRK-SN",
-									"value": "1004"
+									"value": "1003"
 								},
 								{
 									"key": "Accept-Ranges",
@@ -1488,28 +1672,22 @@
 			]
 		},
 		{
-			"name": "user-addons",
+			"name": "User Addons",
 			"item": [
 				{
-					"name": "create",
+					"name": "Create",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
-								"key": "X-Debug-Token",
-								"value": "{{debug-token}}",
-								"type": "text",
-								"disabled": true
-							},
-							{
 								"key": "x-access-token",
-								"value": "{{access-token}}",
+								"value": "{{oauth_access_token}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"widgets\": {\n        \"widget_list\": [\n            {\n                \"widget_type\": \"SCORE_ROW\",\n                \"data\": {\n                    \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                    \"title\": \"فنی\",\n                    \"percentage_score\": 80,\n                    \"score_color\": \"SUCCESS_PRIMARY\",\n                    \"hasDivider\": true,\n                    \"icon\": {\n                        \"icon_name\": \"HISTORY\",\n                        \"icon_color\": \"SUCCESS_PRIMARY\"\n                    },\n                    \"action\": {\n                        \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                        \"fallback_link\": \"https://google.com/\",\n                        \"payload\": {\n                            \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                            \"url\": \"https://google.com/\"\n                        }\n                    }\n                }\n            }\n        ]\n    },\n    \"notes\": \"test note\",\n    \"phone\": \"{{phone}}\",\n    \"categories\": [],\n    \"management_permalink\": \"https://same-domain.com/manage/id\",\n    \"verification_cost\": 124000,\n    \"semantic\": {\n        \"phone\": \"{{phone}}\",\n        \"full_name\": \"علی علوی\",\n        \"external_reference\": \"ref-id\"\n    },\n    \"semantic_sensitives\": [\"phone\"]\n}",
+							"raw": "{\n    \"widgets\": {\n        \"widget_list\": [\n            {\n                \"widget_type\": \"SCORE_ROW\",\n                \"data\": {\n                    \"@type\": \"type.googleapis.com/widgets.ScoreRowData\",\n                    \"title\": \"فنی\",\n                    \"percentage_score\": 80,\n                    \"score_color\": \"SUCCESS_PRIMARY\",\n                    \"hasDivider\": true,\n                    \"icon\": {\n                        \"icon_name\": \"HISTORY\",\n                        \"icon_color\": \"SUCCESS_PRIMARY\"\n                    },\n                    \"action\": {\n                        \"type\": \"LOAD_WEB_VIEW_PAGE\",\n                        \"fallback_link\": \"https://google.com/\",\n                        \"payload\": {\n                            \"@type\": \"type.googleapis.com/widgets.LoadWebViewPagePayload\",\n                            \"url\": \"https://google.com/\"\n                        }\n                    }\n                }\n            }\n        ]\n    },\n    \"notes\": \"test note\",\n    \"phone\": \"{{phone}}\",\n    \"categories\": [],\n    \"management_permalink\": \"https://same-domain.com/manage/id\",\n    \"verification_cost\": 124000,\n    \"semantic\": {\n        \"phone\": \"{{phone}}\",\n        \"full_name\": \"تست تست‌زاده\",\n        \"external_reference\": \"ref-id\"\n    },\n    \"semantic_sensitives\": [\"phone\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1534,23 +1712,18 @@
 					"response": []
 				},
 				{
-					"name": "delete",
+					"name": "Delete",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "X-Debug-Token",
-								"value": "{{debug-token}}",
-								"type": "text"
-							},
-							{
 								"key": "x-access-token",
-								"value": "{{access-token}}",
+								"value": "{{oauth_access_token}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{host}}/v1/open-platform/addons/user/b08cab4b-02bb-43f1-a76d-555d0523994f",
+							"raw": "{{host}}/v1/open-platform/addons/user/{{user_addon_uuid}}",
 							"host": [
 								"{{host}}"
 							],
@@ -1559,7 +1732,7 @@
 								"open-platform",
 								"addons",
 								"user",
-								"b08cab4b-02bb-43f1-a76d-555d0523994f"
+								"{{user_addon_uuid}}"
 							]
 						},
 						"description": "حذف مکمل درج شده روی آگهی کاربر که با تأیید کاربر درج شده‌است."
@@ -1569,29 +1742,23 @@
 			]
 		},
 		{
-			"name": "oauth",
+			"name": "OAuth",
 			"item": [
 				{
-					"name": "oauth authorize",
+					"name": "Authorize",
 					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
+						"disabledSystemHeaders": {},
+						"disableBodyPruning": true
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{JWT}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"client_id\": \"{{client_id}}\",\n    \"redirect_uri\": \"https://www.divar.ir\",\n    \"state\": \"random\",\n    \"response_type\": \"RESPONSE_TYPE_CODE\",\n    \"scopes\": [\n        {\n            \"permission\": {\n                \"permission\": \"USER_PHONE\"\n            },\n            \"resource_id\": \"\"\n        },\n        {\n            \"permission\": {\n                \"permission\": \"CHAT_SEND_MESSAGE_OAUTH\"\n            },\n            \"resource_id\": \"{{chat_resource_id}}\"\n        },\n        {\n            \"permission\": {\n                \"permission\": \"CHAT_READ_CONVERSATION\"\n            },\n            \"resource_id\": \"{{chat_resource_id}}\"\n        }\n    ]\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1599,22 +1766,42 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/v1/open-platform/oauth/authorize",
+							"raw": "{{host}}/oauth2/auth?response_type=code&client_id={{app_slug}}&redirect_uri={{oauth_redirect_uri}}&scope={{oauth_scopes}}&state={{oauth_state}}",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"v1",
-								"open-platform",
-								"oauth",
-								"authorize"
+								"oauth2",
+								"auth"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "{{app_slug}}"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{oauth_redirect_uri}}"
+								},
+								{
+									"key": "scope",
+									"value": "{{oauth_scopes}}"
+								},
+								{
+									"key": "state",
+									"value": "{{oauth_state}}"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "access-token",
+					"name": "Get Access Token",
 					"event": [
 						{
 							"listen": "test",
@@ -1623,55 +1810,182 @@
 									"var jsonData = JSON.parse(responseBody);",
 									"pm.environment.set(\"access-token\", jsonData.access_token);"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
-						"header": [
-							{
-								"key": "x-debug-token",
-								"value": "{{debug-token}}",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic {{jwt}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"grant_type\": \"authorization_code\",\n    \"client_id\": \"ehsandar\",\n    \"client_secret\": \"{{apikey}}\",\n    \"code\": \"{{oauthCode}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "{{oauth_authorization_code}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{app_slug}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{oauth_client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{oauth_redirect_uri}}",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
-							"raw": "{{host}}/v1/open-platform/oauth/access_token",
+							"raw": "{{host}}/oauth2/token",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"v1",
-								"open-platform",
-								"oauth",
-								"access_token"
+								"oauth2",
+								"token"
 							]
 						}
 					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "chat",
-			"item": [
+					"response": [
+						{
+							"name": "Get Access Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "code",
+											"value": "{{oauth_authorization_code}}",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "{{app_slug}}",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "{{oauth_client_secret}}",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "authorization_code",
+											"type": "text"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "{{oauth_redirect_uri}}",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/oauth2/token",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"oauth2",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 06 Aug 2024 13:19:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-store"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-datacenter",
+									"value": "neda"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "34"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "X-ZRK-US",
+									"value": "200"
+								},
+								{
+									"key": "Server",
+									"value": "Delivery"
+								},
+								{
+									"key": "X-ZRK-SN",
+									"value": "1004"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"ory_at_WUwJsS471rnyFWsSgrOKx1W8PgptbDQDcjaUoP0OE7g.TrzOkBNGXakzcsduRHgnrBVij3RR6ySaFC17ksKXT8Y\",\n    \"expires_in\": 604799,\n    \"scope\": \"USER_PHONE\",\n    \"token_type\": \"bearer\"\n}"
+						}
+					]
+				},
 				{
-					"name": "Get phone",
+					"name": "Get Phone",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1682,7 +1996,7 @@
 							},
 							{
 								"key": "x-access-token",
-								"value": "{{access_token}}",
+								"value": "{{oauth_access_token}}",
 								"type": "text"
 							}
 						],
@@ -1698,10 +2012,181 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Phone",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "x-access-token",
+										"value": "{{oauth_access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/v1/open-platform/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"open-platform",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 06 Aug 2024 13:01:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "grpcgateway-content-type",
+									"value": "application/grpc"
+								},
+								{
+									"key": "x-datacenter",
+									"value": "neda"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "30"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "X-ZRK-US",
+									"value": "200"
+								},
+								{
+									"key": "Server",
+									"value": "Delivery"
+								},
+								{
+									"key": "X-ZRK-SN",
+									"value": "1004"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"phone_numbers\": [\n        \"09000000000\"\n    ]\n}"
+						}
+					]
 				},
 				{
-					"name": "Send msg",
+					"name": "Full OAuth with Postman",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "headerPrefix",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "oauth_access_token",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{app_slug}}",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "{{oauth_state}}",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "{{oauth_scopes}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{oauth_client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "{{host}}/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "{{host}}/oauth2/auth",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "OAUTH",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Send Message",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1736,7 +2221,43 @@
 					"response": []
 				},
 				{
-					"name": "Read conversation",
+					"name": "Read Conversation Webhook",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"post_token\": \"{{post_token}}\",\n    \"endpoint\": \"{{read_conversation_endpoint}}\",\n    \"identification_key\": \"{{identification_key}}\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/open-platform/notify/chat/post-conversations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"open-platform",
+								"notify",
+								"chat",
+								"post-conversations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Conversation Snapshot",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1747,7 +2268,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/v1/open-platform/chat/conversation-messages?user_id={{user_id}}&peer_id={{peer_id}}&post_token={{post_token}}",
+							"raw": "{{host}}/v1/open-platform/chat/conversations/{{conversation_id}}",
 							"host": [
 								"{{host}}"
 							],
@@ -1755,21 +2276,108 @@
 								"v1",
 								"open-platform",
 								"chat",
-								"conversation-messages"
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "{{user_id}}"
-								},
-								{
-									"key": "peer_id",
-									"value": "{{peer_id}}"
-								},
-								{
-									"key": "post_token",
-									"value": "{{post_token}}"
+								"conversations",
+								"{{conversation_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Ticket",
+			"item": [
+				{
+					"name": "Validate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticket_uuid\": \"{{ticket_uuid}}\", \n    \"phone_number\": \"{{ticket_phone_number}}\", \n    \"service_cost\": {{ticket_cost}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/open-platform/payment-ticket/validate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"open-platform",
+								"payment-ticket",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Verification",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{oauth_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n    \"notes\": \"test note\",\n    \"semantic\": {\"national-id\": \"12345678\"},\n    \"semantic_sensitives\": [\"national-id\"],\n    \"ticket_uuid\": \"{{ticket_uuid}}\",\n    \"verification_cost\": {{ticket_price}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.divar.ir//v1/open-platform/verifications/user/{{phone}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"divar",
+								"ir"
+							],
+							"path": [
+								"",
+								"v1",
+								"open-platform",
+								"verifications",
+								"user",
+								"{{phone}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/open-platform/verifications/user/{{phone}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"open-platform",
+								"verifications",
+								"user",
+								"{{phone}}"
 							]
 						}
 					},
@@ -1815,8 +2423,8 @@
 	],
 	"variable": [
 		{
-			"key": "token",
-			"value": "AZj2y9zD",
+			"key": "post_token",
+			"value": "",
 			"type": "string"
 		},
 		{
@@ -1831,7 +2439,57 @@
 		},
 		{
 			"key": "apikey",
-			"value": "CGO3vfq14QUtgUYWKBkQjmD9k97aXTdFIRLit8fZyTCGaq7llMcXTf96zAeFmAvClD3TP6LBrN4ien54OQXq8YHMy5glb8qf4Cvpn9TTcCm71tDw7ZLrcGchBZGwwHODYMYR3UgRaTASN3SuGgGiwTcTXCG645a2swMFm2bwo54l9nUVHMdrOStHrrdEaHuLRhwj7l7fCTPgnSbqnVEoKMRGP9gHwKdKm69MMD2mx6Tc3AECoBUMendQuj3AiEiK"
+			"value": ""
+		},
+		{
+			"key": "read_conversation_endpoint",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "identification_key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "conversation_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "app_slug",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "oauth_redirect_uri",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "oauth_scopes",
+			"value": "USER_PHONE",
+			"type": "string"
+		},
+		{
+			"key": "oauth_state",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "oauth_client_secret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "oauth_authorization_code",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "oauth_access_token",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
