@@ -286,7 +286,6 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » افزونه‌های چت]: ./chat
 [راهنما » افزونه‌های چت » ارسال پیام]: ./chat/send_message.md
 [راهنما » افزونه‌های چت » ارسال پیام‌ » دکمه]: ./chat/send_message.md#کلیک-کاربر-روی-دکمهٔ-درج-شده-زیر-پیام
-[راهنما » افزونه‌های چت »‌ تست]: ./chat/test_environment.md
 
 [احراز باز]: https://oauth.net/2/
 [احراز باز » ابزارها]: https://oauth.net/code/
