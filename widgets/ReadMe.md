@@ -10,11 +10,11 @@
     "widgets": {
         "widget_list": [
             {
-                "widget_type": "LEGEND_TITLE_ROW",
+                "widget_type": "TITLE_ROW",
                 "data": {
-                    "@type": "type.googleapis.com/widgets.LegendTitleRowData",
-                    "title": "ماشین‌باز",
-                    "subtitle": "کارشناسی سریع خودرو"
+                    "@type": "type.googleapis.com/widgets.TitleRowData",
+                    "text": "عنوان افزونه",
+                    "has_divider": true
                 }
             },
             ...moreWidgets
@@ -30,7 +30,6 @@
 # لیست ویجت های کنار دیوار
 - [DESCRIPTION_ROW](./description_row.md)
 - [EVALUATION_ROW](./evaluation_row.md)
-- [LEGEND_TITLE_ROW](./legend_title_row.md)
 - [TITLE_ROW](./title_row.md)
 - [SUBTITLE_ROW](./subtitle_row.md)
 - [WIDE_BUTTON_BAR](./wide_button_bar.md)

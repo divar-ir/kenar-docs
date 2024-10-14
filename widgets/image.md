@@ -50,19 +50,16 @@ Host: api.divar.ir
 
 Content-Type: application/json
 x-api-key: 9Hh7JDAYLwuAtM9Y5A1hc3WSfBM4-_QfZ5R2HZTdArhN-fa8uLAtIn699zfNR_kxd9Qnnvf-id3W_a2QlwrrIVyBigaQQfiSjNGQCu1oKge-gg4fboPIksgkbZpslbsFz-jGVL2GE-hLp2wTbxitzKr_McZ2RWYDYPmsBk2ol3b_O9k2PCz8V-X5hN0U9GsmRBfaiUDp7bK1KSWZA-KiRYkIPt3_jiTJ6AeX-Xp8vGkdEW4yfx0eZOPDIve6a3ND
-Content-Length: 901
 
 {
     "widgets": {
         "widget_list": [
             {
-                "widget_type": "LEGEND_TITLE_ROW",
+                "widget_type": "TITLE_ROW",
                 "data": {
-                    "@type": "type.googleapis.com/widgets.LegendTitleRowData",
-                    "title": "افزونه تستی",
-                    "subtitle": "کارشناسی تستی",
-                    "has_divider": true,
-                    "image_url": "logo"
+                    "@type": "type.googleapis.com/widgets.TitleRowData",
+                    "text": "تایتل رو",
+                    "has_divider": true
                 }
             },
              {
@@ -85,5 +82,4 @@ Content-Length: 901
 <ul dir="rtl">
 <li><a href="event_row.md">EVENT_ROW</a></li>
 <li><a href="image_carousel_row.md">IMAGE_CAROUSEL_ROW</a></li>
-<li><a href="legend_title_row.md">LEGEND_TITLE_ROW</a> این ویجت فقط از مقدار <code>logo</code> برای تصویر پشتیبانی می‌کند و امکان درج تصویر آپلودشده را در آن ندارید.</li>
 <ul>
