@@ -21,31 +21,54 @@ Content-Type: application/json
 
 ```json5
 {
-    "addons": [
-        {
-            "meta_data": {
-                "id": "406597",
-                "app": {
-                    "slug": "karnameh"
-                },
-                "created_at": "2023-08-11T02:00:14.669638Z"
-            },
-            "token": "AZJXXtlr",
-            "widgets": {
-                "widget_list": [
-                    {
-                        "widget_type": "LEGEND_TITLE_ROW",
-                        "data": {
-                            "@type": "type.googleapis.com/widgets.LegendTitleRowData",
-                            "title": "اعزام فوری کارشناس در 30 دقیقه",
-                            "has_divider": true,
-                            "image_url": "https://s100.divarcdn.com/static/images/open-platform/MzQv3t1oQUPhk7oR5rg4aA.jpg"
-                        }
-                    }
-                ]
-            }
+  "addons": [
+    {
+      "meta_data": {
+        "id": "123456",
+        "app": {
+          "slug": "app_slug",
+          "service_type": "REPORT_PRICE_EVALUATION"
         },
-        /// ...
-    ]
+        "created_at": "2024-10-01T17:01:08.793398Z",
+        "last_modified": "2024-10-01T17:01:08.793398Z",
+        "status": "ACTIVE"
+      },
+      "token": "gZ7nvW21",
+      "widgets": {
+        "widget_list": [
+          {
+            "widget_type": "EVALUATION_ROW",
+            "data": {
+              "@type": "type.googleapis.com/widgets.EvaluationRowData",
+              "indicator_text": "قیمت ملک",
+              "indicator_percentage": "69",
+              "indicator_icon": {
+                "icon_name": "REAL_ESTATE",
+                "icon_color": "ICON_SECONDARY"
+              },
+              "indicator_color": "BRAND_PRIMARY",
+              "left": {
+                "text": "پایین",
+                "text_color": "WHITE_PRIMARY",
+                "section_color": "SUCCESS_PRIMARY"
+              },
+              "middle": {
+                "text": "متوسط",
+                "text_color": "WHITE_PRIMARY",
+                "section_color": "SUCCESS_SECONDARY"
+              },
+              "right": {
+                "text": "بالا",
+                "text_color": "WHITE_PRIMARY",
+                "section_color": "WARNING_SECONDARY"
+              }
+            }
+          }
+          // ...
+        ]
+      },
+    }
+    // ...
+  ]
 }
 ```

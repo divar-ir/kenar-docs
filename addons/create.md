@@ -54,13 +54,11 @@ x-access-token: {{access_token}}
     "widgets": {
         "widget_list": [
             {
-                "widget_type": "LEGEND_TITLE_ROW",
+                "widget_type": "TITLE_ROW",
                 "data": {
-                    "@type": "type.googleapis.com/widgets.LegendTitleRowData",
-                    "title": "تایتل اصلی افزونه",
-                    "subtitle": "سابتایتل",
-                    "has_divider": true,
-                    "image_url": "logo"
+                    "@type": "type.googleapis.com/widgets.TitleRowData",
+                    "text": "این یک تایتل رو هست",
+                    "has_divider": true
                 }
             }
         ]
