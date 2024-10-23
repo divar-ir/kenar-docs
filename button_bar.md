@@ -1,4 +1,4 @@
-# Wide Button Bar
+# Button Bar
 <div dir="rtl"> 
 ویجت wide button bar دارای فرمت زیر است
 </div>
