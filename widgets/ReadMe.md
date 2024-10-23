@@ -23,7 +23,7 @@
 - [EVALUATION_ROW](./evaluation_row.md)
 - [TITLE_ROW](./title_row.md)
 - [SUBTITLE_ROW](./subtitle_row.md)
-- [WIDE_BUTTON_BAR](./wide_button_bar.md)
+- [BUTTON_BAR](./button_bar.md)
 - [SELECTOR_ROW](./selector_row.md)
 - [EVENT_ROW](./event_row.md)
 - [GROUP_INFO_ROW](./group_info_row.md)
