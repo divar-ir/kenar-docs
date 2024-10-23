@@ -52,9 +52,42 @@
     "semantic_paths": {
         "key for an information you want to relay": "path to the field from the widget data object"
     }
-
 }
 ```
+#### اطلاعات معنایی ویجتی
+شما می‌توانید با استفاده از فیلد `semantic_paths` واقع کنار دیتای ویجت اطلاعاتی معنایی درباره فیلد های داخلی ویجت بدهید.
+در فیلد `semantic_paths` یک `object` جیسون وجود دارد که تمام value هایش `string` است.
+در value یک [fieldmask_path](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/field_mask.proto) قرار میگیرد که همانند jsonpath می‌باشد ولی از اندیس آرایه نمی‌توان استفاده کرد.
+مسیر از داخل دیتای ویجت شروع میشود به طور مثال اگر داشته باشیم:
+```
+{
+      {
+          "event_row": {
+            "title": "یه تایتل مناسب",
+            "subtitle": "یه زیر تایتل مناسب تر",
+            "label": "یه لیبل زیبا",
+            "image_id": "someuuid.jpg",
+            "has_divider": true,
+            "icon_name": "ADD"
+            "action": {
+              "open_direct_link": "https://google.com"
+            }
+          },
+          "semantic_paths": {
+            "user_face": "image_id",
+            "my_link": "action.open_direct_link"
+          }
+        }
+}
+```
+که دیوار نتیجه اطلاعات معنایی زیر را دارد:
+```
+{
+    "user_face": "someuuid.jpg",
+    "my_link": "https://google.com"
+}
+```
+از این اطلاعات می‌توان برای ارتباط با تیم های دیواری استفاده کنید.
 
 ویژگی‌های هر ویجت، شرایط اعتبار سنجی و توضیحات مرتبط هر کدام در صفحات زیر دسترس‌ است.
 # لیست ویجت های کنار دیوار
