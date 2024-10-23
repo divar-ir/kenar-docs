@@ -5,36 +5,27 @@
 
 ```json
 {
-"widget_type": "EVALUATION_ROW",
-  "data": {
-    "@type": "type.googleapis.com/widgets.EvaluationRowData",
-    "indicator_text": "متن روی شاخص",
-    "indicator_percentage": 50,
-    "indicator_icon": {
-      "image_url_dark": "",
-      "image_url_light": "",
-      "icon_name": "ADD",
-      "icon_color": "BRAND_PRIMARY"
+    "evaluation_row": {
+        "left": {
+            "text": "cheap",
+            "section_color": "SUCCESS_PRIMARY"
+        },
+        "middle": {
+            "text": "fair",
+            "section_color": "WARNING_SECONDARY"
+        },
+        "right": {
+            "text": "expensive",
+            "section_color": "ERROR_PRIMARY"
+        },
+        "indicator_text": "evaluation",
+        "indicator_percentage": 50,
+        "icon_name": "MONEY"
     },
-    "indicator_color": "BRAND_PRIMARY",
-    "left": {
-      "text": "left text",
-      "text_color": "ICON_PRIMARY",
-      "section_color": "ICON_SECONDARY"
-    },
-    "middle": {
-      "text": "middle text",
-      "text_color": "ICON_PRIMARY",
-      "section_color": "ICON_SECONDARY"
-    },
-    "right": {
-      "text": "right text",
-      "text_color": "ICON_PRIMARY",
-      "section_color": "ICON_SECONDARY"
+    "semantic_paths": {
+      "price_evaluation": "indicator_percentage"
     }
-  }
 }
-
 ```
 <div dir="rtl">
 
@@ -43,18 +34,13 @@
 
 این ویجت دارای سه بخش افقی است و هر بخش یک متن میگیرد. میتوان یک شاخص بالای این ویجت گذاشت تا به یکی از این بخش ها اشاره کند ، این ویجت به طور معمول برای قیمت گذاری و نشان دادن قیمت اصلی به عنوان متن روی شاخص استفاده میشود.
 
-حتما باید `widget_type` برابر با `EVALUATION_ROW` قرار داده شود.
 در ادامه فیلد های این ویجت را توضیح میدهیم:
-- **type**: یک مقدار ثابت برابر با `type.googleapis.com/widgets.EvaluationRowData`
 - indicator_text: این متن روی شاخص نشان داده میشود.
 - indicator_percentage: این فیلد به صورت عددی بین ۰ تا ۱۰۰ است و محدوده ی قرارگیری شاخص را مشخص میکند. به عنوان مثال اگر برابر با ۱۰۰ باشد ، این شاخص در لبه ی ویحت سمت راست نمایش داده میشود.
 - indicator_icon: این فیلد نشان دهنده ی آیکون کنار متن شاخص است
   - icon_name: اسم آیکون از لیست آیکون های دیوار است . این آیکون در کنار ویجت قرار میگیرد
-  - icon_color: رنگ آیکون که میتواند از لیست رنگ های دیوار اننخاب شود.
-- indicator_color: رنگ مورد نظر برای شاخص را مشخص میکند. در کلاینت اندروید و iOS استفاده میشود. این رنگ باید از لیست رنگ های دیوار انتخاب شود.
 - left/middle/right: این فیلد ها محتوای متن و نمایش هر بخش را مشخص میکنند.
   - text: متن داخل بخش را مشخص میکند.
-  - text_color: رنگ متن را مشخص میکند. این رنگ باید از لیست رنگ های دیوار انتخاب شود.
   - section_color: رنگ پس زمینه ی بخش را مشخص میکند. این رنگ باید از لیست رنگ های دیوار انتخاب شود.
 
 # اعتبارسنجی ویجت:
