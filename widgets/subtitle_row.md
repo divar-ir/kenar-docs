@@ -9,7 +9,7 @@
         "text": "این یک سابتایتل رو هست",
         "has_divider": true
     },
-    semantic_paths: {
+    "semantic_paths": {
         "information": "text"
     }
 }
