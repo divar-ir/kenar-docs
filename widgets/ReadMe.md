@@ -7,19 +7,10 @@
 مثال از قراردادن ویجت در درخواست درج افزونه به یک آگهی
 ```JSON
 {
-    "widgets": {
-        "widget_list": [
-            {
-                "widget_type": "TITLE_ROW",
-                "data": {
-                    "@type": "type.googleapis.com/widgets.TitleRowData",
-                    "text": "عنوان افزونه",
-                    "has_divider": true
-                }
-            },
-            ...moreWidgets
-        ]
-    }
+    "widgets": [
+
+    ...moreWidgets
+    ]
 }
 ```
 
