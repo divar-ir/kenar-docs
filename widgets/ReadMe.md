@@ -59,7 +59,7 @@
 در فیلد `semantic_paths` یک `object` جیسون وجود دارد که تمام value هایش `string` است.
 در value یک [fieldmask_path](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/field_mask.proto) قرار میگیرد که همانند jsonpath می‌باشد ولی از اندیس آرایه نمی‌توان استفاده کرد.
 مسیر از داخل دیتای ویجت شروع میشود به طور مثال اگر داشته باشیم:
-```
+```json
 {
       {
           "event_row": {
@@ -81,7 +81,7 @@
 }
 ```
 که دیوار نتیجه اطلاعات معنایی زیر را دارد:
-```
+```json
 {
     "user_face": "someuuid.jpg",
     "my_link": "https://google.com"
