@@ -7,35 +7,34 @@
 مثال:
 ```JSON
 {
-    "widgets": [
-        {
-            "description_row": {
-                "text": "این یک دسکریپشن رو هست",
-                "has_divider": false,
-                "expandable": false,
-            }
-            "semantic_paths": {
-              "a sample sentence": "text"
-            }
-        },
-        {
-          "event_row": {
-            "title": "یه تایتل مناسب",
-            "subtitle": "یه زیر تایتل مناسب تر",
-            "label": "یه لیبل زیبا",
-            "image_id": "someuuid.jpg",
-            "has_divider": true,
-            "icon_name": "ADD"
-            "action": {
-              "open_direct_link": "https://google.com"
-            }
-          },
-          "semantic_paths": {
-            "user_face": "image_id"
-          }
+  "widgets": [
+    {
+      "description_row": {
+        "text": "این یک دسکریپشن رو هست",
+        "has_divider": false,
+        "expandable": false
+      },
+      "semantic_paths": {
+        "a sample sentence": "text"
+      }
+    },
+    {
+      "event_row": {
+        "title": "یه تایتل مناسب",
+        "subtitle": "یه زیر تایتل مناسب تر",
+        "label": "یه لیبل زیبا",
+        "image_id": "someuuid.jpg",
+        "has_divider": true,
+        "icon_name": "ADD",
+        "action": {
+          "open_direct_link": "https://google.com"
         }
-
-    ]
+      },
+      "semantic_paths": {
+        "user_face": "image_id"
+      }
+    }
+  ]
 }
 ```
 
@@ -61,23 +60,21 @@
 مسیر از داخل دیتای ویجت شروع میشود به طور مثال اگر داشته باشیم:
 ```json
 {
-      {
-          "event_row": {
-            "title": "یه تایتل مناسب",
-            "subtitle": "یه زیر تایتل مناسب تر",
-            "label": "یه لیبل زیبا",
-            "image_id": "someuuid.jpg",
-            "has_divider": true,
-            "icon_name": "ADD"
-            "action": {
-              "open_direct_link": "https://google.com"
-            }
-          },
-          "semantic_paths": {
-            "user_face": "image_id",
-            "my_link": "action.open_direct_link"
-          }
-        }
+  "event_row": {
+    "title": "یه تایتل مناسب",
+    "subtitle": "یه زیر تایتل مناسب تر",
+    "label": "یه لیبل زیبا",
+    "image_id": "someuuid.jpg",
+    "has_divider": true,
+    "icon_name": "ADD",
+    "action": {
+      "open_direct_link": "https://google.com"
+    }
+  },
+  "semantic_paths": {
+    "user_face": "image_id",
+    "my_link": "action.open_direct_link"
+  }
 }
 ```
 که دیوار نتیجه اطلاعات معنایی زیر را دارد:
