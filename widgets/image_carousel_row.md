@@ -7,16 +7,12 @@
   "image_carousel_row": {
     "items": [
       {
-        "image_url": "e7172fc8-2a9c-43c7-927d-93ac7477eb06.jpg",
+        "image_id": "e7172fc8-2a9c-43c7-927d-93ac7477eb06.jpg",
         "description": "1"
       },
       {
-        "image_url": "979b9755-7b73-4adc-b209-7905300390ba.jpg",
-        "description": "2"
-      },
-      {
-        "image_url": "logo",
-        "description": "3"
+        "image_id": "979b9755-7b73-4adc-b209-7905300390ba.jpg",
+        "description": "something"
       }
     ],
     "has_divider": true
