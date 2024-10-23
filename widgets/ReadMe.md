@@ -20,15 +20,27 @@
 ویژگی‌های هر ویجت، شرایط اعتبار سنجی و توضیحات مرتبط هر کدام در صفحات زیر دسترس‌ است.
 # لیست ویجت های کنار دیوار
 - [DESCRIPTION_ROW](./description_row.md)
+![DESCRIPTION_ROW](doc-images/description_row_not_expanded.png)
+![DESCRIPTION_ROW](doc-images/description_row_expanded.png)
 - [EVALUATION_ROW](./evaluation_row.md)
+![EVALUATION_ROW](doc-images/evaluation_row.png)
 - [TITLE_ROW](./title_row.md)
+![TITLE_ROW](doc-images/title_row.png)
 - [SUBTITLE_ROW](./subtitle_row.md)
+![SUBTITLE_ROW](doc-images/subtitle_row.png)
 - [BUTTON_BAR](./button_bar.md)
+![BUTTON_BAR](doc-images/wide_button_bar.png)
 - [SELECTOR_ROW](./selector_row.md)
+![SELECTOR_ROW](doc-images/selector_row.png)
 - [EVENT_ROW](./event_row.md)
+![EVENT_ROW](doc-images/event_row.png)
 - [GROUP_INFO_ROW](./group_info_row.md)
+![GROUP_INFO_ROW](doc-images/group_info_row.png)
 - [SCORE_ROW](./score_row.md)
-
+![SCORE_ROW](doc-images/score_row_percentage.png)
+![SCORE_ROW](doc-images/score_row_descriptive.png)
+- [IMAGE_CAROUSEL_ROW](./score_row.md)
+![SCORE_ROW](doc-images/image_carousel_row.png)
 ### ویجت‌های دارای تصویر
 برای اطلاع از درج تصویر در ویجت‌هایی که امکان نمایش تصویر در قسمتی از خود را دارند، [صفحهٔ تصاویر در ویجت‌ها](./image.md) را ببینید
 
