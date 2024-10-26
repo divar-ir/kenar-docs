@@ -4,24 +4,21 @@
 
 ```json5
 {
-  "widget_type": "IMAGE_CAROUSEL_ROW",
-  "data": {
-    "@type": "type.googleapis.com/widgets.ImageCarouselRowData",
+  "image_carousel_row": {
     "items": [
       {
-        "image_url": "e7172fc8-2a9c-43c7-927d-93ac7477eb06.jpg",
+        "image_id": "e7172fc8-2a9c-43c7-927d-93ac7477eb06.jpg",
         "description": "1"
       },
       {
-        "image_url": "979b9755-7b73-4adc-b209-7905300390ba.jpg",
-        "description": "2"
-      },
-      {
-        "image_url": "logo",
-        "description": "3"
+        "image_id": "979b9755-7b73-4adc-b209-7905300390ba.jpg",
+        "description": "something"
       }
     ],
     "has_divider": true
+  },
+  "semantic_paths": {
+    "house_images": "items"
   }
 }
 ```
@@ -31,8 +28,6 @@
 
 این ویجت یک لیست از عکس هارو در یک سطر نمایش میدهد.
 
-حتما باید `widget_type` برابر با `IMAGE_CAROUSEL_ROW` قرار داده شود.
-
-هر `image_url` می‌تواند `logo` یا ایدی عکس بدست آمده مطابق این [داک](./image.md) باشد.
+هر `image_url` باید ایدی عکس بدست آمده مطابق این [داک](./image.md) باشد.
 
 پارامتر `has_divider` مشخص می‌کند که خط پایین ویجت باشد یا نباشد.
