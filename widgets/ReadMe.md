@@ -74,7 +74,7 @@
   "semantic_paths": {
     "user_face": "image_id",
     "my_link": "action.open_direct_link"
-  },
+  }
 }
 ```
 که دیوار نتیجه اطلاعات معنایی زیر را دارد:
