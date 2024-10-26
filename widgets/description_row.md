@@ -5,7 +5,7 @@
     "description_row": {
         "text": "این یک دسکریپشن رو هست",
         "has_divider": false,
-        "expandable": false,
+        "expandable": false
     }
     "semantic_paths": {
       "a sample sentence": "text"
