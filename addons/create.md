@@ -44,28 +44,44 @@ API
 ### ریکوئست
 
 ```http request
-GET https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
+GET https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
 Content-Type: application/json
 x-api-key: {{apikey}}
 
 x-access-token: {{access_token}}
 
 {
-    "widgets": {
-        "widget_list": [
-            {
-                "widget_type": "TITLE_ROW",
-                "data": {
-                    "@type": "type.googleapis.com/widgets.TitleRowData",
-                    "text": "این یک تایتل رو هست",
-                    "has_divider": true
-                }
+   "widgets": [
+        {
+            "description_row": {
+                "text": "این یک دسکریپشن رو هست",
+                "has_divider": false,
+                "expandable": false,
             }
-        ]
-    }
+            "semantic_paths": {
+              "a sample sentence": "text"
+            }
+        },
+        {
+          "event_row": {
+            "title": "یه تایتل مناسب",
+            "subtitle": "یه زیر تایتل مناسب تر",
+            "label": "یه لیبل زیبا",
+            "image_id": "someuuid.jpg",
+            "has_divider": true,
+            "icon_name": "ADD"
+            "action": {
+              "open_direct_link": "https://google.com"
+            }
+          },
+          "semantic_paths": {
+            "user_face": "image_id"
+          }
+        }
+    ],
     "semantic": {
-        "year": 1398,
-        "usage": 100000
+        "identity_verification_result": "FACE_AND_MATCHED",
+        "cowsay": "salam"
     },
     "notes": "any notes you want to get back on list api"
 }
@@ -84,12 +100,6 @@ x-access-token: {{access_token}}
 {}
 ```
 
-# جایگاه نمایش افزونه ها
-افزونه هایی که با تایید کاربر از طریق اوآت الصاق شده باشند، به جای نمایش در انتهای صفحه آگهی، پیش از قسمت توضیحات آگهی، نمایش داده میشوند. در [اینجا](approved_addon.png) نمونه ی یک افزونه ی تایید شده را مشاهده میکنید.
-
-
-
-> تنها برنامه ها با نوع خدمت ارزیابی قیمت ، نیازی به احراز باز (اجازه ی کاربر برای درج افزونه روی آگهی) نمیباشند.
 
 # افزونه تایید شده
 اکثر اپ ها برای منتشر شدن باید اجازه کاربر را جهت درج افزونه طبق فرایند [احراز باز](../oauth) دریافت کنند.

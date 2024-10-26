@@ -5,27 +5,13 @@
 
 ```json
 {
-    "widget_type": "SELECTOR_ROW",
-    "data": {
-        "@type": "type.googleapis.com/widgets.SelectorRowData",
+    "selector_row": {
         "title": "این یک سلکتور رو هست",
-        "image_url": "",
+        "image_id": "someuuid.jpg",
         "has_divider": false,
-        "has_notification": true,
-        "icon": {
-           "icon_name": "ADD",
-        },
-        "notification_text": "",
-        "description": "نوتیفیکیشن",
-        "has_arrow": true,
-        "small": true,
+        "icon_name": "ADD",
         "action": {
-            "type": "LOAD_WEB_VIEW_PAGE",
-            "fallback_link": "https://your.website.com",
-            "payload": {
-                "@type": "type.googleapis.com/widgets.LoadWebViewPagePayload",
-                "url": "https://your.website.com"
-            }
+            "open_direct_link": "https://google.com"
         }
     }
 }
@@ -33,20 +19,17 @@
 <div dir="rtl">
 
 ##  نمایش
-![ScreenShot](doc-images/selector_row.png)
+<div style="align-items: center;"><img style="width:400px" src="./doc-images/selector_row.png" alt="selector_row"/> </div>
 
-حتما باید `widget_type` برابر با `SELECTOR_ROW` قرار داده شود.
 در ادامه فیلد های این ویجت را توضیح میدهیم:
-- type: یک مقدار ثابت برابر با `type.googleapis.com/widgets.SelectorRowData`
-- title: متن مورد نطر برای ویجت
-- image_url: 
-- has_divider: یک فیلد بولین نشان دهنده ی قرار گرفتن یک خط جداکننده در انتهای ویجت
-- description: در کلاینت اندروید نمایش داده میشود و به صورت یک دیسکریپشن پایین تایتل است
-- icon: این فیلد تایپ `json` دارد :
-  - icon_name: اسم آیکون از لیست آیکون های دیوار است . این آیکون در کنار ویجت قرار میگیرد
-  - ~~icon_color: رنگ آیکون که میتواند از لیست رنگ های دیوار اننخاب شود.~~
-- action: همانطور که در [اینجا](./actions/ReadMe.md) توضیح دادیم یکی از دو اکشن تعریف شده را میپذیرد
-
+| فیلد         | توضیحات                                                                                                                     |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------|
+| title        | تایتل مورد نظر برای قرار دادن در ویجت                                                                                        |
+| has_divider     |  یک فیلد بولین نشان دهنده ی قرار گرفتن یک خط جداکننده در انتهای ویجت  |
+| label        | با استفاده از این فیلد، در گوشه‌ی سمت چپ ویجت می‌توان یک متن قرار داد.                                                       |
+| icon_name    | اسم آیکون از لیست آیکون‌های دیوار است. این آیکون در کنار ویجت قرار می‌گیرد.                                                  |
+| image_id     | یک آیدی عکس که با استفاده از این [داک](./image.md) تهیه شده است.                                                             |
+| action       | اکشن با توجه به [این داک](./actions/ReadMe.md) به صورت اختیاری قرار داده شود.                                               |
 
 # اعتبارسنجی ویجت:
 حداکثر طول قابل قبول برای فیلد `title` برابر با ۲۰۰ کاراکتر است.
