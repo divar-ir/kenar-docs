@@ -21,6 +21,9 @@
             }
         ],
         "has_divider": true
+    },
+    "semantic_paths": {
+        "some-usefull-key": "items"
     }
 }
 ```
