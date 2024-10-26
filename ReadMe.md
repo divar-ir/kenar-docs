@@ -300,8 +300,8 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » کلیدها]: ./management/api-keys.md
 [راهنما » کلیدها » امنیت]: ./management/api-keys.md#امنیت-کلیدها
 
-[راهنما » افزونه‌های کاربر]: ./user-addons
-[راهنما » افزونه‌های کاربر » اطلاعات معنایی]: ./user-addons/semantic.md
+[راهنما » افزونه‌های کاربر]: ./addons#افزونه-کاربر
+[راهنما » افزونه‌های کاربر » اطلاعات معنایی]: ./addons/semantic.md
 [راهنما » افزونه‌های کاربر » الصاق]: ./user-addons/user-addons.md
 [راهنما » افزونه‌های کاربر » حذف]: ./user-addons/user-addons.md#حذف-افزونه-کاربر
 
