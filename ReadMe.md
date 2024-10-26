@@ -302,8 +302,8 @@ POST https://api.divar.ir/oauth2/token
 
 [راهنما » افزونه‌های کاربر]: ./addons#افزونه-کاربر
 [راهنما » افزونه‌های کاربر » اطلاعات معنایی]: ./addons/semantic.md
-[راهنما » افزونه‌های کاربر » الصاق]: ./user-addons/user-addons.md
-[راهنما » افزونه‌های کاربر » حذف]: ./user-addons/user-addons.md#حذف-افزونه-کاربر
+[راهنما » افزونه‌های کاربر » الصاق]: ./addons/user-addons.md
+[راهنما » افزونه‌های کاربر » حذف]: ./addons/user-addons.md#حذف-افزونه-کاربر
 
 [راهنما » اطلاعات احراز کاربر]: ./user-verification
 [راهنما » اطلاعات احراز کاربر » درج]: ./user-verification/create.md
