@@ -14,9 +14,6 @@
     "image_id": "someuuid.jpg",
     "has_divider": true,
     "icon_name": "ADD"
-    "action": {
-      "open_direct_link": "https://google.com"
-    }
   },
   "semantic_paths": {
     "user_face": "image_id"
