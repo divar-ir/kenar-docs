@@ -26,7 +26,7 @@ x-access-token: {{access_token}}
 -                "widget_type": "TITLE_ROW",
 -                "data": {
 -                    "@type": "type.googleapis.com/widgets.TitleRowData",
-+               "event_row": {
++               "title_row": {
                     "text": "این یک تایتل رو هست",
                     "has_divider": true
                 }
@@ -58,6 +58,82 @@ x-access-token: {{access_token}}
 
 
 # New Widgets
+در تمامی ویجت ها `@type` و `widget_type` را حذف کنید. نام فیلد `data` را با نام ویجت جایگزین کنید. به طور مثال:
+
+```diff
+{
+-           "widget_type": "TITLE_ROW",
+-           "data": {
+-                       "@type": "type.googleapis.com/widgets.TitleRowData",
++           "title_row": {
+                        "text": "این یک تایتل رو هست",
+                        "has_divider": true
+            }
+}
+```
+حالا مراحل مهاجرت هرکدام از ویجت های قدیمی به جدید را بررسی می‌کنیم:
+
 - 
 
+- ویحت TITLE_ROW
+  - فیلد های `@type` و `widget_type` را حذف کنید.
+  - نام فیلد `data` را با `title_row` جایگزین کنید.
+```diff
+{
+-           "widget_type": "TITLE_ROW",
+-           "data": {
+-                       "@type": "type.googleapis.com/widgets.TitleRowData",
++           "title_row": {
+                        "text": "این یک تایتل رو هست",
+                        "has_divider": true
+            }
+}
+```
+
+- ویحت SUBTITLE_ROW
+  - فیلد های `@type` و `widget_type` را حذف کنید.
+  - نام فیلد `data` را با `subtitle` جایگزین کنید.
+```diff
+{
+-           "widget_type": "SUBTITLE_ROW",
+-           "data": {
+-                       "@type": "type.googleapis.com/widgets.SubtitleRowData",
++           "subtitle_row": {
+                        "text": "این یک سابتایتل رو هست",
+                        "has_divider": true
+            }
+}
+```
+
+
+
+- ویحت WIDE_BUTTON_BAR
+  - فیلد های `@type` و `widget_type` را حذف کنید.
+  - نام فیلد `data` را با `button_bar` جایگزین کنید.
+  - فیلد‌های داخل فیلد `button` را بیرون بیاورید و در `button_bar` قرار دهید.
+  - فیلد ‍`style` را حذف کنید.
+  - فیلد `action` را طبق این قسمت مهاجرت دهید.
+
+```diff
+{
+-   "widget_type": "WIDE_BUTTON_BAR",
+-   "data": {
+-       "@type": "type.googleapis.com/widgets.WideButtonBarWidgetData",
++   "button_bar": {
+-       "style": "SECONDARY",
+-       "button": {
+            "action": {
+-               "type": "OPEN_WEB_PAGE",
+-               "fallback_link": "https://your.website.ir",
+-               "payload": {
+-                   "@type": "type.googleapis.com/widgets.OpenWebPagePayload",
+-                   "link": "https://your.website.ir"
+-               }
+                "open_direct_link": "https://your.website.ir"
+            },
+            "title": "به سمت کارشناسی ماشین",
+        }
+    }
+}
+```
 # New Semantic
