@@ -10,8 +10,8 @@
 - فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `sensitive_semantics` به طور کامل حذف شده است، هر فیلدی که در اینجا تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. پس `sensitive_semantics` را حذف کنید و طبق این جدول فیلد های مورد نظر خود را قرار دهید.
 
 ```diff
--GET https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
-+GET https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
+-POST https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
++POST https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
 
 Content-Type: application/json
 x-api-key: {{apikey}}
