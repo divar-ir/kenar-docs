@@ -135,6 +135,45 @@ x-access-token: {{access_token}}
     }
 }
 ```
+
+
+
+- ویحت SELECTOR_ROW
+  - فیلد های `@type` و `widget_type` را حذف کنید.
+  - نام فیلد `data` را با `selector_row` جایگزین کنید.
+  - فیلد ‍`style` را حذف کنید.
+  - فیلد `action` را طبق این قسمت مهاجرت دهید.
+
+```diff
+{
+-   "widget_type": "SELECTOR_ROW",
+-   "data": {
++   "selector_row": {
+-      "@type": "type.googleapis.com/widgets.SelectorRowData",
+        "title": "این یک سلکتور رو هست",
+-       "image_url": "someuuid.jpg",
++       "image_id" "someuuid.jpg",
+        "has_divider": false,
+-       "has_notification": true,
+-       "icon": {
+           "icon_name": "ADD",
+-       },
+-       "notification_text": "",
+-       "description": "نوتیفیکیشن",
+-       "has_arrow": true,
+-       "small": true,
+        "action": {
+-           "type": "LOAD_WEB_VIEW_PAGE",
+-           "fallback_link": "https://your.website.com",
+-           "payload": {
+-               "@type": "type.googleapis.com/widgets.LoadWebViewPagePayload",
+-               "url": "https://your.website.com"
+-           }
++           "open_direct_link": "https://your.website.ir"
+        }
+    }
+}
+```
 ## New Actions
 در ویجت های جدید اکشن‌ها با اکشن های `API` جدید چت یکپارچه شد. به طور خلاصه برای مهاجرت کافی است که لینکی که میخواستید کاربر به آن هدایت شود را در کف `action`، در فیلد `open_direct_link` قرار دهید به شکل زیر:
 ```diff
