@@ -345,6 +345,29 @@ x-access-token: {{access_token}}
     }
   }
 }
+```
+
+
+
+- ویحت EVALUATION_ROW
+  - فیلد های `@type` و `widget_type` را حذف کنید.
+  - نام فیلد `data` را با `evaluation_row` جایگزین کنید.
+  - فیلد های ‍`text_color, indicator_color, icon_color, image_url_light, image_url_dark` را حذف کنید.
+  - فیلد `icon_name` را از `indicator_icon` خارج کنید و فیلد `indicator_icon` را حذف کنید.
+ 
+```diff
+{
+-   "widget_type": "DESCRIPTION_ROW",
+-   "data": {
+        "@type": "type.googleapis.com/widgets.DescriptionRowData",
+        "text": "این یک دسکریپشن رو هست",
+        "has_divider": false,
+        "is_primary": false,
+        "expandable": false,
+        "small": true,
+        "padded": false
+    }
+}
 
 ```
 
