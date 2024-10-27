@@ -44,7 +44,7 @@ API
 ### ریکوئست
 
 ```http request
-GET https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
+POST https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
 Content-Type: application/json
 x-api-key: {{apikey}}
 
