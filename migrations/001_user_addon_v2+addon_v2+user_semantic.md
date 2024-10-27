@@ -40,10 +40,79 @@ x-access-token: {{access_token}}
 +        "payment_method": "SECURE",
 +        "some-key": "some value to be hashed"
     },
+-   "sensitive_semantics": [],
     "notes": "any notes you want to get back on list api"
 }
 ```
 
+
+# User Addon V2
+- در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/post/{{token}}` تغییر دهید.
+- فیلد `widgets`در رکوئست قبلا به شکل `widgets:{"widget_list":[]}` بود که در حالت جدید به شکل `widgets:[]` درآمده است. پس محتویات `widget_list` را در `widgets` قرار دهید و آن را لیست/آرایه بکنید.
+- خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق این قسمت تک تک ویجت هارا تغییر دهید.
+- فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `sensitive_semantics` به طور کامل حذف شده است، هر فیلدی که در اینجا تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. سپس `sensitive_semantics` را حذف کنید و طبق این جدول فیلد های مورد نظر خود را قرار دهید.
+- فیلد های `phone, notes, management_permalink` را از `body` نیز حذف کنید.
+- فیلد `verifcation_cost` را به `cost` تغییر نام دهید.
+
+```diff
+POST https://api.divar.ir/v1/open-platform/addons/user/{{phone}}
+x-access-token: {{access-token}}
+x-api-key: {{api-key}}
+
+{
+-    "widgets": {
++    "widgets": [
+-        "widget_list": [
+            {
+-               "widget_type": "SCORE_ROW",
+-               "data": {
++               "score_row": {
+-                   "@type": "type.googleapis.com/widgets.ScoreRowData",
+                    "title": "فنی",
+                    "percentage_score": 80,
+                    "score_color": "SUCCESS_PRIMARY",
+                    "hasDivider": true,
+-                   "icon": {
+                        "icon_name": "HISTORY",
+-                       "icon_color": "SUCCESS_PRIMARY"
+-                   },
+                    "action": {
+-                       "type": "LOAD_WEB_VIEW_PAGE",
+-                       "fallback_link": "https://google.com/",
+-                       "payload": {
+-                           "@type": "type.googleapis.com/widgets.LoadWebViewPagePayload",
+-                           "url": "https://google.com/"
+-                       }
++                       "open_direct_link": "https://google.com"
+                    }
+                }
+            }
+-       ]
+-   },
++   ],
+-   "notes": "test note",
+-   "phone": "09991234567",
+    "categories": [],
+-   "management_permalink": "https://same-domain.com/manage/id",
+    "ticket_uuid": "812d56e6-e44d-45e7-8932-f9acbd416999",
+-   "verification_cost": 124000,
++   "cost": 124000,
+    "semantic": {
+-       "national_id": "0023456789",
+-       "full_name": "علی علوی",
+-       "external_reference": "ref-id",
+        "identity_verification_result": "FACE_AND_ID_MATCHED"
+    },
+-   "semantic_sensitives": ["national_id"]
+}
+```
+
+
+
+
+
+
+# User Semantic
 
 
 
