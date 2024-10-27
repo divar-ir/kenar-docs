@@ -1,14 +1,14 @@
 در این داکیومنت تمام مراحل مورد نیاز برای مهاجرت:
-- از user addon v1 به user addon v2
-- از post addon v1 به post addon v2
-- از user verification به user semantic
+- از user addon v1 به user addon v2[لینک](#user-addon-v2)
+- از post addon v1 به post addon v2[لینک](#post-addon-v2)
+- از user verification به user semantic[لینک](#user-semantic)
 
 گفته می‌شود. توجه داشته باشید که `API` های قدیمی در لحظه maintain می‌شوند ولی پیشنهاد می‌شود تا قبل از اعلام `DEPRECATION` آن ها مهاجرت را انجام دهید.
 # Post Addon V2
 - در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/post/{{token}}` تغییر دهید.
 - فیلد `widgets`در رکوئست قبلا به شکل `widgets:{"widget_list":[]}` بود که در حالت جدید به شکل `widgets:[]` درآمده است. پس محتویات `widget_list` را در `widgets` قرار دهید و آن را لیست/آرایه بکنید.
 - خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق این قسمت تک تک ویجت هارا تغییر دهید.
-- فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `sensitive_semantics` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. پس `sensitive_semantics` را حذف کنید و طبق [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
+- فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `semantic_sensitives` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. پس `sensitive_semantics` را حذف کنید و طبق [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
 
 ```diff
 -POST https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
@@ -41,22 +41,23 @@ x-access-token: {{access_token}}
 +        "payment_method": "SECURE",
 +        "some-key": "some value to be hashed"
     },
--   "sensitive_semantics": [],
+-   "semantic_sensitives": [],
     "notes": "any notes you want to get back on list api"
 }
 ```
 
 
 # User Addon V2
-- در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/post/{{token}}` تغییر دهید.
+- در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/user/{{phone}}` تغییر دهید.
 - فیلد `widgets`در رکوئست قبلا به شکل `widgets:{"widget_list":[]}` بود که در حالت جدید به شکل `widgets:[]` درآمده است. پس محتویات `widget_list` را در `widgets` قرار دهید و آن را لیست/آرایه بکنید.
 - خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق این قسمت تک تک ویجت هارا تغییر دهید.
-- فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `sensitive_semantics` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. سپس `sensitive_semantics` را حذف کنید و طبق [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
+- فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `semantic_sensitives` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. سپس `sensitive_semantics` را حذف کنید و طبق [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
 - فیلد های `phone, notes, management_permalink` را از `body` نیز حذف کنید.
 - فیلد `verifcation_cost` را به `cost` تغییر نام دهید.
 
 ```diff
-POST https://api.divar.ir/v1/open-platform/addons/user/{{phone}}
+-POST https://api.divar.ir/v1/open-platform/addons/user/{{phone}}
++POST https://api.divar.ir/v2/open-platform/addons/user/{{phone}}
 x-access-token: {{access-token}}
 x-api-key: {{api-key}}
 
@@ -115,13 +116,38 @@ x-api-key: {{api-key}}
 
 # User Semantic
 
+## ساخت
+- در ابتدا برای دریافت اجازه USER_SEMANTIC_CREATE بر روی اپتان بر روی پنل کنار تیکت [ثبت](https://divar.ir/kenar/management/issues/new) کنید.
+- در ادامه  `endpoint` را به `https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}` تغییر دهید.
+- فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `semantic_sensitives` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. سپس `sensitive_semantics` را حذف کنید و طبق [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
+- فیلد های `phone, notes` را از بادی ریکوئست حدف کنید.
+- 
 
 
 
 
 
+```diff
+POST https://api.divar.ir//v1/open-platform/verifications/user/{{phone}}
+x-access-token: {{access-token}}
+x-api-key: {{api-key}}
 
+{
+-   "notes": "test note",
+-   "phone": "09120000000",
+    "semantic": {
+       "national-id": "12345678",
+       "identity_verification_result": "FACE_AND_ID_MATCHED"
+    },
+-   "semantic_sensitives": ["national-id"],
+    "ticket_uuid": "812d56e6-e44d-45e7-8932-f9acbd416999",
+-   "verification_cost": 12000
++   "cost": 12000
+}
+```
+> با توجه به اینکه `national-id` فیلد از پیش تعیین شده نمی‌باشد، محتویات این فیلد به طور کامل رمز و چکیده شده و تیم های داخل دیوار چیزی از این فیلد متوجه نخواهند شد.
 
+## حذف
 
 
 
