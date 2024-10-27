@@ -25,8 +25,8 @@ x-access-token: {{access_token}}
             {
 -                "widget_type": "TITLE_ROW",
 -                "data": {
--                    "@type": "type.googleapis.com/widgets.TitleRowData",
-+               "title_row": {
++                "title_row": {
+-                   "@type": "type.googleapis.com/widgets.TitleRowData",
                     "text": "این یک تایتل رو هست",
                     "has_divider": true
                 }
@@ -64,8 +64,8 @@ x-access-token: {{access_token}}
 {
 -           "widget_type": "TITLE_ROW",
 -           "data": {
--                       "@type": "type.googleapis.com/widgets.TitleRowData",
 +           "title_row": {
+-                       "@type": "type.googleapis.com/widgets.TitleRowData",
                         "text": "این یک تایتل رو هست",
                         "has_divider": true
             }
@@ -73,7 +73,6 @@ x-access-token: {{access_token}}
 ```
 حالا مراحل مهاجرت هرکدام از ویجت های قدیمی به جدید را بررسی می‌کنیم:
 
-- 
 
 - ویحت TITLE_ROW
   - فیلد های `@type` و `widget_type` را حذف کنید.
@@ -82,8 +81,8 @@ x-access-token: {{access_token}}
 {
 -           "widget_type": "TITLE_ROW",
 -           "data": {
--                       "@type": "type.googleapis.com/widgets.TitleRowData",
 +           "title_row": {
+-                       "@type": "type.googleapis.com/widgets.TitleRowData",
                         "text": "این یک تایتل رو هست",
                         "has_divider": true
             }
@@ -97,8 +96,8 @@ x-access-token: {{access_token}}
 {
 -           "widget_type": "SUBTITLE_ROW",
 -           "data": {
--                       "@type": "type.googleapis.com/widgets.SubtitleRowData",
 +           "subtitle_row": {
+-                       "@type": "type.googleapis.com/widgets.SubtitleRowData",
                         "text": "این یک سابتایتل رو هست",
                         "has_divider": true
             }
@@ -118,8 +117,8 @@ x-access-token: {{access_token}}
 {
 -   "widget_type": "WIDE_BUTTON_BAR",
 -   "data": {
--       "@type": "type.googleapis.com/widgets.WideButtonBarWidgetData",
 +   "button_bar": {
+-       "@type": "type.googleapis.com/widgets.WideButtonBarWidgetData",
 -       "style": "SECONDARY",
 -       "button": {
             "action": {
@@ -136,4 +135,5 @@ x-access-token: {{access_token}}
     }
 }
 ```
-# New Semantic
+## New Actions
+در ویجت های جدید اکشن‌ها با اکشن های `API` جدید چت یکپارچه شد.
