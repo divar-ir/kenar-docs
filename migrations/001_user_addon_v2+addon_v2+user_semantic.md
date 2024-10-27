@@ -141,7 +141,9 @@ x-access-token: {{access_token}}
 - ویحت SELECTOR_ROW
   - فیلد های `@type` و `widget_type` را حذف کنید.
   - نام فیلد `data` را با `selector_row` جایگزین کنید.
-  - فیلد ‍`style` را حذف کنید.
+  - فیلد های ‍`style, small, has_arrow, description, notification_text` را حذف کنید.
+  - فیلد `icon_name` را از `icon` خارج کنید و فیلد `icon` را حذف کنید.
+  - نام فیلد `image_url` را به `image_id` تغییر دهید.
   - فیلد `action` را طبق این قسمت مهاجرت دهید.
 
 ```diff
