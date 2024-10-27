@@ -2,6 +2,7 @@
 - از user addon v1 به user addon v2
 - از post addon v1 به post addon v2
 - از user verification به user semantic
+
 گفته می‌شود. توجه داشته باشید که `API` های قدیمی در لحظه maintain می‌شوند ولی پیشنهاد می‌شود تا قبل از اعلام `DEPRECATION` آن ها مهاجرت را انجام دهید.
 # Post Addon V2
 - در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/post/{{token}}` تغییر دهید.
