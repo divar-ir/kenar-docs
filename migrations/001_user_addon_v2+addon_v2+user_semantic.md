@@ -144,7 +144,7 @@ x-access-token: {{access_token}}
   - فیلد های ‍`style, small, has_arrow, description, notification_text` را حذف کنید.
   - فیلد `icon_name` را از `icon` خارج کنید و فیلد `icon` را حذف کنید.
   - نام فیلد `image_url` را به `image_id` تغییر دهید.
-  - فیلد `action` را طبق این قسمت مهاجرت دهید.
+  - فیلد `action` را طبق (#new-actions)[این قسمت] مهاجرت دهید.
 
 ```diff
 {
