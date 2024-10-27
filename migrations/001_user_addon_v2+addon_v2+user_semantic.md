@@ -128,7 +128,7 @@ x-access-token: {{access_token}}
 -                   "@type": "type.googleapis.com/widgets.OpenWebPagePayload",
 -                   "link": "https://your.website.ir"
 -               }
-                "open_direct_link": "https://your.website.ir"
++               "open_direct_link": "https://your.website.ir"
             },
             "title": "به سمت کارشناسی ماشین",
         }
@@ -136,4 +136,15 @@ x-access-token: {{access_token}}
 }
 ```
 ## New Actions
-در ویجت های جدید اکشن‌ها با اکشن های `API` جدید چت یکپارچه شد.
+در ویجت های جدید اکشن‌ها با اکشن های `API` جدید چت یکپارچه شد. به طور خلاصه برای مهاجرت کافی است که لینکی که میخواستید کاربر به آن هدایت شود را در کف `action`، در فیلد `open_direct_link` قرار دهید به شکل زیر:
+```diff
+            "action": {
+-               "type": "OPEN_WEB_PAGE",
+-               "fallback_link": "https://your.website.ir",
+-               "payload": {
+-                   "@type": "type.googleapis.com/widgets.OpenWebPagePayload",
+-                   "link": "https://your.website.ir"
+-               }
++               "open_direct_link": "https://your.website.ir"
+            },
+```
