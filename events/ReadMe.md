@@ -45,7 +45,10 @@ x-access-token: {{access_token}}
 
 {
     "event_type": "NEW_MESSAGE_ON_POST",
-    "event_resource_id": "gZd7omnS"
+    "event_resource_id": "gZd7omnS",
+    "metadata": {
+        "key": "value"
+    }
 }
 ```
 
@@ -62,20 +65,23 @@ Authorization: {{identification_key}}
 Content-Type: application/json
 
 {
-   "type": "NEW_MESSAGE",
-   "new_message": {
-       "id": "e7a08a2c-8ee4-11ef-af85-4e9e9bfa3c12",
-       "conversation": {
-           "id": "edbb9499-cccc-4d35-b21f-621fa95f2b3e",
-           "type": "POST",
-           "post_token": "gZd7omnS"
-       },
-       "sender": {
-           "type": "SELLER"
-       },
-       "type": "TEXT",
-       "sent_at": 1729429926140000
-   } 
+    "type": "NEW_MESSAGE",
+    "metadata": {
+        "key": "value"
+    },
+    "new_message": {
+        "id": "e7a08a2c-8ee4-11ef-af85-4e9e9bfa3c12",
+        "conversation": {
+            "id": "edbb9499-cccc-4d35-b21f-621fa95f2b3e",
+            "type": "POST",
+            "post_token": "gZd7omnS"
+        },
+        "sender": {
+            "type": "SELLER"
+        },
+        "type": "TEXT",
+        "sent_at": 1729429926140000
+    } 
 }
 ```
 
@@ -85,7 +91,7 @@ Content-Type: application/json
 |:-------------:|:---------------------------------------------------:|-----------------------------------------------------:|
 |    `type`     |               [EventType](#رویدادها)                |                  نوع رویداد، برای مثال `NEW_MESSAGE` |
 | `new_message` | Optional[[ChatMessage](/events/chat/#chat-message)] | پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
-
+|   `metadata`  |                      Optional[Object]               | دیتای دلخواه از سمت برنامه‌ی شما.|
 ### رویدادها
 
 |    رویداد     |         توضیحات |
