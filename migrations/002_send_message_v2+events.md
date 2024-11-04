@@ -171,7 +171,8 @@ Content-Type: application/json
 +           "post_token": "gZd7omnS"
 +       },
 +       "sender": {
-+           "type": "SELLER"
++           "side": "SELLER",
++           "type": "HUMAN"
 +       },
 +       "type": "TEXT",
 +       "sent_at": 1729429926140000
