@@ -77,7 +77,8 @@ Content-Type: application/json
             "post_token": "gZd7omnS"
         },
         "sender": {
-            "type": "SELLER"
+            "side": "SELLER",
+            "type": "BOT"
         },
         "type": "TEXT",
         "sent_at": 1729429926140000
@@ -91,7 +92,7 @@ Content-Type: application/json
 |:-------------:|:---------------------------------------------------:|-----------------------------------------------------:|
 |    `type`     |               [EventType](#رویدادها)                |                  نوع رویداد، برای مثال `NEW_MESSAGE` |
 | `new_message` | Optional[[ChatMessage](/events/chat/#chat-message)] | پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
-|   `metadata`  |                      Optional[Object]               | دیتای دلخواه از سمت برنامه‌ی شما.|
+|  `metadata`   |                  Optional[Object]                   |                    دیتای دلخواه از سمت برنامه‌ی شما. |
 ### رویدادها
 
 |    رویداد     |         توضیحات |

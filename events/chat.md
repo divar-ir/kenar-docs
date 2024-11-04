@@ -19,7 +19,8 @@
     "post_token": "gZd7omnS"
   },
   "sender": {
-    "type": "SELLER"
+    "side": "SELLER",
+    "type": "BOT"
   },
   "type": "TEXT",
   "sent_at": 1729429926140000
@@ -38,4 +39,5 @@
 
 | پارامتر |  نوع   |                               توضیحات |
 |:-------:|:------:|--------------------------------------:|
-| `type`  | string | نوع فرستنده‌ی پیام: `SELLER`، `BUYER` |
+| `side`  | string | طرف فرستنده‌ی پیام: `SELLER`، `BUYER` |
+| `type`  | string |    نوع فرستنده‌ی پیام: `HUMAN`، `BOT` |
