@@ -91,7 +91,7 @@ Content-Type: application/json
 |    پارامتر    |                         نوع                         |                                              توضیحات |
 |:-------------:|:---------------------------------------------------:|-----------------------------------------------------:|
 |    `type`     |               [EventType](#رویدادها)                |                  نوع رویداد، برای مثال `NEW_MESSAGE` |
-| `new_message` | Optional[[ChatMessage](/events/chat/#chat-message)] | پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
+| `new_message` | Optional[[ChatMessage](/events/chat.md/#chat-message)] | پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
 |  `metadata`   |                  Optional[Object]                   |                    دیتای دلخواه از سمت برنامه‌ی شما. |
 ### رویدادها
 
