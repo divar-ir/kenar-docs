@@ -45,6 +45,14 @@ x-api-key: {{apikey}}
 |      usage      | [NumberRange](#بازه-عددی) | فیلتر براساس بازه کارکرد.                           |
 
 
+# فیلترهای دسته‌ی موبایل
+- `brand_model`
+
+# فیلترهای دسته‌ی خودرو
+- `brand_model`
+- `production_year`
+- `usage`
+
 # بازه عددی
 | نام فیلد |  نوع  | توضیح         |
 |:--------:|:-----:|---------------|
@@ -80,15 +88,24 @@ x-api-key: {{apikey}}
 |  posts   | array of [SearchPostItem](#پست) | لیست آیتم‌های پست. |
 
 # پست
-|     نام فیلد     |      نوع       | توضیح                        |
-|:----------------:|:--------------:|------------------------------|
-|      token       |     string     | شناسه یکتا برای پست.         |
-|     category     |     string     | دسته‌بندی پست.               |
-| last_modified_at |   Timestamp    | زمان آخرین تغییرات پست.      |
-|       city       |     string     | شهری که پست در آن قرار دارد. |
-|      title       |     string     | عنوان پست.                   |
-|      price       | [Price](#قیمت) | جزئیات قیمت پست.             |
-
+|             نام فیلد             |      نوع       | توضیح                                   |
+|:--------------------------------:|:--------------:|-----------------------------------------|
+|              token               |     string     | شناسه یکتا برای پست.                    |
+|             category             |     string     | دسته‌بندی پست.                          |
+|         last_modified_at         |   Timestamp    | زمان آخرین تغییرات پست.                 |
+|               city               |     string     | شهری که پست در آن قرار دارد.            |
+|              title               |     string     | عنوان پست.                              |
+|              price               | [Price](#قیمت) | جزئیات قیمت پست.                        |
+|        real_estate_fields        |     Object     | فیلدهای مروبط به دسته املاک             |
+|         vehicles_fields          |     Object     | فیلدهای مروبط به دسته خودر.             |
+|    electronic_devices_fields     |     Object     | فیلدهای مروبط به دسته وسایل الکترونیکی  |
+|       home_kitchen_fields        |     Object     | فیلدهای مروبط به دسته خانه و آشپزخانه   |
+|         services_fields          |     Object     | فیلدهای مروبط به دسته خدمات             |
+|      personal_goods_fields       |     Object     | فیلدهای مروبط به دسته شخصی              |
+|      leisure_hobbies_fields      |     Object     | فیلدهای مروبط به دسته سرگرمی و فراغت    |
+|         community_fields         |     Object     | فیلدهای مروبط به دسته اجتماعی           |
+| tools_materials_equipment_fields |     Object     | فیلدهای مروبط به دسته تجهیزات و صنعتی   |
+|           jobs_fields            |     Object     | فیلدهای مروبط به دسته استخدام و کاریابی |
 
 # قیمت
 | نام فیلد |  نوع   | توضیح                         |
