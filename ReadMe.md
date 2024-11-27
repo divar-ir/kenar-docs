@@ -256,6 +256,7 @@ POST https://api.divar.ir/oauth2/token
   - [افزونه‌های آگهی » اطلاعات معنایی][راهنما » افزونه‌های آگهی » معنی]
   - [افزونه‌های آگهی » محیط تست][راهنما » افزونه‌های آگهی » تست]
 - [ویجت‌ها][راهنما » ویجت‌ها]
+  - [ویجت‌ها » فیگما][ویجت‌ها » فیگما]
 - [افزونه‌های چت][راهنما » افزونه‌های چت]
   - [افزونه‌های چت » ارسال پیام][راهنما » افزونه‌های چت » ارسال پیام]
   - [افزونه‌های چت » محیط تست][راهنما » افزونه‌های چت »‌ تست]
@@ -291,6 +292,8 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » افزونه‌های آگهی » تست]: ./addons/test_environment.md
 
 [راهنما » ویجت‌ها]: ./widgets
+[ویجت‌ها » فیگما]: https://www.figma.com/file/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?type=design&node-id=2-4&mode=design&t=RbiQ2ay29ombNJKz-11
+
 [راهنما » بازگشت کاربر]: ./misc
 
 [راهنما » افزونه‌های چت]: ./chat
@@ -323,7 +326,6 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » آگهی]: ./finder
 [راهنما » مقادیر]: ./assets
 [راهنما » اطلاعات آگهی » جستجو]: ./finder/search_post.md
-
 <br><br>
 
 <div align="center">
