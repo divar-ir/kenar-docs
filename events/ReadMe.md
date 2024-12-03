@@ -83,7 +83,8 @@ Content-Type: application/json
             "type": "BOT"
         },
         "type": "TEXT",
-        "sent_at": 1729429926140000
+        "sent_at": 1729429926140000,
+        "text": "Hello!"
     } 
 }
 ```
