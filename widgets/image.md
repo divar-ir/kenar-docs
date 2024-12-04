@@ -45,35 +45,29 @@ Content-Length: 22
 برای مثال در نمونه درخواست زیر در ویجت `EVENT_ROW` تصویر مورد نظرمان را قرار دادیم.
 
 ```http request
-POST //v1/open-platform/add-ons/post/AZqfx5i2 HTTP/1.1
+POST /v2/open-platform/add-ons/post/AZqfx5i2 HTTP/1.1
 Host: api.divar.ir
 
 Content-Type: application/json
-x-api-key: 9Hh7JDAYLwuAtM9Y5A1hc3WSfBM4-_QfZ5R2HZTdArhN-fa8uLAtIn699zfNR_kxd9Qnnvf-id3W_a2QlwrrIVyBigaQQfiSjNGQCu1oKge-gg4fboPIksgkbZpslbsFz-jGVL2GE-hLp2wTbxitzKr_McZ2RWYDYPmsBk2ol3b_O9k2PCz8V-X5hN0U9GsmRBfaiUDp7bK1KSWZA-KiRYkIPt3_jiTJ6AeX-Xp8vGkdEW4yfx0eZOPDIve6a3ND
+x-api-key: {{your-api-key}}
 
 {
-    "widgets": {
-        "widget_list": [
-            {
-                "widget_type": "TITLE_ROW",
-                "data": {
-                    "@type": "type.googleapis.com/widgets.TitleRowData",
-                    "text": "تایتل رو",
-                    "has_divider": true
-                }
-            },
-             {
-                "widget_type": "EVENT_ROW",
-                "data": {
-                    "@type": "type.googleapis.com/widgets.EventRowData",
-                    "title": "یک اونت رو",
-                    "subtitle": "اطلاعات بیشتر اونت رو",
-                    "has_divider": true,
-                    "image_url": "57c76b48-d381-4b8a-b34f-355f6869b6ed.jpg"
-                }
+    "widgets": [
+        {
+            "title_row": {
+                "text": "تایتل رو",
+                "has_divider": true
             }
-        ]
-    }
+        },
+        {
+            "event_row": {
+                "title": "یک اونت رو",
+                "subtitle": "اطلاعات بیشتر اونت رو",
+                "has_divider": true,
+                "image_url": "57c76b48-d381-4b8a-b34f-355f6869b6ed.jpg"
+            }
+        }
+    ]
 }
 ```
 
