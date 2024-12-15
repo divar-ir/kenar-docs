@@ -44,8 +44,35 @@ Content-Type: application/json
 X-Api-Key: {your-api-key}
 
 {
-    "type": "TEXT",
-    "text_message": "Hello, World!"
+  "type": "TEXT",
+  "text_message": "hello, World!",
+  "buttons": {
+    "rows": [
+      {
+        "buttons": [
+          {
+            "action": {
+              "open_direct_link": "آدرس مورد نظر برای باز شدن بعد از کلیک"
+            },
+            "icon_name": "نام آیکون",
+            "caption": "متن دکمه"
+          },
+          {
+            "action": {
+              "open_server_link": {
+                "data": {
+                  "my_key_1": "value",
+                  "my_key_2": "value2"
+                }
+              }
+            },
+            "icon_name": "نام آیکون",
+            "caption": "متن دکمه"
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -58,7 +85,34 @@ curl --location 'https://api.divar.ir/v2/open-platform/chatbot-conversations/{co
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {your-api-key}' \
 --data '{
-    "type": "TEXT",
-    "text_message": "hello, World!"
+  "type": "TEXT",
+  "text_message": "hello, World!",
+  "buttons": {
+    "rows": [
+      {
+        "buttons": [
+          {
+            "action": {
+              "open_direct_link": "آدرس مورد نظر برای باز شدن بعد از کلیک"
+            },
+            "icon_name": "نام آیکون",
+            "caption": "متن دکمه"
+          },
+          {
+            "action": {
+              "open_server_link": {
+                "data": {
+                  "my_key_1": "value",
+                  "my_key_2": "value2"
+                }
+              }
+            },
+            "icon_name": "نام آیکون",
+            "caption": "متن دکمه"
+          }
+        ]
+      }
+    ]
+  }
 }'
 ```
