@@ -39,7 +39,7 @@ Content-Type: application/json
 برای پاسخ دادن به کاربر، از API زیر استفاده کنید. توجه داشته باشید که برای استفاده از این قابلیت، باید دسترسی `CHAT_BOT_SEND_MESSAGE` را داشته باشید. در صورتی که این دسترسی را ندارید، می‌توانید از طریق ثبت تیکت در پنل کنار دیوار آن را درخواست کنید.
 
 ```http request
-POST https://api.divar.ir/expermiental/open-platform/chatbot-conversations/{conversation_id}/messages
+POST https://api.divar.ir/experimental/open-platform/chatbot-conversations/{conversation_id}/messages
 Content-Type: application/json
 X-Api-Key: {your-api-key}
 
@@ -81,7 +81,7 @@ X-Api-Key: {your-api-key}
 در اینجا یک مثال از ارسال پیام با استفاده از `curl` آمده است:
 
 ```bash
-curl --location 'https://api.divar.ir/v2/open-platform/chatbot-conversations/{conversation_id}/messages' \
+curl --location 'https://api.divar.ir/experimental/open-platform/chatbot-conversations/{conversation_id}/messages' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {your-api-key}' \
 --data '{
