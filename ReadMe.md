@@ -328,8 +328,8 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » افزونه‌های کاربر » حذف]: ./addons/user-addons.md#حذف-افزونه-کاربر
 
 [راهنما » اطلاعات معنایی کاربر]: ./semantic
-[راهنما » اطلاعات معنایی کاربر » درج]: ./semantic/create.md
-[راهنما » اطلاعات معنایی کاربر » حذف]: ./semantic/delete.md
+[راهنما » اطلاعات معنایی کاربر » درج]: ./semantic/user_semantic_create
+[راهنما » اطلاعات معنایی کاربر » حذف]: ./semantic/user_semantic_delete
 
 [راهنما » تیکت پرداخت]: ./payment-ticket
 [راهنما » تیکت پرداخت » بررسی صحت]: ./payment-ticket/validate.md
