@@ -20,6 +20,7 @@ Content-Type: application/json
 {
     "type": "NEW_CHATBOT_MESSAGE",
     "new_chatbot_message": {
+        "message_text": "hello world",
         "id": {{message_id}},
         "conversation": {
             "id": {{conversation_id}},
@@ -66,7 +67,7 @@ X-Api-Key: {your-api-key}
                 }
               }
             },
-            "icon_name": "نام آیکون",
+            "icon": "نام آیکون",
             "caption": "متن دکمه"
           }
         ]
@@ -75,6 +76,8 @@ X-Api-Key: {your-api-key}
   }
 }
 ```
+[آیکون‌ها][آیکون‌ها] موجود برای دکمه‌ها
+
 
 #### مثال
 
@@ -116,3 +119,6 @@ curl --location 'https://api.divar.ir/experimental/open-platform/chatbot-convers
   }
 }'
 ```
+
+[آیکون‌ها]: https://www.figma.com/design/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?node-id=1501-2225&p=f
+
