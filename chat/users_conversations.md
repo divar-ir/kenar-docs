@@ -123,12 +123,11 @@ x-access-token: {{access_token}}
 
 ### Button
 
-| Field Name | Field Type       | Description                                     |
-|------------|------------------|-------------------------------------------------|
-| action     | [Action][Action] | اکشنی که پس از کلیک کاربر بر روی دکمه رخ می‌دهد |
-| icon       | [Icon](https://www.figma.com/design/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?node-id=1501-2225&p=f)   | نام آیکون نمایش داده‌شده بر روی دکمه            |
-| caption    | String           | متنی که بر روی دکمه نمایش داده می‌شود           |
-
+| Field Name | Field Type                                                                                                      | Description                                     |
+|------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| action     | [Action][Action]                                                                                                | اکشنی که پس از کلیک کاربر بر روی دکمه رخ می‌دهد |
+| icon       | [Icon](https://www.figma.com/design/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?node-id=1501-2225&p=f) | نام آیکون نمایش داده‌شده بر روی دکمه            |
+| caption    | String                                                                                                          | متنی که بر روی دکمه نمایش داده می‌شود           |
 
 ### خطاها
 

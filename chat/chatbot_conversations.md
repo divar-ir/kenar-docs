@@ -55,7 +55,7 @@ X-Api-Key: {your-api-key}
             "action": {
               "open_direct_link": "آدرس مورد نظر برای باز شدن بعد از کلیک"
             },
-            "icon_name": "نام آیکون",
+            "icon_name": "REAL_STATE",
             "caption": "متن دکمه"
           },
           {
@@ -67,7 +67,7 @@ X-Api-Key: {your-api-key}
                 }
               }
             },
-            "icon": "نام آیکون",
+            "icon": "HOME",
             "caption": "متن دکمه"
           }
         ]
@@ -76,6 +76,8 @@ X-Api-Key: {your-api-key}
   }
 }
 ```
+
+### Icons
 [آیکون‌ها][آیکون‌ها] موجود برای دکمه‌ها
 
 
@@ -98,7 +100,7 @@ curl --location 'https://api.divar.ir/experimental/open-platform/chatbot-convers
             "action": {
               "open_direct_link": "آدرس مورد نظر برای باز شدن بعد از کلیک"
             },
-            "icon_name": "نام آیکون",
+            "icon": "REAL_STATE",
             "caption": "متن دکمه"
           },
           {
@@ -110,7 +112,7 @@ curl --location 'https://api.divar.ir/experimental/open-platform/chatbot-convers
                 }
               }
             },
-            "icon_name": "نام آیکون",
+            "icon": "HOME",
             "caption": "متن دکمه"
           }
         ]
