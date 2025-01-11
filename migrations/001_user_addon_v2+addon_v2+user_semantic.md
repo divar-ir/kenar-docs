@@ -53,7 +53,7 @@ x-access-token: {{access_token}}
 - خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق [این قسمت](#new-widgets) تک تک ویجت هارا تغییر دهید.
 - فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `semantic_sensitives` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. سپس `sensitive_semantics` را حذف کنید و طبق [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
 - فیلد های `phone, notes, management_permalink` را از `body` نیز حذف کنید.
-- فیلد `verifcation_cost` را به `cost` تغییر نام دهید.
+- فیلد `verification_cost` را به `cost` تغییر نام دهید.
 
 ```diff
 -POST https://api.divar.ir/v1/open-platform/addons/user/{{phone}}
