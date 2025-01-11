@@ -15,7 +15,7 @@
 فیلد های زیر توسط تیم سرچ دیوار تعیین شده‌اند و با توجه به اپ شما **ممکن** است منجر به بدج شوند:
 - فیلد`payment_method` برای توصیف نحوه پرداخت کاربر مقادیر مجاز: ‍ ‍‍‍‍   `SECURE`
 - فیلد `identity_verification_result` برای توصیف نتیحه احراز کاربر مقادیر مجاز: `FACE_AND_ID_MATCHED`
-- فیلد `post_verifcation_result` برای توصیف نتیجه احراز آگهی مقادیر مجاز : `POST_INFORMATION_MATCHED`
+- فیلد `post_verification_result` برای توصیف نتیجه احراز آگهی مقادیر مجاز : `POST_INFORMATION_MATCHED`
 - فیلد `status` برای توصیف وضعیت احراز مقادیر مجاز : `SUCCEEDED`, `FAILED` ,`EXPIRED`
 - فیلد `identity_verification_last_successful_stage` برای مشخص کردن آخرین مرحله موفق احراز هویت مقادیر مجاز : `IDENTITYVERIFICATIONSTAGE_NOT_STARTED`, `NATIONAL_INFO_VERIFICATION`, `IMAGE_VERIFICATION` ,`VIDEO_VERIFICATION`
 - فیلد `identity_verification_failure_reason` برای مشخص کردن دلیل ناموفق بودن احراز هویت مقادیر مجاز : `IDENTITYVERIFICATIONSTAGE_NOT_STARTED`, `NATIONAL_INFO_VERIFICATION`, `IMAGE_VERIFICATION` ,`VIDEO_VERIFICATION`

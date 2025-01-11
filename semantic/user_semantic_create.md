@@ -17,7 +17,7 @@ x-api-key: {{api-key}}
 {
 
     "semantic": {
-        "identity_verifcation_result": "FACE_AND_ID_MATCHED",
+        "identity_verification_result": "FACE_AND_ID_MATCHED",
         "some-key": "some value to be hashed"
     },
     "ticket_uuid": "812d56e6-e44d-45e7-8932-f9acbd416999",
