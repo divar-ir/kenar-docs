@@ -10,17 +10,39 @@
 در مسیج ListPostServiceProvidersRequest یک فیلد آپشنال به نام `ticket_uuid` قرار دارد که میتوان این فیلد را با مقدار تیکت ساخته شده از اندپوینت قبلی ، پر کرد. با پر کردن این فیلد ، سرویس پروایدر خارجی از نمایش درگاه پرداخت به کاربر جلوگیری میکند و در هنگام ساخت افزونه ی کاربر ،‌این تیکت باطل میشود.
 
 ### ریکوئست
-
+```go
 metadata = (('x-app-slug', 'test'),('x-api-key-id', '110'))
-req = GenerateRequest(phone_number='09990000000', service_type=ServiceType.REPORT_VERIFICATION, max_amount_sponsored=10000)
-stub.Generate(request=req)
+```
 
-- فیلد x-api-ket-id برابر با آیدی api key است که با پرمیشن ساخت بلیط ساخته شده است.
-- فیلد x-app-slug برابر با slug اپ ساخته شده در پنل کناز است.
-- فیلد phone_number باید با شماره کاربری که میخواهیم احراز رایگان را انجام دهد پر شود. 
-- فیلد service_type برابر با نوع سرویس مورد استفاده است. برای سرویس احراز این مقدار برابر با `REPORT_VERIFICATION` می‌باشد.
-- فیلد max_amount_sponsored برابر با حداکثر مقدار مدنظر برای هزینه ی احراز به ریال است. 
+```go
+req := &pb.GenerateRequest{
+    DivarUserId: "sample_divar_user_id",
+    ServiceType: pb.ServiceType_REPORT_VERIFICATION,
+    MaxAmountSponsored: 10000,
+}
+
+// or the deprecated version
+req := &pb.GenerateRequest{
+    Phone: "09990000000", // deprecated
+    ServiceType: pb.ServiceType_REPORT_VERIFICATION,
+    MaxAmountSponsored: 10000,
+}
+```
+```go
+stub.Generate(request=req)
+```
+
+- فیلد `x-api-ket-id` برابر با آیدی `api key` است که با پرمیشن ساخت بلیط ساخته شده است.
+- فیلد `x-app-slug` برابر با `slug` اپ ساخته شده در پنل کناز است.
+- فیلد `phone_number` می‌تواند با شماره کاربری که میخواهیم احراز رایگان را انجام دهد پر شود یا در صورت استفاده از 
+  `divar_user_id` خالی باشد. 
+- فیلد `divar_user_id` برابر با شناسه کاربر در دیوار است.
+- فیلد `service_type` برابر با نوع سرویس مورد استفاده است. برای سرویس احراز این مقدار برابر با `REPORT_VERIFICATION` می‌باشد.
+- فیلد `max_amount_sponsored` برابر با حداکثر مقدار مدنظر برای هزینه ی احراز به ریال است. 
 
 ### ریسپانس
-
-ticket_uuid: "4ddaff7e-275a-4928-9d4a-25765114fa3b"
+```json
+{
+    "ticket_uuid": "4ddaff7e-275a-4928-9d4a-25765114fa3b"
+}
+```
