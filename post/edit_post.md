@@ -14,7 +14,7 @@
 PUT https://api.divar.ir/v1/open-platform/post/<token>
 x-access-token: {{access_token_with_oauth_scope_POST_EDIT.<post_token>}}
 x-api-key: {{apikey}}
-data: {
+{
     "title": "عنوان مد نظر برای آگهی",
     "description": "توضیحات مد نظر برای آگهی",
     "image_paths": [
