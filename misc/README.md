@@ -5,7 +5,7 @@
 ```js
 function isDivarLink(link) {
   // Define the regular expression for divar.ir and its subdomains
-  const divarRegex = /^https:\/\/(?:[a-zA-Z0-9-]+\.)?divar\.ir(\/?|\/.+)/;
+  const divarRegex = /^https:\/\/(?:[a-zA-Z0-9-]+\.)?divar\.ir(\/?|\/.+)$/;
 
   // Test the link against the regular expression
   return divarRegex.test(link);
