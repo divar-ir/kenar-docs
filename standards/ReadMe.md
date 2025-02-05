@@ -19,18 +19,20 @@
 
 این مقادیر یا به شکل اینام هستند یا به شکل هش شده نگهداری میشوند:  
 
-```
-"ownership\_result": "OWNERSHIP_CONFIRMED"
-"VIN": "VIN_VALUE"
-"chassis_number": "123456ABC"
-"engine_number": "123456"
+```json
+{
+  "ownership_result": "OWNERSHIP_CONFIRMED",
+  "VIN": "AB1234CD",
+  "chassis_number": "123456ABC",
+  "engine_number": "123456"
+}
 ```
 برای قراردادن رنگ، سال ساخت و نوع خودرو لازم است این مقادیر را در ویجت‌های جداگانه قرار دهید و از طریق کلید [semantic\_paths](../addons/create.md#%D8%B1%DB%8C%DA%A9%D9%88%D8%A6%D8%B3%D8%AA) به آنها اشاره کنید. کلیدهای سمنتیک پث به شکل زیر باشند:  
 
-```
-"color": "text"
-"year": "text"
-"brand_model": "some brand"
+```json
+  "color": "text",
+  "year": "text",
+  "brand_model": "some brand",
 ```
 مقادیر بالا به شکل پابلیک رو روی ویجت‌ها قرار میگیرند.
 
