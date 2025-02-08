@@ -31,5 +31,6 @@
 - فیلد `identity_verification_failure_reason` برای مشخص کردن دلیل ناموفق بودن احراز هویت مقادیر مجاز : `IDENTITYVERIFICATIONSTAGE_NOT_STARTED`, `NATIONAL_INFO_VERIFICATION`, `IMAGE_VERIFICATION` ,`VIDEO_VERIFICATION`
 - فیلد `car_verification_last_successful_stage` برای مشخص کردن آخرین مرحله موفق احراز مالکیت خودرو مقادیر مجاز : `CARVERIFICATIONSTAGE_NOT_STARTED`, `CARVERIFICATIONSTAGE_SHAHKAR`, `CAR_CARD_VERIFICATION` ,`CAR_MODEL_VERIFICATION`
 - فیلد `car_verification_failure_reason` برای مشخص کردن دلیل ناموفق بودن احراز مالکیت خودرو مقادیر مجاز : `CARVERIFICATIONSTAGE_NOT_STARTED`, `CARVERIFICATIONSTAGE_SHAHKAR`, `CAR_CARD_VERIFICATION` ,`CAR_MODEL_VERIFICATION`
+- فیلد `ownership_result` برای مشخص کردن تایید مالکیت آگهی‌گذار با مقادیر مجاز: `OWNERSHIP_CONFIRMED` و `OWNERSHIP_DELEGATION_CONFIRMED`
 
 برای اضافه شدن فیلد جدید، به تیم دیواری مربوطه درخواست خود را اعلام کنید.
