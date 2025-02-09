@@ -3,7 +3,7 @@
 | Edit Post        |                        |
 |------------------|------------------------|
 | Permissions      | EDIT_POST              |
-| OAUTH Permission | POST_EDIT.<post_token> |
+| OAUTH Scope      | POST_EDIT.<post_token> |
 
 برای ویراش اطلاعات آگهی نظیر عنوان، توضیحات و عکس های آگهی میتوانید از این اندپوینت استفاده کنید
 
