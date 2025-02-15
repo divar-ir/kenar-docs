@@ -35,12 +35,13 @@ Content-Type: application/json
 }
 ```
 
-### ارسال پیام به کاربر
+### ارسال پیام در مکالمه ایجاد شده (با در دست داشتن conversation id)
 
-برای پاسخ دادن به کاربر، از API زیر استفاده کنید. توجه داشته باشید که برای استفاده از این قابلیت، باید دسترسی `CHAT_BOT_SEND_MESSAGE` را داشته باشید. در صورتی که این دسترسی را ندارید، می‌توانید از طریق ثبت تیکت در پنل کنار دیوار آن را درخواست کنید.
+برای پاسخ دادن به کاربر در شرایطی که `conversation_id` را در اختیار دارید، می‌توانید از API زیر استفاده کنید. توجه داشته باشید که برای استفاده از این قابلیت، باید دسترسی `CHAT_BOT_SEND_MESSAGE` را داشته باشید. در صورتی که این دسترسی را ندارید، می‌توانید از طریق ثبت تیکت در پنل کنار دیوار آن را درخواست کنید.
+
 
 ```http request
-POST https://api.divar.ir/experimental/open-platform/chatbot-conversations/{conversation_id}/messages
+POST https://api.divar.ir/experimental/open-platform/chat/bot/conversations/{conversation_id}/messages
 Content-Type: application/json
 X-Api-Key: {your-api-key}
 
@@ -76,20 +77,23 @@ X-Api-Key: {your-api-key}
   }
 }
 ```
+### ارسال پیام مستقیم به کاربر
+در این روش با در اختیار داشتن شناسه یکتا کاربر (user_id) و اخذ اجازه کاربر در فرایند OAuth می‌توانید بدون نیاز به `conversation_id` به کاربر پیام ارسال کنید.
+> - در این روش شما قابلیت این را دارید که مکالمه را از سمت چت‌بات شروع کنید.
+> - جهت دریافت اطلاعات بیشتر در مورد `user_id` [اینجا](/oauth/get_user.md) را مطالعه کنید.
 
-### Icons
-[آیکون‌ها][آیکون‌ها] موجود برای دکمه‌ها
+| Authorization Level | Required Scope             |
+|---------------------|----------------------------|
+| API                 | CHAT_BOT_SEND_MESSAGE      |
+| User (OAuth)        | CHAT_BOT_USER_MESSAGE_SEND |
 
+```http request
+POST https://api.divar.ir/experimental/open-platform/chat/bot/users/{user_id}/messages
+Content-Type: application/json
+X-Api-Key: {your-api-key}
+X-Access-Token: {your-access-token}
 
-#### مثال
-
-در اینجا یک مثال از ارسال پیام با استفاده از `curl` آمده است:
-
-```bash
-curl --location 'https://api.divar.ir/experimental/open-platform/chatbot-conversations/{conversation_id}/messages' \
---header 'Content-Type: application/json' \
---header 'x-api-key: {your-api-key}' \
---data '{
+{
   "type": "TEXT",
   "text_message": "hello, World!",
   "buttons": {
@@ -100,7 +104,7 @@ curl --location 'https://api.divar.ir/experimental/open-platform/chatbot-convers
             "action": {
               "open_direct_link": "آدرس مورد نظر برای باز شدن بعد از کلیک"
             },
-            "icon": "REAL_STATE",
+            "icon_name": "REAL_STATE",
             "caption": "متن دکمه"
           },
           {
@@ -119,8 +123,12 @@ curl --location 'https://api.divar.ir/experimental/open-platform/chatbot-convers
       }
     ]
   }
-}'
+}
 ```
+
+
+### Icons
+[آیکون‌ها][آیکون‌ها] موجود برای دکمه‌ها
 
 [آیکون‌ها]: https://www.figma.com/design/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?node-id=1501-2225&p=f
 
