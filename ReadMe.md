@@ -58,13 +58,13 @@
 ۵. می‌توانید [فهرست درخواست‌ها](#فهرست-درخواستها) را ببینید یا [این کالکشن][postman_collection] را دانلود کنید و در ابزارهایی مثل Postman وارد کنید و شروع کنید.
 
 # پروژه‌های قدرت‌گرفته از کنار دیوار
-⏺ [مستر دیاگ](https://github.com/amirsalarsafaei/mrdiag)
-
-⏺ [ریتینو](https://github.com/mohammadmasoumi/ratino)
-
-⏺ [مثال ساده](https://github.com/Mobin-Pourabedini/kenar-divar-example)
-
-⏺[بازی ایکس او](https://github.com/amirsalarsafaei/kenar-xo/tree/master)
+| عنوان           | لینک                                                                                          |  زبان برنامه‌نویسی |
+|-----------------|-----------------------------------------------------------------------------------------------|-------------------|
+| مستر دیاگ       | [مستر دیاگ](https://github.com/amirsalarsafaei/mrdiag)                                        | Python            |
+| ریتینو          | [ریتینو](https://github.com/mohammadmasoumi/ratino)                                           | Python            |
+| مثال ساده       | [مثال ساده](https://github.com/Mobin-Pourabedini/kenar-divar-example)                         | Python            |
+| بازی ایکس او    | [بازی ایکس او](https://github.com/amirsalarsafaei/kenar-xo/tree/master)                       | Python            |
+| طوطی فینگلیش    | [طوطی فینگلیش](https://github.com/majidalaeinia/finglish-parrot)                              | PHP               |
 
 
 # نمای کلی و پیش‌نیاز‌ها
