@@ -57,6 +57,11 @@
 ۴. در قسمت آگهی‌های تستی یک آگهی بسازید تا بتوانید راحت‌تر تست کنید.\
 ۵. می‌توانید [فهرست درخواست‌ها](#فهرست-درخواستها) را ببینید یا [این کالکشن][postman_collection] را دانلود کنید و در ابزارهایی مثل Postman وارد کنید و شروع کنید.
 
+# ویدیو‌های آموزشی
+
+1. [مفاهیم و مقدمات کنار دیوار](https://www.aparat.com/v/bhi2mx2)
+2.  [مقدمات OAuth و دریافت توکن](https://www.aparat.com/v/wgya70s)
+
 # پروژه‌های قدرت‌گرفته از کنار دیوار
 ⏺ [مستر دیاگ](https://github.com/amirsalarsafaei/mrdiag)
 
@@ -65,7 +70,6 @@
 ⏺ [مثال ساده](https://github.com/Mobin-Pourabedini/kenar-divar-example)
 
 ⏺[بازی ایکس او](https://github.com/amirsalarsafaei/kenar-xo/tree/master)
-
 
 # نمای کلی و پیش‌نیاز‌ها
 
