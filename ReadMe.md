@@ -60,7 +60,8 @@
 # ویدیو‌های آموزشی
 
 1. [مفاهیم و مقدمات کنار دیوار](https://www.aparat.com/v/bhi2mx2)
-2.  [مقدمات OAuth و دریافت توکن](https://www.aparat.com/v/wgya70s)
+2. [جزئیات APIها](https://www.aparat.com/v/zpgw3gb)
+3.  [مقدمات OAuth و دریافت توکن](https://www.aparat.com/v/wgya70s)
 
 # پروژه‌های قدرت‌گرفته از کنار دیوار
 ⏺ [مستر دیاگ](https://github.com/amirsalarsafaei/mrdiag)
