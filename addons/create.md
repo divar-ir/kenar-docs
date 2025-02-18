@@ -57,8 +57,8 @@ x-access-token: {{access_token}}
             "description_row": {
                 "text": "این یک دسکریپشن رو هست",
                 "has_divider": false,
-                "expandable": false,
-            }
+                "expandable": false
+            },
             "semantic_paths": {
               "a sample sentence": "text"
             }
@@ -70,7 +70,7 @@ x-access-token: {{access_token}}
             "label": "یه لیبل زیبا",
             "image_id": "someuuid.jpg",
             "has_divider": true,
-            "icon_name": "ADD"
+            "icon_name": "ADD",
             "action": {
               "open_direct_link": "https://google.com"
             }
