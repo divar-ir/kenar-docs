@@ -103,7 +103,7 @@ authorization: {{ Divar Identification Key }}
 [راهنما » احراز باز]: /oauth
 [امکانات چت]: /chat/#دسترسی-سریع
 [راهنما » چت‌بات]: /chat/chatbot_conversations.md
-[چت»ارسال پیام]: /chat/user_conversations.md
+[چت»ارسال پیام]: /chat/users_conversations.md
 
 <br><br>
 
