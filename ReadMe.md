@@ -236,7 +236,6 @@
 
 [راهنما » تیکت پرداخت]: ./payment-ticket
 [راهنما » تیکت پرداخت » بررسی صحت]: ./payment-ticket/validate.md
-[postman_collection]: ./Divar-Kenar.postman_collection.json
 [ایشوی جدید]: https://github.com/divar-ir/kenar-docs/issues/new
 
 [راهنما » آگهی]: ./finder
