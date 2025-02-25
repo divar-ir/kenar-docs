@@ -2,7 +2,6 @@
 
 | GET USER          |               |
 |-------------------|---------------|
-| API Permissions   | USER_RETRIEVE |
 | OAuth Permissions | USER_PHONE، USER_ID |
 
 با استفاده از `access_token` می‌توانید شماره همراه کاربر و شناسه کاربری یکتا را دریافت کنید. کافیست درخواست زیر را به صورت فرم ارسال کنید.

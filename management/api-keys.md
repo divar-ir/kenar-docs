@@ -115,7 +115,6 @@ x-api-key: {{apikey}}
 
 [پنل کنار » مدیریت برنامه‌ها]: https://divar.ir/kenar/management/apps
 [راهنما » ساخت افزونه]: /addons/create.md
-[راهنما » حذف افزونه]: /addons/delete.md
 [راهنما » اطلاعات کاربر]: /oauth/get_user.md
 [راهنما » ارسال پیام]: /chat/send_message.md
 [gitignore]: https://git-scm.com/docs/gitignore

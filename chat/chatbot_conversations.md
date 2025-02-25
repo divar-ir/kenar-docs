@@ -85,7 +85,6 @@ X-Api-Key: {your-api-key}
 
 | Authorization Level | Required Scope             |
 |---------------------|----------------------------|
-| API                 | CHAT_BOT_SEND_MESSAGE      |
 | User (OAuth)        | CHAT_BOT_USER_MESSAGE_SEND |
 
 ```http request

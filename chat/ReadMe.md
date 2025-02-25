@@ -38,7 +38,6 @@ authorization: {{ Divar Identification Key }}
       "id": "شناسهٔ کاربر خریدار"
     },
 }
-
 ```
 
 - پارامتر `post_token` شناسهٔ آگهی‌ مورد نظر است.

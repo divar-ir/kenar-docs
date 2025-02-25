@@ -2,7 +2,6 @@
 
 | Get Post     |            |
 |--------------|------------|
-| Permissions  | GET_POST   |
 | Default Rate | 10K R/WEEK |
 
 برای دریافت اطلاعات یک آگهی در دیوار تنها با استفاده از توکن میتوانید از این ای پی آی استفاده کنید 
@@ -60,7 +59,6 @@ x-api-key: {{apikey}}
 
 | Get Post          |                         |
 |-------------------|-------------------------|
-| Permissions       | GET_POST                |
 | OAuth Permissions | POST_ONGOING_IMAGES_GET |
 | Resource ID       | post_token              |
 | Default Rate      | 10K R/WEEK              |
@@ -80,7 +78,7 @@ x-access-token: {{access_token}}
 
 شامل اطلاعات یکسانی از پست در بخش جستجوی پست میباشد 
 
-```json
+```json5
 {
   "token": "AZir15UU",
   "category": "mobile-phones",

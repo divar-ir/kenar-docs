@@ -1,14 +1,13 @@
 # ساخت و بروزرسانی افزونه آگهی
 
 # افزونه تایید شده
-اکثر برنامه ها برای منتشر شدن باید اجازه کاربر را جهت درج افزونه طبق فرایند [احراز باز](../oauth) دریافت کنند.
+اکثر برنامه‌ها برای منتشر شدن باید اجازه کاربر را جهت درج افزونه طبق فرایند [احراز باز](../oauth) دریافت کنند.
+برای درج افزونه تایید شده می‌توانید با توجه به نیاز، از دو اسکوپ زیر استفاده کنید.
 
-
-| ویژگی ها                | توضیحات                                                                                                             |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------|
-| پرمیشن مورد نیاز برنامه | ADD_ON_CREATE                                                                                                       |
-| Oauth Scope             | POST_ADDON_CREATE.{POST_TOKEN} که در اینجا POST_TOKEN برابر با توکن آگهی میباشد (نمونه: POST_ADDON_CREATE.gZ5ZolKk) |
-| محدودیت تعداد فراخوانی  | دارد                                                                                                                |
+| اسکوپ احراز باز                | توضیحات                                          | مثال                       |
+|--------------------------------|--------------------------------------------------|----------------------------|
+| POST_ADDON_CREATE.{POST_TOKEN} | درج افزونه بر روی یک اگهی کاربر با توکن gZ5ZolKk | POST_ADDON_CREATE.gZ5ZolKk |
+| USER_POSTS_ADDON_CREATE        | درج افزونه بر روی تمام آگهی های یک کاربر         | USER_POSTS_ADDON_CREATE    |
 
 ---
 
@@ -43,6 +42,7 @@ API
 زیر صدا زده شود. برای آگاهی از نحوه ساخت ویجت‌ها و قراردادن لینک در آنها، میتوانید به [قسمت ویجت‌ها](../widgets/ReadMe.md) مراجعه نمائید.
 
 ### ریکوئست
+لینک این درخواست در [فهرست API-ها](https://divar.ir/kenar/api-doc#tag/addons/POST/v2/open-platform/addons/post/{token})
 
 ```http request
 POST https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
@@ -59,9 +59,6 @@ x-access-token: {{access_token}}
                 "has_divider": false,
                 "expandable": false
             },
-            "semantic_paths": {
-              "a sample sentence": "text"
-            }
         },
         {
           "event_row": {
@@ -75,15 +72,8 @@ x-access-token: {{access_token}}
               "open_direct_link": "https://google.com"
             }
           },
-          "semantic_paths": {
-            "user_face": "image_id"
-          }
         }
     ],
-    "semantic": {
-        "identity_verification_result": "FACE_AND_MATCHED",
-        "cowsay": "salam"
-    },
     "notes": "any notes you want to get back on list api"
 }
 ```
@@ -96,17 +86,7 @@ x-access-token: {{access_token}}
 - فیلد `semantic` برای اطلاعات معنایی می باشد که در [اینجا](/semantic/semantic_data.md) بیشتر توضیح داده شده است.
 
 ### ریسپانس
-
+با توجه به `status_code` خروجی این API از موفقیت یا خطای مربوطه مطلع خواهید شد.
 ```json
 {}
 ```
-
-
-# افزونه تایید شده
-اکثر اپ ها برای منتشر شدن باید اجازه کاربر را جهت درج افزونه طبق فرایند [احراز باز](../oauth) دریافت کنند.
-برای درج افزونه تایید شده می‌توانید با توجه به نیاز، از دو اسکوپ زیر استفاده کنید.
-
-| اسکوپ احراز باز                | توضیحات                                          | مثال                       |
-|--------------------------------|--------------------------------------------------|----------------------------|
-| POST_ADDON_CREATE.{POST_TOKEN} | درج افزونه بر روی یک اگهی کاربر با توکن gZ5ZolKk | POST_ADDON_CREATE.gZ5ZolKk |
-| USER_POSTS_ADDON_CREATE        | درج افزونه بر روی تمام آگهی های یک کاربر         | USER_POSTS_ADDON_CREATE    |
