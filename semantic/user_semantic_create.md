@@ -2,7 +2,6 @@
 
 | Upsert User Semantic |                          |
 |--------------------------|--------------------------|
-| API Permissions          | USER_SEMANTIC_CREATE |
 | OAuth Permissions        | USER_VERIFICATION_CREATE |
 | Rate Limit               | Unlimited                |
 

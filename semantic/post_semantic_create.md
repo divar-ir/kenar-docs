@@ -2,7 +2,6 @@
 
 | Upsert Post Semantic |                      |
 |----------------------|----------------------|
-| API Permissions      | POST_SEMANTIC_CREATE |
 | OAuth Permissions    | POST_SEMANTIC_CREATE |
 | Rate Limit           | Unlimited            |
 
