@@ -2,9 +2,7 @@
 
 | CREATE USER ADDON |                   |
 |-------------------|-------------------|
-| API Permissions   | USER_ADDON_CREATE |
 | OAuth Permissions | USER_ADDON_CREATE |
-| Rate Limit        | Unlimited         |
 
 
 ## ریکوئست

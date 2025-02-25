@@ -8,219 +8,43 @@
 > البته ساختمان دادهٔ پاسخ، تغییری که باعث بروز خطا شود، نخواهد داشت.
 
 ## دسته‌ها
-
-درخواست
-
-```http
-GET https://api.divar.ir/v1/open-platform/assets/category
-```
-
-نمونهٔ پاسخ
-
-```JSON
-{
-    "categories": [
-        {
-            "display": "دسته بندی اصلی",
-            "slug": "root"
-        },
-        {
-            "display": "دسته بندی اصلی - املاک",
-            "slug": "real-estate"
-        },
-        // ...
-    ]
-}
-```
-
-## شهرها
-
-درخواست
-
-```http
-GET https://api.divar.ir/v1/open-platform/assets/city
-```
-
-نمونهٔ پاسخ
-
-```JSON
-{
-    "cities": [
-        {
-            "display": "آبادان",
-            "slug": "abadan"
-        },
-        {
-            "display": "آباده",
-            "slug": "abadeh"
-        },
-        /// ...
-    ]
-}
-```
-
-> ممکن است در سایر قسمت‌های دیوار مقادیر عددی یا city_id مشاهده کنید. این مقادیر در کنار دیوار کاربردی ندارند و نباید
-> استفاده شوند.
-
-## محله‌ها
-
-درخواست
-
-```http request
-GET https://api.divar.ir/v1/open-platform/assets/district
-```
-
-نمونهٔ پاسخ
-
-```JSON
-{
-    "districts": [
-        {
-            "display": "آبشار",
-            "slug": "abshar"
-        },
-        // ...
-    ]
-}
-```
-
-### محله‌های یک شهر
-می‌توانید محله‌های شهرهای زیر را از آدرسی که در ادامه می‌بینید دریافت کنید:
-- tehran
-- karaj
-- mashhad
-- isfahan
-- shiraz
-- rasht
-- qom
-- ahvaz
-
-```http request
-GET https://api.divar.ir/v1/open-platform/assets/district/{{city}}
-```
-
-> سایر شهرهای دیوار دارای محله نیستند.
-
-## برند-مدل‌ها
-
-در دسته‌های `light` برای خودرو و `mobile-phones` برای کالاهای دیجیتال می‌توانید از آدرس زیر لیست برند‌مدل‌ها را دریافت کنید:
-
-```http request
-GET https://api.divar.ir/v1/open-platform/assets/brand-model/{{category}}
-```
-
-نمونهٔ پاسخ
-
-```JSON
-{
-    "brand_models": [
-        {
-            "display": "همه‌ی برند‌ها",
-            "slug": "ROOT"
-        },
-        {
-            "display": "آئودی",
-            "slug": "Audi"
-        },
-        /// ...
-    ]
-}
-```
-
-## رنگ‌ها
-
-مشابه برند-مدل، برای دسته‌بندی‌های `light` و `mobile-phones` می‌توانید لیست رنگ‌های موجود در دیوار را از آدرس زیر دریافت کنید.
-
-```http request
-GET https://api.divar.ir/v1/open-platform/assets/color/{{category}}
-```
-نمونه پاسخ
-
-```JSON
-{
-    "colors": [
-        {
-            "display": "آبی",
-            "slug": "آبی"
-        },
-        {
-            "display": "آلبالویی",
-            "slug": "آلبالویی"
-        },
-        /// ...
-    ]
-}
-```
-
-## حافظه‌داخلی
-
-```http request
-GET https://api.divar.ir//v1/open-platform/assets/internal-storage
-```
-
-نمونهٔ پاسخ
-
-```JSON
-{
-    "internal_storages": [
-        {
-            "display": "مطرح نیست",
-            "slug": "irrelevant"
-        },
-        {
-            "display": "۵۱۲ مگابایت",
-            "slug": "512MB"
-        },
-        /// ...
-      ]
-}
-```
-
-## رم‌مموری‌
-
-```http request
-GET https://api.divar.ir//v1/open-platform/assets/ram-memory
-```
+برای اطلاعات بیشتر به [فهرست درخواست‌ها(Swagger)](https://divar.ir/kenar/api-doc#tag/assets) مراجعه کنید
 
 
-نمونهٔ پاسخ
 
-```JSON
-{
-    "ram_memories": [
-        {
-            "display": "مطرح نیست",
-            "slug": "irrelevant"
-        },
-        {
-            "display": "۵۱۲ مگابایت",
-            "slug": "512MB"
-        },
-        /// ...
-      ]
-}
-```
+---
 
-## وضعیت‌بدنه
+# مقادیر خاص دسته‌بندی خودرو
+باتوجه به ثابت بودن این مقادیر نیاز به ارسال درخواست نیست و میتوانید از جدول‌های زیر در برنامه‌ی مد نظرتان استفاده کنید.
+## وضعیت شاسی و بدنه
 
-```http request
-GET https://api.divar.ir//v1/open-platform/assets/body-status
-```
+### body_chassis_status.body_status وضعیت بدنه
 
-نمونهٔ پاسخ
+| value                  | display               |
+|------------------------|-----------------------|
+| intact                 | سالم و بی‌خط و خش      |
+| some-scratches         | خط و خش جزیی          |
+| paintless-dent-removal | صافکاری بی‌رنگ         |
+| one-spot-paint         | رنگ‌شدگی، در ۱ ناحیه   |
+| two-spots-paint        | رنگ‌شدگی، در ۲ ناحیه   |
+| some-paint             | رنگ‌شدگی، در چند ناحیه |
+| half-paint             | دوررنگ                |
+| full-paint             | تمام‌رنگ               |
+| accidental             | تصادفی                |
+| junk                   | اوراقی                |
 
-```JSON
-{
-    "body_status": [
-        {
-            "display": "سالم و بی‌خط و خش",
-            "slug": "intact"
-        },
-        {
-            "display": "خط و خش جزیی",
-            "slug": "some-scratches"
-        },
-        /// ...
-      ]
-}
-```
+### body_chassis_status.back_chassis_status وضعیت شاسی عقب
+
+| value   | display     |
+|---------|-------------|
+| healthy | سالم و پلمپ |
+| damage  | ضربه‌خورده   |
+| paint   | رنگ‌شده      |
+
+### body_chassis_status.front_chassis_status وضعیت شاسی جلو
+
+| value   | display     |
+|---------|-------------|
+| healthy | سالم و پلمپ |
+| damage  | ضربه‌خورده   |
+| paint   | رنگ‌شده      |

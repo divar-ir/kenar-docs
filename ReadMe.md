@@ -253,7 +253,6 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » افزونه‌های بیننده آگهی]: ./addons/demand_addon.md
 
 [راهنما » افزونه‌های آگهی » ساخت]: ./addons/create.md
-[راهنما » افزونه‌های آگهی » حذف]: ./addons/delete.md
 [راهنما » افزونه‌های آگهی » معنی]: ./semantic/semantic_data.md
 [راهنما » افزونه‌های آگهی » تست]: ./addons/test_environment.md
 
@@ -290,7 +289,6 @@ POST https://api.divar.ir/oauth2/token
 [راهنما » تیکت پرداخت]: ./payment-ticket
 [راهنما » تیکت پرداخت » بررسی صحت]: ./payment-ticket/validate.md
 
-[postman_collection]: ./Divar-Kenar.postman_collection.json
 [ایشوی جدید]: https://github.com/divar-ir/kenar-docs/issues/new
 
 [راهنما » آگهی]: ./finder
