@@ -233,7 +233,6 @@ POST https://api.divar.ir/oauth2/token
   - [افزونه‌های کاربر » اطلاعات معنایی][راهنما » افزونه‌های کاربر » اطلاعات معنایی]
 - [تیکت پرداخت][راهنما » تیکت پرداخت]
 
-[فرم ثبت‌نام]: https://docs.google.com/forms/d/1DmO0gYv3fpjzNV_zh1EEZiaKIkSDq3KXQijQKlMtIfg/edit
 [پنل کنار]: https://divar.ir/kenar
 [تلگرام کنار]: https://t.me/kenar_divar
 [پنل کنار » اپ‌ها]: https://divar.ir/kenar/management/apps
@@ -287,7 +286,7 @@ POST https://api.divar.ir/oauth2/token
 
 [راهنما » تیکت پرداخت]: ./payment-ticket
 [راهنما » تیکت پرداخت » بررسی صحت]: ./payment-ticket/validate.md
-
+[postman_collection]: ./Divar-Kenar.postman_collection.json
 [ایشوی جدید]: https://github.com/divar-ir/kenar-docs/issues/new
 
 [راهنما » آگهی]: ./finder
