@@ -48,7 +48,8 @@ X-Api-Key: {your-api-key}
 
 {
   "type": "TEXT",
-  "text_message": "hello, World!",
+  "text_message": "hello, World!", # optional
+  "media_token": "media_token_obtained_by_uploading_your_media", # optional
   "buttons": {
     "rows": [
       {
@@ -78,6 +79,9 @@ X-Api-Key: {your-api-key}
   }
 }
 ```
+
+برای آپلود media و به دست آوردن `media_token` میتونید [این][آپلود مدیا] مستند رو مطالعه کنید
+
 ### ارسال پیام مستقیم به کاربر
 در این روش با در اختیار داشتن شناسه یکتا کاربر (user_id) و اخذ اجازه کاربر در فرایند OAuth می‌توانید بدون نیاز به `conversation_id` به کاربر پیام ارسال کنید.
 > - در این روش شما قابلیت این را دارید که مکالمه را از سمت چت‌بات شروع کنید.
@@ -131,4 +135,4 @@ X-Access-Token: {your-access-token}
 [آیکون‌ها][آیکون‌ها] موجود برای دکمه‌ها
 
 [آیکون‌ها]: https://www.figma.com/design/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?node-id=1501-2225&p=f
-
+[آپلود مدیا]: /chat/upload_media.md

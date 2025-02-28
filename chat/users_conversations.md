@@ -42,7 +42,8 @@ x-access-token: {{access_token}}
 
 {
   "type": "TEXT",
-  "message": "متن پیام",
+  "message": "متن پیام", # optional
+  "media_token": "media_token_obtained_by_uploading_your_media", # optional
   "sender_buttons": {
     "rows": [
       {
@@ -99,6 +100,9 @@ x-access-token: {{access_token}}
   }
 }
 ```
+
+برای آپلود media و به دست آوردن `media_token` میتونید [این][آپلود مدیا] مستند رو مطالعه کنید
+
 
 ### درخواست
 
@@ -182,6 +186,9 @@ HTTP/1.1  412
 [ارسال پیام در چت‌های آگهی]: #ارسال-پیام-در-چتهای-یک-آگهی
 
 [بازشدن برنامه]: #کلیک-کاربر-روی-دکمهٔ-درج-شده-زیر-پیام
+
+[آپلود مدیا]: /chat/upload_media.md
+
 
 
 <br><br>
