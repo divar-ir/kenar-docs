@@ -1,7 +1,7 @@
 # لیست افزونه‌های آگهی
 
 برای دریافت افزونه‌های یک آگهی می‌توانید از API زیر استفاده کنید.
-<br>
+<br />
 لینک این درخواست در [فهرست API-ها](https://divar.ir/kenar/api-doc#tag/addons/GET/v1/open-platform/add-ons/post/{token})
 
 
