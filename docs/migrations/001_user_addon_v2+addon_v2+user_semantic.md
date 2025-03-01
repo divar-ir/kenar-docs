@@ -1,10 +1,11 @@
+# مهاجرت افزونه 
 در این داکیومنت تمام مراحل مورد نیاز برای مهاجرت:
 - از user addon v1 به user addon v2[لینک](#user-addon-v2)
 - از post addon v1 به post addon v2[لینک](#post-addon-v2)
 - از user verification به user semantic[لینک](#user-semantic)
 
 > توجه داشته باشید که `API` های قدیمی در لحظه maintain می‌شوند ولی پیشنهاد می‌شود تا قبل از اعلام `DEPRECATION` آن ها، مهاجرت را انجام دهید.
-# Post Addon V2
+## Post Addon V2
 - در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/post/{{token}}` تغییر دهید.
 - فیلد `widgets`در رکوئست قبلا به شکل `widgets:{"widget_list":[]}` بود که در حالت جدید به شکل `widgets:[]` درآمده است. پس محتویات `widget_list` را در `widgets` قرار دهید و آن را لیست/آرایه بکنید.
 - خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق [این قسمت](#new-widgets) تک تک ویجت هارا تغییر دهید.
@@ -47,7 +48,7 @@ x-access-token: {{access_token}}
 ```
 
 
-# User Addon V2
+## User Addon V2
 - در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/user/{{phone}}` تغییر دهید.
 - فیلد `widgets`در رکوئست قبلا به شکل `widgets:{"widget_list":[]}` بود که در حالت جدید به شکل `widgets:[]` درآمده است. پس محتویات `widget_list` را در `widgets` قرار دهید و آن را لیست/آرایه بکنید.
 - خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق [این قسمت](#new-widgets) تک تک ویجت هارا تغییر دهید.
@@ -114,7 +115,7 @@ x-api-key: {{api-key}}
 
 
 
-# User Semantic
+## User Semantic
 
 ## ساخت
 - در ابتدا برای دریافت اجازه USER_SEMANTIC_CREATE بر روی اپتان بر روی پنل کنار تیکت [ثبت](https://divar.ir/kenar/management/issues/new) کنید.
@@ -161,7 +162,7 @@ x-api-key: {{api-key}}
 ```
 
 
-# New Widgets
+## New Widgets
 در تمامی ویجت ها `@type` و `widget_type` را حذف کنید. نام فیلد `data` را با نام ویجت جایگزین کنید. به طور مثال:
 
 ```diff
