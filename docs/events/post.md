@@ -1,3 +1,4 @@
+# آگهی
 # Post Update
 
 هر تغییری در پست‌های منتشر شده یا در جریان رخ بدهد با این event به شما اطلاع داده می‌شود.
@@ -32,7 +33,7 @@
 ## Post
 
 اطلاعات پست مشابه اطلاعات موجود در جواب
-[/finder/post/{post-token}](/finder/get_post.md#پاسخ)
+[/finder/post/\{post-token\}](/finder/get_post.md#پاسخ)
 است.
 
 |       پارامتر        |   نوع    | توضیحات                             |

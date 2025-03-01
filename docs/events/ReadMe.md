@@ -92,14 +92,14 @@ Content-Type: application/json
 
 ## درخواست رویداد جدید (ارسالی از سمت دیوار)
 
-|         پارامتر          |                                    نوع                                    |                                                                            توضیحات |
-|:------------------------:|:-------------------------------------------------------------------------:|-----------------------------------------------------------------------------------:|
-|          `type`          |                          [EventType](#رویدادها)                           |                                                نوع رویداد، برای مثال `NEW_MESSAGE` |
-|      `new_message`       |          Optional[[ChatMessage](/events/chat.md/#chat-message)]           |                               پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
-|  `new_chatbot_message`   |          Optional[[ChatMessage](/events/chat.md/#chat-message)]           |                       پیام جدید. در صورتی که نوع رویداد `NEW_CHATBOT_MESSAGE` باشد |
-| `user_access_revocation` | Optional[[UserAccessRevocation](/events/auth.md/#user-access-revocation)] | حذف دسترسی برنامه توسط کاربر. در صورتی که نوع رویداد `USER_ACCESS_REVOCATION` باشد |
-|      `post_update`       |           Optional[[PostUpdate](/events/post.md/#post-update)]            |        تغییر آگهی منتشر شده یا در جریان. در صورتی که نوع رویداد `POST_UPDATE` باشد |
-|        `metadata`        |                             Optional[Object]                              |                                                  دیتای دلخواه از سمت برنامه‌ی شما. |
+|         پارامتر          |                                   نوع                                    |                                                                            توضیحات |
+|:------------------------:|:------------------------------------------------------------------------:|-----------------------------------------------------------------------------------:|
+|          `type`          |                          [EventType](#رویدادها)                          |                                                نوع رویداد، برای مثال `NEW_MESSAGE` |
+|      `new_message`       |          Optional[[ChatMessage](/events/chat.md#chat-message)]           |                               پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
+|  `new_chatbot_message`   |          Optional[[ChatMessage](/events/chat.md#chat-message)]           |                       پیام جدید. در صورتی که نوع رویداد `NEW_CHATBOT_MESSAGE` باشد |
+| `user_access_revocation` | Optional[[UserAccessRevocation](/events/auth.md#user-access-revocation)] | حذف دسترسی برنامه توسط کاربر. در صورتی که نوع رویداد `USER_ACCESS_REVOCATION` باشد |
+|      `post_update`       |           Optional[[PostUpdate](/events/post.md#post-update)]            |        تغییر آگهی منتشر شده یا در جریان. در صورتی که نوع رویداد `POST_UPDATE` باشد |
+|        `metadata`        |                             Optional[Object]                             |                                                  دیتای دلخواه از سمت برنامه‌ی شما. |
 
 ### رویدادها
 
