@@ -106,20 +106,20 @@ x-access-token: {{access_token}}
 |------------------|---------------------------|--------------------------------------------------|
 | type             | String                    | نوع محتوا را مشخص می‌کند، در حال حاضر فقط "TEXT" |
 | message          | String                    | محتوای متن پیام                                  |
-| sender_buttons   | [ButtonGrid](#ButtonGrid) | شامل پیکربندی دکمه‌ها برای فرستنده               |
-| receiver_buttons | [ButtonGrid](#ButtonGrid) | شامل پیکربندی دکمه‌ها برای گیرنده                |
+| sender_buttons   | [ButtonGrid](#buttongrid) | شامل پیکربندی دکمه‌ها برای فرستنده               |
+| receiver_buttons | [ButtonGrid](#buttongrid) | شامل پیکربندی دکمه‌ها برای گیرنده                |
 
 ### ButtonGrid
 
 | Field Name | Field Type                     | Description                             |
 |------------|--------------------------------|-----------------------------------------|
-| rows       | Array[[ButtonRow](#ButtonRow)] | آرایه‌ای از ردیف دکمه‌ها. حداکثر ۳ ردیف |
+| rows       | Array[[ButtonRow](#buttonrow)] | آرایه‌ای از ردیف دکمه‌ها. حداکثر ۳ ردیف |
 
 ### ButtonRow
 
 | Field Name | Field Type               | Description                                   |
 |------------|--------------------------|-----------------------------------------------|
-| buttons    | Array[[Button](#Button)] | آرایه‌ای از دکمه‌ها. حداکثر ۳ دکمه در هر ردیف |
+| buttons    | Array[[Button](#button)] | آرایه‌ای از دکمه‌ها. حداکثر ۳ دکمه در هر ردیف |
 
 ### Button
 
