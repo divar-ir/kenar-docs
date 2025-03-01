@@ -72,19 +72,19 @@ x-api-key: {{apikey}}
 ۲. کلید مورد نظر را برای تغییر انتخاب کنید.
 
 <div align="left">
-<img width="640" alt="Screenshot 2023-12-20 at 09 47 43" src="https://github.com/divar-ir/kenar-docs/assets/13572283/6f3bd05e-0028-45d3-b448-f28276619543"></div>
+<img width="640" alt="Screenshot 2023-12-20 at 09 47 43" src="https://github.com/divar-ir/kenar-docs/assets/13572283/6f3bd05e-0028-45d3-b448-f28276619543"/></div>
 
 ۳. وضعیت کلید را به Revoked تغییر دهید.
 
 <div align="left">
-<img width="512" alt="Screenshot 2023-12-20 at 09 48 31" src="https://github.com/divar-ir/kenar-docs/assets/13572283/3f9bb04d-1224-4a43-9264-3f03df62bd1f"></div>
+<img width="512" alt="Screenshot 2023-12-20 at 09 48 31" src="https://github.com/divar-ir/kenar-docs/assets/13572283/3f9bb04d-1224-4a43-9264-3f03df62bd1f"/></div>
 
 
 ۴. روی دکمه‌ی **Save** کلیک کنید. \
 ۵. در لیست کلیدها، از تغییر وضعیت کلید مطمئن شوید.
 
 <div align="left">
-<img width="640" alt="Screenshot 2023-12-20 at 09 47 50" src="https://github.com/divar-ir/kenar-docs/assets/13572283/571d131b-6555-4f9b-baa6-21c61784dcee"></div>
+<img width="640" alt="Screenshot 2023-12-20 at 09 47 50" src="https://github.com/divar-ir/kenar-docs/assets/13572283/571d131b-6555-4f9b-baa6-21c61784dcee"/></div>
 
 <br />
 
