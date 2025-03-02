@@ -10,9 +10,8 @@ const config = {
   tagline: '',
   favicon: 'img/favicon.ico', // Update with your favicon path or generate one with the desired emoji
 
-  // Set the production url of your site here
-  url: 'https://divar-ir.github.io', // Replace with your site's URL
-  baseUrl: 'kenar-docs/',
+  url: 'https://divar-ir.github.io',
+  baseUrl: '/kenar-docs',
 
   organizationName: 'divar-ir',
   projectName: 'kenar-docs',
