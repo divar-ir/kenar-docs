@@ -3,7 +3,6 @@
 | Upsert Post Semantic |                      |
 |----------------------|----------------------|
 | OAuth Permissions    | POST_SEMANTIC_CREATE |
-| Rate Limit           | Unlimited            |
 
 ### ویژگی‌ها
 با استفاده از این اندپوینت می‌توانید اطلاعات معنایی یک آگهی را ایجاد یا به روز رسانی کنید.
