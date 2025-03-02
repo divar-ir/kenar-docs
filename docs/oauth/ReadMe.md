@@ -280,7 +280,7 @@ Content-Type: application/x-www-form-urlencoded
 [پنل کنار]: https://divar.ir/kenar
 [oauth]: https://oauth.net/2/
 [oauth > tools]: https://oauth.net/code/
-[راهنما » ساخت اپ]: /management/ReadMe.md.md
+[راهنما » ساخت اپ]: /management/ReadMe.md
 [راهنما » کلید]: /management/api-keys.md
 [step 1]: /oauth/ReadMe.md#%EF%B8%8F-گام-اول-درخواست-اجازه
 [step 2]: /oauth/ReadMe.md#%EF%B8%8F-گام-دوم-بازگشت-به-اپلیکیشن
