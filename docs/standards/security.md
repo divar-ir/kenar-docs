@@ -1,3 +1,5 @@
+# لیستم موارد امنیتی برنامه وب
+<div dir="ltr">
 # Web Application Security Checklist
 
 ## **Data Encryption & Protection** 
@@ -716,3 +718,4 @@ Further reading
 * [Trivy](https://github.com/aquasecurity/trivy)
 
 [image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAApJREFUeF5jYAAAAAIAAd6ej78AAAAASUVORK5CYII=>
+</div>
