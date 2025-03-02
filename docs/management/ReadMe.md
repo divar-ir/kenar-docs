@@ -212,7 +212,7 @@ authorization: {{ Divar Identification Key }}
 [راهنما » بازگشت کاربر]: /misc
 [آگهی]: #تعامل-با-کاربر-پس-از-ثبت-آگهی
 [راهنما » چت]: /chat
-[راهنما »‌ ارسال پیام]: /chat/send_message.md
+[راهنما »‌ ارسال پیام]: /chat/users_conversations.md
 [راهنما » کلیدها]: /management/api-keys.md
 [پنل کنار]: https://divar.ir/kenar
 [پشتیبانی کنار]: https://divar.ir/kenar/management/issues

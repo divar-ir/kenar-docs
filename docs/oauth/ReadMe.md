@@ -293,7 +293,7 @@ Content-Type: application/x-www-form-urlencoded
 [oauth > state]: https://stackoverflow.com/questions/26132066/what-is-the-purpose-of-the-state-parameter-in-oauth-authorization-request
 [راهنما » مدیریت اپ]: /management
 [base64]: https://developer.mozilla.org/en-US/docs/Glossary/Base64
-[راهنما » ارسال پیام]: /chat/send_message.md
+[راهنما » ارسال پیام]: /chat/users_conversations.md
 [راهنما » دسترسی]: /management/api-keys.md#دسترسیهای-پرکاربرد
 [unix time]: https://en.wikipedia.org/wiki/Unix_time 
 
