@@ -159,7 +159,7 @@
 [lighthouse]: https://developer.chrome.com/docs/lighthouse/performance/performance-scoring
 [lhtest]: https://lighthouse-metrics.com/
 [return]: /misc
-[ss]: user-addons/user-addons.md
+[ss]: /semantic
 
 [gen]: #الزامات-عمومی
 [qual]: #کیفیت-سرویس
