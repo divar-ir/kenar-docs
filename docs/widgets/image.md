@@ -73,7 +73,7 @@ x-api-key: {{your-api-key}}
 
 علاوه بر درج تصویر دلخواه می‌توان به جای `{id}` مقدار `logo` را به عنوان `image_url` فرستاد تا لوگوی اپ شما که در پنل کنار دیوار قابل تنظیم است، در ویجت درج شود.
 ### ویجت های عکس دار
-<ul dir="rtl">
+<ul dir="rtl" />
 <li><a href="event_row.md">EVENT_ROW</a></li>
 <li><a href="image_carousel_row.md">IMAGE_CAROUSEL_ROW</a></li>
-<ul>
+<ul />
