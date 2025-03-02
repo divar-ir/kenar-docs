@@ -1,5 +1,3 @@
-<br /><br />
-
 # قواعد فعالیت در «کنار دیوار»
 
  برای فعالیت در «کنار دیوار» و خلق تجربه‌های مطمئن و ارزشمند برای کاربران دیوار، قواعد زیر را مطالعه کرده و آن‌ها را رعایت کنید.
@@ -160,7 +158,7 @@
 [tnc]: https://docs.google.com/document/d/1wDSNj14gdCmcvO5KVfb_yaQ2QOEPFrgtRTnA_gZUOKk/edit#heading=h.gu5qp24ymog1
 [lighthouse]: https://developer.chrome.com/docs/lighthouse/performance/performance-scoring
 [lhtest]: https://lighthouse-metrics.com/
-[return]: misc
+[return]: /misc
 [ss]: user-addons/user-addons.md
 
 [gen]: #الزامات-عمومی
