@@ -241,7 +241,7 @@
 
 <div align="center">
 
-![KenarDivar](./static/img/wire-puzzle.svg)
+<img src="static/img/wire-puzzle.svg" height="156px"/>
 
 </div>
 

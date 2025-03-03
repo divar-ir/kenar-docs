@@ -188,7 +188,7 @@ HTTP/1.1  412
 
 <div align="center">
 
-![کنار دیوار](../static/img/wire-puzzle.svg)
+<img src="../static/img/wire-puzzle.svg" height="156px"/>
 
 </div>
 
