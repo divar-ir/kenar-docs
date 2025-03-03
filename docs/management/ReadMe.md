@@ -25,7 +25,7 @@
 
 <div align="center">
   
-![نمای یک اپلیکیشن در زمان معرفی به کاربر](/img/app-in-list.png)
+![نمای یک اپلیکیشن در زمان معرفی به کاربر](../static/img/app-in-list.png)
 
 </div>
 
@@ -228,7 +228,7 @@ authorization: {{ Divar Identification Key }}
 
 <div align="center">
 
-<img src="/img/wire-puzzle.svg" height="156px"/>
+![کنار دیوار](../static/img/wire-puzzle.svg)
 
 </div>
 

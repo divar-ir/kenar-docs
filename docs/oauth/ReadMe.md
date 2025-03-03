@@ -302,7 +302,7 @@ Content-Type: application/x-www-form-urlencoded
 
 <div align="center">
 
-<img src="/img/wire-puzzle.svg" height="156px"/>
+![کنار دیوار](../static/img/wire-puzzle.svg)
 
 </div>
 

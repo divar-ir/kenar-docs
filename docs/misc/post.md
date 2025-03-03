@@ -3,7 +3,11 @@
 
 ## وضعیت‌های آگهی 
 
-<img src="/img/post-states.svg" alt="یک نمودار جریان که چرخه حیات فرآیند ارسال پست را نشان می‌دهد. حالت‌ها شامل Submit، Under Review، Published، Retired، Archived، Needs Edit و Waiting for Payment هستند. پیکان‌ها انتقال بین حالت‌ها را نشان می‌دهند، مانند Submit که به Under Review می‌رود، Published، رد شدن که نیاز به Needs Edit دارد، و Retired که منجر به Archived می‌شود." />
+<div align="center">
+![](../static/img/post-states.svg)
+</div>
+
+یک نمودار جریان که چرخه حیات فرآیند ارسال پست را نشان می‌دهد. حالت‌ها شامل Submit، Under Review، Published، Retired، Archived، Needs Edit و Waiting for Payment هستند. پیکان‌ها انتقال بین حالت‌ها را نشان می‌دهند، مانند Submit که به Under Review می‌رود، Published، رد شدن که نیاز به Needs Edit دارد، و Retired که منجر به Archived می‌شود.
 
 ## اگهی منتشر شده و در جریان 
 تمامی‌ آگهی‌هایی که در لیستینگ دیوار مشاهده می‌شوند آگهی منتشر شده هستند.
