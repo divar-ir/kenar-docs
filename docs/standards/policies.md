@@ -158,8 +158,8 @@
 [tnc]: https://docs.google.com/document/d/1wDSNj14gdCmcvO5KVfb_yaQ2QOEPFrgtRTnA_gZUOKk/edit#heading=h.gu5qp24ymog1
 [lighthouse]: https://developer.chrome.com/docs/lighthouse/performance/performance-scoring
 [lhtest]: https://lighthouse-metrics.com/
-[return]: /misc
-[ss]: /semantic
+[return]: ../misc
+[ss]: ../semantic
 
 [gen]: #الزامات-عمومی
 [qual]: #کیفیت-سرویس

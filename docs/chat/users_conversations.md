@@ -169,17 +169,14 @@ HTTP/1.1  412
 
 <br />
 
-[احراز باز]: /oauth
+[احراز باز]: ../oauth
 
-[API key]: /management/api-keys.md
+[API key]: ../management/api-keys.md
 
-[Action]: /widgets/actions
+[Action]: ../widgets/actions
 
-[پنل کنار]: /management
+[پنل کنار]: ../management
 
-[ارسال پیام در یک چت]: #ارسال-پیام-در-یک-چت
-
-[ارسال پیام در چت‌های آگهی]: #ارسال-پیام-در-چتهای-یک-آگهی
 
 [بازشدن برنامه]: #کلیک-کاربر-روی-دکمهٔ-درج-شده-زیر-پیام
 
