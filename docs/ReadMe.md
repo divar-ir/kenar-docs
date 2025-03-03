@@ -1,9 +1,7 @@
 <br />
 
 <div align="center">
-
-![](./static/img/logo.svg)
-
+<img src="./static/img/logo.svg" height="72px"/>
 </div>
 
 **کنار دیوار** بستری برای افزودن اطلاعات و خدمات به دیوار است.
