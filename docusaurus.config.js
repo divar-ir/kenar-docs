@@ -81,6 +81,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ["http", "json", "yaml"],
       },
       // Custom metadata for SEO
       metadata: [
