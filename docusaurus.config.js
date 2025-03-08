@@ -43,7 +43,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/', // Serve docs at the site's root
-          editUrl: 'https://github.com/divar-ir/kenar-docs/tree/main/docs/',
+          editUrl: 'https://github.com/divar-ir/kenar-docs/tree/master/docs/',
         },
         theme: {
           customCss: './src/css/custom.css', // Your custom CSS file
@@ -53,6 +53,7 @@ const config = {
   ],
 
   themeConfig:
+
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Social card image
@@ -94,6 +95,37 @@ const config = {
           content: 'مستندات فنی کنار دیوار',
         },
       ],
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'V8S0FQWY9Z',
+        // Public API key: it is safe to commit it
+        apiKey: '467f8b1d6fef16625b8dc39c8513d3e5',
+
+        indexName: 'divar-irio',
+
+        // Optional: see doc section below
+        contextualSearch: true,
+
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        externalUrlRegex: 'divar.ir/kenar',
+
+        // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+        replaceSearchResultPathname: {
+          from: '/docs/', // or as RegExp: /\/docs\//
+          to: '/',
+        },
+
+        // Optional: Algolia search parameters
+        searchParameters: {},
+
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+
+        // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+        insights: false,
+
+        //... other Algolia params
+      },
     }),
 };
 

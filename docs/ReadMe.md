@@ -241,7 +241,7 @@
 
 <div align="center">
 
-<img src="static/img/wire-puzzle.svg" height="156px"/>
+<img src="./static/img/wire-puzzle.svg" height="156px"/>
 
 </div>
 
