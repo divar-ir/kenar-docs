@@ -1,7 +1,7 @@
 <br />
 
 <div align="center">
-<img src="./static/img/logo.svg" height="72px"/>
+<img src="img/logo.svg" height="72px"/>
 </div>
 
 **کنار دیوار** بستری برای افزودن اطلاعات و خدمات به دیوار است.
@@ -241,7 +241,7 @@
 
 <div align="center">
 
-<img src="static/img/wire-puzzle.svg" height="156px"/>
+<img src="./static/img/wire-puzzle.svg" height="156px"/>
 
 </div>
 
