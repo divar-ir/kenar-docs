@@ -1,8 +1,8 @@
 # مهاجرت افزونه 
 در این داکیومنت تمام مراحل مورد نیاز برای مهاجرت:
-- از user addon v1 به user addon v2[لینک](#user-addon-v2)
-- از post addon v1 به post addon v2[لینک](#post-addon-v2)
-- از user verification به user semantic[لینک](#user-semantic)
+- [از user addon v1 به user addon v2](#user-addon-v2)
+- [از post addon v1 به post addon v2](#post-addon-v2)
+- [از user verification به user semantic](#user-semantic)
 
 > توجه داشته باشید که `API` های قدیمی در لحظه maintain می‌شوند ولی پیشنهاد می‌شود تا قبل از اعلام `DEPRECATION` آن ها، مهاجرت را انجام دهید.
 ## Post Addon V2
