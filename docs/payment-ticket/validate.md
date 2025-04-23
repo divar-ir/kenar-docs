@@ -5,7 +5,7 @@
 ### ریکوئست
 
 ```http request
-POST https://api.divar.ir/v1/open-platform/payment-ticket/validate
+POST https://open-api.divar.ir/v1/open-platform/payment-ticket/validate
 Content-Type: application/json
 x-api-key: {{apikey}}
 

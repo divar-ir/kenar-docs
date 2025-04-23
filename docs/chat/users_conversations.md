@@ -35,10 +35,10 @@
 می‌توانید قسمت‌های فارسی را با مقادیر خودتان جایگزین کنید:
 
 ```http request
-POST https://api.divar.ir/v2/open-platform/conversations/{{conversation_id}}/messages
+POST https://open-api.divar.ir/v2/open-platform/conversations/{{conversation_id}}/messages
 Content-Type: application/json
 x-api-key: {{apikey}}
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 
 {
   "type": "TEXT",

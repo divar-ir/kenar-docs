@@ -6,19 +6,19 @@
 
 > توجه داشته باشید که `API` های قدیمی در لحظه maintain می‌شوند ولی پیشنهاد می‌شود تا قبل از اعلام `DEPRECATION` آن ها، مهاجرت را انجام دهید.
 ## Post Addon V2
-- در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/post/{{token}}` تغییر دهید.
+- در ابتدا `endpoint` را به `https://open-api.divar.ir/v2/open-platform/addons/post/{{token}}` تغییر دهید.
 - فیلد `widgets`در رکوئست قبلا به شکل `widgets:{"widget_list":[]}` بود که در حالت جدید به شکل `widgets:[]` درآمده است. پس محتویات `widget_list` را در `widgets` قرار دهید و آن را لیست/آرایه بکنید.
 - خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق [این قسمت](#new-widgets) تک تک ویجت هارا تغییر دهید.
 - فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `semantic_sensitives` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. پس `sensitive_semantics` را حذف کنید و طبق [اینجا](../semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
 
 ```diff
--POST https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
-+POST https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
+-POST https://open-api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
++POST https://open-api.divar.ir/v2/open-platform/addons/post/{{post_token}}
 
 Content-Type: application/json
 x-api-key: {{apikey}}
 
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 
 {
 -    "widgets": {
@@ -49,7 +49,7 @@ x-access-token: {{access_token}}
 
 
 ## User Addon V2
-- در ابتدا `endpoint` را به `https://api.divar.ir/v2/open-platform/addons/user/{{phone}}` تغییر دهید.
+- در ابتدا `endpoint` را به `https://open-api.divar.ir/v2/open-platform/addons/user/{{phone}}` تغییر دهید.
 - فیلد `widgets`در رکوئست قبلا به شکل `widgets:{"widget_list":[]}` بود که در حالت جدید به شکل `widgets:[]` درآمده است. پس محتویات `widget_list` را در `widgets` قرار دهید و آن را لیست/آرایه بکنید.
 - خود ویجت های دیوار نیز تغییر کرده اند. در این ورژن این ویجت ها ساده تر و خواناتر شده اند. طبق [این قسمت](#new-widgets) تک تک ویجت هارا تغییر دهید.
 - فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `semantic_sensitives` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. سپس `sensitive_semantics` را حذف کنید و طبق [اینجا](../semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
@@ -57,9 +57,9 @@ x-access-token: {{access_token}}
 - فیلد `verification_cost` را به `cost` تغییر نام دهید.
 
 ```diff
--POST https://api.divar.ir/v1/open-platform/addons/user/{{phone}}
-+POST https://api.divar.ir/v2/open-platform/addons/user/{{phone}}
-x-access-token: {{access-token}}
+-POST https://open-api.divar.ir/v1/open-platform/addons/user/{{phone}}
++POST https://open-api.divar.ir/v2/open-platform/addons/user/{{phone}}
+Authorization: Bearer {{access-token}}
 x-api-key: {{api-key}}
 
 {
@@ -119,7 +119,7 @@ x-api-key: {{api-key}}
 
 ## ساخت
 - در ابتدا برای دریافت اجازه USER_SEMANTIC_CREATE بر روی اپتان بر روی پنل کنار تیکت [ثبت](https://divar.ir/kenar/management/issues/new) کنید.
-- در ادامه  `endpoint` را به `https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}` تغییر دهید.
+- در ادامه  `endpoint` را به `https://open-api.divar.ir/v1/open-platform/semantic/user/{{phone}}` تغییر دهید.
 - فیلد `semantic` مانند قبل یک `object` است که value های استرینگی دارد منتهی فیلد `semantic_sensitives` به طور کامل حذف شده است، هر فیلدی که در [اینجا](/semantic/semantic_data.md#فیلد-های-تعیین-شده) تعیین نشده باشد رمز می‌شود. برای اضافه کردن فیلد با تیم دیواری مربوطه در ارتباط باشید. سپس `sensitive_semantics` را حذف کنید و طبق [اینجا](../semantic/semantic_data.md#فیلد-های-تعیین-شده) فیلد های مورد نظر خود را قرار دهید.
 - فیلد های `phone, notes` را از بادی ریکوئست حدف کنید.
 
@@ -129,9 +129,9 @@ x-api-key: {{api-key}}
 
 
 ```diff
--POST https://api.divar.ir/v1/open-platform/verifications/user/{{phone}}
-+POST https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}
-x-access-token: {{access-token}}
+-POST https://open-api.divar.ir/v1/open-platform/verifications/user/{{phone}}
++POST https://open-api.divar.ir/v1/open-platform/semantic/user/{{phone}}
+Authorization: Bearer {{access-token}}
 x-api-key: {{api-key}}
 
 {
@@ -153,11 +153,11 @@ x-api-key: {{api-key}}
 ## حذف
 ت
 - در ابتدا برای دریافت اجازه USER_SEMANTIC_DELETE بر روی اپتان بر روی پنل کنار تیکت [ثبت](https://divar.ir/kenar/management/issues/new) کنید.
-- در ادامه  `endpoint` را به `https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}` تغییر دهید.
+- در ادامه  `endpoint` را به `https://open-api.divar.ir/v1/open-platform/semantic/user/{{phone}}` تغییر دهید.
 
 ```diff
--DELETE https://api.divar.ir/v1/open-platform/verifications/user/{{phone}}
-+DELETE https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}
+-DELETE https://open-api.divar.ir/v1/open-platform/verifications/user/{{phone}}
++DELETE https://open-api.divar.ir/v1/open-platform/semantic/user/{{phone}}
 x-api-key: {{api-key}}
 ```
 

@@ -45,11 +45,11 @@ API
 لینک این درخواست در [فهرست API-ها](https://divar.ir/kenar/api-doc#tag/addons/POST/v2/open-platform/addons/post/{token})
 
 ```http request
-POST https://api.divar.ir/v2/open-platform/addons/post/{{post_token}}
+POST https://open-api.divar.ir/v2/open-platform/addons/post/{{post_token}}
 Content-Type: application/json
 x-api-key: {{apikey}}
 
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 
 {
    "widgets": [

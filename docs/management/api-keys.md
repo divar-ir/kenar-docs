@@ -7,7 +7,7 @@
 👈 کلید API را در هدر `x-api-key` درخواست‌های خود قرار دهید:
 
 ```http request
-POST https://api.divar.ir/v1/open-platform/finder/post/{{token}}
+POST https://open-api.divar.ir/v1/open-platform/finder/post/{{token}}
 x-api-key: {{apikey}}
 ```
 

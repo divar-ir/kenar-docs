@@ -9,7 +9,7 @@
 ### درخواست
 
 ```http request
-GET https://api.divar.ir/v1/open-platform/finder/post/{{token}}
+GET https://open-api.divar.ir/v1/open-platform/finder/post/{{token}}
 x-api-key: {{apikey}}
 ```
 
@@ -63,9 +63,9 @@ x-api-key: {{apikey}}
 ### درخواست
 
 ```http request
-GET https://api.divar.ir/v1/open-platform/finder/post/{{token}}
+GET https://open-api.divar.ir/v1/open-platform/finder/post/{{token}}
 x-api-key: {{apikey}}
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 ```
 
 ### پاسخ

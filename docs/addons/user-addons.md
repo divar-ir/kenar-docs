@@ -8,8 +8,8 @@
 ## ریکوئست
 
 ```http request
-POST https://api.divar.ir/v2/open-platform/addons/user/{{phone}}
-x-access-token: {{access-token}}
+POST https://open-api.divar.ir/v2/open-platform/addons/user/{{phone}}
+Authorization: Bearer {{access-token}}
 x-api-key: {{api-key}}
 
 {
@@ -74,7 +74,7 @@ x-api-key: {{api-key}}
 برای حذف کامل افزونه کاربر میتوان از ریکوئست زیر استفاده نمایید:
 
 ```http request
-DELETE https://api.divar.ir/v1/open-platform/addons/user/{{id}}
+DELETE https://open-api.divar.ir/v1/open-platform/addons/user/{{id}}
 x-api-key: {{api-key}}
 ```
 

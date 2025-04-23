@@ -15,11 +15,11 @@
 
 
  ```diff
-- POST https://api.divar.ir/v2/open-platform/chat/conversation
-+ POST https://api.divar.ir/v2/open-platform/conversations/{{conversation_id}}/messages
+- POST https://open-api.divar.ir/v2/open-platform/chat/conversation
++ POST https://open-api.divar.ir/v2/open-platform/conversations/{{conversation_id}}/messages
 Content-Type: application/json
 x-api-key: {{apikey}}
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 
 {
 -   "user_id": "شناسهٔ کاربر فرستنده که می خواهیم پیامی از سمت او وارد چت کنیم",
@@ -109,11 +109,11 @@ x-access-token: {{access_token}}
 
 درخواست گوش دادن به پیام‌های یک آگهی
 ```diff
-- POST https://api.divar.ir/v1/open-platform/notify/chat/post-conversations
-+ POST https://api.divar.ir/v1/open-platform/events/subscriptions
+- POST https://open-api.divar.ir/v1/open-platform/notify/chat/post-conversations
++ POST https://open-api.divar.ir/v1/open-platform/events/subscriptions
 Content-Type: application/json
 x-api-key: {{apikey}}
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 
 {
 -   "post_token": "توکن آگهی",
