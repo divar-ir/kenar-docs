@@ -151,7 +151,7 @@ x-api-key: {{api-key}}
 >- در صورتی که از سیستم قبلی، یعنی `user verification` به این سیستم مهاجرت می‌کنید و فیلد مورد نظرنان در فیلد های از پیش تعیین شده نیست با تیم مربوط در دیوار در ارتباط باشید. همچنین می‌توانید با ثبت تیکت نیاز خود را بیان کنید.
 
 ## حذف
-ت
+
 - در ابتدا برای دریافت اجازه USER_SEMANTIC_DELETE بر روی اپتان بر روی پنل کنار تیکت [ثبت](https://divar.ir/kenar/management/issues/new) کنید.
 - در ادامه  `endpoint` را به `https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}` تغییر دهید.
 
