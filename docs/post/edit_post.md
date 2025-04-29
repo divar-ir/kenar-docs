@@ -12,8 +12,8 @@
 ## درخواست
 
 ```http request
-PUT https://api.divar.ir/v1/open-platform/post/<token>
-x-access-token: {{access_token_with_oauth_scope_POST_EDIT.<post_token>}}
+PUT https://open-api.divar.ir/v1/open-platform/post/<token>
+Authorization: Bearer {{access_token_with_oauth_scope_POST_EDIT.<post_token>}}
 x-api-key: {{apikey}}
 {
     "title": "عنوان مد نظر برای آگهی",

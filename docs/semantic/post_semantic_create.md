@@ -12,8 +12,8 @@
 ## ریکوئست
 
 ```http request
-POST https://api.divar.ir/experimental/open-platform/semantic/post/{{post_token}}
-x-access-token: {{access-token}}
+POST https://open-api.divar.ir/experimental/open-platform/semantic/post/{{post_token}}
+Authorization: Bearer {{access-token}}
 x-api-key: {{api-key}}
 
 {

@@ -8,7 +8,7 @@
 دقت کنید که دسترسی `SEARCH_POST` برای ارسال این درخواست ضروری است.
 
 ```HTTP request
-POST https://api.divar.ir/v2/open-platform/finder/post
+POST https://open-api.divar.ir/v2/open-platform/finder/post
 Content-Type: application/json
 x-api-key: {{apikey}}
 
@@ -30,7 +30,7 @@ x-api-key: {{apikey}}
 }
 ```
 ```HTTP request
-POST https://api.divar.ir/v2/open-platform/finder/post
+POST https://open-api.divar.ir/v2/open-platform/finder/post
 Content-Type: application/json
 x-api-key: {{apikey}}
 

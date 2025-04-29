@@ -4,7 +4,7 @@
 توجه کنید که این لینک مدت محدودی معتبر میباشد و بعد از گذشت حدود ۱۰ دقیقه لینک گفته شده منقضی میشود
 <br />
 ```http request
-GET https://api.divar.ir/v1/open-platform/post/image-upload-url
+GET https://open-api.divar.ir/v1/open-platform/post/image-upload-url
 x-api-key: {{api-key}}
 ```
 

@@ -3,7 +3,7 @@
 برای حذف اطلاعات معنایی کاربر می‌توان از ریکوئست زیر استفاده نمود:
 
 ```http request
-DELETE https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}
+DELETE https://open-api.divar.ir/v1/open-platform/semantic/user/{{phone}}
 x-api-key: {{api-key}}
 ```
 

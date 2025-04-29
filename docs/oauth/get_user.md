@@ -16,10 +16,10 @@
 | user_id       | USER_ID      |
 
 ```http
-GET https://api.divar.ir/v1/open-platform/users
+GET https://open-api.divar.ir/v1/open-platform/users
 Content-Type: application/json
 x-api-key: {{apikey}}
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 ```
 
 نمونه پاسخ نیز به صورت زیر است:

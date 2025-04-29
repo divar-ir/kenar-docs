@@ -7,9 +7,9 @@
 
 با استفاده از access_token می توانید آگهی‌های کاربر احراز شده را دریافت کنید. کافیست رکوئست زیر را بزنید.
 ```http request
-GET https://api.divar.ir/v1/open-platform/finder/user-posts
+GET https://open-api.divar.ir/v1/open-platform/finder/user-posts
 x-api-key: {{apikey}}
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 ```
 نمونه پاسخ نیز مانند زیر است.
 ```json5

@@ -7,8 +7,8 @@
 ## ریکوئست
 
 ```http request
-POST https://api.divar.ir/v1/open-platform/semantic/user/{{phone}}
-x-access-token: {{access-token}}
+POST https://open-api.divar.ir/v1/open-platform/semantic/user/{{phone}}
+Authorization: Bearer {{access-token}}
 x-api-key: {{api-key}}
 
 {

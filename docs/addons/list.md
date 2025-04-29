@@ -8,7 +8,7 @@
 ## ریکوئست
 
 ```http request
-GET https://api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
+GET https://open-api.divar.ir/v1/open-platform/add-ons/post/{{post_token}}
 Content-Type: application/json
 
 ```

@@ -41,10 +41,10 @@ Backward incompatible
 | `event_resource_id` | string | شناسهٔ چیزی که می خواهید از رویداد آن باخبر شوید و نوعش رو در بالا گفتید. اگر ارسال نشود همهٔ موارد در نظر گرفته می شود. مثلاً می توانید با ارسال توکن آگهی پیام های جدید یک آگهی را دریافت کنید و بدون ارسال آن پیام های جدید همهٔ آگهی را دریافت می کنید. |
 
 ```http request
-POST https://api.divar.ir/v1/open-platform/events/subscriptions
+POST https://open-api.divar.ir/v1/open-platform/events/subscriptions
 Content-Type: application/json
 x-api-key: {{apikey}}
-x-access-token: {{access_token}}
+Authorization: Bearer {{access_token}}
 
 {
     "event_type": "NEW_MESSAGE_ON_POST",
