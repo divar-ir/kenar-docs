@@ -8,7 +8,7 @@
 ## ریکوئست
 
 ```http request
-POST https://open-api.divar.ir/v2/open-platform/addons/user/{{phone}}
+POST https://open-api.divar.ir/v2/open-platform/addons/users/{{divar-user-id}}
 Authorization: Bearer {{access-token}}
 x-api-key: {{api-key}}
 
@@ -38,7 +38,6 @@ x-api-key: {{api-key}}
           }
         }
     ],
-    "phone": "09991234567",
     "categories": [],
     "ticket_uuid": "812d56e6-e44d-45e7-8932-f9acbd416999",
     "cost": 124000,
