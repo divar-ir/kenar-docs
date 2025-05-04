@@ -36,7 +36,7 @@ sequenceDiagram
 برای درخواست اجازه، کاربر را به آدرسی به شکل زیر هدایت (redirect) کنید:
 
 ```url
-https://oauth.divar.ir/auth?response_type=code
+https://oauth.divar.ir/oauth2/auth?response_type=code
   &client_id=<app-slug>
   &redirect_uri=<redirect-uri>
   &scope=<scopes>
@@ -138,7 +138,7 @@ https://oauth.divar.ir/auth?response_type=code
 بعد از اتمام فرآیند کسب اجازه، چه در صورت تایید و چه در صورت رد اجازه‌های درخواستی توسط کاربر، وی به آدرس مشخص‌شده در پارامتر `redirect_uri` در [گام قبل][step 1] هدایت (redirect) می‌شود. برای مثال، اگر مقدار `redirect_uri` در [گام قبل][step 1] به شکل زیر داده شده باشد:
 
 ```url
-https://oauth.divar.ir/auth?response_type=code
+https://oauth.divar.ir/oauth2/auth?response_type=code
   &cliend_id=...
   &scope=...
   &state=my-random-string
@@ -168,7 +168,7 @@ https://oauth-redirect.my-app.ir
 
 برای دریافت access token، درخواستی به شکل زیر بفرستید:
 ```http request
-POST https://oauth.divar.ir/token
+POST https://oauth.divar.ir/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
 {
@@ -245,7 +245,7 @@ x-api-key: {{api_key}}
 
 در صورتی که در [گام اول][step 1] در فهرست scopeها `offline_access` هم قراردهید، در جواب [گام سوم][step 3] یک فیلد اضافه با کلید `refresh_token` نیز برگردانده می‌شود. اعتبار این توکن ۳۰ روز می‌باشد و بعد از آن، نیازمند گرفتن دسترسی مجدد از کاربر هستید. با استفاده از این مقدار می‌توانید اکسس توکن خود را با استفاده از درخواست زیر تازه‌سازی کنید:
 ```http request
-POST https://oauth.divar.ir/token
+POST https://oauth.divar.ir/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
 {
