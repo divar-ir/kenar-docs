@@ -49,3 +49,21 @@ vin_input = input("Enter car VIN (can contain Persian numbers and letters): ")
 vin_hash = sha256_vin(vin_input)
 print(f"SHA-256 hash of processed VIN: {vin_hash}")
 ```
+
+به منظور درج مقدار real_estate_id برای سند‌های قدیم پس از نرمالایز کردن مقادیر از اسکریپت زیر استفاده کنید.
+
+``` python
+def hash_old_real_estate_id(data):
+    """
+    Example:
+        data = {
+            "document_number": 5,   // شماره دفتر
+            "page_number": 42       // شماره صفحه
+        }
+    """
+
+    # Serialize JSON with sorted keys to ensure deterministic output
+    json_str = json.dumps(data, sort_keys=True, separators=(',', ':'))
+    return hashlib.sha256(json_str.encode('utf-8')).hexdigest()
+
+```
