@@ -46,6 +46,10 @@ x-api-key: {{apikey}}
         "sim_card_slot": "2",
         "status": "used",
         "title": "سامسونگ Galaxy J2 با حافظهٔ ۸ گیگابایت"
+    },
+    "business_data": {
+        "business_type": "REAL_ESTATE",
+        "business_name": "کارشناسان املاک عادلان"
     }
 }
 ```
