@@ -1,0 +1,5485 @@
+openapi: 3.0.1
+info:
+  title: Kenar API
+  version: "1.0"
+servers:
+  - url: https://open-api.divar.ir/
+security:
+  - APIKey: []
+tags:
+  - name: Addons
+  - name: ChatAPI
+  - name: Post
+  - description: "Limited APIs, Create tickets if you need to use them."
+    name: limited
+  - name: Finder
+  - name: PaymentTicket
+  - name: Assets
+  - name: Events
+  - name: Semantic
+paths:
+  /experimental/open-platform/balance:
+    get:
+      description: Using this API you can retrieve current balance of your app.
+      operationId: Payment_GetBalance
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/paymentGetBalanceResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      tags:
+        - limited
+  /experimental/open-platform/chat/bot/conversations/{conversation_id}/messages:
+    post:
+      description: |-
+        You can call this API with either conversation_id or user_id.
+        Calling with user_id needs a access_token having CHAT_BOT_USER_MESSAGE_SEND scope.This enables you to start conversation with user from ChatBot.
+      operationId: ChatAPI_ChatBotSendMessage3
+      parameters:
+        - description: Unique identifier for the conversation
+          in: path
+          name: conversation_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatAPIChatBotSendMessageBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/chatapiChatBotSendMessageResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      security:
+        - OAuth2:
+            - CHAT_BOT_USER_MESSAGE_SEND
+      summary: Send a message to a ChatBot conversation
+      tags:
+        - ChatAPI
+      x-codegen-request-body-name: body
+  /experimental/open-platform/chat/bot/users/{user_id}/messages:
+    post:
+      description: |-
+        You can call this API with either conversation_id or user_id.
+        Calling with user_id needs a access_token having CHAT_BOT_USER_MESSAGE_SEND scope.This enables you to start conversation with user from ChatBot.
+      operationId: ChatAPI_ChatBotSendMessage2
+      parameters:
+        - description: Unique identifier for the user to start or continue a conversation with
+          in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatAPIChatBotSendMessageBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/chatapiChatBotSendMessageResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      security:
+        - OAuth2:
+            - CHAT_BOT_USER_MESSAGE_SEND
+      summary: Send a message to a ChatBot conversation
+      tags:
+        - ChatAPI
+      x-codegen-request-body-name: body
+  /experimental/open-platform/chat/upload:
+    post:
+      description: This API is used to generate an upload token for uploading media files.
+      operationId: ChatAPI_GenerateUploadToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/chatapiGenerateUploadTokenRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/chatapiGenerateUploadTokenResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Generate an upload token
+      tags:
+        - ChatAPI
+      x-codegen-request-body-name: body
+  /experimental/open-platform/chatbot-conversations/{conversation_id}/messages:
+    post:
+      description: |-
+        You can call this API with either conversation_id or user_id.
+        Calling with user_id needs a access_token having CHAT_BOT_USER_MESSAGE_SEND scope.This enables you to start conversation with user from ChatBot.
+      operationId: ChatAPI_ChatBotSendMessage
+      parameters:
+        - description: Unique identifier for the conversation
+          in: path
+          name: conversation_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatAPIChatBotSendMessageBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/chatapiChatBotSendMessageResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      security:
+        - OAuth2:
+            - CHAT_BOT_USER_MESSAGE_SEND
+      summary: Send a message to a ChatBot conversation
+      tags:
+        - ChatAPI
+      x-codegen-request-body-name: body
+  /experimental/open-platform/post/{post_token}/reorder:
+    post:
+      description: Use GetPostPricing API to get the cost of the service before calling this API.
+      operationId: Payment_ReorderPost
+      parameters:
+        - in: path
+          name: post_token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PaymentReorderPostBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/paymentReorderPostResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      tags:
+        - limited
+      x-codegen-request-body-name: body
+  /experimental/open-platform/semantic/post/{token}:
+    post:
+      description: |
+        In some cases, it is necessary to store information about the post in Divar without adding an addon.
+        This API expects access token having `POST_SEMANTIC_CREATE` scope.
+      operationId: Semantic_CreatePostSemantic
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SemanticCreatePostSemanticBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/semanticCreatePostSemanticResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Create Post Semantic
+      tags:
+        - Semantic
+      x-codegen-request-body-name: body
+  /v1/open-platform/add-ons/post/{token}:
+    delete:
+      description: You can only delete addons which are created by your app.
+      operationId: Addons_DeletePostAddon
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Delete an Addon from a post
+      tags:
+        - Addons
+  /v1/open-platform/addons/dynamic-action:
+    post:
+      operationId: Addons_ResolveDynamicAction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/addonsResolveDynamicActionRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/widgetsGeneralNetworkCallResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      tags:
+        - Addons
+      x-codegen-request-body-name: body
+  /v1/open-platform/addons/post/{token}:
+    delete:
+      description: You can only delete addons which are created by your app.
+      operationId: Addons_DeletePostAddon2
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Delete an Addon from a post
+      tags:
+        - Addons
+  /v1/open-platform/addons/user/{id}:
+    delete:
+      description: |-
+        This will delete all correlated Addons to all user posts.
+        You can only delete Addons which are created by your app.
+      operationId: Addons_DeleteUserAddon
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Delete an UserAddon
+      tags:
+        - Addons
+  /v1/open-platform/addons/user/{phone}:
+    get:
+      description: Retrieve all UserAddons of a user.
+      operationId: Addons_GetUserAddons
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: divar_user_id
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/addonsGetUserAddonsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Retrieve all UserAddons
+      tags:
+        - Addons
+  /v1/open-platform/assets/body-status:
+    get:
+      description: Get all available body-status options in Divar vehicle categories.This provides persian translations for each body-status options which used in posts.
+      operationId: Assets_GetBodyStatuses
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetBodyStatusesResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get available body-status options in Divar vehicle categories
+      tags:
+        - Assets
+  /v1/open-platform/assets/brand-model/{category}:
+    get:
+      description: Get all Divar brand models in specified category.This provides persian translations for each brand models which used in posts.
+      operationId: Assets_GetBrandModels
+      parameters:
+        - in: path
+          name: category
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetBrandModelsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get brand models in a Divar category
+      tags:
+        - Assets
+  /v1/open-platform/assets/category:
+    get:
+      description: Get all Divar categories. This provides persian translations for each category which used in posts.
+      operationId: Assets_GetCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetCategoriesResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get Divar categories
+      tags:
+        - Assets
+  /v1/open-platform/assets/city:
+    get:
+      description: Get all Divar cities. This provides persian translations for each city which used in posts.
+      operationId: Assets_GetCities
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetCitiesResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get Divar cities
+      tags:
+        - Assets
+  /v1/open-platform/assets/color/{category}:
+    get:
+      description: Get all Divar colors in specified category.This provides persian translations for each color which used in posts.
+      operationId: Assets_GetColors
+      parameters:
+        - in: path
+          name: category
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetColorsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get colors in a Divar category
+      tags:
+        - Assets
+  /v1/open-platform/assets/district:
+    get:
+      description: Get all Divar districts. This provides persian translations for each district which used in posts.
+      operationId: Assets_GetDistricts
+      parameters:
+        - in: query
+          name: city_slug
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetDistrictsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get Divar districts
+      tags:
+        - Assets
+  /v1/open-platform/assets/district/{city_slug}:
+    get:
+      description: Get all Divar districts. This provides persian translations for each district which used in posts.
+      operationId: Assets_GetDistricts2
+      parameters:
+        - in: path
+          name: city_slug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetDistrictsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get Divar districts
+      tags:
+        - Assets
+  /v1/open-platform/assets/internal-storage:
+    get:
+      description: Get all available internal-storage options in Divar mobile categories.This provides persian translations for each internal-storage options which used in posts.
+      operationId: Assets_GetInternalStorages
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetInternalStoragesResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get available internal-storage options in Divar mobile/tablet/laptop categories
+      tags:
+        - Assets
+  /v1/open-platform/assets/oauth-scope:
+    get:
+      description: |-
+        These are available scopes for KenarDivar OAuth2.0.
+        Use scopes in OAuth flow to request access to user data or perform actions on their behalf.
+      operationId: Assets_GetOAuthScopes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetOAuthScopesResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get KenarDivar OAuth scopes
+      tags:
+        - Assets
+  /v1/open-platform/assets/permission:
+    get:
+      description: |-
+        These permission are used to control access in KenarDivar Apps. Don't mistake them with OAuth scopes.
+        It's expected that apps be blind about these permissions.These are created for internal usages only, but feel free to request to be enabled for you app as needed.
+      operationId: Assets_GetPermissions
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetPermissionsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get KenarDivar permissions
+      tags:
+        - Assets
+  /v1/open-platform/assets/ram-memory:
+    get:
+      description: Get all available ram-memory options in Divar mobile/tablet/laptop categories.This provides persian translations for each ram-memory options which used in posts.
+      operationId: Assets_GetRamMemories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetRamMemoriesResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get available ram-memory options in Divar mobile/tablet/laptop categories
+      tags:
+        - Assets
+  /v1/open-platform/assets/service-type:
+    get:
+      description: |-
+        These service types is used to group similar services in KenarDivar.
+        Any new idea with new service types are welcome. Feel free to request them as needed.
+      operationId: Assets_GetServiceTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetsGetServiceTypesResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get available service types in KenarDivar
+      tags:
+        - Assets
+  /v1/open-platform/chat/conversations/{conversation_id}:
+    get:
+      description: This API is used to get the conversation and messages of a conversation by it's ID.This API expects access token with `CHAT_CONVERSATION_READ` scope.
+      operationId: ChatAPI_GetConversation
+      parameters:
+        - description: Unique identifier for the conversation
+          in: path
+          name: conversation_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/chatapiGetConversationResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get Conversation by it's ID
+      tags:
+        - ChatAPI
+  /v1/open-platform/events/subscriptions:
+    post:
+      description: |-
+        This requests allows you to subscribe to an event.
+        You need to send access-token in this API to check your access.
+        For subscribing on `NEW_MESSAGE_ON_POST` you need one of these scopes:
+        - CHAT_POST_CONVERSATIONS_READ.{post_token}
+        - CHAT_SUPPLIER_ALL_CONVERSATIONS_READ
+        For subscribing on `POST_UPDATE` you need `USER_POSTS_GET` scope.
+        After calling this API, You'll be notified in your webhook when corresponding event occurs.
+        Make sure webhook URL is set on providers panel for your app.
+        Some events are enabled by default and no subscription is needed for them(e.g chatbot messages).
+      operationId: Events_RegisterEventSubscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/eventsRegisterEventSubscriptionRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/eventsRegisterEventSubscriptionResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Subscribe to an event
+      tags:
+        - Events
+      x-codegen-request-body-name: body
+  /v1/open-platform/finder/post/{token}:
+    get:
+      description: |
+        This API allows you to get details about Divar post by its token.
+        You can use the token to get the post data and its state in order to implement your service.
+      operationId: Finder_GetPost
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/finderGetPostResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get a Divar post
+      tags:
+        - Finder
+  /v1/open-platform/finder/user-posts:
+    get:
+      description: |-
+        This API allows you to get all posts of a user.
+        You can use this API to show user posts in your service.
+      operationId: Finder_GetUserPosts
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/finderGetUserPostsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get user posts
+      tags:
+        - Finder
+  /v1/open-platform/payment-ticket/validate:
+    post:
+      description: |-
+        Payment tickets are designed to integrate Kenar apps with Divar internal teams.
+        Using this API you can validate a payment ticket and get the issuer payload.
+      operationId: PaymentTicket_Validate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/payment_ticketValidateRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/payment_ticketValidateResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Validate a payment ticket
+      tags:
+        - PaymentTicket
+      x-codegen-request-body-name: body
+  /v1/open-platform/post/image-upload-url:
+    get:
+      description: |-
+        This API allows you to get an upload URL for uploading images of a post.
+        You can upload images to the returned URL using a POST request with binary encoding.
+      operationId: Post_GetImageUploadURL
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postGetImageUploadURLResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get image upload URL
+      tags:
+        - Post
+  /v1/open-platform/post/{post_token}:
+    put:
+      description: |-
+        This API allows you to edit a post. This needs `POST_EDIT.{post_token}` OAuth scope.
+        By now you can only edit title, description, and images of a post.
+      operationId: Post_EditPost
+      parameters:
+        - in: path
+          name: post_token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostEditPostBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postEditPostResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Edit a post
+      tags:
+        - Post
+      x-codegen-request-body-name: body
+  /v1/open-platform/post/{post_token}/pricing:
+    get:
+      description: "Using this API and with user permission, you can get the price of various services like Reorder.The price of this API is not necessarily the same as the price on Divar, and pricing may vary.Use this API to get the price before applying services (such as reordering a post)."
+      operationId: Payment_GetPostPricing
+      parameters:
+        - description: An 8-9 character unique identifier for the post
+          in: path
+          name: post_token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/paymentGetPostPricingResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Retrieve the cost of the service
+      tags:
+        - limited
+  /v1/open-platform/semantic/user/{phone}:
+    delete:
+      description: You can delete the semantic information of a user by calling this API.
+      operationId: Semantic_DeleteUserSemantic
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: divar_user_id
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/semanticDeleteUserSemanticResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Delete User Semantic
+      tags:
+        - Semantic
+    post:
+      description: |-
+        In some cases, it is necessary to store information about the user in Divar without adding an addon.
+        The username in Divar is the same as the mobile number.
+        This API expects access token having `USER_VERIFICATION_CREATE` scope.
+        Use the User Semantic APIs for this purpose.This service allows sending semantic information and an optional payment ticket.
+      operationId: Semantic_CreateUserSemantic
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SemanticCreateUserSemanticBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/semanticCreateUserSemanticResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Create User Semantic
+      tags:
+        - Semantic
+      x-codegen-request-body-name: body
+  /v1/open-platform/semantic/users/{divar_user_id}:
+    delete:
+      description: You can delete the semantic information of a user by calling this API.
+      operationId: Semantic_DeleteUserSemantic2
+      parameters:
+        - in: path
+          name: divar_user_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: phone
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/semanticDeleteUserSemanticResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Delete User Semantic
+      tags:
+        - Semantic
+    post:
+      description: |-
+        In some cases, it is necessary to store information about the user in Divar without adding an addon.
+        The username in Divar is the same as the mobile number.
+        This API expects access token having `USER_VERIFICATION_CREATE` scope.
+        Use the User Semantic APIs for this purpose.This service allows sending semantic information and an optional payment ticket.
+      operationId: Semantic_CreateUserSemantic2
+      parameters:
+        - in: path
+          name: divar_user_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SemanticCreateUserSemanticBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/semanticCreateUserSemanticResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Create User Semantic
+      tags:
+        - Semantic
+      x-codegen-request-body-name: body
+  /v1/open-platform/users:
+    get:
+      description: |
+        After gaining an access token, you can use this API to get user information.
+        With scope `USER_PHONE` you can get user phone number.
+        With scope `USER_ID` you can get user id and you can rely on uniqueness of this id.
+      operationId: Finder_GetUser2
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/finderUser"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get user information
+      tags:
+        - Finder
+    post:
+      description: |
+        After gaining an access token, you can use this API to get user information.
+        With scope `USER_PHONE` you can get user phone number.
+        With scope `USER_ID` you can get user id and you can rely on uniqueness of this id.
+      operationId: Finder_GetUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/finderGetUserRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/finderUser"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Get user information
+      tags:
+        - Finder
+      x-codegen-request-body-name: body
+  /v2/open-platform/addons/post/{token}:
+    post:
+      description: |-
+        Using this API and with user permission, you can attach a new AD to a post.
+        You can use available widgets to design your Addon.
+        This API need access token having one of the following scopes:
+        - USER_POSTS_ADDON_CREATE
+        - POST_ADDON_CREATE.{post_token}
+      operationId: Addons_CreatePostAddonV2
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddonsCreatePostAddonV2Body"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/addonsCreatePostAddonResponseV2"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Attach a new Addon to a post
+      tags:
+        - Addons
+      x-codegen-request-body-name: body
+  /v2/open-platform/addons/user/{phone}:
+    post:
+      description: |-
+        Using this API and with user permission, you can create a UserAddon.
+        UserAddon will attach to all user posts in future and also back fills last 30 posts in the past.
+        You can use available widgets to design your UserAddon.
+        This API need access token having `USER_ADDON_CREATE` scope
+      operationId: Addons_CreateUserAddonV2
+      parameters:
+        - in: path
+          name: phone
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddonsCreateUserAddonV2Body"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/addonsCreateUserAddonResponseV2"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Attach a new Addon to a user
+      tags:
+        - Addons
+      x-codegen-request-body-name: body
+  /v2/open-platform/addons/users/{divar_user_id}:
+    get:
+      description: Retrieve all UserAddons of a user.
+      operationId: Addons_GetUserAddons2
+      parameters:
+        - in: path
+          name: divar_user_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: phone
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/addonsGetUserAddonsResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Retrieve all UserAddons
+      tags:
+        - Addons
+    post:
+      description: |-
+        Using this API and with user permission, you can create a UserAddon.
+        UserAddon will attach to all user posts in future and also back fills last 30 posts in the past.
+        You can use available widgets to design your UserAddon.
+        This API need access token having `USER_ADDON_CREATE` scope
+      operationId: Addons_CreateUserAddonV22
+      parameters:
+        - in: path
+          name: divar_user_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddonsCreateUserAddonV2Body"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/addonsCreateUserAddonResponseV2"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Attach a new Addon to a user
+      tags:
+        - Addons
+      x-codegen-request-body-name: body
+  /v2/open-platform/conversations/{conversation_id}/messages:
+    post:
+      description: |
+        This API is used to send a message to a conversation.
+        You need one of the following scopes to call this API:
+        - CONVERSATION_SEND_MESSAGE.{conversation_id}
+        - CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND
+        - CHAT_POST_CONVERSATIONS_MESSAGE_SEND.{post_token}
+      operationId: ChatAPI_ConversationSendMessage
+      parameters:
+        - description: Unique identifier for the conversation
+          in: path
+          name: conversation_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatAPIConversationSendMessageBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/chatapiConversationSendMessageResponse"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Send a message to a conversation
+      tags:
+        - ChatAPI
+      x-codegen-request-body-name: body
+  /v2/open-platform/finder/post:
+    post:
+      description: |
+        This API allows you to search Divar posts with some filters.
+        You can search posts by category, city, district, and some other filters.
+        Posts will be sorted by their timestamp.
+      operationId: Finder_SearchPostV2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/finderSearchPostsV2Request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/finderSearchPostV2Response"
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/googlerpcStatus"
+          description: An unexpected error response.
+      summary: Search Divar posts with some filters
+      tags:
+        - Finder
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    AddonSecondaryLinkagePosition:
+      enum:
+        - POST_SPEC_HEAD
+        - POST_SPEC_TAIL
+        - POST_PRICE_SPEC
+        - POST_DESC_TAIL
+      type: string
+    AddonSemanticCarVerificationStage:
+      enum:
+        - CARVERIFICATIONSTAGE_NOT_STARTED
+        - CARVERIFICATIONSTAGE_SHAHKAR
+        - CAR_CARD_VERIFICATION
+        - CAR_MODEL_VERIFICATION
+      type: string
+    AddonSemanticIdentityVerificationResult:
+      enum:
+        - FACE_AND_ID_MATCHED
+      title: "- FACE_AND_ID_MATCHED: ID means melli CARD, this value results in badge in matching"
+      type: string
+    AddonSemanticIdentityVerificationStage:
+      enum:
+        - IDENTITYVERIFICATIONSTAGE_NOT_STARTED
+        - NATIONAL_INFO_VERIFICATION
+        - IMAGE_VERIFICATION
+        - VIDEO_VERIFICATION
+      type: string
+    AddonSemanticInspectionResult:
+      enum:
+        - INSPECTION_APPROVED
+      type: string
+    AddonSemanticNewFaceVerificationResult:
+      enum:
+        - NEW_FACE_VERIFICATION_FAILED
+      type: string
+    AddonSemanticOwnershipResult:
+      enum:
+        - OWNERSHIP_CONFIRMED
+        - OWNERSHIP_DELEGATION_CONFIRMED
+      type: string
+    AddonSemanticPaymentMethod:
+      enum:
+        - SECURE
+      title: "- SECURE: this value results in badge in matching"
+      type: string
+    AddonSemanticPostVerificationResult:
+      enum:
+        - POST_INFORMATION_MATCHED
+      type: string
+    AddonsCreatePostAddonV2Body:
+      example:
+        semantic:
+          key: semantic
+        notes: notes
+        widgets:
+          - image_carousel_row:
+              has_divider: true
+              items:
+                - description: description
+                  image_id: image_id
+                - description: description
+                  image_id: image_id
+            event_row:
+              has_divider: true
+              subtitle: subtitle
+              label: label
+              title: title
+              image_id: image_id
+              icon_name: KEYBOARD_ARROW_RIGHT
+            group_info_row:
+              has_divider: true
+              items:
+                - title: title
+                  value: value
+                - title: title
+                  value: value
+            button_bar:
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+            score_row:
+              percentage_score: 0
+              has_divider: true
+              descriptive_score: descriptive_score
+              score_color: WARNING_SECONDARY
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              icon_name: null
+            title_row:
+              has_divider: true
+              text: text
+            subtitle_row:
+              has_divider: true
+              text: text
+            selector_row:
+              has_divider: true
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              image_id: image_id
+              icon_name: null
+            evaluation_row:
+              middle:
+                section_color: null
+                text: text
+              left:
+                section_color: null
+                text: text
+              indicator_percentage: 6
+              right:
+                section_color: null
+                text: text
+              indicator_text: indicator_text
+              icon_name: null
+            semantic_paths:
+              key: semantic_paths
+            description_row:
+              has_divider: true
+              expandable: true
+              text: text
+          - image_carousel_row:
+              has_divider: true
+              items:
+                - description: description
+                  image_id: image_id
+                - description: description
+                  image_id: image_id
+            event_row:
+              has_divider: true
+              subtitle: subtitle
+              label: label
+              title: title
+              image_id: image_id
+              icon_name: KEYBOARD_ARROW_RIGHT
+            group_info_row:
+              has_divider: true
+              items:
+                - title: title
+                  value: value
+                - title: title
+                  value: value
+            button_bar:
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+            score_row:
+              percentage_score: 0
+              has_divider: true
+              descriptive_score: descriptive_score
+              score_color: WARNING_SECONDARY
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              icon_name: null
+            title_row:
+              has_divider: true
+              text: text
+            subtitle_row:
+              has_divider: true
+              text: text
+            selector_row:
+              has_divider: true
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              image_id: image_id
+              icon_name: null
+            evaluation_row:
+              middle:
+                section_color: null
+                text: text
+              left:
+                section_color: null
+                text: text
+              indicator_percentage: 6
+              right:
+                section_color: null
+                text: text
+              indicator_text: indicator_text
+              icon_name: null
+            semantic_paths:
+              key: semantic_paths
+            description_row:
+              has_divider: true
+              expandable: true
+              text: text
+      properties:
+        widgets:
+          items:
+            $ref: "#/components/schemas/addonsWidget"
+          type: array
+        semantic:
+          additionalProperties:
+            type: string
+          type: object
+        notes:
+          type: string
+      type: object
+    AddonsCreateUserAddonV2Body:
+      example:
+        ticket_uuid: ticket_uuid
+        semantic:
+          key: semantic
+        cost: 0
+        phone: phone
+        categories:
+          - categories
+          - categories
+        widgets:
+          - image_carousel_row:
+              has_divider: true
+              items:
+                - description: description
+                  image_id: image_id
+                - description: description
+                  image_id: image_id
+            event_row:
+              has_divider: true
+              subtitle: subtitle
+              label: label
+              title: title
+              image_id: image_id
+              icon_name: KEYBOARD_ARROW_RIGHT
+            group_info_row:
+              has_divider: true
+              items:
+                - title: title
+                  value: value
+                - title: title
+                  value: value
+            button_bar:
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+            score_row:
+              percentage_score: 0
+              has_divider: true
+              descriptive_score: descriptive_score
+              score_color: WARNING_SECONDARY
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              icon_name: null
+            title_row:
+              has_divider: true
+              text: text
+            subtitle_row:
+              has_divider: true
+              text: text
+            selector_row:
+              has_divider: true
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              image_id: image_id
+              icon_name: null
+            evaluation_row:
+              middle:
+                section_color: null
+                text: text
+              left:
+                section_color: null
+                text: text
+              indicator_percentage: 6
+              right:
+                section_color: null
+                text: text
+              indicator_text: indicator_text
+              icon_name: null
+            semantic_paths:
+              key: semantic_paths
+            description_row:
+              has_divider: true
+              expandable: true
+              text: text
+          - image_carousel_row:
+              has_divider: true
+              items:
+                - description: description
+                  image_id: image_id
+                - description: description
+                  image_id: image_id
+            event_row:
+              has_divider: true
+              subtitle: subtitle
+              label: label
+              title: title
+              image_id: image_id
+              icon_name: KEYBOARD_ARROW_RIGHT
+            group_info_row:
+              has_divider: true
+              items:
+                - title: title
+                  value: value
+                - title: title
+                  value: value
+            button_bar:
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+            score_row:
+              percentage_score: 0
+              has_divider: true
+              descriptive_score: descriptive_score
+              score_color: WARNING_SECONDARY
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              icon_name: null
+            title_row:
+              has_divider: true
+              text: text
+            subtitle_row:
+              has_divider: true
+              text: text
+            selector_row:
+              has_divider: true
+              action:
+                get_dynamic_action:
+                  data:
+                    your-internal-id: something
+                open_server_link:
+                  data:
+                    your-internal-id: something
+                open_direct_link: https://your-site.com/some-path
+              title: title
+              image_id: image_id
+              icon_name: null
+            evaluation_row:
+              middle:
+                section_color: null
+                text: text
+              left:
+                section_color: null
+                text: text
+              indicator_percentage: 6
+              right:
+                section_color: null
+                text: text
+              indicator_text: indicator_text
+              icon_name: null
+            semantic_paths:
+              key: semantic_paths
+            description_row:
+              has_divider: true
+              expandable: true
+              text: text
+      properties:
+        widgets:
+          items:
+            $ref: "#/components/schemas/addonsWidget"
+          type: array
+        semantic:
+          additionalProperties:
+            type: string
+          type: object
+        phone:
+          type: string
+        categories:
+          items:
+            type: string
+          type: array
+        ticket_uuid:
+          type: string
+        cost:
+          format: int32
+          type: integer
+      type: object
+    ChatAPIChatBotSendMessageBody:
+      example:
+        buttons:
+          rows:
+            - buttons:
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+            - buttons:
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+        user_id: user_789012
+        text_message: Thank you for your inquiry. How can I help you?
+        media_token: media_token_12345
+      properties:
+        user_id:
+          description: Unique identifier for the user to start or continue a conversation with
+          example: user_789012
+          type: string
+        text_message:
+          description: Text message content to be sent by the bot
+          example: Thank you for your inquiry. How can I help you?
+          type: string
+        media_token:
+          description: Token for attached media (if any)
+          example: media_token_12345
+          type: string
+        buttons:
+          $ref: "#/components/schemas/chatapiChatButtonGrid"
+      required:
+        - text_message
+      type: object
+    ChatAPIConversationSendMessageBody:
+      example:
+        sender_buttons:
+          rows:
+            - buttons:
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+            - buttons:
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+        receiver_buttons:
+          rows:
+            - buttons:
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+            - buttons:
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+                - icon: KEYBOARD_ARROW_RIGHT
+                  action:
+                    get_dynamic_action:
+                      data:
+                        your-internal-id: something
+                    open_server_link:
+                      data:
+                        your-internal-id: something
+                    open_direct_link: https://your-site.com/some-path
+                  caption: caption
+                  icon_name: icon_name
+        message: "Hello, I'm interested in your product"
+        media_token: media_token_12345
+      properties:
+        message:
+          description: Text message content to be sent
+          example: "Hello, I'm interested in your product"
+          type: string
+        media_token:
+          description: Token for attached media (if any)
+          example: media_token_12345
+          type: string
+        sender_buttons:
+          $ref: "#/components/schemas/chatapiChatButtonGrid"
+        receiver_buttons:
+          $ref: "#/components/schemas/chatapiChatButtonGrid"
+      required:
+        - message
+      type: object
+    DivarIconsIconName:
+      enum:
+        - KEYBOARD_ARROW_RIGHT
+        - KEYBOARD_ARROW_LEFT
+        - ARROW_FORWARD
+        - REFRESH
+        - REMOVE
+        - SEND
+        - DELETE
+        - PHOTO_LIBRARY
+        - ADD
+        - CLOSE
+        - CHECKED
+        - CHECK_BOX
+        - CHECK_BOX_OUTLINE_BLANK
+        - CHAT_DOUBLE
+        - CONTENT_COPY
+        - REPORT
+        - CAT_VEHICLES
+        - PERSON
+        - CALL
+        - CAT_ELECTRONIC_DEVICES
+        - PLACE
+        - HISTORY
+        - CHECK_CIRCLE
+        - ACCESS_TIME
+        - INFO_OUTLINE
+        - PAYMENT
+        - SHOW_CHART
+        - CONTACT_PHONE
+        - TRENDING_UP
+        - CAR_BODY
+        - INSPECT
+        - CAR_TIRES
+        - CAR_ELECTRONICS
+        - CAR_ENGINE
+        - CAR_HYDRAULICS
+        - CAR_OPTIONS
+        - CAR_DOCUMENTS
+        - CANCEL
+        - WARNING
+        - HELP
+        - MONEY
+        - KARNAMEH
+        - EDIT
+        - SUPPORT
+        - CAR_INSPECTED
+        - TERMS
+        - LADDER_COLLECTION
+        - HOUSE_INSPECTION
+        - ADD_CIRCLE
+        - GAVEL
+        - LADDER_GROUP
+        - VISIBILITY
+        - TIMER
+        - LOCK
+        - BLOCK
+        - EMAIL_OUTLINE
+        - ASSIGNMENT_IND
+        - TOC
+        - EXIT_TO_APP
+        - HELP_OUTLINE
+        - TELEPHONE
+        - EVENT_NOTE
+        - COMMUNITY
+        - REAL_ESTATE
+        - VR
+        - NUM_1
+        - NUM_2
+        - NUM_3
+        - NUM_4
+        - NUM_5
+        - NUM_6
+        - NUM_7
+        - NUM_8
+        - NUM_9
+        - ELEVATOR
+        - PARKING
+        - CABINET
+        - BALCONY
+        - TEXTURE
+        - WC
+        - SNOWFLAKE
+        - SUNNY
+        - THERMOMETER
+        - VERIFIED
+        - SETTINGS
+        - CREDIT_ACCOUNT
+        - CAR_AUCTION
+        - CONCIERGE_SALE
+        - INFO
+        - MARKETPLACE_GENERAL
+        - MARKETPLACE_HOME
+        - MARKETPLACE_PERSONAL
+        - MARKETPLACE_ELECTRONIC_DEVICES
+        - INDICATOR_F
+        - SHARE
+        - CAR_INSPECTION
+        - VERIFIED_USER
+        - MARKETPLACE_LIST
+        - BINDER
+        - STAR
+        - CAR_AMENITY
+        - CAR_SAFETY
+        - CAR_EQUIPMENT
+        - BUSINESS_REAL_ESTATE_AGENCY
+        - BUSINESS_MARKETPLACE
+        - BUSINESS_AUTO_DEALERSHIP
+        - LOCAL_SHIPPING
+        - MOPED
+        - TEXT_SMS_OUTLINE
+        - PLACE_F
+        - MOBILE_FRIENDLY
+        - STAR_BORDER
+        - IMAGE_OUTLINE
+        - ARTICLE_OUTLINE
+        - POST_FEEDBACK
+        - DOWNLOAD
+        - FILTER
+        - SUPPORT_AGENT
+        - MORE_VERT
+        - BOOKMARK
+        - BOOKMARK_BORDER
+        - GIFT
+        - ANALYTICS
+        - STORE
+        - STORE_OUTLINE
+        - CAT_BUSINESSES
+        - CAT_FOR_THE_HOME
+        - CAT_SERVICES
+        - CAT_PERSONAL
+        - CAT_LEISURE_HOBBIES
+        - CAT_JOBS
+        - SCHOOL
+        - NOTE
+        - LOGOUT
+        - PERSON_ADD
+        - ADVERT
+        - ADVERT_OUTLINE
+        - ACCESS_TIME_OUTLINE
+        - NOTE_OUTLINE
+        - PAYMENT_OUTLINE
+        - INSTAGRAM
+        - TAG_CHECK_CIRCLE
+        - FULLSCREEN
+        - ADD_CIRCLE_OUTLINE
+        - NOTE_ADD_OUTLINE
+        - BRAND_ALFA_ROMEO
+        - BRAND_AMICO
+        - BRAND_ARIO
+        - BRAND_ARISAN
+        - BRAND_AUDI
+        - BRAND_BAIC
+        - BRAND_BESTURN
+        - BRAND_BISU
+        - BRAND_BMW
+        - BRAND_BORGWARD
+        - BRAND_BRILLIANCE
+        - BRAND_BUICK
+        - BRAND_BYD
+        - BRAND_CAPRA
+        - BRAND_CHANGAN
+        - BRAND_CHERY
+        - BRAND_CHEVROLET
+        - BRAND_CITROEN
+        - BRAND_DAEWOO
+        - BRAND_DATSUN
+        - BRAND_DEER
+        - BRAND_DELICA
+        - BRAND_DENA
+        - BRAND_DIGNITY
+        - BRAND_DODGE
+        - BRAND_DOMY
+        - BRAND_DONGFENG
+        - BRAND_DS
+        - BRAND_FARDA
+        - BRAND_FAW
+        - BRAND_FIAT
+        - BRAND_FIDELITY
+        - BRAND_FORD
+        - BRAND_FOTON
+        - BRAND_GAC_GONOW
+        - BRAND_GEELY
+        - BRAND_GREATWALL
+        - BRAND_HAFEI_LOBO
+        - BRAND_HAIMA
+        - BRAND_HANTENG
+        - BRAND_HAVAL
+        - BRAND_HILLMAN
+        - BRAND_HONDA
+        - BRAND_HUMMER
+        - BRAND_HYOSOW
+        - BRAND_HYUNDAI
+        - BRAND_IRANKHODRO_VAN
+        - BRAND_ISUZU
+        - BRAND_IVECO
+        - BRAND_JAC
+        - BRAND_JAGUAR
+        - BRAND_JEEP
+        - BRAND_JMC
+        - BRAND_JOYLONG
+        - BRAND_KIA
+        - BRAND_KMC
+        - BRAND_LADA
+        - BRAND_LAMBORGHINI
+        - BRAND_LAND_ROVER
+        - BRAND_LANDMARK
+        - BRAND_LEXUS
+        - BRAND_LIFAN
+        - BRAND_LOTUS
+        - BRAND_LUXGEN
+        - BRAND_MASERATI
+        - BRAND_MAXUS
+        - BRAND_MAZDA
+        - BRAND_MERCEDESBENZ
+        - BRAND_MG
+        - BRAND_MINI
+        - BRAND_MITSUBISHI
+        - BRAND_MVM
+        - BRAND_NARVAN
+        - BRAND_NISSAN
+        - BRAND_OLDSMOBILE
+        - BRAND_OPEL
+        - BRAND_PAYKAN
+        - BRAND_PAZHAN
+        - BRAND_PEUGEOT
+        - BRAND_PONTIAC
+        - BRAND_PORSCHE
+        - BRAND_PRIDE
+        - BRAND_PROTON
+        - BRAND_QUICK
+        - BRAND_RAYEN
+        - BRAND_RENAULT
+        - BRAND_RICH
+        - BRAND_RIGAN
+        - BRAND_RUNNA
+        - BRAND_SAINA
+        - BRAND_SAIPA
+        - BRAND_SAMAND
+        - BRAND_SEAT
+        - BRAND_SHAHIN
+        - BRAND_SINAD
+        - BRAND_SMART
+        - BRAND_SSANGYONG
+        - BRAND_SUBARU
+        - BRAND_SUZUKI
+        - BRAND_SWM
+        - BRAND_TARA
+        - BRAND_TIBA
+        - BRAND_TOYOTA
+        - BRAND_UAZ
+        - BRAND_VOLKSWAGEN
+        - BRAND_VOLVO
+        - BRAND_ZAMYAD
+        - BRAND_ZOTYE
+        - BRAND_SOUEAST
+        - ARCHWAY
+        - METRO
+        - POI
+        - STREET_SIGN
+        - TREES
+        - EARNEST
+        - RESTAURANT
+        - BACKPACK
+        - STETHOSCOPE
+        - MOSQUE
+        - HOSPITAL
+        - CAPSULE
+        - BANK
+        - CART
+        - SHOPPING
+        - BRAND_CHRYSLER
+        - BRAND_DAIHATSU
+        - BRAND_FOWNIX
+        - BRAND_ROLLSROYCE
+        - TUNE
+        - EXCHANGE
+        - BABY
+        - BAGUETTE
+        - BUS
+        - COFFEE
+        - FRUIT
+        - GAS_STATION
+        - GYM
+        - HAMBURGER
+        - HIGHWAY
+        - MEDIC
+        - SCHOOL_OUTLINE
+        - TAXI
+        - CAMERA
+        - CAMERA_O
+        - EYE_OFF
+        - BRAND_DAYUN
+        - BRAND_MAXMOTOR
+        - VIDEOCAM
+        - BRAND_ACER
+        - BRAND_ALCATEL
+        - BRAND_AMAZON
+        - BRAND_APPLE
+        - BRAND_ARCHOS
+        - BRAND_ASUS
+        - BRAND_BLACKBERRY
+        - BRAND_BLU
+        - BRAND_CATERPILLAR
+        - BRAND_ENERGIZER
+        - BRAND_GIGABYTE
+        - BRAND_GIONEE
+        - BRAND_GLX
+        - BRAND_GOOGLE
+        - BRAND_GPLUS
+        - BRAND_HONOR
+        - BRAND_HTC
+        - BRAND_HUAWEI
+        - BRAND_LENOVO
+        - BRAND_LG
+        - BRAND_MEIZU
+        - BRAND_MICROMAX
+        - BRAND_MICROSOFT
+        - BRAND_MOTOROLA
+        - BRAND_NOKIA
+        - BRAND_ONEPLUS
+        - BRAND_OPPO
+        - BRAND_PANASONIC
+        - BRAND_PHILIPS
+        - BRAND_PIXEL
+        - BRAND_PRESTIGIO
+        - BRAND_RAZER
+        - BRAND_REALME
+        - BRAND_SAMSUNG
+        - BRAND_SHARP
+        - BRAND_SONY_ERICSSON
+        - BRAND_SONY
+        - BRAND_VERTU
+        - BRAND_VIVO
+        - BRAND_XIAOMI
+        - BRAND_YOTA
+        - BRAND_ZTE
+        - BRAND_INROADS
+        - VIDEOCAM_O
+        - SHIELD_PHONE
+        - SHIELD_PHONE_O
+        - BRAND_LAMARI
+        - VERIFIED_GREEN
+        - CHART
+        - CHART_O
+        - LAUNCH
+        - WALLET
+        - TRASH_O
+        - TRASH_F
+        - BRAND_RESPECT
+        - BRAND_TIGARD
+        - FILE
+        - FILE_O
+        - IMAGE_OUTLINE_O
+        - CONTACT_PHONE_O
+        - PUZZLE
+        - PUZZLE_OUTLINE
+        - CALL_OUTGOING
+        - CALL_INCOMING
+        - CALL_MISSED
+        - CALL_BLOCKED
+        - ARCHIVE
+        - ARCHIVE_O
+        - CHAT_BUBBLE
+        - CHAT_BUBBLE_F
+        - MOBILE_1
+        - MOBILE_2
+        - MOBILE_3
+        - MOBILE_4
+        - MOBILE_5
+        - MOBILE_6
+        - MOBILE_7
+        - CARPET_1
+        - CARPET_2
+        - CARPET_3
+        - CARPET_4
+        - CARPET_5
+        - CARPET_6
+        - SOFA_1
+        - SOFA_2
+        - SOFA_3
+        - SOFA_4
+        - SOFA_5
+        - SOFA_6
+        - LIGHTS_2
+        - LIGHTS_1
+        - LIGHTS_3
+        - LIGHTS_4
+        - LIGHTS_5
+        - BATTERY_CHARGING
+        - BATTERY_HORIZ_075
+        - BATTERY_PROFILE
+        - BUILD_CIRCLE
+        - HEADPHONES
+        - INVENTORY
+        - SMARTPHONE
+        - HOME_INSPECTION
+        - MOBILE_INSPECTION
+        - CAR_COLOR_BLUE
+        - CAR_COLOR_CHERRY
+        - CAR_COLOR_PERSIANBLUE
+        - CAR_COLOR_EGGPLANT
+        - CAR_COLOR_BRONZE
+        - CAR_COLOR_BEIGE
+        - CAR_COLOR_PURPLE
+        - CAR_COLOR_ONIONSKIN
+        - CAR_COLOR_TITANIUM
+        - CAR_COLOR_GRAY
+        - CAR_COLOR_KHAKI
+        - CAR_COLOR_SLATEGRAY
+        - CAR_COLOR_CHARCOAL
+        - CAR_COLOR_YELLOW
+        - CAR_COLOR_CRIMSON
+        - CAR_COLOR_OLIVE
+        - CAR_COLOR_GREEN
+        - CAR_COLOR_LIGHTSLATEGRAY
+        - CAR_COLOR_NAVYBLUE
+        - CAR_COLOR_WHITE
+        - CAR_COLOR_OYSTERWHITE
+        - CAR_COLOR_GOLDEN
+        - CAR_COLOR_LIGHTGRAY
+        - CAR_COLOR_WARMGRAY
+        - CAR_COLOR_JUJUBE
+        - CAR_COLOR_RED
+        - CAR_COLOR_BROWN
+        - CAR_COLOR_CARBONBLACK
+        - CAR_COLOR_DARKRED
+        - CAR_COLOR_COPPER
+        - CAR_COLOR_BLACK
+        - CAR_COLOR_MOCHA
+        - CAR_COLOR_ORANGE
+        - CAR_COLOR_BLUESILVER
+        - CAR_COLOR_SILVER
+        - CAR_COLOR_DIMGRAY
+        - CAR_COLOR_JADEGREEN
+        - DIVAR_LOGO
+        - CAR_COLOR_CREAM
+        - CAR_FRONT_SIDE
+        - CAR_BACK_SIDE
+        - CAR_DRIVER_SIDE
+        - CAR_PASSENGER_SIDE
+        - CAR_ODOMETER
+        - CRAFTSMEN
+        - KITCHEN_UTENSILS
+        - STOVES_HEATERS_FIREPLACES
+        - TRAVEL_PACKAGES
+        - WATER_HEATER_PACKAGE_RADIATOR
+        - STAIRS
+        - ACCESSIBILITY
+        - MAP_VIEW
+        - THUMB_DOWN
+        - THUMB_UP
+        - VIDEOCAM_PLUS
+        - BADGE
+        - BADGE_F
+        - RADIO_BUTTON_UNCHECKED
+        - POLICE
+        - SORT_ASCENDING
+        - BUSINESS_PERSONAL
+        - BRAND_XTRIM
+        - BRAND_BESTUNE
+        - BRAND_GAC
+        - BRAND_VENUCIA
+        - BRAND_VGV
+        - BRAND_ZX_AUTO
+        - BRAND_QINGLING
+        - BUSINESS_JOBS
+        - SHIELD_CHECK_CIRCLE
+        - SCRIPT_TEXT
+        - DOT_INDICATOR
+        - CLOCK
+        - MAP_MARKER
+        - TOMAN_SIGN
+        - CHECK_DECOGRAM
+        - LADDER
+        - RUNNING_MAN
+        - CALENDAR_TEXT
+        - HOME
+        - ADMINISTRATIVE_DOC
+        - ANALOG_WATCH
+        - ANKLE_BOOTS
+        - BARTER
+        - BOOTS
+        - BRIEFCASE
+        - CAPACITY
+        - CARPET_DIMENSIONS
+        - CHAIRS
+        - CHANDELIER
+        - COLOR_BEAKER
+        - CONDITION
+        - CONTROLLER
+        - COSMETICS
+        - CPU
+        - DIGITAL_WATCH
+        - DOOR
+        - DRESS_SHOES
+        - ELECTRICAL
+        - FAKE_BADGE
+        - FANNY_PACK
+        - FURNITURE
+        - FURNITURE_CLASSIC
+        - FURNITURE_SOFA
+        - HANDBAG
+        - HDMI
+        - HERBAL_PILLS
+        - HOME_AREA
+        - INSTALLMENT_SALE
+        - IRANCELL
+        - IRAN_MAP
+        - JEWELRY_ANKLET
+        - JEWELRY_BRACELET
+        - JEWELRY_EARRINGS
+        - JEWELRY_NECKLACE
+        - JEWELRY_RING
+        - JEWELRY_SET
+        - LAN
+        - LOAFERS
+        - MAN
+        - MAN_AND_WOMAN
+        - MATERIAL
+        - MCI
+        - MEDICAL
+        - MEMORY
+        - MODEM
+        - MONEY_BILLS
+        - NINTENDO
+        - ORIGINAL_BADGE
+        - PAPER_DEED
+        - PARKING_LOT
+        - PERFUMES
+        - PLAY_STATION
+        - RAM
+        - RECEIVING_HAND
+        - RIGHTEL
+        - SANDALS
+        - SCISSORS
+        - SCREEN_SIZE
+        - SHAKING_HANDS
+        - SHOULDER_BAG
+        - SIDE_TABLE
+        - SIM
+        - SIM_HOLDER
+        - SKIN_CARE
+        - SLIPPERS
+        - SMART_WATCH
+        - SNEAKERS
+        - SPEEDOMETER
+        - SPORT_BAG
+        - STAIRCASE
+        - STORAGE
+        - UMBRELLA
+        - USB
+        - WOMAN
+        - WORLD_MAP
+        - XBOX
+        - SHIELD_CHECK
+        - CAR
+        - BUILDING
+        - STOP_WATCH
+        - CHATBOT
+        - CHATBOT_OUTLINE
+        - APARTMENT_RENT
+        - APARTMENT_SELL
+        - COMMERCIAL_RENT
+        - COMMERCIAL_SELL
+        - HOUSE_VILLA_RENT
+        - HOUSE_VILLA_SELL
+        - INDUSTRY_AGRICULTURE_BUSINESS_RENT
+        - INDUSTRY_AGRICULTURE_BUSINESS_SELL
+        - OFFICE_RENT
+        - OFFICE_SELL
+        - PARTNERSHIP
+        - PLOT_OLD
+        - PRESELL
+        - REAL_ESTATE_SERVICES
+        - RESIDENTIAL_RENT
+        - RESIDENTIAL_SELL
+        - SHOP_RENT
+        - SHOP_SELL
+        - SUITE_APARTMENT
+        - TEMPORARY_RENT
+        - VILLA
+        - WORKSPACE
+        - IMAGE_MULTIPLE
+        - SHATEL_MOBILE
+        - MEGAPHONE_F
+        - MEGAPHONE
+        - YEKTANET
+        - TAPSELL
+        - DAART
+        - CLOSE_CIRCLE
+        - CLOSE_CIRCLE_F
+        - ACCESSORIES
+        - ACCOUNTING_AND_FINANCE
+        - ACCOUNTING_FINANCE_LEGAL
+        - ADMINISTRATION_AND_HR
+        - AIR_CONDITIONING_FAN_COIL
+        - ANIMALS
+        - APPLIANCE
+        - ARTIFICIAL_FLOWER
+        - AUDIO_VIDEO
+        - BABY_AND_TOYS
+        - BALL_SPORTS
+        - BARBERSHOP_AND_BEAUTYSALON
+        - BATCH
+        - BATHROOMS
+        - BATHROOM_ACCESSORIES
+        - BEAUTY_AND_HAIRCARE
+        - BED_PILLOW_BLANKET
+        - BED_SERVICE
+        - BED_SHEET
+        - BICYCLE
+        - BIRDS
+        - BOAT
+        - BOOKCASE_SHELF
+        - BOOK_STUDENT_LITERATURE
+        - BUFFET_SHOWCASES
+        - BUILDING_EQUIPMENT
+        - BUS_METRO_TRAIN
+        - CAFE_AND_RESTAURANT
+        - CAMERA_CAMCODERS
+        - CAMPING_OUTDOOR
+        - CARE_HEALTH_BEAUTY
+        - CARPET
+        - CARPET_MOQUETTE
+        - CARS
+        - CAR_AND_MOTOR
+        - CAT
+        - CATERING
+        - CCTV
+        - CHAIR_BENCH
+        - CHANDELIERS
+        - CHILDRENS_CLOTHING_AND_SHOE
+        - CHILDRENS_FURNITURE
+        - CHILD_CAR_SEAT
+        - CLASSIC
+        - CLEANING
+        - CLEANING_SUPPLIES
+        - CLOTHES_RACK
+        - CLOTHING
+        - CLOTHING_AND_SHOES
+        - COIN_STAMP
+        - COMPUTERS
+        - COMPUTER_AND_IT
+        - COMPUTER_AND_MOBILE
+        - CONCERT
+        - CONFERENCE_MEETING
+        - CONSTRUCTION_CRAFT
+        - CONTAINERS
+        - CONTAINER_ORGANIZERS
+        - COOKING_UTENSILS
+        - CRAFTS
+        - CURTAINS_TABLE_COVER
+        - DECORATION
+        - DESK
+        - DESKTOPS
+        - DETERGENT_TISSUE
+        - DINING_TABLE
+        - DISHWASHER
+        - DIVING_WATERSPORTS
+        - DOG
+        - DRINK_MAKER
+        - DRUMS_PERCUSSION
+        - EDUCATION
+        - EDUCATIONAL
+        - EVENT
+        - EVENTS_SPORTS
+        - FAN_VENTILATOR_HUMIDIFIER
+        - FARM_ANIMALS
+        - FIGURINES
+        - FISH
+        - FISHING
+        - FOOD_AND_DRINK
+        - FOOD_MILL
+        - FOR_SALE
+        - FURNITURE_WOOD
+        - GAME_CONSOLES_AND_VIDEO_GAMES
+        - GARDEN_AND_LANDSCAPING
+        - GIFT_CERTIFICATE
+        - GUITAR_BASS_AMPLIFIER
+        - HEALTH_BEAUTY
+        - HEAVY
+        - HISTORICAL
+        - HISTORICAL_OBJECTS
+        - HOBBY_COLLECTIBLES
+        - HOME_CATERING
+        - HOME_LIGHTING
+        - HORSES_EQUESTRIAN
+        - INDUSTRIAL_MACHINERY
+        - INDUSTRIAL_TECHNOLOGY
+        - JANITORIAL_CLEANING
+        - JEWELRY
+        - JEWELRY_AND_WATCHES
+        - JUICERS
+        - LAMPS
+        - LAMPSHADE
+        - LAPTOPS
+        - LEISURE_HOBBIES_TOYS
+        - LIGHT
+        - LITERARY
+        - LOST_AND_FOUND
+        - LOST_ANIMALS
+        - LOST_THINGS
+        - LUMBAR_PILLOW
+        - MAGAZINES
+        - MAT
+        - MATTRESS
+        - MEDIA_ADVERTISING
+        - MEDICAL_EQUIPMENT
+        - MIRROR
+        - MOBILE_PHONES
+        - MOBILE_TABLET
+        - MOBILE_TABLET_ACCESSORIES
+        - MODEM_AND_NETWORK_EQUIPMENT
+        - MOQUETTE
+        - MOTORCYCLES
+        - MOVIES_AND_MUSIC
+        - MP3_PLAYER
+        - MUSICAL_INSTRUMENTS
+        - NATURAL_PLANTS
+        - OFFICES
+        - OFFICE_DECORATION
+        - OTHER_APPLIANCES
+        - OVEN_BAKING_APPLIANCES
+        - PAINTINGS_PICTURE
+        - PARTS_ACCESSORIES
+        - PARTS_AND_ACCESSORIES
+        - PERSONAL_TOYS
+        - PHONE_DESK
+        - PIANO_KEYBOARD
+        - PICTORIAL_CARPET
+        - POT_KETTLE
+        - PRINTER_SCANER_COPIER
+        - RANGE_HOOD
+        - REFRIGERATOR_FREEZER
+        - RELIGIOUS
+        - RENTAL
+        - REPTILE
+        - RESEARCH
+        - RHINESTONES
+        - RODENTS_RABBITS
+        - RUBBER_CARPET
+        - RUGS_WOOLEN_CLOTH
+        - SALES_MARKETING
+        - SEWING_ACCESSORIES
+        - SEWING_KNITTING
+        - SEWING_MACHINE
+        - SHOES_BELT_BAG
+        - SHOE_RACK_DRAWER
+        - SHOP_AND_CASH
+        - SHOP_RESTAURANT
+        - SIM_CARD
+        - SLEEP_GOODS
+        - SPORT
+        - SPORT_LEISURE
+        - STATIONERY
+        - STEAM_IRON
+        - STEREO_SURROUND
+        - STROLLERS_AND_ACCESSORIES
+        - TABLECLOTHS
+        - TABLET
+        - TEACHING
+        - THEATRE_AND_CINEMA
+        - TICKET
+        - TICKETS_SPORTS
+        - TOOLBOX
+        - TRADITIONAL
+        - TRAINING
+        - TRANSPORT
+        - TRANSPORTATION
+        - TV_PROJECTOR
+        - TV_STAND
+        - VACUUMS_CLEANER
+        - VENTILATION_COOLING_HEATING
+        - VIDEO_DVDPLAYER
+        - VIOLINS
+        - VOLUNTEERS
+        - WALL_CLOCK
+        - WASHING_CLEANING
+        - WASHING_MACHINES
+        - WATCHES
+        - WATER_COOLER
+        - WATER_COOLER_REFINERY
+        - WC_ACCESSORIES
+        - WIND
+        - WINTER_SPORTS
+        - WORK_EQUIPMENT
+        - YARN_LIGHTS
+        - ARTICLE_MAGNIFIER
+        - ARTICLE_MAGNIFIER_F
+        - FOOTNOTE
+        - SPARKLES_F
+        - HAND_CLICK
+      type: string
+    GetPostPricingResponseReorder:
+      example:
+        available: true
+        cost_rials: cost_rials
+      properties:
+        cost_rials:
+          description: The cost of reordering in rials
+          format: int64
+          type: string
+        available:
+          description: "Indicates if the post can be reordered. If false, the reorder API will return an error"
+          type: boolean
+      type: object
+    GetPostResponseBusinessData:
+      example:
+        business_name: business_name
+        business_type: CAR
+      properties:
+        business_type:
+          $ref: "#/components/schemas/PremiumPanelBusinessDataSubBusinessType"
+        business_name:
+          type: string
+      type: object
+    GetServiceTypesResponseServiceTypeData:
+      example:
+        display: display
+        slug: FUNC_CLICK_AND_COLLECT
+      properties:
+        slug:
+          $ref: "#/components/schemas/appsServiceType"
+        display:
+          type: string
+      type: object
+    ImageCarouselRowImageItem:
+      example:
+        description: description
+        image_id: image_id
+      properties:
+        image_id:
+          type: string
+        description:
+          type: string
+      type: object
+    MessageFileData:
+      example:
+        size_bytes: size_bytes
+        link: link
+        name: name
+      properties:
+        link:
+          type: string
+        name:
+          type: string
+        size_bytes:
+          format: uint64
+          type: string
+      type: object
+    MessageImageData:
+      example:
+        size_bytes: size_bytes
+        width_px: 6
+        height_px: 0
+        link: link
+      properties:
+        link:
+          type: string
+        size_bytes:
+          format: uint64
+          type: string
+        height_px:
+          format: int64
+          type: integer
+        width_px:
+          format: int64
+          type: integer
+      type: object
+    MessageLocationData:
+      example:
+        latitude: 1.4658129805029452
+        longitude: 5.962133916683182
+      properties:
+        latitude:
+          description: "The latitude in degrees. It must be in the range [-90.0, +90.0]."
+          format: double
+          type: number
+        longitude:
+          description: "The longitude in degrees. It must be in the range [-180.0, +180.0]."
+          format: double
+          type: number
+      type: object
+    MessageSender:
+      example:
+        side: BUYER
+        type: HUMAN
+      properties:
+        side:
+          $ref: "#/components/schemas/chatapiMessageSenderSide"
+        type:
+          $ref: "#/components/schemas/chatapiMessageSenderType"
+      type: object
+    MessageVideoData:
+      example:
+        size_bytes: size_bytes
+        thumbnail_link: thumbnail_link
+        link: link
+      properties:
+        link:
+          type: string
+        thumbnail_link:
+          type: string
+        size_bytes:
+          format: uint64
+          type: string
+      type: object
+    MessageVoiceData:
+      example:
+        size_bytes: size_bytes
+        link: link
+      properties:
+        link:
+          type: string
+        size_bytes:
+          format: uint64
+          type: string
+      type: object
+    OAuthScopeScope:
+      enum:
+        - POST_ADDON_CREATE
+        - USER_PHONE
+        - USER_ID
+        - USER_ADDON_CREATE
+        - CHAT_MESSAGE_SEND
+        - CHAT_CONVERSATION_READ
+        - USER_POSTS_GET
+        - CHAT_POST_CONVERSATIONS_READ
+        - CHAT_POST_CONVERSATIONS_MESSAGE_SEND
+        - CHAT_SUPPLIER_ALL_CONVERSATIONS_READ
+        - CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND
+        - CHAT_BOT_USER_MESSAGE_SEND
+        - USER_VERIFICATION_CREATE
+        - OFFLINE_ACCESS
+        - OPENID
+        - PAYMENT_ALL_POSTS_PRICING_READ
+        - PAYMENT_ALL_POSTS_REORDER
+        - MANAGEMENT_APPS_READ
+        - MANAGEMENT_APPS_WRITE
+        - POST_ONGOING_IMAGES_GET
+        - USER_POSTS_ADDON_CREATE
+        - POST_EDIT
+        - CONVERSATION_SEND_MESSAGE
+        - BUSINESS_ADDON_CREATE
+        - POST_SEMANTIC_CREATE
+        - NOTIFICATION_ACCESS_REVOCATION
+      type: string
+    PaymentReorderPostBody:
+      example:
+        extra_details: extra_details
+        id: id
+      properties:
+        id:
+          description: "A Version 4 uuid that must be unique for each payment. This uuid must be generated on your side and sent in the request. If an id is sent that has a successful or semi-successful transaction on the Kenar side, you will receive an error."
+          type: string
+        extra_details:
+          description: Additional details that you want to send to the Kenar side. This field is optional and can be used to solve inconsistencies in the transaction.
+          type: string
+      type: object
+    PostEditPostBody:
+      example:
+        description: description
+        image_paths:
+          - image_paths
+          - image_paths
+        title: title
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        image_paths:
+          items:
+            type: string
+          type: array
+      type: object
+    PremiumPanelBusinessDataSubBusinessType:
+      enum:
+        - CAR
+        - REAL_ESTATE
+        - JOBS
+        - MARKETPLACE
+        - SERVICES
+      type: string
+    SearchPostItemCommunityFields:
+      type: object
+    SearchPostItemElectronicDevicesFields:
+      type: object
+    SearchPostItemHomeKitchenFields:
+      type: object
+    SearchPostItemJobsFields:
+      type: object
+    SearchPostItemLeisureHobbiesFields:
+      type: object
+    SearchPostItemPersonalGoodsFields:
+      type: object
+    SearchPostItemPrice:
+      example:
+        mode: mode
+        value: value
+      properties:
+        mode:
+          type: string
+        value:
+          format: uint64
+          type: string
+      type: object
+    SearchPostItemRealEstateFields:
+      example:
+        has_elevator: true
+        has_parking: true
+        rooms: rooms
+        size: 0
+        year: 6
+        daily_rent: daily_rent
+        credit:
+          mode: mode
+          value: value
+        rent:
+          mode: mode
+          value: value
+        floor: 1
+      properties:
+        credit:
+          $ref: "#/components/schemas/SearchPostItemPrice"
+        rent:
+          $ref: "#/components/schemas/SearchPostItemPrice"
+        daily_rent:
+          format: uint64
+          type: string
+        size:
+          format: int32
+          type: integer
+        year:
+          format: int64
+          type: integer
+        has_parking:
+          type: boolean
+        has_elevator:
+          type: boolean
+        rooms:
+          type: string
+        floor:
+          format: int32
+          type: integer
+      type: object
+    SearchPostItemServicesFields:
+      type: object
+    SearchPostItemToolsMaterialsEquipmentFields:
+      type: object
+    SearchPostItemVehiclesFields:
+      example:
+        installment_sale: installment_sale
+        usage: usage
+        custom_post_subtitle: custom_post_subtitle
+      properties:
+        usage:
+          format: uint64
+          type: string
+        installment_sale:
+          type: string
+        custom_post_subtitle:
+          type: string
+      type: object
+    SemanticCreatePostSemanticBody:
+      example:
+        ticket_uuid: ticket_uuid
+        semantic:
+          key: semantic
+        cost: 0
+      properties:
+        semantic:
+          additionalProperties:
+            type: string
+          type: object
+        ticket_uuid:
+          type: string
+        cost:
+          format: int32
+          type: integer
+      type: object
+    SemanticCreateUserSemanticBody:
+      example:
+        ticket_uuid: ticket_uuid
+        semantic:
+          key: semantic
+        cost: 0
+        phone: phone
+      properties:
+        phone:
+          type: string
+        semantic:
+          additionalProperties:
+            type: string
+          type: object
+        ticket_uuid:
+          type: string
+        cost:
+          format: int32
+          type: integer
+      type: object
+    addonsAction:
+      description: Represents an action that can be performed
+      example:
+        get_dynamic_action:
+          data:
+            your-internal-id: something
+        open_server_link:
+          data:
+            your-internal-id: something
+        open_direct_link: https://your-site.com/some-path
+      properties:
+        open_direct_link:
+          description: An action to send user to your URL directly with just a resource id (if applicable)
+          example: https://your-site.com/some-path
+          type: string
+        open_server_link:
+          $ref: "#/components/schemas/addonsOpenServerLink"
+        get_dynamic_action:
+          $ref: "#/components/schemas/addonsGetDynamicAction"
+      title: Action
+      type: object
+    addonsAddonLinkage:
+      enum:
+        - POST_DETAILS
+        - POST_MANAGEMENT
+      type: string
+    addonsAddonMetaData:
+      example:
+        app:
+          service_type: FUNC_CLICK_AND_COLLECT
+          divar_identification_key: divar_identification_key
+          service_tags:
+            - VERIFIED
+            - VERIFIED
+          display: display
+          avatar: avatar
+          slug: slug
+          status:
+            status: ACTIVE
+        service_tags:
+          - null
+          - null
+        created_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        last_modified: 2000-01-23T04:56:07.000+00:00
+        status: ACTIVE
+      properties:
+        id:
+          type: string
+        app:
+          $ref: "#/components/schemas/appsApp"
+        created_at:
+          format: date-time
+          type: string
+        last_modified:
+          format: date-time
+          type: string
+        status:
+          $ref: "#/components/schemas/addonsStatus"
+        service_tags:
+          items:
+            $ref: "#/components/schemas/appsServiceTag"
+          type: array
+      type: object
+    addonsAddonSecondaryLinkage:
+      properties:
+        position:
+          $ref: "#/components/schemas/AddonSecondaryLinkagePosition"
+        widgets:
+          type: object
+      type: object
+    addonsAddonSecondaryLinks:
+      properties:
+        secondary_linkages:
+          items:
+            $ref: "#/components/schemas/addonsAddonSecondaryLinkage"
+          type: array
+      type: object
+    addonsAddonSelector:
+      properties:
+        tokens:
+          items:
+            type: string
+          title: (OR) post is selected if the following array contains corresponding field
+          type: array
+        categories:
+          items:
+            type: string
+          type: array
+        cities:
+          items:
+            type: string
+          type: array
+        districts:
+          items:
+            type: string
+          type: array
+        brand_models:
+          items:
+            type: string
+          type: array
+      title: (AND) post is selected by this selector if all of the following conditions matches
+      type: object
+    addonsAddonSemantic:
+      description: |-
+        This is the message extracted by OpenPlatform from service provider
+        semantics. Guidelines:
+         - Always check to see if an appropriate enum field or value exists before
+         adding one.
+         - Zero value of every enum should be {ENUM_NAME}_UNSPECIFIED.
+         - Enum values should not correspond to any specific post or person
+         attribute.
+      example:
+        identity_verification_result: FACE_AND_ID_MATCHED
+        car_verification_last_successful_stage: CARVERIFICATIONSTAGE_NOT_STARTED
+        ownership_result: OWNERSHIP_CONFIRMED
+        post_verification_result: POST_INFORMATION_MATCHED
+        identity_verification_last_successful_stage: IDENTITYVERIFICATIONSTAGE_NOT_STARTED
+        inspection_result: INSPECTION_APPROVED
+        new_face_verification_result: NEW_FACE_VERIFICATION_FAILED
+        payment_method: SECURE
+        identity_verification_failure_reason: null
+        car_verification_failure_reason: null
+        status: SUCCEEDED
+      properties:
+        payment_method:
+          $ref: "#/components/schemas/AddonSemanticPaymentMethod"
+        identity_verification_result:
+          $ref: "#/components/schemas/AddonSemanticIdentityVerificationResult"
+        post_verification_result:
+          $ref: "#/components/schemas/AddonSemanticPostVerificationResult"
+        status:
+          $ref: "#/components/schemas/addonsAddonSemanticStatus"
+        identity_verification_last_successful_stage:
+          $ref: "#/components/schemas/AddonSemanticIdentityVerificationStage"
+        identity_verification_failure_reason:
+          $ref: "#/components/schemas/AddonSemanticIdentityVerificationStage"
+        car_verification_last_successful_stage:
+          $ref: "#/components/schemas/AddonSemanticCarVerificationStage"
+        car_verification_failure_reason:
+          $ref: "#/components/schemas/AddonSemanticCarVerificationStage"
+        ownership_result:
+          $ref: "#/components/schemas/AddonSemanticOwnershipResult"
+        inspection_result:
+          $ref: "#/components/schemas/AddonSemanticInspectionResult"
+        new_face_verification_result:
+          $ref: "#/components/schemas/AddonSemanticNewFaceVerificationResult"
+      type: object
+    addonsAddonSemanticStatus:
+      enum:
+        - SUCCEEDED
+        - FAILED
+        - EXPIRED
+        - PENDING
+      type: string
+    addonsBackFillBusinessAddonResponse:
+      type: object
+    addonsBusinessAddon:
+      properties:
+        meta_data:
+          $ref: "#/components/schemas/addonsAddonMetaData"
+        business_ref:
+          type: string
+        widgets:
+          type: object
+      type: object
+    addonsButtonBar:
+      example:
+        action:
+          get_dynamic_action:
+            data:
+              your-internal-id: something
+          open_server_link:
+            data:
+              your-internal-id: something
+          open_direct_link: https://your-site.com/some-path
+        title: title
+      properties:
+        title:
+          type: string
+        action:
+          $ref: "#/components/schemas/addonsAction"
+      type: object
+    addonsCreatePostAddonRequest:
+      properties:
+        token:
+          type: string
+        widgets:
+          type: object
+        selector:
+          $ref: "#/components/schemas/addonsAddonSelector"
+        link_in_spec:
+          type: string
+        notes:
+          title: arbitrary data provided by addon creator
+          type: string
+        semantic:
+          additionalProperties:
+            type: string
+          type: object
+        semantic_sensitives:
+          items:
+            type: string
+          type: array
+      type: object
+    addonsCreatePostAddonResponseV2:
+      type: object
+    addonsCreateUserAddonResponseV2:
+      example:
+        id: id
+      properties:
+        id:
+          type: string
+      type: object
+    addonsDescriptionRow:
+      example:
+        has_divider: true
+        expandable: true
+        text: text
+      properties:
+        text:
+          type: string
+        has_divider:
+          type: boolean
+        expandable:
+          type: boolean
+      type: object
+    addonsEvaluationRow:
+      example:
+        middle:
+          section_color: null
+          text: text
+        left:
+          section_color: null
+          text: text
+        indicator_percentage: 6
+        right:
+          section_color: null
+          text: text
+        indicator_text: indicator_text
+        icon_name: null
+      properties:
+        indicator_text:
+          type: string
+        indicator_percentage:
+          format: int32
+          type: integer
+        icon_name:
+          $ref: "#/components/schemas/DivarIconsIconName"
+        left:
+          $ref: "#/components/schemas/addonsEvaluationRowSection"
+        middle:
+          $ref: "#/components/schemas/addonsEvaluationRowSection"
+        right:
+          $ref: "#/components/schemas/addonsEvaluationRowSection"
+      type: object
+    addonsEvaluationRowSection:
+      example:
+        section_color: null
+        text: text
+      properties:
+        text:
+          type: string
+        section_color:
+          $ref: "#/components/schemas/addonsWidgetColor"
+      type: object
+    addonsEventRow:
+      example:
+        has_divider: true
+        subtitle: subtitle
+        label: label
+        title: title
+        image_id: image_id
+        icon_name: KEYBOARD_ARROW_RIGHT
+      properties:
+        title:
+          type: string
+        subtitle:
+          type: string
+        label:
+          type: string
+        image_id:
+          type: string
+        has_divider:
+          type: boolean
+        icon_name:
+          $ref: "#/components/schemas/DivarIconsIconName"
+      type: object
+    addonsGetBusinessAddonsResponse:
+      properties:
+        addons:
+          items:
+            $ref: "#/components/schemas/addonsBusinessAddon"
+          type: array
+      type: object
+    addonsGetDynamicAction:
+      description: Represents a dynamic action that can be fetched and invoked on user's device
+      example:
+        data:
+          your-internal-id: something
+      properties:
+        data:
+          description: A data that you can set and will be returned to you upon user click to recognize the action
+          example:
+            your-internal-id: something
+          properties: {}
+          type: object
+      title: Get Dynamic Action
+      type: object
+    addonsGetPostAddonsResponse:
+      properties:
+        addons:
+          items:
+            $ref: "#/components/schemas/addonsPostAddon"
+          type: array
+      type: object
+    addonsGetUserAddonsResponse:
+      example:
+        addons:
+          - sensitive_semantic:
+              key: sensitive_semantic
+            semantic:
+              key: semantic
+            phone: phone
+            meta_data:
+              app:
+                service_type: FUNC_CLICK_AND_COLLECT
+                divar_identification_key: divar_identification_key
+                service_tags:
+                  - VERIFIED
+                  - VERIFIED
+                display: display
+                avatar: avatar
+                slug: slug
+                status:
+                  status: ACTIVE
+              service_tags:
+                - null
+                - null
+              created_at: 2000-01-23T04:56:07.000+00:00
+              id: id
+              last_modified: 2000-01-23T04:56:07.000+00:00
+              status: ACTIVE
+            filters:
+              categories:
+                - categories
+                - categories
+            widgets: "{}"
+            semantic_data:
+              identity_verification_result: FACE_AND_ID_MATCHED
+              car_verification_last_successful_stage: CARVERIFICATIONSTAGE_NOT_STARTED
+              ownership_result: OWNERSHIP_CONFIRMED
+              post_verification_result: POST_INFORMATION_MATCHED
+              identity_verification_last_successful_stage: IDENTITYVERIFICATIONSTAGE_NOT_STARTED
+              inspection_result: INSPECTION_APPROVED
+              new_face_verification_result: NEW_FACE_VERIFICATION_FAILED
+              payment_method: SECURE
+              identity_verification_failure_reason: null
+              car_verification_failure_reason: null
+              status: SUCCEEDED
+            widgets_semantic: "{}"
+            divar_user_id: divar_user_id
+          - sensitive_semantic:
+              key: sensitive_semantic
+            semantic:
+              key: semantic
+            phone: phone
+            meta_data:
+              app:
+                service_type: FUNC_CLICK_AND_COLLECT
+                divar_identification_key: divar_identification_key
+                service_tags:
+                  - VERIFIED
+                  - VERIFIED
+                display: display
+                avatar: avatar
+                slug: slug
+                status:
+                  status: ACTIVE
+              service_tags:
+                - null
+                - null
+              created_at: 2000-01-23T04:56:07.000+00:00
+              id: id
+              last_modified: 2000-01-23T04:56:07.000+00:00
+              status: ACTIVE
+            filters:
+              categories:
+                - categories
+                - categories
+            widgets: "{}"
+            semantic_data:
+              identity_verification_result: FACE_AND_ID_MATCHED
+              car_verification_last_successful_stage: CARVERIFICATIONSTAGE_NOT_STARTED
+              ownership_result: OWNERSHIP_CONFIRMED
+              post_verification_result: POST_INFORMATION_MATCHED
+              identity_verification_last_successful_stage: IDENTITYVERIFICATIONSTAGE_NOT_STARTED
+              inspection_result: INSPECTION_APPROVED
+              new_face_verification_result: NEW_FACE_VERIFICATION_FAILED
+              payment_method: SECURE
+              identity_verification_failure_reason: null
+              car_verification_failure_reason: null
+              status: SUCCEEDED
+            widgets_semantic: "{}"
+            divar_user_id: divar_user_id
+      properties:
+        addons:
+          items:
+            $ref: "#/components/schemas/addonsUserAddon"
+          type: array
+      type: object
+    addonsGetUserPostAddonsResponse:
+      properties:
+        addons:
+          items:
+            $ref: "#/components/schemas/addonsPostAddon"
+          type: array
+      type: object
+    addonsGroupInfoRow:
+      example:
+        has_divider: true
+        items:
+          - title: title
+            value: value
+          - title: title
+            value: value
+      properties:
+        items:
+          items:
+            $ref: "#/components/schemas/addonsGroupInfoRowGroupInfoItem"
+          type: array
+        has_divider:
+          type: boolean
+      type: object
+    addonsGroupInfoRowGroupInfoItem:
+      example:
+        title: title
+        value: value
+      properties:
+        title:
+          type: string
+        value:
+          type: string
+      type: object
+    addonsImageCarouselRow:
+      example:
+        has_divider: true
+        items:
+          - description: description
+            image_id: image_id
+          - description: description
+            image_id: image_id
+      properties:
+        items:
+          items:
+            $ref: "#/components/schemas/ImageCarouselRowImageItem"
+          type: array
+        has_divider:
+          type: boolean
+      type: object
+    addonsOpenServerLink:
+      description: An action to pass complete session data and retrieve redirect location from your server on each user action
+      example:
+        data:
+          your-internal-id: something
+      properties:
+        data:
+          description: A data that you can set and will be returned to you upon user click to recognize the action
+          example:
+            your-internal-id: something
+          properties: {}
+          type: object
+      title: Open Server Link
+      type: object
+    addonsPostAddon:
+      properties:
+        meta_data:
+          $ref: "#/components/schemas/addonsAddonMetaData"
+        token:
+          type: string
+        app:
+          $ref: "#/components/schemas/appsApp"
+        widgets:
+          type: object
+        score:
+          format: int64
+          type: string
+        selector:
+          $ref: "#/components/schemas/addonsAddonSelector"
+        linkage:
+          $ref: "#/components/schemas/addonsAddonLinkage"
+        secondary_links:
+          $ref: "#/components/schemas/addonsAddonSecondaryLinks"
+        semantic:
+          additionalProperties:
+            type: string
+          title: deprecated
+          type: object
+        semantic_data:
+          $ref: "#/components/schemas/addonsAddonSemantic"
+        sensitive_semantic:
+          additionalProperties:
+            type: string
+          type: object
+        widgets_semantic:
+          properties: {}
+          type: object
+        semantic_sensitives:
+          items:
+            type: string
+          title: deprecated
+          type: array
+      type: object
+    addonsResolveDynamicActionRequest:
+      properties:
+        request_data:
+          $ref: "#/components/schemas/addonsResolveDynamicActionRequestRequestData"
+      type: object
+    addonsResolveDynamicActionRequestRequestData:
+      properties:
+        encrypted_data:
+          title: encrypted value of ResolveDynamicActionParams
+          type: string
+      type: object
+    addonsScoreRow:
+      example:
+        percentage_score: 0
+        has_divider: true
+        descriptive_score: descriptive_score
+        score_color: WARNING_SECONDARY
+        action:
+          get_dynamic_action:
+            data:
+              your-internal-id: something
+          open_server_link:
+            data:
+              your-internal-id: something
+          open_direct_link: https://your-site.com/some-path
+        title: title
+        icon_name: null
+      properties:
+        title:
+          type: string
+        descriptive_score:
+          type: string
+        percentage_score:
+          format: int32
+          type: integer
+        score_color:
+          $ref: "#/components/schemas/addonsWidgetColor"
+        has_divider:
+          type: boolean
+        icon_name:
+          $ref: "#/components/schemas/DivarIconsIconName"
+        action:
+          $ref: "#/components/schemas/addonsAction"
+      type: object
+    addonsSelectorRow:
+      example:
+        has_divider: true
+        action:
+          get_dynamic_action:
+            data:
+              your-internal-id: something
+          open_server_link:
+            data:
+              your-internal-id: something
+          open_direct_link: https://your-site.com/some-path
+        title: title
+        image_id: image_id
+        icon_name: null
+      properties:
+        title:
+          type: string
+        image_id:
+          type: string
+        has_divider:
+          type: boolean
+        icon_name:
+          $ref: "#/components/schemas/DivarIconsIconName"
+        action:
+          $ref: "#/components/schemas/addonsAction"
+      type: object
+    addonsSendAddonDeletionEventsResponse:
+      type: object
+    addonsStatus:
+      enum:
+        - ACTIVE
+        - HIDDEN
+        - DELETED
+      type: string
+    addonsSubtitleRow:
+      example:
+        has_divider: true
+        text: text
+      properties:
+        text:
+          type: string
+        has_divider:
+          type: boolean
+      type: object
+    addonsTitleRow:
+      example:
+        has_divider: true
+        text: text
+      properties:
+        text:
+          type: string
+        has_divider:
+          type: boolean
+      type: object
+    addonsUserAddon:
+      example:
+        sensitive_semantic:
+          key: sensitive_semantic
+        semantic:
+          key: semantic
+        phone: phone
+        meta_data:
+          app:
+            service_type: FUNC_CLICK_AND_COLLECT
+            divar_identification_key: divar_identification_key
+            service_tags:
+              - VERIFIED
+              - VERIFIED
+            display: display
+            avatar: avatar
+            slug: slug
+            status:
+              status: ACTIVE
+          service_tags:
+            - null
+            - null
+          created_at: 2000-01-23T04:56:07.000+00:00
+          id: id
+          last_modified: 2000-01-23T04:56:07.000+00:00
+          status: ACTIVE
+        filters:
+          categories:
+            - categories
+            - categories
+        widgets: "{}"
+        semantic_data:
+          identity_verification_result: FACE_AND_ID_MATCHED
+          car_verification_last_successful_stage: CARVERIFICATIONSTAGE_NOT_STARTED
+          ownership_result: OWNERSHIP_CONFIRMED
+          post_verification_result: POST_INFORMATION_MATCHED
+          identity_verification_last_successful_stage: IDENTITYVERIFICATIONSTAGE_NOT_STARTED
+          inspection_result: INSPECTION_APPROVED
+          new_face_verification_result: NEW_FACE_VERIFICATION_FAILED
+          payment_method: SECURE
+          identity_verification_failure_reason: null
+          car_verification_failure_reason: null
+          status: SUCCEEDED
+        widgets_semantic: "{}"
+        divar_user_id: divar_user_id
+      properties:
+        meta_data:
+          $ref: "#/components/schemas/addonsAddonMetaData"
+        phone:
+          title: will be deprecated
+          type: string
+        divar_user_id:
+          title: new field
+          type: string
+        widgets:
+          type: object
+        semantic:
+          additionalProperties:
+            type: string
+          title: deprecated
+          type: object
+        semantic_data:
+          $ref: "#/components/schemas/addonsAddonSemantic"
+        sensitive_semantic:
+          additionalProperties:
+            type: string
+          type: object
+        widgets_semantic:
+          properties: {}
+          type: object
+        filters:
+          $ref: "#/components/schemas/addonsUserAddonFilters"
+      type: object
+    addonsUserAddonFilters:
+      example:
+        categories:
+          - categories
+          - categories
+      properties:
+        categories:
+          items:
+            type: string
+          type: array
+      type: object
+    addonsWidget:
+      example:
+        image_carousel_row:
+          has_divider: true
+          items:
+            - description: description
+              image_id: image_id
+            - description: description
+              image_id: image_id
+        event_row:
+          has_divider: true
+          subtitle: subtitle
+          label: label
+          title: title
+          image_id: image_id
+          icon_name: KEYBOARD_ARROW_RIGHT
+        group_info_row:
+          has_divider: true
+          items:
+            - title: title
+              value: value
+            - title: title
+              value: value
+        button_bar:
+          action:
+            get_dynamic_action:
+              data:
+                your-internal-id: something
+            open_server_link:
+              data:
+                your-internal-id: something
+            open_direct_link: https://your-site.com/some-path
+          title: title
+        score_row:
+          percentage_score: 0
+          has_divider: true
+          descriptive_score: descriptive_score
+          score_color: WARNING_SECONDARY
+          action:
+            get_dynamic_action:
+              data:
+                your-internal-id: something
+            open_server_link:
+              data:
+                your-internal-id: something
+            open_direct_link: https://your-site.com/some-path
+          title: title
+          icon_name: null
+        title_row:
+          has_divider: true
+          text: text
+        subtitle_row:
+          has_divider: true
+          text: text
+        selector_row:
+          has_divider: true
+          action:
+            get_dynamic_action:
+              data:
+                your-internal-id: something
+            open_server_link:
+              data:
+                your-internal-id: something
+            open_direct_link: https://your-site.com/some-path
+          title: title
+          image_id: image_id
+          icon_name: null
+        evaluation_row:
+          middle:
+            section_color: null
+            text: text
+          left:
+            section_color: null
+            text: text
+          indicator_percentage: 6
+          right:
+            section_color: null
+            text: text
+          indicator_text: indicator_text
+          icon_name: null
+        semantic_paths:
+          key: semantic_paths
+        description_row:
+          has_divider: true
+          expandable: true
+          text: text
+      properties:
+        event_row:
+          $ref: "#/components/schemas/addonsEventRow"
+        button_bar:
+          $ref: "#/components/schemas/addonsButtonBar"
+        title_row:
+          $ref: "#/components/schemas/addonsTitleRow"
+        subtitle_row:
+          $ref: "#/components/schemas/addonsSubtitleRow"
+        selector_row:
+          $ref: "#/components/schemas/addonsSelectorRow"
+        score_row:
+          $ref: "#/components/schemas/addonsScoreRow"
+        image_carousel_row:
+          $ref: "#/components/schemas/addonsImageCarouselRow"
+        group_info_row:
+          $ref: "#/components/schemas/addonsGroupInfoRow"
+        evaluation_row:
+          $ref: "#/components/schemas/addonsEvaluationRow"
+        description_row:
+          $ref: "#/components/schemas/addonsDescriptionRow"
+        semantic_paths:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    addonsWidgetColor:
+      enum:
+        - WARNING_SECONDARY
+        - WARNING_PRIMARY
+        - ERROR_PRIMARY
+        - SUCCESS_PRIMARY
+        - SUCCESS_SECONDARY
+      type: string
+    addonsWidgets:
+      type: object
+    appsApp:
+      example:
+        service_type: FUNC_CLICK_AND_COLLECT
+        divar_identification_key: divar_identification_key
+        service_tags:
+          - VERIFIED
+          - VERIFIED
+        display: display
+        avatar: avatar
+        slug: slug
+        status:
+          status: ACTIVE
+      properties:
+        slug:
+          type: string
+        display:
+          type: string
+        avatar:
+          type: string
+        divar_identification_key:
+          type: string
+        status:
+          $ref: "#/components/schemas/appsAppStatus"
+        service_type:
+          $ref: "#/components/schemas/appsServiceType"
+        service_tags:
+          items:
+            $ref: "#/components/schemas/appsServiceTag"
+          title: deprecated - use AddonMetaData.service_tags
+          type: array
+      type: object
+    appsAppStatus:
+      example:
+        status: ACTIVE
+      properties:
+        status:
+          $ref: "#/components/schemas/appsAppStatusStatus"
+      type: object
+    appsAppStatusStatus:
+      enum:
+        - ACTIVE
+        - INACTIVE
+        - SUSPENDED
+        - DEVELOPMENT
+      type: string
+    appsServiceTag:
+      enum:
+        - VERIFIED
+        - IDENTITY_VERIFIED
+        - POST_VERIFIED
+        - SECURE_PAYMENT
+        - POST_OWNERSHIP_VERIFIED
+        - EXPERT_INSPECTED
+        - CAR_EXPERT_INSPECTED
+        - HOME_EXPERT_INSPECTED
+        - MOBILE_EXPERT_INSPECTED
+      type: string
+    appsServiceType:
+      enum:
+        - FUNC_CLICK_AND_COLLECT
+        - FUNC_DELIVERY
+        - FUNC_SECURE_PAYMENT
+        - LEAD_GEN_PURE
+        - LEAD_GEN_LOAN
+        - REPORT_INSPECTION
+        - REPORT_PRICE_EVALUATION
+        - REPORT_VERIFICATION
+        - FUNC_CONTRACT
+        - FUNC_FINANCING
+        - USER_FACE_ID_VERIFICATION
+        - POST_VERIFICATION
+        - INTERNAL
+        - USER_BACKGROUND_VERIFICATION
+        - USER_BUSINESS_VERIFICATION
+        - CHARITY
+        - SECURE_PAYMENT_POST_PROMOTION
+        - PHOTOGRAPHY
+        - DOWNLOADABLE_CONTENT_GENERATION
+        - REPORT_INSPECTION_CHAT
+        - ADDITIONAL_INFORMATION
+        - ACCOUNTING
+        - ASSISTANT
+        - ADVERTISEMENT
+        - CONTRACT_POST
+        - SITE_BUILDER
+        - FORM_BUILDER
+        - AUCTION
+        - POST_DETAIL_ENHANCER
+        - POST_REORDER
+      type: string
+    assetsEnumOption:
+      example:
+        display: display
+        slug: slug
+      properties:
+        display:
+          type: string
+        slug:
+          type: string
+      type: object
+    assetsGetBodyStatusesResponse:
+      example:
+        body_status:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        body_status:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetBrandModelsResponse:
+      example:
+        brand_models:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        brand_models:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetCategoriesResponse:
+      example:
+        categories:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        categories:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetCitiesResponse:
+      example:
+        cities:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        cities:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetColorsResponse:
+      example:
+        colors:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        colors:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetDistrictsResponse:
+      example:
+        districts:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        districts:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetInternalStoragesResponse:
+      example:
+        internal_storages:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        internal_storages:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetOAuthScopesResponse:
+      example:
+        scopes:
+          - lifecycle_state: EXPERIMENTAL
+            display: display
+            description: description
+            slug: POST_ADDON_CREATE
+          - lifecycle_state: EXPERIMENTAL
+            display: display
+            description: description
+            slug: POST_ADDON_CREATE
+      properties:
+        scopes:
+          items:
+            $ref: "#/components/schemas/assetsGetOAuthScopesResponseAppOauthScope"
+          type: array
+      type: object
+    assetsGetOAuthScopesResponseAppOauthScope:
+      example:
+        lifecycle_state: EXPERIMENTAL
+        display: display
+        description: description
+        slug: POST_ADDON_CREATE
+      properties:
+        slug:
+          $ref: "#/components/schemas/OAuthScopeScope"
+        display:
+          type: string
+        description:
+          type: string
+        lifecycle_state:
+          $ref: "#/components/schemas/assetsGetOAuthScopesResponseLifeCycleState"
+      type: object
+    assetsGetOAuthScopesResponseLifeCycleState:
+      enum:
+        - EXPERIMENTAL
+        - ACTIVE
+        - DEPRECATING_SOON
+        - DEPRECATED
+      type: string
+    assetsGetPermissionsResponse:
+      example:
+        permissions:
+          - lifecycle_state: EXPERIMENTAL
+            display: display
+            description: description
+            slug: slug
+          - lifecycle_state: EXPERIMENTAL
+            display: display
+            description: description
+            slug: slug
+      properties:
+        permissions:
+          items:
+            $ref: "#/components/schemas/assetsGetPermissionsResponsePermission"
+          type: array
+      type: object
+    assetsGetPermissionsResponseLifeCycleState:
+      enum:
+        - EXPERIMENTAL
+        - ACTIVE
+        - DEPRECATING_SOON
+        - DEPRECATED
+      type: string
+    assetsGetPermissionsResponsePermission:
+      example:
+        lifecycle_state: EXPERIMENTAL
+        display: display
+        description: description
+        slug: slug
+      properties:
+        slug:
+          type: string
+        display:
+          type: string
+        description:
+          type: string
+        lifecycle_state:
+          $ref: "#/components/schemas/assetsGetPermissionsResponseLifeCycleState"
+      type: object
+    assetsGetRamMemoriesResponse:
+      example:
+        ram_memories:
+          - display: display
+            slug: slug
+          - display: display
+            slug: slug
+      properties:
+        ram_memories:
+          items:
+            $ref: "#/components/schemas/assetsEnumOption"
+          type: array
+      type: object
+    assetsGetServiceTypesResponse:
+      example:
+        service_types:
+          - display: display
+            slug: FUNC_CLICK_AND_COLLECT
+          - display: display
+            slug: FUNC_CLICK_AND_COLLECT
+      properties:
+        service_types:
+          items:
+            $ref: "#/components/schemas/GetServiceTypesResponseServiceTypeData"
+          type: array
+      type: object
+    authorizationAPICallerInfo:
+      properties:
+        api_key_id:
+          format: int32
+          type: integer
+        app:
+          $ref: "#/components/schemas/appsApp"
+        scopes:
+          items:
+            $ref: "#/components/schemas/authorizationOAuthScope"
+          type: array
+        api_key_id_v2:
+          type: string
+      type: object
+    authorizationOAuthScope:
+      properties:
+        resource_id:
+          type: string
+        scope:
+          $ref: "#/components/schemas/OAuthScopeScope"
+      title: |-
+        Represents standard oauth scope parsed using `PERMISSION_ENUM__{resource_id}`
+        format string. e.g. EDIT_POST__AZrOi1eL
+      type: object
+    chatapiChatBotSendMessageResponse:
+      example:
+        conversation_id: conv_123456
+      properties:
+        conversation_id:
+          description: ID of the conversation created or updated
+          example: conv_123456
+          readOnly: true
+          type: string
+      type: object
+    chatapiChatButton:
+      example:
+        icon: KEYBOARD_ARROW_RIGHT
+        action:
+          get_dynamic_action:
+            data:
+              your-internal-id: something
+          open_server_link:
+            data:
+              your-internal-id: something
+          open_direct_link: https://your-site.com/some-path
+        caption: caption
+        icon_name: icon_name
+      properties:
+        action:
+          $ref: "#/components/schemas/addonsAction"
+        icon_name:
+          title: deprecated
+          type: string
+        caption:
+          type: string
+        icon:
+          $ref: "#/components/schemas/DivarIconsIconName"
+      type: object
+    chatapiChatButtonGrid:
+      example:
+        rows:
+          - buttons:
+              - icon: KEYBOARD_ARROW_RIGHT
+                action:
+                  get_dynamic_action:
+                    data:
+                      your-internal-id: something
+                  open_server_link:
+                    data:
+                      your-internal-id: something
+                  open_direct_link: https://your-site.com/some-path
+                caption: caption
+                icon_name: icon_name
+              - icon: KEYBOARD_ARROW_RIGHT
+                action:
+                  get_dynamic_action:
+                    data:
+                      your-internal-id: something
+                  open_server_link:
+                    data:
+                      your-internal-id: something
+                  open_direct_link: https://your-site.com/some-path
+                caption: caption
+                icon_name: icon_name
+          - buttons:
+              - icon: KEYBOARD_ARROW_RIGHT
+                action:
+                  get_dynamic_action:
+                    data:
+                      your-internal-id: something
+                  open_server_link:
+                    data:
+                      your-internal-id: something
+                  open_direct_link: https://your-site.com/some-path
+                caption: caption
+                icon_name: icon_name
+              - icon: KEYBOARD_ARROW_RIGHT
+                action:
+                  get_dynamic_action:
+                    data:
+                      your-internal-id: something
+                  open_server_link:
+                    data:
+                      your-internal-id: something
+                  open_direct_link: https://your-site.com/some-path
+                caption: caption
+                icon_name: icon_name
+      properties:
+        rows:
+          items:
+            $ref: "#/components/schemas/chatapiChatButtonRow"
+          type: array
+      type: object
+    chatapiChatButtonRow:
+      example:
+        buttons:
+          - icon: KEYBOARD_ARROW_RIGHT
+            action:
+              get_dynamic_action:
+                data:
+                  your-internal-id: something
+              open_server_link:
+                data:
+                  your-internal-id: something
+              open_direct_link: https://your-site.com/some-path
+            caption: caption
+            icon_name: icon_name
+          - icon: KEYBOARD_ARROW_RIGHT
+            action:
+              get_dynamic_action:
+                data:
+                  your-internal-id: something
+              open_server_link:
+                data:
+                  your-internal-id: something
+              open_direct_link: https://your-site.com/some-path
+            caption: caption
+            icon_name: icon_name
+      properties:
+        buttons:
+          items:
+            $ref: "#/components/schemas/chatapiChatButton"
+          type: array
+      type: object
+    chatapiConversation:
+      example:
+        post_token: post_token
+        id: id
+        type: POST
+      properties:
+        id:
+          type: string
+        type:
+          $ref: "#/components/schemas/chatapiConversationType"
+        post_token:
+          type: string
+      type: object
+    chatapiConversationSendMessageResponse:
+      example:
+        message: message
+        status: 0
+      properties:
+        status:
+          format: int32
+          type: integer
+        message:
+          type: string
+      type: object
+    chatapiConversationType:
+      enum:
+        - POST
+        - BOT
+      type: string
+    chatapiGenerateUploadTokenRequest:
+      type: object
+    chatapiGenerateUploadTokenResponse:
+      example:
+        token: some_random_base64
+      properties:
+        token:
+          description: A url safe base64 encoded token that can be used in the upload endpoint
+          example: some_random_base64
+          readOnly: true
+          type: string
+      type: object
+    chatapiGetConversationResponse:
+      example:
+        messages:
+          - sent_at: 2000-01-23T04:56:07.000+00:00
+            video_data:
+              size_bytes: size_bytes
+              thumbnail_link: thumbnail_link
+              link: link
+            sender:
+              side: BUYER
+              type: HUMAN
+            location_data:
+              latitude: 1.4658129805029452
+              longitude: 5.962133916683182
+            image_data:
+              size_bytes: size_bytes
+              width_px: 6
+              height_px: 0
+              link: link
+            voice_data:
+              size_bytes: size_bytes
+              link: link
+            id: id
+            text: text
+            type: TEXT
+            conversation:
+              post_token: post_token
+              id: id
+              type: POST
+            file_data:
+              size_bytes: size_bytes
+              link: link
+              name: name
+          - sent_at: 2000-01-23T04:56:07.000+00:00
+            video_data:
+              size_bytes: size_bytes
+              thumbnail_link: thumbnail_link
+              link: link
+            sender:
+              side: BUYER
+              type: HUMAN
+            location_data:
+              latitude: 1.4658129805029452
+              longitude: 5.962133916683182
+            image_data:
+              size_bytes: size_bytes
+              width_px: 6
+              height_px: 0
+              link: link
+            voice_data:
+              size_bytes: size_bytes
+              link: link
+            id: id
+            text: text
+            type: TEXT
+            conversation:
+              post_token: post_token
+              id: id
+              type: POST
+            file_data:
+              size_bytes: size_bytes
+              link: link
+              name: name
+        conversation:
+          post_token: post_token
+          id: id
+          type: POST
+      properties:
+        conversation:
+          $ref: "#/components/schemas/chatapiConversation"
+        messages:
+          description: List of messages in the conversation
+          items:
+            $ref: "#/components/schemas/chatapiMessage"
+          type: array
+      required:
+        - conversation
+        - messages
+      type: object
+    chatapiMessage:
+      example:
+        sent_at: 2000-01-23T04:56:07.000+00:00
+        video_data:
+          size_bytes: size_bytes
+          thumbnail_link: thumbnail_link
+          link: link
+        sender:
+          side: BUYER
+          type: HUMAN
+        location_data:
+          latitude: 1.4658129805029452
+          longitude: 5.962133916683182
+        image_data:
+          size_bytes: size_bytes
+          width_px: 6
+          height_px: 0
+          link: link
+        voice_data:
+          size_bytes: size_bytes
+          link: link
+        id: id
+        text: text
+        type: TEXT
+        conversation:
+          post_token: post_token
+          id: id
+          type: POST
+        file_data:
+          size_bytes: size_bytes
+          link: link
+          name: name
+      properties:
+        id:
+          type: string
+        conversation:
+          $ref: "#/components/schemas/chatapiConversation"
+        sender:
+          $ref: "#/components/schemas/MessageSender"
+        type:
+          $ref: "#/components/schemas/chatapiMessageType"
+        sent_at:
+          format: date-time
+          type: string
+        text:
+          type: string
+        image_data:
+          $ref: "#/components/schemas/MessageImageData"
+        file_data:
+          $ref: "#/components/schemas/MessageFileData"
+        voice_data:
+          $ref: "#/components/schemas/MessageVoiceData"
+        location_data:
+          $ref: "#/components/schemas/MessageLocationData"
+        video_data:
+          $ref: "#/components/schemas/MessageVideoData"
+      type: object
+    chatapiMessageSenderSide:
+      enum:
+        - BUYER
+        - SELLER
+      type: string
+    chatapiMessageSenderType:
+      enum:
+        - HUMAN
+        - BOT
+      type: string
+    chatapiMessageType:
+      enum:
+        - TEXT
+        - IMAGE
+        - FILE
+        - VOICE
+        - LOCATION
+        - VIDEO
+      type: string
+    eventsRegisterEventSubscriptionRequest:
+      properties:
+        event_type:
+          $ref: "#/components/schemas/eventsRegisterEventSubscriptionRequestEventType"
+        event_resource_id:
+          type: string
+        metadata:
+          properties: {}
+          type: object
+      type: object
+    eventsRegisterEventSubscriptionRequestEventType:
+      enum:
+        - NEW_MESSAGE_ON_POST
+        - POST_UPDATE
+      type: string
+    eventsRegisterEventSubscriptionResponse:
+      type: object
+    finderGetAllDevelopmentPostsResponse:
+      properties:
+        development_posts:
+          items:
+            $ref: "#/components/schemas/managementDevelopmentPost"
+          type: array
+      type: object
+    finderGetPostResponse:
+      example:
+        data: "{}"
+        city: city
+        district: district
+        chat_enabled: true
+        state: PUBLISHED
+        first_published_at: 2000-01-23T04:56:07.000+00:00
+        category: category
+        token: token
+        business_data:
+          business_name: business_name
+          business_type: CAR
+      properties:
+        state:
+          $ref: "#/components/schemas/finderPostExtState"
+        first_published_at:
+          format: date-time
+          type: string
+        token:
+          type: string
+        category:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        data:
+          properties: {}
+          type: object
+        chat_enabled:
+          type: boolean
+        business_data:
+          $ref: "#/components/schemas/GetPostResponseBusinessData"
+      type: object
+    finderGetUserPostsResponse:
+      example:
+        posts:
+          - images:
+              - images
+              - images
+            title: title
+            category: category
+            token: token
+          - images:
+              - images
+              - images
+            title: title
+            category: category
+            token: token
+      properties:
+        posts:
+          items:
+            $ref: "#/components/schemas/finderGetUserPostsResponsePost"
+          type: array
+      type: object
+    finderGetUserPostsResponsePost:
+      example:
+        images:
+          - images
+          - images
+        title: title
+        category: category
+        token: token
+      properties:
+        token:
+          type: string
+        title:
+          type: string
+        images:
+          items:
+            type: string
+          type: array
+        category:
+          type: string
+      type: object
+    finderGetUserRequest:
+      type: object
+    finderPostExtState:
+      enum:
+        - PUBLISHED
+        - REVIEW_REQ
+        - PAYMENT_REQ
+        - RETIRED
+      type: string
+    finderSearchPostItem:
+      example:
+        city: city
+        home_kitchen_fields: "{}"
+        services_fields: "{}"
+        electronic_devices_fields: "{}"
+        personal_goods_fields: "{}"
+        leisure_hobbies_fields: "{}"
+        real_estate_fields:
+          has_elevator: true
+          has_parking: true
+          rooms: rooms
+          size: 0
+          year: 6
+          daily_rent: daily_rent
+          credit:
+            mode: mode
+            value: value
+          rent:
+            mode: mode
+            value: value
+          floor: 1
+        title: title
+        token: token
+        last_modified_at: 2000-01-23T04:56:07.000+00:00
+        community_fields: "{}"
+        vehicles_fields:
+          installment_sale: installment_sale
+          usage: usage
+          custom_post_subtitle: custom_post_subtitle
+        price:
+          mode: mode
+          value: value
+        jobs_fields: "{}"
+        category: category
+        tools_materials_equipment_fields: "{}"
+      properties:
+        token:
+          type: string
+        category:
+          type: string
+        last_modified_at:
+          format: date-time
+          type: string
+        city:
+          type: string
+        title:
+          type: string
+        price:
+          $ref: "#/components/schemas/SearchPostItemPrice"
+        real_estate_fields:
+          $ref: "#/components/schemas/SearchPostItemRealEstateFields"
+        vehicles_fields:
+          $ref: "#/components/schemas/SearchPostItemVehiclesFields"
+        electronic_devices_fields:
+          type: object
+        home_kitchen_fields:
+          type: object
+        services_fields:
+          type: object
+        personal_goods_fields:
+          type: object
+        leisure_hobbies_fields:
+          type: object
+        community_fields:
+          type: object
+        tools_materials_equipment_fields:
+          type: object
+        jobs_fields:
+          type: object
+      type: object
+    finderSearchPostV2Response:
+      example:
+        posts:
+          - city: city
+            home_kitchen_fields: "{}"
+            services_fields: "{}"
+            electronic_devices_fields: "{}"
+            personal_goods_fields: "{}"
+            leisure_hobbies_fields: "{}"
+            real_estate_fields:
+              has_elevator: true
+              has_parking: true
+              rooms: rooms
+              size: 0
+              year: 6
+              daily_rent: daily_rent
+              credit:
+                mode: mode
+                value: value
+              rent:
+                mode: mode
+                value: value
+              floor: 1
+            title: title
+            token: token
+            last_modified_at: 2000-01-23T04:56:07.000+00:00
+            community_fields: "{}"
+            vehicles_fields:
+              installment_sale: installment_sale
+              usage: usage
+              custom_post_subtitle: custom_post_subtitle
+            price:
+              mode: mode
+              value: value
+            jobs_fields: "{}"
+            category: category
+            tools_materials_equipment_fields: "{}"
+          - city: city
+            home_kitchen_fields: "{}"
+            services_fields: "{}"
+            electronic_devices_fields: "{}"
+            personal_goods_fields: "{}"
+            leisure_hobbies_fields: "{}"
+            real_estate_fields:
+              has_elevator: true
+              has_parking: true
+              rooms: rooms
+              size: 0
+              year: 6
+              daily_rent: daily_rent
+              credit:
+                mode: mode
+                value: value
+              rent:
+                mode: mode
+                value: value
+              floor: 1
+            title: title
+            token: token
+            last_modified_at: 2000-01-23T04:56:07.000+00:00
+            community_fields: "{}"
+            vehicles_fields:
+              installment_sale: installment_sale
+              usage: usage
+              custom_post_subtitle: custom_post_subtitle
+            price:
+              mode: mode
+              value: value
+            jobs_fields: "{}"
+            category: category
+            tools_materials_equipment_fields: "{}"
+      properties:
+        posts:
+          items:
+            $ref: "#/components/schemas/finderSearchPostItem"
+          type: array
+      type: object
+    finderSearchPostsV2Request:
+      properties:
+        category:
+          type: string
+        city:
+          type: string
+        districts:
+          items:
+            type: string
+          type: array
+        query:
+          $ref: "#/components/schemas/finderSearchQuery"
+      type: object
+    finderSearchQuery:
+      properties:
+        brand_model:
+          items:
+            type: string
+          type: array
+        production_year:
+          $ref: "#/components/schemas/finderSearchQueryNumberRange"
+        usage:
+          $ref: "#/components/schemas/finderSearchQueryNumberRange"
+        rooms:
+          items:
+            type: string
+          type: array
+        rent:
+          $ref: "#/components/schemas/finderSearchQueryNumberRange"
+        credit:
+          $ref: "#/components/schemas/finderSearchQueryNumberRange"
+        size:
+          $ref: "#/components/schemas/finderSearchQueryNumberRange"
+        only_with_parking:
+          type: boolean
+      type: object
+    finderSearchQueryNumberRange:
+      properties:
+        min:
+          format: int64
+          type: string
+        max:
+          format: int64
+          type: string
+      type: object
+    finderUser:
+      example:
+        phone_numbers:
+          - phone_numbers
+          - phone_numbers
+        user_id: user_id
+        phone_number: phone_number
+      properties:
+        phone_numbers:
+          description: deprecated
+          items:
+            type: string
+          title: "requires OAuth scope: USER_PHONE"
+          type: array
+        phone_number:
+          type: string
+        user_id:
+          type: string
+      type: object
+    googlerpcStatus:
+      example:
+        code: 0
+        details:
+          - "@type": "@type"
+          - "@type": "@type"
+        message: message
+      properties:
+        code:
+          format: int32
+          type: integer
+        message:
+          type: string
+        details:
+          items:
+            $ref: "#/components/schemas/protobufAny"
+          type: array
+      type: object
+    managementDevelopmentPost:
+      properties:
+        preset:
+          $ref: "#/components/schemas/managementPreset"
+        created_at:
+          format: date-time
+          type: string
+        token:
+          type: string
+        mng_token:
+          type: string
+      type: object
+    managementPreset:
+      enum:
+        - LIGHT
+        - CRAFTSMEN
+        - MOBILE_PHONES
+        - APARTMENT_SELL
+        - SUITE_APARTMENT
+      type: string
+    paymentGetBalanceResponse:
+      example:
+        balance_rials: balance_rials
+      properties:
+        balance_rials:
+          description: The balance of the app in rials
+          format: int64
+          type: string
+      type: object
+    paymentGetPostPricingResponse:
+      example:
+        reorder:
+          available: true
+          cost_rials: cost_rials
+      properties:
+        reorder:
+          $ref: "#/components/schemas/GetPostPricingResponseReorder"
+      type: object
+    paymentReorderPostResponse:
+      example:
+        id: id
+        cost_rials: cost_rials
+      properties:
+        id:
+          description: Same uuid when creating transaction
+          type: string
+        cost_rials:
+          description: The cost of the transaction in rials for in you application
+          format: int64
+          type: string
+      type: object
+    payment_ticketGenerateResponse:
+      properties:
+        ticket_uuid:
+          type: string
+      type: object
+    payment_ticketValidateRequest:
+      properties:
+        ticket_uuid:
+          type: string
+        phone_number:
+          description: Deprecated. Use divar_user_id.
+          type: string
+        user_id:
+          type: string
+        service_cost:
+          format: int32
+          type: integer
+      type: object
+    payment_ticketValidateResponse:
+      example:
+        issuer_payload: "{}"
+      properties:
+        issuer_payload:
+          properties: {}
+          type: object
+      type: object
+    postEditPostResponse:
+      type: object
+    postGetImageUploadURLResponse:
+      example:
+        upload_url: upload_url
+      properties:
+        upload_url:
+          type: string
+      type: object
+    protobufAny:
+      additionalProperties:
+        type: object
+      description: |-
+        `Any` contains an arbitrary serialized protocol buffer message along with a
+        URL that describes the type of the serialized message.
+
+        Protobuf library provides support to pack/unpack Any values in the form
+        of utility functions or additional generated methods of the Any type.
+
+        Example 1: Pack and unpack a message in C++.
+
+            Foo foo = ...;
+            Any any;
+            any.PackFrom(foo);
+            ...
+            if (any.UnpackTo(&foo)) {
+              ...
+            }
+
+        Example 2: Pack and unpack a message in Java.
+
+            Foo foo = ...;
+            Any any = Any.pack(foo);
+            ...
+            if (any.is(Foo.class)) {
+              foo = any.unpack(Foo.class);
+            }
+            // or ...
+            if (any.isSameTypeAs(Foo.getDefaultInstance())) {
+              foo = any.unpack(Foo.getDefaultInstance());
+            }
+
+         Example 3: Pack and unpack a message in Python.
+
+            foo = Foo(...)
+            any = Any()
+            any.Pack(foo)
+            ...
+            if any.Is(Foo.DESCRIPTOR):
+              any.Unpack(foo)
+              ...
+
+         Example 4: Pack and unpack a message in Go
+
+             foo := &pb.Foo{...}
+             any, err := anypb.New(foo)
+             if err != nil {
+               ...
+             }
+             ...
+             foo := &pb.Foo{}
+             if err := any.UnmarshalTo(foo); err != nil {
+               ...
+             }
+
+        The pack methods provided by protobuf library will by default use
+        'type.googleapis.com/full.type.name' as the type URL and the unpack
+        methods only use the fully qualified type name after the last '/'
+        in the type URL, for example "foo.bar.com/x/y.z" will yield type
+        name "y.z".
+
+        JSON
+        ====
+        The JSON representation of an `Any` value uses the regular
+        representation of the deserialized, embedded message, with an
+        additional field `@type` which contains the type URL. Example:
+
+            package google.profile;
+            message Person {
+              string first_name = 1;
+              string last_name = 2;
+            }
+
+            {
+              "@type": "type.googleapis.com/google.profile.Person",
+              "firstName": <string>,
+              "lastName": <string>
+            }
+
+        If the embedded message type is well-known and has a custom JSON
+        representation, that representation will be embedded adding a field
+        `value` which holds the custom JSON in addition to the `@type`
+        field. Example (for message [google.protobuf.Duration][]):
+
+            {
+              "@type": "type.googleapis.com/google.protobuf.Duration",
+              "value": "1.212s"
+            }
+      example:
+        "@type": "@type"
+      properties:
+        "@type":
+          description: |-
+            A URL/resource name that uniquely identifies the type of the serialized
+            protocol buffer message. This string must contain at least
+            one "/" character. The last segment of the URL's path must represent
+            the fully qualified name of the type (as in
+            `path/google.protobuf.Duration`). The name should be in a canonical form
+            (e.g., leading "." is not accepted).
+
+            In practice, teams usually precompile into the binary all types that they
+            expect it to use in the context of Any. However, for URLs which use the
+            scheme `http`, `https`, or no scheme, one can optionally set up a type
+            server that maps type URLs to message definitions as follows:
+
+            * If no scheme is provided, `https` is assumed.
+            * An HTTP GET on the URL must yield a [google.protobuf.Type][]
+              value in binary format, or produce an error.
+            * Applications are allowed to cache lookup results based on the
+              URL, or have them precompiled into a binary to avoid any
+              lookup. Therefore, binary compatibility needs to be preserved
+              on changes to types. (Use versioned type names to manage
+              breaking changes.)
+
+            Note: this functionality is not currently available in the official
+            protobuf release, and it is not used for type URLs beginning with
+            type.googleapis.com. As of May 2023, there are no widely used type server
+            implementations and no plans to implement one.
+
+            Schemes other than `http`, `https` (or the empty scheme) might be
+            used with implementation specific semantics.
+          type: string
+      type: object
+    protobufNullValue:
+      description: |-
+        `NullValue` is a singleton enumeration to represent the null value for the
+        `Value` type union.
+
+        The JSON representation for `NullValue` is JSON `null`.
+      type: string
+    semanticCreatePostSemanticResponse:
+      type: object
+    semanticCreateUserSemanticResponse:
+      example:
+        id: id
+      properties:
+        id:
+          type: string
+      type: object
+    semanticDeleteUserSemanticResponse:
+      type: object
+    widgetsAction:
+      example:
+        page_pop_link: true
+        payload:
+          "@type": "@type"
+        type: MAP_PREVIEW
+      properties:
+        type:
+          $ref: "#/components/schemas/widgetsActionType"
+        payload:
+          $ref: "#/components/schemas/protobufAny"
+        page_pop_link:
+          description: deprecated; use is_new_flow = 1 in PagePresentation instead.
+          type: boolean
+      type: object
+    widgetsActionType:
+      description: |-
+        [my divar] open manage post from my divar tab
+         - CLOSE_PAGE: [global] Closes current page user is in
+         - POST_GET_CONTACT: [post-api] client only
+         - POST_VOIP_CALL: [post-api] client only
+         - OPEN_POST_REPORT: [post-api] open post-report page
+         - OPEN_POST_CHAT: [post-api] client only
+         - START_PAYMENT: [global] client starts payment
+         - MY_DIVAR_POSTS: [global] opens my posts in my divar
+         - MY_DIVAR_BOOKMARKS: [global] opens bookmarks in my divar web
+         - MY_DIVAR_RECENT_SEEN: [global] opens recently seen in my divar
+         - MY_DIVAR_NOTES: [global] opens my notes in my divar web
+         - OPEN_MAP: [global] open map in a separate page
+         - LOAD_MODAL_PAGE: [base] WEB ONLY load modal page provieded in payload
+         - ANGOOLAK_LOGIN: [DEBUG ONLY] logins user with the provided test
+         - LOAD_BOTTOM_SHEET: phone number; only works on debug versions
+
+        [global] Loads bottom sheet provided in payload
+         - CHAT_BLOCK_PEER: [chat] block peer in conversation
+         - CHAT_REPORT_PEER: [chat] report peer in conversation
+         - MY_DIVAR_BOOKMARKS_AND_NOTES: [my divar] open bookmarks and notes from my divar tab
+         - MY_DIVAR_SETTINGS: [my divar] open settings from my divar tab
+         - LOGIN: [my divar] open log in page
+         - SHOW_WIDE_BUTTON_ALERT: [global] show wide button alert
+         - IN_APP_UPDATE: [my divar] leads user to update app through source
+         - MY_PAYMENT_HISTORY: and link provided in payload
+
+        [payment] Open user payments history page
+         - SUBMIT_CALL_FEEDBACK: [real-estate] Submit feedback for post
+         - HISTORY_BACK: [global] Used in web to perform browser back action (Web Only)
+         - SERVICES_VIEW_PROFILE: [services] view profiles on web action
+         - BLACKLIST_APPEAL_OPEN_SUBMISSION_FORM_PAGE: [trust] Open blacklist appeal submission form page (web only)
+         - BLACKLIST_APPEAL_OPEN_STATUS_PAGE: [trust] Open blacklist appeal status page (web only)
+         - SERVICES_OPEN_REPORT: [services] open profile report modal on web
+         - DELETE_POST_NOTE: [yaad] Delete note
+         - DELETE_POST_BOOKMARK: [yaad] Delete bookmark
+         - OPEN_FORM_PAGE: [global] Open FormPage
+         - POP_SINGLE_PAGE_AND_PERFORM_ACTION: [global] pops a page and performs inside action.
+         - DISMISS_PAGES_AND_PERFORM_ACTION: [ios only] closes whole stack and performs inside action.
+         - OPEN_USER_VERIFICATION_PAGE: [user_profile] Used in web to open user verification schema page
+         - OPEN_BOTTOM_SHEET: [global] opens an arbitrary bottom sheet
+         - SHARE: [global] Shares a post given the token
+         - CHAT_SEND_IMAGE_WITH_CAMERA: [chat] Sends image in chat using camera
+         - CHAT_SEND_IMAGE_FROM_GALLERY: [global] Sends image in chat from gallery
+         - CHAT_SEND_VIDEO_WITH_CAMERA: [chat] Sends video in chat using camera
+         - CHAT_SEND_FILE: [chat] Sends file in chat
+         - CHAT_SHARE_CONTACT: [chat] Sends contact in chat
+         - CHAT_SHARE_LOCATION: [chat] Sends location in chat
+         - LOAD_WEB_VIEW_PAGE: [general] USE WITH THREAD LEADER AUTHORIZATION.
+         - POP_STACK_AND_GO_TO_BUSINESS_PANEL: Load web view page with navbar, etc.
+
+        [general] Pops pages of stack, moves user to business panel in
+         - CHAT_SEND_SUGGESTION: My Divar and deletes the post draft (conditionally)
+
+        [chat] Send suggestion in chat
+         - MAKE_NETWORK_CALL: [general] Makes a network call with request in payload
+         - OPEN_MAP_DISCOVERY: [Map Discovery] Open Map Discovery Page
+         - SERVICES_OPEN_PROFILE_SETTINGS_PAGE: [services] Open profile info page in web
+         - SERVICES_OPEN_PROFILE_PREVIEW_PAGE: [services] Open profile preview page in web
+         - SERVICES_OPEN_LADDER_PAGE: [services] Open ladder page in web
+         - SERVICES_OPEN_EDIT_NAME_AND_ABOUT_PAGE: [services] Open edit name and about page in web
+         - SERVICES_OPEN_EDIT_EXPERTISE_PAGE: [services] Open edit expertises page in web
+         - SERVICES_OPEN_EDIT_WORK_SAMPLES_PAGE: [services] Open edit work samples page in web
+         - SERVICES_OPEN_EDIT_WORKING_HOURS_PAGE: [services] Open edit working hours page in web
+         - SERVICES_OPEN_STATISTICS_PAGE: [services] Open statistics page in web
+         - SERVICES_OPEN_LADDER_CREDIT_PAGE: [services] Open ladder credit page in web
+         - SERVICES_OPEN_EDIT_GENERAL_INFO_PAGE: [services] Open edit general information page in web
+         - SERVICES_OPEN_EDIT_EXPERTISE_PRICING_PAGE: [services] Open edit expertise pricing page in web
+         - SERVICES_OPEN_EDIT_ACTIVITY_NEIGHBORHOODS_PAGE: [services] Open edit activity neighborhoods page in web
+         - SERVICES_OPEN_EDIT_CONTACT_INFO_PAGE: [services] Open edit contact info page in web
+         - SERVICES_OPEN_EDIT_WEBSITE_LINK_PAGE: [services] Open edit website link page in web
+         - SERVICES_OPEN_ADD_LANDLINE_PAGE: [services] Open add landline page in web
+         - SERVICES_OPEN_LIST_EXPERTISE_PRICING_PAGE: [services] Open list expertise pricing in web
+         - BLACKLIST_APPEAL_OPEN_CHANGE_OWNERSHIP_PAGE: [trust] Open appeal of changing ownership schema page (web only)
+         - OPEN_REVOKE_USER_VERIFICATION_PAGE: [user_profile] Open revoke user verification schema page (web
+         - OPEN_MY_WALLET_PAGE: only)
+
+        [wallet] Open my wallet page (web only)
+         - CHAT_SEND_RECENT_IMAGES: [chat] Sends images that were previously
+         - BULK_LADDER_WITH_PAYMENT: sent in other conversations of the same ad
+
+        ladder multiple posts in one click (using payment)
+         - CHAT_SPAM_CONVERSATION: [chat] spam/unspam conversation
+         - SERVICES_START_ACTIVATION_PAYMENT: [services] start activation payment in web
+         - SERVICES_OPEN_REMOVE_LANDLINE_PAGE: [services] Open remove landline page in web
+         - OPEN_HOME_PAGE: [global] open root category page and flush history
+         - PAYMENT_HISTORY_DETAILS: stack (client only)
+
+        [payment] open payment history details page
+         - PAYMENT_ISSUE_INVOICE: [payment] open issue invoice page in web
+         - OPEN_POSTLIST_PAGE_GRPC: [global] open post list page new
+         - SERVICES_OPEN_WEB_REGISTRATION: [services] open services profile registration page (web only)
+         - CAR_DEALERS_ALLOCATE_QUOTA: [engaged-user] open page for sharing
+         - MY_DIVAR_ACCESSIBILITY: auto-generated image of post (web only)
+
+        [engaged-user] open accessibility options
+         - OPEN_FILTERS_PAGE: in my-divar (android only)
+
+        [post-list] open filters page in post list.
+         - MARKETPLACE_PURCHASE_SUBSCRIPTION_PAGE: [marketplace] open purchase subscription page (web only)
+         - OPEN_WIDGET_LIST_BOTTOMSHEET: [client] opens a widget list bottom sheet
+         - PREMIUM_PANEL_SUBMIT_POST: [premium-panel] submit post action
+         - PREMIUM_PANEL_OPEN_PANEL: [premium-panel] opens premium user panel in web
+         - PREMIUM_PANEL_OPEN_REGISTRATION_FORM: [premium-panel] opens premium panel registration form in web
+         - CHAT_UNBLOCK_PEER: [chat] unblock peer in conversation
+         - REMOVE_WALLET_USAGE_QUOTA: [payment] Remove Wallet Usage Quota Web
+         - PREMIUM_PANEL_OPEN_POST_LIST_PAGE: [premium-panel] open post list page (web only)
+         - POP_FORM_PAGE_AND_PERFORM_ACTION: [client] Pop form
+         - RESUBMIT_POST: [submit] Resubmit post action
+         - PREMIUM_PANEL_OPEN_AGENT_MANAGEMENT: [premium-panel] open agents management page (web only)
+         - PREMIUM_PANEL_INVITE_AGENT: [premium-panel] invite agent (web only)
+         - PREMIUM_PANEL_OPEN_AGENT_INVITATION_DETAILS: [premium-panel] open agent invitation details page (web only)
+         - PREMIUM_PANEL_CANCEL_AGENT_INVITATION: [premium-panel] cancel agent invitation (web only)
+         - PREMIUM_PANEL_EDIT_AGENT_INVITATION: [premium-panel] edit agent invitation (web only)
+         - PREMIUM_PANEL_OPEN_RECEIVED_INVITATIONS_LIST: [premium-panel] open received invitations list (web only)
+         - PREMIUM_PANEL_ACTION_ON_INVITATION: [premium-panel] action on invitation (web only)
+         - OPEN_CATEGORY_SEARCH_BOTTOM_SHEET: [post-list] Open category bottom sheet component
+         - OPEN_WEB_CATEGORIES_MODAL: [post-list] open categories modal in web(web only)
+         - AFTER_SUBMIT: [client] open the manage and after submit and payment pages
+         - OPEN_RICH_WEB_VIEW: [client] USE WITH THREAD LEADER AUTHORIZATION. open a rich
+         - PREMIUM_PANEL_EDIT_AGENT: WebView that can interact with Divar JavaScript SDK and
+        communicate with the client
+
+        [premium-panel] edit agent (web only)
+         - PREMIUM_PANEL_ALLOCATE_QUOTA: [premium-panel] allocate wallet quota (web only)
+         - PREMIUM_PANEL_REMOVE_QUOTA: [premium-panel] remove wallet quota (web only)
+         - PREMIUM_PANEL_REMOVE_AGENT: [premium-panel] remove agent (web only)
+         - PREMIUM_PANEL_VIEW_AGENT_POSTS: [premium-panel] view agent posts (web only)
+         - PREMIUM_PANEL_OPEN_USAGE_REPORT_PAGE: [premium-panel] open usage report page (web only)
+         - PREMIUM_PANEL_AGENT_DETAILS: [premium-panel] open agent details page (web only)
+         - PREMIUM_PANEL_BRAND_MANAGEMENT: [premium-panel] open brand management page (web only)
+         - PREMIUM_PANEL_EDIT_BRAND: [premium-panel] open brand management page (web only)
+         - PREMIUM_PANEL_BRAND_LANDING: [premium-panel] open brand landing page (web only)
+         - PREMIUM_PANEL_OPEN_HELP_AND_SUPPORT_PAGE: [premium-panel] open help and support page (web only)
+         - CLOSE_REPORT_AND_FEEDBACK_WEB_MODAL: [fariba] close report and feedback web modal (web only)
+         - OPEN_SELECT_SEARCH_AREA_MAP: [horizontal-location] open map for specific list filters
+         - AFTER_CALL_HISTORY_BUNDLE_ACTION_COMPLETED: [secure-call] close bundle actions modal after action completed
+         - AFTER_PREMIUM_PANEL_LEAVE_BRAND: (web only)
+
+        [premium-panel] Go to divar home page and remove the left brand
+         - PREMIUM_PANEL_OPEN_REGISTRATION_LANDING_PAGE: from list of brands (web only)
+
+        [premium-panel] Open premium panel registration landing page
+         - OPEN_MENU: (web only)
+        OPEN_MENU will open a bottom sheet in clients and a context menu in web
+
+        [general] open menu with the data returned by requesting
+         - LOAD_MENU: the given address
+        LOAD_MENU will open a bottom sheet in clients and a context menu in web
+
+        [general] load menu provided in payload
+         - OPEN_MULTI_CHOICE_MENU: [general] Open multi choice bottom sheet in
+         - OPEN_CITY_SELECTOR: clients and a dialog in web
+
+        [global] open city selector page
+         - WALLET_OPEN_MY_PAYMENTS_HISTORY_PAGE: [wallet] open my wallet payments history page (web only)
+         - OPEN_MAP_POST_LIST: [Map Discovery, PostList] OpenMapPostListPayload open page with
+         - CHAT_SEND_TEXT: map and post-list together
+
+        [chat] Send text in chat
+         - CALL_PHONE: [global] opens dial page
+         - OPEN_SHOPPING_ASSISTANT: [shopping-assistant] opens shopping assistant page
+         - OPEN_SIMPLE_SUBMIT_PAGE: [simple-submit] opens simple submit page
+         - PREMIUM_PANEL_OPEN_USER_VERIFICATION_PAGE: [premium-panel] Go to user verification page (web only)
+         - PREMIUM_PANEL_OPEN_REFUND_PAGE: [premium-panel] Go to refund page (web only)
+         - PREMIUM_PANEL_OPEN_REFUND_DETAILS_PAGE: [premium-panel] Go to refund details page (web only)
+         - PREMIUM_PANEL_OPEN_REFUND_BAZAAR_PAY_PAGE: [premium-panel] Go to bazaar pay refund page (web only)
+         - PREMIUM_PANEL_OPEN_REFUND_IBAN_PAGE: [premium-panel] Go to iban form page (web only)
+         - WEB_FIRST_OPEN_CLIENT_WIDGET_BASE_ACTION: [global] execute widget base action in client from rich web view
+         - PREMIUM_PANEL_BUSINESS_ADDONS_PAGE: (web only)
+
+        [premium-panel] Go to business addons page (web only)
+         - OPEN_FILTER_RANGE_SELECTOR_BOTTOM_SHEET: [post-list] Open filter range selector bottom sheet component
+         - SUBMIT_POST: [submit] Submit post action (submit for both posts
+         - OPEN_FILTER_BOTTOM_SHEET: with personal and premium panel business types)
+
+        [post-list] OpenFilterBottomSheetPayload. opens filter bottom
+         - PREMIUM_PANEL_BUSINESS_ADDRESS_PAGE: sheet component and shows the widget_list provided in the
+        payload.
+
+        [premium-panel] Go to business address page (web only)
+         - PAYMENT_OPEN_BAZAAR_PAY_SDK: [payment] Open BazaarPay SDK action
+         - PRICING_OPEN_MY_OVERUSAGE_PAGE: [pricing] Open my overusage page (web only)
+         - POP_MODAL_PAGE_AND_PERFORM_ACTION: [web only] pops a modal and performs inside action.
+         - PREMIUM_PANEL_CHANGE_POST_PRICE_SELECTOR_PAGE: [premium-panel] Change post price selector (web only)
+         - PREMIUM_PANEL_CHANGE_POST_PRICE_FORM_PAGE: [premium-panel] Change post price form (web only)
+         - PREMIUM_PANEL_EMAIL_ADDRESS_PAGE: [premium-panel] Go to email address page (web only)
+         - PREMIUM_PANEL_LANDLINE_PAGE: [premium-panel] Go to landline page (web only)
+         - PREMIUM_PANEL_INSIGHT_POST_LIST_PAGE: [premium-panel] Open insight post list page (web only)
+         - PREMIUM_PANEL_INSIGHT_POST_DETAIL_PAGE: [premium-panel] Open insight post list item (web only)
+         - PREMIUM_PANEL_OLD_OWNER_TRANSFER_OWNERSHIP_FORM_PAGE: [premium-panel] Open old owner transfer ownership form page (web only)
+         - PREMIUM_PANEL_OLD_OWNER_TRANSFER_OWNERSHIP_DETAILS_PAGE: [premium-panel] Open old owner transfer ownership details page (web only)
+         - PREMIUM_PANEL_NEW_OWNER_TRANSFER_OWNERSHIP_DETAILS_PAGE: [premium-panel] Open new owner transfer ownership details page (web only)
+         - PREMIUM_PANEL_NEW_OWNER_TRANSFER_OWNERSHIP_APPROVE_PAGE: [premium-panel] Open new owner transfer ownership approve page (web only)
+         - PREMIUM_PANEL_NEW_OWNER_TRANSFER_OWNERSHIP_CONFIRM_FORM_PAGE: [premium-panel] Open new owner transfer ownership confirm form page (web only)
+      enum:
+        - MAP_PREVIEW
+        - CALL_SUPPORT
+        - MANAGE_POST
+        - VIEW_POST
+        - USER_AUTHENTICATION
+        - PAYMENT_HISTORY
+        - CLAIM_POST
+        - ARCHIVE_POST
+        - EDIT_POST
+        - PREVIEW_POST
+        - UPGRADE_POST
+        - LOAD_PAGE
+        - AUTH_NATIONAL_ID
+        - PERSONAL_SUBMIT_POST
+        - OPEN_WEB_PAGE
+        - LOAD_PAYMENT_DETAILS
+        - LANDLINE_VERIFICATION
+        - LOGOUT
+        - OPEN_SUPPORT_PAGE
+        - USER_SUGGESTION_PAGE
+        - CATEGORY_SUGGESTION
+        - WALLET_SETTINGS_PAGE
+        - OPEN_POSTLIST_PAGE
+        - WALLET_BALANCE_PAGE
+        - OPEN_PAGE
+        - WALLET_CALL_SUPPORT
+        - OPEN_SCHEMA_PAGE
+        - COPY_TO_CLIPBOARD
+        - POP_PAGES_AND_PERFORM_ACTION
+        - MARKETPLACE_SHARE_STORE_LANDING
+        - OPEN_POST_SUGGESTION_POST
+        - MESSAGE
+        - MY_DIVAR_MANAGE_POST
+        - CLOSE_PAGE
+        - POST_GET_CONTACT
+        - POST_VOIP_CALL
+        - OPEN_POST_REPORT
+        - OPEN_POST_CHAT
+        - FILTERABLE_SEARCH_RESULT
+        - OPEN_WEB_PAGE_ALERT
+        - START_PAYMENT
+        - NOTE
+        - BOOKMARK
+        - MY_DIVAR_POSTS
+        - MY_DIVAR_BOOKMARKS
+        - MY_DIVAR_RECENT_SEEN
+        - MY_DIVAR_NOTES
+        - OPEN_MAP
+        - LOAD_MODAL_PAGE
+        - ANGOOLAK_LOGIN
+        - LOAD_BOTTOM_SHEET
+        - CHAT_BLOCK_PEER
+        - CHAT_REPORT_PEER
+        - MY_DIVAR_BOOKMARKS_AND_NOTES
+        - MY_DIVAR_SETTINGS
+        - LOGIN
+        - SHOW_WIDE_BUTTON_ALERT
+        - IN_APP_UPDATE
+        - MY_PAYMENT_HISTORY
+        - SUBMIT_CALL_FEEDBACK
+        - HISTORY_BACK
+        - SERVICES_VIEW_PROFILE
+        - BLACKLIST_APPEAL_OPEN_SUBMISSION_FORM_PAGE
+        - BLACKLIST_APPEAL_OPEN_STATUS_PAGE
+        - SERVICES_OPEN_REPORT
+        - DELETE_POST_NOTE
+        - DELETE_POST_BOOKMARK
+        - OPEN_FORM_PAGE
+        - POP_SINGLE_PAGE_AND_PERFORM_ACTION
+        - DISMISS_PAGES_AND_PERFORM_ACTION
+        - OPEN_USER_VERIFICATION_PAGE
+        - OPEN_BOTTOM_SHEET
+        - SHARE
+        - CHAT_SEND_IMAGE_WITH_CAMERA
+        - CHAT_SEND_IMAGE_FROM_GALLERY
+        - CHAT_SEND_VIDEO_WITH_CAMERA
+        - CHAT_SEND_FILE
+        - CHAT_SHARE_CONTACT
+        - CHAT_SHARE_LOCATION
+        - LOAD_WEB_VIEW_PAGE
+        - POP_STACK_AND_GO_TO_BUSINESS_PANEL
+        - CHAT_SEND_SUGGESTION
+        - MAKE_NETWORK_CALL
+        - OPEN_MAP_DISCOVERY
+        - SERVICES_OPEN_PROFILE_SETTINGS_PAGE
+        - SERVICES_OPEN_PROFILE_PREVIEW_PAGE
+        - SERVICES_OPEN_LADDER_PAGE
+        - SERVICES_OPEN_EDIT_NAME_AND_ABOUT_PAGE
+        - SERVICES_OPEN_EDIT_EXPERTISE_PAGE
+        - SERVICES_OPEN_EDIT_WORK_SAMPLES_PAGE
+        - SERVICES_OPEN_EDIT_WORKING_HOURS_PAGE
+        - SERVICES_OPEN_STATISTICS_PAGE
+        - SERVICES_OPEN_LADDER_CREDIT_PAGE
+        - SERVICES_OPEN_EDIT_GENERAL_INFO_PAGE
+        - SERVICES_OPEN_EDIT_EXPERTISE_PRICING_PAGE
+        - SERVICES_OPEN_EDIT_ACTIVITY_NEIGHBORHOODS_PAGE
+        - SERVICES_OPEN_EDIT_CONTACT_INFO_PAGE
+        - SERVICES_OPEN_EDIT_WEBSITE_LINK_PAGE
+        - SERVICES_OPEN_ADD_LANDLINE_PAGE
+        - SERVICES_OPEN_LIST_EXPERTISE_PRICING_PAGE
+        - BLACKLIST_APPEAL_OPEN_CHANGE_OWNERSHIP_PAGE
+        - OPEN_REVOKE_USER_VERIFICATION_PAGE
+        - OPEN_MY_WALLET_PAGE
+        - CHAT_SEND_RECENT_IMAGES
+        - BULK_LADDER_WITH_PAYMENT
+        - CHAT_SPAM_CONVERSATION
+        - SERVICES_START_ACTIVATION_PAYMENT
+        - SERVICES_OPEN_REMOVE_LANDLINE_PAGE
+        - OPEN_HOME_PAGE
+        - PAYMENT_HISTORY_DETAILS
+        - PAYMENT_ISSUE_INVOICE
+        - OPEN_POSTLIST_PAGE_GRPC
+        - SERVICES_OPEN_WEB_REGISTRATION
+        - CAR_DEALERS_ALLOCATE_QUOTA
+        - MY_DIVAR_ACCESSIBILITY
+        - OPEN_FILTERS_PAGE
+        - MARKETPLACE_PURCHASE_SUBSCRIPTION_PAGE
+        - OPEN_WIDGET_LIST_BOTTOMSHEET
+        - PREMIUM_PANEL_SUBMIT_POST
+        - PREMIUM_PANEL_OPEN_PANEL
+        - PREMIUM_PANEL_OPEN_REGISTRATION_FORM
+        - CHAT_UNBLOCK_PEER
+        - REMOVE_WALLET_USAGE_QUOTA
+        - PREMIUM_PANEL_OPEN_POST_LIST_PAGE
+        - POP_FORM_PAGE_AND_PERFORM_ACTION
+        - RESUBMIT_POST
+        - PREMIUM_PANEL_OPEN_AGENT_MANAGEMENT
+        - PREMIUM_PANEL_INVITE_AGENT
+        - PREMIUM_PANEL_OPEN_AGENT_INVITATION_DETAILS
+        - PREMIUM_PANEL_CANCEL_AGENT_INVITATION
+        - PREMIUM_PANEL_EDIT_AGENT_INVITATION
+        - PREMIUM_PANEL_OPEN_RECEIVED_INVITATIONS_LIST
+        - PREMIUM_PANEL_ACTION_ON_INVITATION
+        - OPEN_CATEGORY_SEARCH_BOTTOM_SHEET
+        - OPEN_WEB_CATEGORIES_MODAL
+        - AFTER_SUBMIT
+        - OPEN_RICH_WEB_VIEW
+        - PREMIUM_PANEL_EDIT_AGENT
+        - PREMIUM_PANEL_ALLOCATE_QUOTA
+        - PREMIUM_PANEL_REMOVE_QUOTA
+        - PREMIUM_PANEL_REMOVE_AGENT
+        - PREMIUM_PANEL_VIEW_AGENT_POSTS
+        - PREMIUM_PANEL_OPEN_USAGE_REPORT_PAGE
+        - PREMIUM_PANEL_AGENT_DETAILS
+        - PREMIUM_PANEL_BRAND_MANAGEMENT
+        - PREMIUM_PANEL_EDIT_BRAND
+        - PREMIUM_PANEL_BRAND_LANDING
+        - PREMIUM_PANEL_OPEN_HELP_AND_SUPPORT_PAGE
+        - CLOSE_REPORT_AND_FEEDBACK_WEB_MODAL
+        - PREMIUM_PANEL_OPEN_POST_MANAGE_PAGE
+        - OPEN_SELECT_SEARCH_AREA_MAP
+        - AFTER_CALL_HISTORY_BUNDLE_ACTION_COMPLETED
+        - AFTER_PREMIUM_PANEL_LEAVE_BRAND
+        - PREMIUM_PANEL_OPEN_REGISTRATION_LANDING_PAGE
+        - OPEN_MENU
+        - LOAD_MENU
+        - OPEN_MULTI_CHOICE_MENU
+        - OPEN_CITY_SELECTOR
+        - WALLET_OPEN_MY_PAYMENTS_HISTORY_PAGE
+        - OPEN_MAP_POST_LIST
+        - CHAT_SEND_TEXT
+        - CALL_PHONE
+        - OPEN_SHOPPING_ASSISTANT
+        - OPEN_SIMPLE_SUBMIT_PAGE
+        - PREMIUM_PANEL_OPEN_USER_VERIFICATION_PAGE
+        - PREMIUM_PANEL_OPEN_REFUND_PAGE
+        - PREMIUM_PANEL_OPEN_REFUND_DETAILS_PAGE
+        - PREMIUM_PANEL_OPEN_REFUND_BAZAAR_PAY_PAGE
+        - PREMIUM_PANEL_OPEN_REFUND_IBAN_PAGE
+        - WEB_FIRST_OPEN_CLIENT_WIDGET_BASE_ACTION
+        - PREMIUM_PANEL_BUSINESS_ADDONS_PAGE
+        - OPEN_FILTER_RANGE_SELECTOR_BOTTOM_SHEET
+        - SUBMIT_POST
+        - OPEN_FILTER_BOTTOM_SHEET
+        - PREMIUM_PANEL_BUSINESS_ADDRESS_PAGE
+        - PAYMENT_OPEN_BAZAAR_PAY_SDK
+        - PRICING_OPEN_MY_OVERUSAGE_PAGE
+        - POP_MODAL_PAGE_AND_PERFORM_ACTION
+        - PREMIUM_PANEL_CHANGE_POST_PRICE_SELECTOR_PAGE
+        - PREMIUM_PANEL_CHANGE_POST_PRICE_FORM_PAGE
+        - LOAD_GENERAL_OTP_PAGE
+        - PREMIUM_PANEL_EMAIL_ADDRESS_PAGE
+        - PREMIUM_PANEL_LANDLINE_PAGE
+        - PREMIUM_PANEL_INSIGHT_POST_LIST_PAGE
+        - PREMIUM_PANEL_INSIGHT_POST_DETAIL_PAGE
+        - PREMIUM_PANEL_OLD_OWNER_TRANSFER_OWNERSHIP_FORM_PAGE
+        - PREMIUM_PANEL_OLD_OWNER_TRANSFER_OWNERSHIP_DETAILS_PAGE
+        - PREMIUM_PANEL_NEW_OWNER_TRANSFER_OWNERSHIP_DETAILS_PAGE
+        - PREMIUM_PANEL_NEW_OWNER_TRANSFER_OWNERSHIP_APPROVE_PAGE
+        - PREMIUM_PANEL_NEW_OWNER_TRANSFER_OWNERSHIP_CONFIRM_FORM_PAGE
+      title: |-
+        - MAP_PREVIEW: [global]
+         - CALL_SUPPORT: [global] opens dial page
+         - MANAGE_POST: [global] opens post's manangement page
+         - VIEW_POST: [global] opens post's view page
+         - USER_AUTHENTICATION: [post-management]
+         - PAYMENT_HISTORY: [post-management]
+         - CLAIM_POST: [post-management]
+         - ARCHIVE_POST: [post-management]
+         - EDIT_POST: [post-management]
+         - PREVIEW_POST: [post-management]
+         - UPGRADE_POST: [post-management]
+         - LOAD_PAGE: [base] loads offline page provieded in payload
+         - PERSONAL_SUBMIT_POST: [global] opens submit post page
+         - OPEN_WEB_PAGE: open a web page
+         - LOAD_PAYMENT_DETAILS: payment_history_details
+         - LOGOUT: logout from app
+         - OPEN_SUPPORT_PAGE: [global] open support page
+         - USER_SUGGESTION_PAGE: [global] open user-suggestion page
+         - CATEGORY_SUGGESTION: [global] search suggested category in submit
+         - WALLET_SETTINGS_PAGE: [payment] open wallet settings page
+         - OPEN_POSTLIST_PAGE: [global] open post list page old stack (nama)
+         - WALLET_BALANCE_PAGE: [payment] open wallet balance page
+         - OPEN_PAGE: [global] opens an arbitrary page
+         - WALLET_CALL_SUPPORT: [payment] opens dial page for wallet support
+         - OPEN_SCHEMA_PAGE: [global] opens a form page generated by json schema
+         - COPY_TO_CLIPBOARD: [global] Copies text to clipboard and shows message
+         - POP_PAGES_AND_PERFORM_ACTION: [global] pops linked stack and perform inside action.
+         - MARKETPLACE_SHARE_STORE_LANDING: [marketplace] DEPRECATED, use "SHARE" instead. share store landing page
+         - OPEN_POST_SUGGESTION_POST: [real-estate-demand] opens the post which is suggested to user
+         - MESSAGE: [global] client texts(sms) the phone_number provided in
+         - MY_DIVAR_MANAGE_POST: the payload
+      type: string
+    widgetsGeneralNetworkCallResponse:
+      example:
+        toast_message: toast_message
+        next_action:
+          page_pop_link: true
+          payload:
+            "@type": "@type"
+          type: MAP_PREVIEW
+      properties:
+        next_action:
+          $ref: "#/components/schemas/widgetsAction"
+        toast_message:
+          type: string
+      title: send data with this model in response to make grpc call action
+      type: object
+  securitySchemes:
+    APIKey:
+      description: API Key authentication
+      in: header
+      name: X-API-Key
+      type: apiKey
+    OAuth2:
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.divar.ir/oauth2/auth
+          scopes:
+            CHAT_BOT_USER_MESSAGE_SEND: "send message from chat bot directly to user"
+          tokenUrl: https://oauth.divar.ir/oauth2/token
+      type: oauth2
+x-original-swagger-version: "2.0"

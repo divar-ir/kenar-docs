@@ -24,6 +24,22 @@ const config = {
   },
   themes: ['@docusaurus/theme-mermaid'],
 
+  plugins: [
+    [
+      '@scalar/docusaurus',
+      {
+        label: 'API Doc',
+        route: '/kenar-docs/api-doc',
+        configuration: {
+          url: './output.yaml',
+          customCss: `.scalar-app {
+              direction: ltr;
+          }`
+        }
+      },
+    ],
+  ],
+
   // Internationalization settings
   i18n: {
     defaultLocale: 'fa-IR',
