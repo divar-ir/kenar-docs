@@ -18,6 +18,7 @@
 - chassis_number
 - engine_number
 - real_estate_id
+- old_real_estate_id
 
 ## قواعد تمیزکاری
 
@@ -50,20 +51,17 @@ vin_hash = sha256_vin(vin_input)
 print(f"SHA-256 hash of processed VIN: {vin_hash}")
 ```
 
-به منظور درج مقدار real_estate_id برای سند‌های قدیم پس از نرمالایز کردن مقادیر از اسکریپت زیر استفاده کنید.
+
+به منظور درج مقدار old_real_estate_id برای سند‌های قدیم پس از نرمالایز کردن مقادیر از اسکریپت زیر استفاده کنید.
 
 ``` python
-def hash_old_real_estate_id(data):
+def hash_old_real_estate_id(document_number, page_number):
     """
-    Example:
-        data = {
-            "document_number": 5,   // شماره دفتر
-            "page_number": 42       // شماره صفحه
-        }
+        document_number // شماره دفتر
+        page_number // شماره صفحه
     """
-
-    # Serialize JSON with sorted keys to ensure deterministic output
-    json_str = json.dumps(data, sort_keys=True, separators=(',', ':'))
-    return hashlib.sha256(json_str.encode('utf-8')).hexdigest()
-
+    old_real_estate_id = f'{document_number}|{page_number}'
+    old_real_estate_id_clean = persian_numbers_to_ascii(old_real_estate_id.strip().upper())
+    hash_object = hashlib.sha256(old_real_estate_id_clean.encode('utf-8'))
+    return hash_object.hexdigest()
 ```
