@@ -31,7 +31,7 @@ const config = {
         label: 'API Doc',
         route: '/kenar-docs/api-doc',
         configuration: {
-          url: './output.yaml',
+          url: 'output.yaml',
           customCss: `.scalar-app {
               direction: ltr;
           }`
