@@ -4,7 +4,8 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-const isNetlify = process.env.NETLIFY === 'true';
+const isNetlifyPreview = process.env.CONTEXT === 'deploy-preview';
+
 
 
 /** @type {import('@docusaurus/types').Config} */
@@ -13,8 +14,8 @@ const config = {
   tagline: '',
   favicon: 'img/favicon.ico', // Update with your favicon path or generate one with the desired emoji
 
-  url: 'https://divar-ir.github.io',
-  baseUrl: isNetlify ? '/' : '/kenar-docs',
+  url: isNetlifyPreview ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io',
+  baseUrl: isNetlifyPreview ? '/' : '/kenar-docs',
 
   organizationName: 'divar-ir',
   projectName: 'kenar-docs',
