@@ -64,6 +64,43 @@
 
 بعد از [ثبت آگهی](#TODO) توسط کاربر، آگهی مسیری مانند شکل زیر طی می‌کند:
 
+
+
+## چرخه حیات آگهی در دیوار (Divar Post Lifecycle)
+
+یک نمودار جریان که چرخه حیات فرآیند ارسال پست در دیوار را نشان می‌دهد. این نمودار به توسعه‌دهندگان کمک می‌کند تا وضعیت‌های مختلف یک آگهی و انتقال بین این وضعیت‌ها را درک کنند.
+
+### حالت‌های آگهی (Post States)
+
+در زیر، وضعیت‌های مختلفی که یک آگهی می‌تواند در طول چرخه حیات خود در دیوار داشته باشد، به همراه ترجمه فارسی و توضیح مختصر ارائه شده است:
+
+*   **`SubmitNewPost` / اقدام: ارسال پست جدید (Action: Submit New Post)**
+    *   **توضیح:** نقطه شروع فرآیند هنگام ارسال پست جدید توسط کاربر.
+
+*   **`payment_choice` / بررسی سهمیه/پرداخت (Quota/Payment Check)**
+    *   **توضیح:** یک نقطه تصمیم‌گیری برای تعیین اینکه آیا پست نیاز به پرداخت دارد یا شامل سهمیه رایگان می‌شود.
+
+*   **`W (Waiting for Payment)` / در انتظار پرداخت (Waiting for Payment)**
+    *   **توضیح:** آگهی هزینه انتشار دارد و منتظر پرداخت توسط کاربر است.
+
+*   **`N (Under Review)` / در حال بررسی (Under Review)**
+    *   **توضیح:** آگهی پس از ارسال (و پرداخت در صورت نیاز) برای بررسی و تطابق با قوانین دیوار، به این وضعیت منتقل می‌شود.
+
+*   **`review_choice` / نتیجه بازبینی (Review Outcome)**
+    *   **توضیح:** یک نقطه تصمیم‌گیری پس از بررسی؛ آگهی یا تایید، یا رد (نیازمند ویرایش) می‌شود.
+
+*   **`P (Published)` / منتشر شده (Published)**
+    *   **توضیح:** آگهی توسط تیم بازبینی تایید شده و برای عموم کاربران در دیوار قابل مشاهده است.
+
+*   **`E (Needs Edit)` / نیازمند ویرایش (Needs Edit)**
+    *   **توضیح:** آگهی توسط تیم بازبینی رد شده است زیرا با قوانین مطابقت ندارد. کاربر باید آن را ویرایش و مجدداً برای بازبینی ارسال کند.
+*   **`T (Retired)` / منقضی شده / بازنشسته (Retired)**
+    *   **توضیح:** آگهی دیگر فعال نیست. این حالت می‌تواند به دلیل اتمام زمان نمایش آگهی (انقضا) یا اقدام کاربر برای بازنشسته کردن آن باشد. آگهی‌های بازنشسته معمولاً قابل بازنشر هستند.
+
+*   **`A (Archived)` / بایگانی شده (Archived)**
+    *   **توضیح:** آگهی‌های منقضی شده یا بازنشسته پس از گذشت مدت زمان مشخصی (مثلاً ۳۰ روز) به وضعیت بایگانی منتقل می‌شوند. آگهی‌های بایگانی شده معمولاً قابل بازنشر مستقیم نیستند و از دید کاربر پنهان می‌شوند مگر اینکه به بخش خاصی برای مشاهده آرشیو مراجعه کند.
+
+### نمودار وضعیت آگهی (Post Status Diagram)
 </div>
 
 ```mermaid
@@ -72,26 +109,37 @@ stateDiagram-v2
   direction TB
   state if_payment <<choice>>
   state review_choice <<choice>>
-  W : Wait for Payment (W)
-  N : Under review (N)
-  T : Retired (T)
-  P : Published (P)
-  E : Needs Edit (E)
-  [*]-->SubmitNewPost
-  SubmitNewPost-->if_payment
-  if_payment-->W : needs payment
-  W-->N : payment OK
-  if_payment-->N : free of charge
-  N-->review_choice
-  review_choice-->T : reject
-  review_choice-->P : approve
-  review_choice-->E : needs edit
-  E-->N : edited
-  T-->[*] : archived\n(after 30 days)
-  P-->T : expire
-  T-->P : unretire
+  
+  [*] --> SubmitNewPost: ثبت آگهی جدید
+  SubmitNewPost --> if_payment: بررسی نیاز به پرداخت
+  
+  if_payment --> W: نیاز به پرداخت (Needs Payment)
+  W: در انتظار پرداخت  (Waiting for Payment)
+  
+  W --> N: پرداخت تایید شد (Payment Confirmed)
+  
+  if_payment --> N: رایگان (Free of Charge)
+  N: در حال بررسی  (Under Review)
+  
+  N --> review_choice: تصمیم‌گیری (Review Decision)
+  
+  review_choice --> T: رد شد (Rejected)
+  T: منقضی شده  (Retired)
+  
+  review_choice --> P: تایید شد (Approved)
+  P: منتشر شده  (Published)
+  
+  review_choice --> E: نیاز به اصلاح (Needs Editing)
+  E: نیاز به ویرایش (Needs Edit)
+  
+  E --> N: ویرایش شد (Edited)
+  
+  P --> T: منقضی شد (Expired)
+  
+  T --> P: بازگردانی (Unretire)
+  
+  T --> [*]: آرشیو (بعد از ۳۰ روز)
 ```
-
 <div dir="rtl">
 
 ### دسته‌بندی
