@@ -4,6 +4,9 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
+const isNetlify = process.env.NETLIFY === 'true';
+
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'کنار دیوار',
@@ -11,7 +14,7 @@ const config = {
   favicon: 'img/favicon.ico', // Update with your favicon path or generate one with the desired emoji
 
   url: 'https://divar-ir.github.io',
-  baseUrl: '/kenar-docs',
+  baseUrl: isNetlify ? '/' : '/kenar-docs',
 
   organizationName: 'divar-ir',
   projectName: 'kenar-docs',
