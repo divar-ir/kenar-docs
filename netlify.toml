@@ -1,0 +1,12 @@
+[build]
+  command = "yarn run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Redirects for client-side routing (important for Docusaurus)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
