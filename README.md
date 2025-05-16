@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="./static/img/logo.svg" height="72px"/>
+![Logo](./static/img/logo.svg)
 
 </div>
 <br>
