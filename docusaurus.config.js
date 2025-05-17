@@ -6,8 +6,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 const isNetlifyPreview = process.env.CONTEXT === 'deploy-preview';
 
-
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'کنار دیوار',
