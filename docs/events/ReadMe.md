@@ -98,8 +98,8 @@ Content-Type: application/json
 |      `new_message`       |          Optional[[ChatMessage](../events/chat.md#chat-message)]           |                               پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
 |  `new_chatbot_message`   |          Optional[[ChatMessage](../events/chat.md#chat-message)]           |                       پیام جدید. در صورتی که نوع رویداد `NEW_CHATBOT_MESSAGE` باشد |
 | `user_access_revocation` | Optional[[UserAccessRevocation](../events/auth.md#user-access-revocation)] | حذف دسترسی برنامه توسط کاربر. در صورتی که نوع رویداد `USER_ACCESS_REVOCATION` باشد |
-|      `transaction`       |         Optional[[Transaction](../events/payment.md#transaction)]          |                  تغییرات تراکنش. در صورتی که نوع رویداد `PAYMENT_TRANSACTION` باشد |
 |      `post_update`       |           Optional[[PostUpdate](../events/post.md#post-update)]            |        تغییر آگهی منتشر شده یا در جریان. در صورتی که نوع رویداد `POST_UPDATE` باشد |
+|      `transaction`       |         Optional[[Transaction](../events/payment.md#transaction)]          |                  تغییرات تراکنش. در صورتی که نوع رویداد `PAYMENT_TRANSACTION` باشد |
 |        `metadata`        |                              Optional[Object]                              |                                                  دیتای دلخواه از سمت برنامه‌ی شما. |
 
 ### رویدادها
