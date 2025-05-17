@@ -32,7 +32,7 @@ Backward incompatible
 |  NEW_CHATBOT_MESSAGE   |                       -                       |                                                                   مطلع شدن از پیام جدید کاربران به چت بات |
 | USER_ACCESS_REVOCATION | `NOTIFICATION_ACCESS_REVOCATION` و `USER_ID`  |                                                          مطلع شدن از حذف شدن دسترسی‌های برنامه توسط کاربر |
 |      POST_UPDATE       |               `USER_POSTS_GET`                |                                                       مطلع شدن از تغییرات آگهی‌ منتشر شده و آگهی در جریان |
-
+|  PAYMENT_TRANSACTION   |                       -                       |                                                                                مطلع شدن از تغییرات تراکنش |
 ## درخواست
 
 |       پارامتر       |  نوع   |                                                                                                                                                                                                                                                     توضیحات |
@@ -98,6 +98,7 @@ Content-Type: application/json
 |      `new_message`       |          Optional[[ChatMessage](../events/chat.md#chat-message)]           |                               پیام جدید. در صورتی که نوع رویداد `NEW_MESSAGE` باشد |
 |  `new_chatbot_message`   |          Optional[[ChatMessage](../events/chat.md#chat-message)]           |                       پیام جدید. در صورتی که نوع رویداد `NEW_CHATBOT_MESSAGE` باشد |
 | `user_access_revocation` | Optional[[UserAccessRevocation](../events/auth.md#user-access-revocation)] | حذف دسترسی برنامه توسط کاربر. در صورتی که نوع رویداد `USER_ACCESS_REVOCATION` باشد |
+|      `transaction`       |         Optional[[Transaction](../events/payment.md#transaction)]          |                  تغییرات تراکنش. در صورتی که نوع رویداد `PAYMENT_TRANSACTION` باشد |
 |      `post_update`       |           Optional[[PostUpdate](../events/post.md#post-update)]            |        تغییر آگهی منتشر شده یا در جریان. در صورتی که نوع رویداد `POST_UPDATE` باشد |
 |        `metadata`        |                              Optional[Object]                              |                                                  دیتای دلخواه از سمت برنامه‌ی شما. |
 
@@ -109,3 +110,4 @@ Content-Type: application/json
 |  `NEW_CHATBOT_MESSAGE`   |          پیام جدید در چت بات |
 | `USER_ACCESS_REVOCATION` | حذف دسترسی برنامه توسط کاربر |
 |      `POST_UPDATE`       |                   تغییر آگهی |
+|  `PAYMENT_TRANSACTION`   |               تغییرات تراکنش |
