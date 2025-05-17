@@ -14,7 +14,7 @@ const config = {
   tagline: '',
   favicon: 'img/favicon.ico', // Update with your favicon path or generate one with the desired emoji
 
-  url: isNetlifyPreview ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io',
+  url: (isNetlifyPreview && process.env.DEPLOY_PRIME_URL)? process.env.DEPLOY_PRIME_URL  : 'https://divar-ir.github.io',
   baseUrl: isNetlifyPreview ? '/' : '/kenar-docs',
 
   organizationName: 'divar-ir',
