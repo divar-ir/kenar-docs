@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: divar_interface/open_platform/chatapi/chatapi.proto
-  version: version not set
+  title: Kenar API
+  version: "1.0"
 tags:
   - name: ChatAPI
   - name: Events
@@ -56,6 +56,7 @@ paths:
                 $ref: "#/components/schemas/googlerpcStatus"
       parameters:
         - name: conversation_id
+          description: Unique identifier for the conversation
           in: path
           required: true
           schema:
@@ -87,6 +88,8 @@ paths:
                 $ref: "#/components/schemas/googlerpcStatus"
       parameters:
         - name: user_id
+          description: Unique identifier for the user to start or continue a conversation
+            with
           in: path
           required: true
           schema:
@@ -144,6 +147,7 @@ paths:
                 $ref: "#/components/schemas/googlerpcStatus"
       parameters:
         - name: conversation_id
+          description: Unique identifier for the conversation
           in: path
           required: true
           schema:
@@ -670,6 +674,7 @@ paths:
                 $ref: "#/components/schemas/googlerpcStatus"
       parameters:
         - name: conversation_id
+          description: Unique identifier for the conversation
           in: path
           required: true
           schema:
@@ -722,10 +727,9 @@ paths:
   "/v1/open-platform/finder/post/{token}":
     get:
       summary: Get a Divar post
-      description: >
+      description: |-
         This API allows you to get details about Divar post by its token.
-
-        You can use the token to get the post data and its state in order to implement your service.
+        You can use the token to get the post data and its state 
       operationId: Finder_GetPost
       responses:
         "200":
@@ -1245,6 +1249,7 @@ paths:
                 $ref: "#/components/schemas/googlerpcStatus"
       parameters:
         - name: conversation_id
+          description: Unique identifier for the conversation
           in: path
           required: true
           schema:
@@ -1288,6 +1293,8 @@ paths:
         required: true
       tags:
         - Finder
+servers:
+  - url: https://open-api.divar.ir
 components:
   requestBodies:
     SemanticCreateUserSemanticBody:
@@ -1349,11 +1356,6 @@ components:
       enum:
         - OWNERSHIP_CONFIRMED
         - OWNERSHIP_DELEGATION_CONFIRMED
-    AddonSemanticPaymentMethod:
-      type: string
-      enum:
-        - SECURE
-      title: "- SECURE: this value results in badge in matching"
     AddonSemanticPostVerificationResult:
       type: string
       enum:
@@ -1398,23 +1400,38 @@ components:
       properties:
         user_id:
           type: string
+          example: user_789012
+          description: Unique identifier for the user to start or continue a conversation
+            with
         text_message:
           type: string
+          example: Thank you for your inquiry. How can I help you?
+          description: Text message content to be sent by the bot
         media_token:
           type: string
+          example: media_token_12345
+          description: Token for attached media (if any)
         buttons:
           $ref: "#/components/schemas/chatapiChatButtonGrid"
+      required:
+        - text_message
     ChatAPIConversationSendMessageBody:
       type: object
       properties:
         message:
           type: string
+          example: Hello, I'm interested in your product
+          description: Text message content to be sent
         media_token:
           type: string
+          example: media_token_12345
+          description: Token for attached media (if any)
         sender_buttons:
           $ref: "#/components/schemas/chatapiChatButtonGrid"
         receiver_buttons:
           $ref: "#/components/schemas/chatapiChatButtonGrid"
+      required:
+        - message
     DivarIconsIconName:
       type: string
       enum:
@@ -2454,10 +2471,15 @@ components:
       properties:
         open_direct_link:
           type: string
+          example: https://your-site.com/some-path
+          description: An action to send user to your URL directly with just a resource id
+            (if applicable)
         open_server_link:
           $ref: "#/components/schemas/addonsOpenServerLink"
         get_dynamic_action:
           $ref: "#/components/schemas/addonsGetDynamicAction"
+      description: Represents an action that can be performed
+      title: Action
     addonsAddonLinkage:
       type: string
       enum:
@@ -2520,13 +2542,16 @@ components:
           type: array
           items:
             type: string
-      title: (AND) post is selected by this selector if all of the following
-        conditions matches
+      title: >-
+        (AND) post is selected by this selector if all of the following
+        conditions
+
+        matches
     addonsAddonSemantic:
       type: object
       properties:
         payment_method:
-          $ref: "#/components/schemas/AddonSemanticPaymentMethod"
+          $ref: "#/components/schemas/addonsAddonSemanticPaymentMethod"
         identity_verification_result:
           $ref: "#/components/schemas/AddonSemanticIdentityVerificationResult"
         post_verification_result:
@@ -2556,6 +2581,11 @@ components:
          - Zero value of every enum should be {ENUM_NAME}_UNSPECIFIED.
          - Enum values should not correspond to any specific post or person
          attribute.
+    addonsAddonSemanticPaymentMethod:
+      type: string
+      enum:
+        - SECURE
+      title: "- SECURE: this value results in badge in matching"
     addonsAddonSemanticStatus:
       type: string
       enum:
@@ -2669,6 +2699,13 @@ components:
       properties:
         data:
           type: object
+          example:
+            your-internal-id: something
+          description: A data that you can set and will be returned to you upon user click
+            to recognize the action
+      description: Represents a dynamic action that can be fetched and invoked on
+        user's device
+      title: Get Dynamic Action
     addonsGetPostAddonsResponse:
       type: object
       properties:
@@ -2720,6 +2757,13 @@ components:
       properties:
         data:
           type: object
+          example:
+            your-internal-id: something
+          description: A data that you can set and will be returned to you upon user click
+            to recognize the action
+      description: An action to pass complete session data and retrieve redirect
+        location from your server on each user action
+      title: Open Server Link
     addonsPostAddon:
       type: object
       properties:
@@ -3111,6 +3155,9 @@ components:
       properties:
         conversation_id:
           type: string
+          example: conv_123456
+          description: ID of the conversation created or updated
+          readOnly: true
     chatapiChatButton:
       type: object
       properties:
@@ -3166,6 +3213,10 @@ components:
       properties:
         token:
           type: string
+          example: some_random_base64
+          description: A url safe base64 encoded token that can be used in the upload
+            endpoint
+          readOnly: true
     chatapiGetConversationResponse:
       type: object
       properties:
@@ -3175,6 +3226,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/chatapiMessage"
+          description: List of messages in the conversation
+      required:
+        - conversation
+        - messages
     chatapiMessage:
       type: object
       properties:
