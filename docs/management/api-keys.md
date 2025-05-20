@@ -125,7 +125,7 @@ x-api-key: {{apikey}}
 
 <div align="center">
 
-<img src="../static/img/wire-puzzle.svg" height="156px"/>
+![Wire Puzzle](../static/img/wire-puzzle.svg)
 
 </div>
 
