@@ -3,6 +3,7 @@
 این فرایند شامل ۳ مرحله است، ابتدا باید توکن جهت دریافت دسترسی به آپلود را دریافت کنید.
 سپس باید با استفاده از توکن دریافتی فایل مدیا خود را آپلود کنید.
 و در نهایت با `media_token` دریافتی در چت مد نظر خود media خودتون رو بفرستید
+
 ## نمای کلی
 
 فرآیند آپلود شامل مراحل زیر است:
@@ -16,7 +17,7 @@
 ابتدا، شما نیاز دارید یک توکن آپلود دریافت کنید که برای مجوز آپلود رسانه شما استفاده خواهد شد.
 
 ### Request
-    
+
 ```http request
 POST https://open-api.divar.ir/experimental/open-platform/chat/upload
 Content-Type: application/json
@@ -32,6 +33,7 @@ x-api-key: {{apikey}}
 ```
 
 ### python example
+
 ```python
 import requests
 
@@ -50,22 +52,26 @@ print(response.text)
 ```
 
 ## مرحله ۲: آپلود `media`
-پس از دریافت `upload_token`، از آن برای آپلود فایل `media` خود استفاده کنید.
 
+پس از دریافت `upload_token`، از آن برای آپلود فایل `media` خود استفاده کنید.
 
 ### Request
 
 ```http request
 POST https://chat.divar.ir/upload/{{media_type}}
 ```
+
 ```header
 Authorization: Bearer {{upload_token}}
 Accept: */*
 ```
+
 ```body
 {{media_file}} # in binary
 ```
-<br>`media_type` can be `image`, `video`, `voice` or `file`
+
+<br/>
+`media_type` can be `image`, `video`, `voice` or `file`
 
 ### Response
 
@@ -77,6 +83,7 @@ Accept: */*
 ```
 
 ### python example
+
 ```python
 import requests
 media_types = ['image', 'video', 'voice', 'file']
@@ -100,9 +107,6 @@ response = requests.request("POST", url, headers=headers, files=files)
 
 این کار با پر کردن فیلد `media_token` در `object` پیام انجام می‌شود.
 
-
-
-
 ```json
 {
   "media_token": "your_media_token"
@@ -110,7 +114,7 @@ response = requests.request("POST", url, headers=headers, files=files)
 ```
 
 ارسال پیام با media در چت‌بات را می‌توانید در [اینجا][راهنما » چت‌بات] بخوانید.
-<br>
+<br/>
 ارسال پیام با media در چت را می‌توانید در [اینجا][چت»ارسال پیام] بخوانید.
 
 [راهنما » چت‌بات]: /chat/chatbot_conversations.md
