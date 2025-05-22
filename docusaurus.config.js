@@ -4,7 +4,7 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-const isNetlifyPreview = process.env.CONTEXT === 'deploy-preview';
+const isNetlifyPreview = process.env.IS_NETLIFY === 'true';
 
 
 
