@@ -63,7 +63,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/', // Serve docs at the site's root
-          editUrl: 'https://github.com/divar-ir/kenar-docs/tree/master/',
+          editUrl: 'https://github.com/divar-ir/kenar-docs/edit/master/',
         },
         theme: {
           customCss: './src/css/custom.css', // Your custom CSS file
