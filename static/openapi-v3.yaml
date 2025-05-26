@@ -2545,6 +2545,9 @@
           "state": {
             "$ref": "#/components/schemas/finderPostExtState"
           },
+          "supplier_chat_assistant_enabled": {
+            "type": "boolean"
+          },
           "token": {
             "type": "string"
           }
@@ -2818,6 +2821,22 @@
         },
         "type": "object"
       },
+      "paymentListTransactionsResponse": {
+        "properties": {
+          "next_page_token": {
+            "description": "Token for the next page of results.",
+            "type": "string"
+          },
+          "transactions": {
+            "description": "List of transactions matching the request",
+            "items": {
+              "$ref": "#/components/schemas/paymentTransaction"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "paymentReorderPostResponse": {
         "properties": {
           "cost_rials": {
@@ -2944,6 +2963,34 @@
         "type": "object"
       },
       "semanticDeleteUserSemanticResponse": {
+        "type": "object"
+      },
+      "semanticPostSemanticDeleted": {
+        "properties": {
+          "app_slug": {
+            "type": "string"
+          },
+          "post_token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "semanticSendSemanticDeletionEventsResponse": {
+        "type": "object"
+      },
+      "semanticUserSemanticDeleted": {
+        "properties": {
+          "app_slug": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
         "type": "object"
       }
     },
@@ -3312,6 +3359,56 @@
         "summary": "Create Post Semantic",
         "tags": [
           "Semantic"
+        ]
+      }
+    },
+    "/experimental/open-platform/transactions": {
+      "get": {
+        "description": "Using this API you can retrieve a list of transactions. Follow pages till you get an empty list.",
+        "operationId": "Payment_ListTransactions",
+        "parameters": [
+          {
+            "description": "Number of transactions to return per page",
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Token for the next page of results",
+            "in": "query",
+            "name": "page_token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentListTransactionsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "tags": [
+          "limited"
         ]
       }
     },
@@ -4836,6 +4933,12 @@
   ],
   "tags": [
     {
+      "name": "Addons"
+    },
+    {
+      "name": "Assets"
+    },
+    {
       "name": "ChatAPI"
     },
     {
@@ -4845,23 +4948,17 @@
       "name": "Finder"
     },
     {
-      "name": "Assets"
+      "name": "Post"
+    },
+    {
+      "description": "Limited APIs, Create tickets if you need to use them.",
+      "name": "limited"
     },
     {
       "name": "PaymentTicket"
     },
     {
-      "name": "Post"
-    },
-    {
       "name": "Semantic"
-    },
-    {
-      "name": "Addons"
-    },
-    {
-      "description": "Limited APIs, Create tickets if you need to use them.",
-      "name": "limited"
     }
   ]
 }
