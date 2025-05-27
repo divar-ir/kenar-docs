@@ -55,7 +55,7 @@
         "enum": [
           "FACE_AND_ID_MATCHED"
         ],
-        "title": "- FACE_AND_ID_MATCHED: ID means melli CARD, this value results in badge in matching",
+        "title": "- FACE_AND_ID_MATCHED: ID به معنای کارت ملی است، این مقدار منجر به نشان در تطبیق می‌شود",
         "type": "string"
       },
       "AddonSemanticIdentityVerificationStage": {
@@ -996,11 +996,11 @@
       "GetPostPricingResponseReorder": {
         "properties": {
           "available": {
-            "description": "Indicates if the post can be reordered. If false, the reorder API will return an error",
+            "description": "نشان می‌دهد که آیا آگهی قابل نردبان است. اگر false باشد، API نردبان خطا برمی‌گرداند",
             "type": "boolean"
           },
           "cost_rials": {
-            "description": "The cost of reordering in rials",
+            "description": "هزینه نردبان به ریال",
             "format": "int64",
             "type": "string"
           }
@@ -1078,12 +1078,12 @@
       "MessageLocationData": {
         "properties": {
           "latitude": {
-            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+            "description": "عرض جغرافیایی به درجه. باید در محدوده [-90.0, +90.0] باشد.",
             "format": "double",
             "type": "number"
           },
           "longitude": {
-            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+            "description": "طول جغرافیایی به درجه. باید در محدوده [-180.0, +180.0] باشد.",
             "format": "double",
             "type": "number"
           }
@@ -1162,11 +1162,11 @@
       "PaymentReorderPostBody": {
         "properties": {
           "extra_details": {
-            "description": "Additional details that you want to send to the Kenar side. This field is optional and can be used to solve inconsistencies in the transaction.",
+            "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
             "type": "string"
           },
           "id": {
-            "description": "A Version 4 uuid that must be unique for each payment. This uuid must be generated on your side and sent in the request. If an id is sent that has a successful or semi-successful transaction on the Kenar side, you will receive an error.",
+            "description": "یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.",
             "type": "string"
           }
         },
@@ -1430,7 +1430,7 @@
             "items": {
               "type": "string"
             },
-            "title": "(OR) post is selected if the following array contains corresponding field",
+            "title": "(OR) آگهی انتخاب می‌شود اگر آرایه زیر شامل فیلد مربوطه باشد",
             "type": "array"
           }
         },
@@ -1438,7 +1438,7 @@
         "type": "object"
       },
       "addonsAddonSemantic": {
-        "description": "This is the message extracted by OpenPlatform from service provider\nsemantics. Guidelines:\n - Always check to see if an appropriate enum field or value exists before\n adding one.\n - Zero value of every enum should be {ENUM_NAME}_UNSPECIFIED.\n - Enum values should not correspond to any specific post or person\n attribute.",
+        "description": "این پیام استخراج شده توسط OpenPlatform از اطلاعات معنایی\nارائه‌دهنده سرویس است. راهنماها:\n - همیشه بررسی کنید که آیا فیلد یا مقدار enum مناسبی قبل از\n افزودن وجود دارد.\n - مقدار صفر هر enum باید {ENUM_NAME}_UNSPECIFIED باشد.\n - مقادیر Enum نباید با هیچ آگهی خاص یا صفت شخص\n مطابقت داشته باشد.",
         "properties": {
           "car_verification_failure_reason": {
             "$ref": "#/components/schemas/AddonSemanticCarVerificationStage"
@@ -1480,7 +1480,7 @@
         "enum": [
           "SECURE"
         ],
-        "title": "- SECURE: this value results in badge in matching",
+        "title": "- SECURE: این مقدار منجر به نشان در تطبیق می‌شود",
         "type": "string"
       },
       "addonsAddonSemanticStatus": {
@@ -1526,7 +1526,7 @@
             "type": "string"
           },
           "notes": {
-            "title": "arbitrary data provided by addon creator",
+            "title": "داده‌های دلخواه ارائه شده توسط سازنده افزونه",
             "type": "string"
           },
           "selector": {
@@ -1772,7 +1772,7 @@
             "additionalProperties": {
               "type": "string"
             },
-            "title": "deprecated",
+            "title": "منسوخ شده",
             "type": "object"
           },
           "semantic_data": {
@@ -1782,7 +1782,7 @@
             "items": {
               "type": "string"
             },
-            "title": "deprecated",
+            "title": "منسوخ شده",
             "type": "array"
           },
           "sensitive_semantic": {
@@ -1886,7 +1886,7 @@
       "addonsUserAddon": {
         "properties": {
           "divar_user_id": {
-            "title": "new field",
+            "title": "فیلد جدید",
             "type": "string"
           },
           "filters": {
@@ -1896,14 +1896,14 @@
             "$ref": "#/components/schemas/addonsAddonMetaData"
           },
           "phone": {
-            "title": "will be deprecated",
+            "title": "منسوخ خواهد شد",
             "type": "string"
           },
           "semantic": {
             "additionalProperties": {
               "type": "string"
             },
-            "title": "deprecated",
+            "title": "منسوخ شده",
             "type": "object"
           },
           "semantic_data": {
@@ -2004,7 +2004,7 @@
             "items": {
               "$ref": "#/components/schemas/appsServiceTag"
             },
-            "title": "deprecated - use AddonMetaData.service_tags",
+            "title": "منسوخ شده - از AddonMetaData.service_tags استفاده کنید",
             "type": "array"
           },
           "service_type": {
@@ -2299,7 +2299,7 @@
             "$ref": "#/components/schemas/OAuthScopeScope"
           }
         },
-        "title": "Represents standard oauth scope parsed using `PERMISSION_ENUM__{resource_id}`\nformat string. e.g. EDIT_POST__AZrOi1eL",
+        "title": "دامنه oauth استاندارد تجزیه شده با استفاده از رشته فرمت\n`PERMISSION_ENUM__{resource_id}` را نمایش می‌دهد. مثال: EDIT_POST__AZrOi1eL",
         "type": "object"
       },
       "chatapiChatBotSendMessageResponse": {
@@ -2325,7 +2325,7 @@
             "$ref": "#/components/schemas/DivarIconsIconName"
           },
           "icon_name": {
-            "title": "deprecated",
+            "title": "منسوخ شده",
             "type": "string"
           }
         },
@@ -2736,11 +2736,11 @@
             "type": "string"
           },
           "phone_numbers": {
-            "description": "deprecated",
+            "description": "منسوخ شده",
             "items": {
               "type": "string"
             },
-            "title": "requires OAuth scope: USER_PHONE",
+            "title": "نیاز به دامنه OAuth: USER_PHONE",
             "type": "array"
           },
           "user_id": {
@@ -2798,7 +2798,7 @@
       "paymentGetBalanceResponse": {
         "properties": {
           "balance_rials": {
-            "description": "The balance of the app in rials",
+            "description": "موجودی اپلیکیشن به ریال",
             "format": "int64",
             "type": "string"
           }
@@ -2840,12 +2840,12 @@
       "paymentReorderPostResponse": {
         "properties": {
           "cost_rials": {
-            "description": "The cost of the transaction in rials for your application",
+            "description": "هزینه تراکنش به ریال برای اپلیکیشن شما",
             "format": "int64",
             "type": "string"
           },
           "id": {
-            "description": "Same uuid when creating transaction",
+            "description": "همان uuid هنگام ایجاد تراکنش",
             "type": "string"
           }
         },
@@ -2854,16 +2854,16 @@
       "paymentTransaction": {
         "properties": {
           "cost_rials": {
-            "description": "The cost of the transaction in rials for your application",
+            "description": "هزینه تراکنش به ریال برای اپلیکیشن شما",
             "format": "int64",
             "type": "string"
           },
           "extra_details": {
-            "description": "Same Additional details which you sent in the request",
+            "description": "همان جزئیات اضافی که در درخواست ارسال کردید",
             "type": "string"
           },
           "id": {
-            "description": "Same uuid when creating transaction",
+            "description": "همان uuid هنگام ایجاد تراکنش",
             "type": "string"
           },
           "state": {
@@ -2901,7 +2901,7 @@
       "payment_ticketValidateRequest": {
         "properties": {
           "phone_number": {
-            "description": "Deprecated. Use divar_user_id.",
+            "description": "منسوخ شده. از divar_user_id استفاده کنید.",
             "type": "string"
           },
           "service_cost": {
@@ -2938,17 +2938,17 @@
       },
       "protobufAny": {
         "additionalProperties": {},
-        "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nExample 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nExample 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }",
+        "description": "`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با\nURL که نوع پیام سریالایز شده را توضیح می‌دهد.\n\nکتابخانه Protobuf پشتیبانی برای pack/unpack مقادیر Any را به شکل\nتوابع کاربردی یا متدهای اضافی تولید شده نوع Any ارائه می‌دهد.\n\nمثال 1: Pack و unpack پیام در C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nمثال 2: Pack و unpack پیام در Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nمثال 3: Pack و unpack پیام در Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nمثال 4: Pack و unpack پیام در Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nمتدهای pack ارائه شده توسط کتابخانه protobuf به طور پیش‌فرض از\n'type.googleapis.com/full.type.name' به عنوان URL نوع استفاده می‌کنند و متدهای unpack\nفقط از نام نوع کاملاً واجد شرایط پس از آخرین '/'\nدر URL نوع استفاده می‌کنند، مثلاً \"foo.bar.com/x/y.z\" نام نوع\n\"y.z\" را ایجاد می‌کند.\n\n\nJSON\n\nنمایش JSON یک مقدار `Any` از نمایش معمولی\nپیام deserialize شده و جاسازی شده، با یک\nفیلد اضافی `@type` که شامل URL نوع است، استفاده می‌کند. مثال:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nاگر نوع پیام جاسازی شده شناخته شده باشد و نمایش JSON سفارشی\nداشته باشد، آن نمایش با افزودن فیلد\n`value` که JSON سفارشی را علاوه بر فیلد `@type`\nنگه می‌دارد، جاسازی می‌شود. مثال (برای پیام [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }",
         "properties": {
           "@type": {
-            "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics.",
+            "description": "یک URL/نام منبع که نوع پیام protocol buffer سریالایز شده را به طور منحصر به فرد شناسایی می‌کند. این رشته باید حداقل\nیک کاراکتر \"/\" داشته باشد. آخرین بخش مسیر URL باید نام کاملاً واجد شرایط نوع را نمایش دهد (مانند\n`path/google.protobuf.Duration`). نام باید در فرم کانونیکال باشد\n(مثلاً، \".\" ابتدایی پذیرفته نیست).\n\nدر عمل، تیم‌ها معمولاً تمام انواعی که انتظار دارند در زمینه Any استفاده شود را به صورت پیش‌کامپایل در باینری قرار می‌دهند. با این حال، برای URL هایی که از\nطرح `http`، `https` یا بدون طرح استفاده می‌کنند، می‌توان به طور اختیاری یک سرور نوع تنظیم کرد که URL های نوع را به تعاریف پیام نگاشت می‌کند:\n\n* اگر طرحی ارائه نشود، `https` فرض می‌شود.\n* یک HTTP GET روی URL باید مقدار [google.protobuf.Type][] را\n  به فرمت باینری ارائه دهد، یا خطا تولید کند.\n* برنامه‌ها مجاز هستند نتایج جستجو را بر اساس\n  URL کش کنند، یا آنها را در باینری پیش‌کامپایل کنند تا از هر\n  جستجویی جلوگیری کنند. بنابراین، سازگاری باینری باید در\n  تغییرات انواع حفظ شود. (از نام‌های نوع نسخه‌دار برای مدیریت\n  تغییرات شکست‌آور استفاده کنید.)\n\nتوجه: این قابلیت در حال حاضر در نسخه رسمی\nprotobuf در دسترس نیست، و برای URL های نوع که با\ntype.googleapis.com شروع می‌شوند استفاده نمی‌شود.\n\nطرح‌های غیر از `http`، `https` (یا طرح خالی) ممکن است\nبا معناشناسی خاص پیاده‌سازی استفاده شوند.",
             "type": "string"
           }
         },
         "type": "object"
       },
       "protobufNullValue": {
-        "description": "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.",
+        "description": "`NullValue` یک شمارش singleton برای نمایش مقدار null برای\nاتحادیه نوع `Value` است.\n\n نمایش JSON برای `NullValue` JSON `null` است.",
         "type": "string"
       },
       "semanticCreatePostSemanticResponse": {
@@ -3050,7 +3050,7 @@
   "paths": {
     "/experimental/open-platform/balance": {
       "get": {
-        "description": "Using this API you can retrieve current balance of your app.",
+        "description": "با استفاده از این API می‌توانید موجودی فعلی اپلیکیشن خود را دریافت کنید.",
         "operationId": "Payment_GetBalance",
         "responses": {
           "200": {
@@ -3061,7 +3061,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3071,7 +3071,7 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
         "tags": [
@@ -3081,7 +3081,7 @@
     },
     "/experimental/open-platform/chat/bot/conversations/{conversation_id}/messages": {
       "post": {
-        "description": "You can call this API with either conversation_id or user_id.\nCalling with user_id needs a access_token having CHAT_BOT_USER_MESSAGE_SEND scope.This enables you to start conversation with user from ChatBot.",
+        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
         "operationId": "ChatAPI_ChatBotSendMessage3",
         "parameters": [
           {
@@ -3106,7 +3106,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3116,10 +3116,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Send a message to a ChatBot conversation",
+        "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
         ]
@@ -3127,7 +3127,7 @@
     },
     "/experimental/open-platform/chat/bot/users/{user_id}/messages": {
       "post": {
-        "description": "You can call this API with either conversation_id or user_id.\nCalling with user_id needs a access_token having CHAT_BOT_USER_MESSAGE_SEND scope.This enables you to start conversation with user from ChatBot.",
+        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
         "operationId": "ChatAPI_ChatBotSendMessage2",
         "parameters": [
           {
@@ -3152,7 +3152,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3162,10 +3162,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Send a message to a ChatBot conversation",
+        "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
         ]
@@ -3173,7 +3173,7 @@
     },
     "/experimental/open-platform/chat/upload": {
       "post": {
-        "description": "This API is used to generate an upload token for uploading media files.",
+        "description": "این API برای تولید توکن آپلود برای آپلود فایل‌های رسانه‌ای استفاده می‌شود.",
         "operationId": "ChatAPI_GenerateUploadToken",
         "requestBody": {
           "content": {
@@ -3194,7 +3194,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3204,10 +3204,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Generate an upload token",
+        "summary": "تولید توکن آپلود",
         "tags": [
           "ChatAPI"
         ]
@@ -3215,7 +3215,7 @@
     },
     "/experimental/open-platform/chatbot-conversations/{conversation_id}/messages": {
       "post": {
-        "description": "You can call this API with either conversation_id or user_id.\nCalling with user_id needs a access_token having CHAT_BOT_USER_MESSAGE_SEND scope.This enables you to start conversation with user from ChatBot.",
+        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
         "operationId": "ChatAPI_ChatBotSendMessage",
         "parameters": [
           {
@@ -3240,7 +3240,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3250,10 +3250,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Send a message to a ChatBot conversation",
+        "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
         ]
@@ -3261,7 +3261,7 @@
     },
     "/experimental/open-platform/post/{post_token}/reorder": {
       "post": {
-        "description": "Use GetPostPricing API to get the cost of the service before calling this API.",
+        "description": "قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
         "operationId": "Payment_ReorderPost",
         "parameters": [
           {
@@ -3292,7 +3292,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3302,7 +3302,7 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
         "tags": [
@@ -3312,7 +3312,7 @@
     },
     "/experimental/open-platform/semantic/post/{token}": {
       "post": {
-        "description": "In some cases, it is necessary to store information about the post in Divar without adding an addon.\nThis API expects access token having `POST_SEMANTIC_CREATE` scope.\n",
+        "description": "در برخی موارد، ذخیره اطلاعات مربوط به آگهی در دیوار بدون افزودن افزونه ضروری است.\nاین API توکن دسترسی با دامنه `POST_SEMANTIC_CREATE` را انتظار دارد.\n",
         "operationId": "Semantic_CreatePostSemantic",
         "parameters": [
           {
@@ -3343,7 +3343,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3353,10 +3353,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Create Post Semantic",
+        "summary": "ایجاد اطلاعات معنایی آگهی",
         "tags": [
           "Semantic"
         ]
@@ -3394,7 +3394,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3404,7 +3404,7 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
         "tags": [
@@ -3414,11 +3414,11 @@
     },
     "/experimental/open-platform/transactions/{id}": {
       "get": {
-        "description": "Using this API you can retrieve transaction details.",
+        "description": "با استفاده از این API می‌توانید جزئیات تراکنش را دریافت کنید.",
         "operationId": "Payment_GetTransaction",
         "parameters": [
           {
-            "description": "The unique identifier for the transaction, same as the id in the request",
+            "description": "شناسه منحصر به فرد برای تراکنش، همان id در درخواست",
             "in": "path",
             "name": "id",
             "required": true,
@@ -3436,7 +3436,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3446,7 +3446,7 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
         "tags": [
@@ -3456,7 +3456,7 @@
     },
     "/v1/open-platform/add-ons/post/{token}": {
       "delete": {
-        "description": "You can only delete addons which are created by your app.",
+        "description": "فقط می‌توانید افزونه‌هایی را حذف کنید که توسط اپلیکیشن شما ایجاد شده‌اند.",
         "operationId": "Addons_DeletePostAddon",
         "parameters": [
           {
@@ -3477,7 +3477,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3487,10 +3487,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Delete an Addon from a post",
+        "summary": "حذف افزونه از آگهی",
         "tags": [
           "Addons"
         ]
@@ -3498,7 +3498,7 @@
     },
     "/v1/open-platform/addons/post/{token}": {
       "delete": {
-        "description": "You can only delete addons which are created by your app.",
+        "description": "فقط می‌توانید افزونه‌هایی را حذف کنید که توسط اپلیکیشن شما ایجاد شده‌اند.",
         "operationId": "Addons_DeletePostAddon2",
         "parameters": [
           {
@@ -3519,7 +3519,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3529,10 +3529,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Delete an Addon from a post",
+        "summary": "حذف افزونه از آگهی",
         "tags": [
           "Addons"
         ]
@@ -3540,7 +3540,7 @@
     },
     "/v1/open-platform/addons/user/{id}": {
       "delete": {
-        "description": "This will delete all correlated Addons to all user posts.\nYou can only delete Addons which are created by your app.",
+        "description": "این تمام افزونه‌های مرتبط با تمام آگهی‌های کاربر را حذف می‌کند.\nفقط می‌توانید افزونه‌هایی را حذف کنید که توسط اپلیکیشن شما ایجاد شده‌اند.",
         "operationId": "Addons_DeleteUserAddon",
         "parameters": [
           {
@@ -3561,7 +3561,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3571,10 +3571,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Delete an UserAddon",
+        "summary": "حذف افزونه کاربر",
         "tags": [
           "Addons"
         ]
@@ -3582,7 +3582,7 @@
     },
     "/v1/open-platform/addons/user/{phone}": {
       "get": {
-        "description": "Retrieve all UserAddons of a user.",
+        "description": "دریافت تمام افزونه‌های کاربر یک کاربر.",
         "operationId": "Addons_GetUserAddons",
         "parameters": [
           {
@@ -3610,7 +3610,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3620,10 +3620,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Retrieve all UserAddons",
+        "summary": "دریافت تمام افزونه‌های کاربر",
         "tags": [
           "Addons"
         ]
@@ -3631,7 +3631,7 @@
     },
     "/v1/open-platform/assets/body-status": {
       "get": {
-        "description": "Get all available body-status options in Divar vehicle categories.This provides persian translations for each body-status options which used in posts.",
+        "description": "دریافت تمام گزینه‌های وضعیت بدنه موجود در دسته‌بندی‌های خودرو دیوار. این ترجمه فارسی برای هر گزینه وضعیت بدنه که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetBodyStatuses",
         "responses": {
           "200": {
@@ -3642,7 +3642,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3652,10 +3652,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get available body-status options in Divar vehicle categories",
+        "summary": "دریافت گزینه‌های وضعیت بدنه موجود در دسته‌بندی‌های خودرو دیوار",
         "tags": [
           "Assets"
         ]
@@ -3663,7 +3663,7 @@
     },
     "/v1/open-platform/assets/brand-model/{category}": {
       "get": {
-        "description": "Get all Divar brand models in specified category.This provides persian translations for each brand models which used in posts.",
+        "description": "دریافت تمام مدل‌های برند دیوار در دسته‌بندی مشخص شده. این ترجمه فارسی برای هر مدل برند که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetBrandModels",
         "parameters": [
           {
@@ -3684,7 +3684,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3694,10 +3694,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get brand models in a Divar category",
+        "summary": "دریافت مدل‌های برند در دسته‌بندی دیوار",
         "tags": [
           "Assets"
         ]
@@ -3705,7 +3705,7 @@
     },
     "/v1/open-platform/assets/category": {
       "get": {
-        "description": "Get all Divar categories. This provides persian translations for each category which used in posts.",
+        "description": "دریافت تمام دسته‌بندی‌های دیوار. این ترجمه فارسی برای هر دسته‌بندی که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetCategories",
         "responses": {
           "200": {
@@ -3716,7 +3716,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3726,10 +3726,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get Divar categories",
+        "summary": "دریافت دسته‌بندی‌های دیوار",
         "tags": [
           "Assets"
         ]
@@ -3737,7 +3737,7 @@
     },
     "/v1/open-platform/assets/city": {
       "get": {
-        "description": "Get all Divar cities. This provides persian translations for each city which used in posts.",
+        "description": "دریافت تمام شهرهای دیوار. این ترجمه فارسی برای هر شهر که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetCities",
         "responses": {
           "200": {
@@ -3748,7 +3748,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3758,10 +3758,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get Divar cities",
+        "summary": "دریافت شهرهای دیوار",
         "tags": [
           "Assets"
         ]
@@ -3769,7 +3769,7 @@
     },
     "/v1/open-platform/assets/color/{category}": {
       "get": {
-        "description": "Get all Divar colors in specified category.This provides persian translations for each color which used in posts.",
+        "description": "دریافت تمام رنگ‌های دیوار در دسته‌بندی مشخص شده. این ترجمه فارسی برای هر رنگ که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetColors",
         "parameters": [
           {
@@ -3790,7 +3790,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3800,10 +3800,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get colors in a Divar category",
+        "summary": "دریافت رنگ‌ها در دسته‌بندی دیوار",
         "tags": [
           "Assets"
         ]
@@ -3811,7 +3811,7 @@
     },
     "/v1/open-platform/assets/district": {
       "get": {
-        "description": "Get all Divar districts. This provides persian translations for each district which used in posts.",
+        "description": "دریافت تمام مناطق دیوار. این ترجمه فارسی برای هر منطقه که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetDistricts",
         "parameters": [
           {
@@ -3831,7 +3831,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3841,10 +3841,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get Divar districts",
+        "summary": "دریافت مناطق دیوار",
         "tags": [
           "Assets"
         ]
@@ -3852,7 +3852,7 @@
     },
     "/v1/open-platform/assets/district/{city_slug}": {
       "get": {
-        "description": "Get all Divar districts. This provides persian translations for each district which used in posts.",
+        "description": "دریافت تمام مناطق دیوار. این ترجمه فارسی برای هر منطقه که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetDistricts2",
         "parameters": [
           {
@@ -3873,7 +3873,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3883,10 +3883,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get Divar districts",
+        "summary": "دریافت مناطق دیوار",
         "tags": [
           "Assets"
         ]
@@ -3894,7 +3894,7 @@
     },
     "/v1/open-platform/assets/internal-storage": {
       "get": {
-        "description": "Get all available internal-storage options in Divar mobile categories.This provides persian translations for each internal-storage options which used in posts.",
+        "description": "دریافت تمام گزینه‌های حافظه داخلی موجود در دسته‌بندی‌های موبایل دیوار. این ترجمه فارسی برای هر گزینه حافظه داخلی که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetInternalStorages",
         "responses": {
           "200": {
@@ -3905,7 +3905,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3915,10 +3915,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get available internal-storage options in Divar mobile/tablet/laptop categories",
+        "summary": "دریافت گزینه‌های حافظه داخلی موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار",
         "tags": [
           "Assets"
         ]
@@ -3926,7 +3926,7 @@
     },
     "/v1/open-platform/assets/oauth-scope": {
       "get": {
-        "description": "These are available scopes for KenarDivar OAuth2.0.\nUse scopes in OAuth flow to request access to user data or perform actions on their behalf.",
+        "description": "اینها دامنه‌های موجود برای OAuth2.0 کنار دیوار هستند.\nاز دامنه‌ها در جریان OAuth برای درخواست دسترسی به داده‌های کاربر یا انجام اقدامات از طرف آنها استفاده کنید.",
         "operationId": "Assets_GetOAuthScopes",
         "responses": {
           "200": {
@@ -3937,7 +3937,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3947,10 +3947,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get KenarDivar OAuth scopes",
+        "summary": "دریافت دامنه‌های OAuth کنار دیوار",
         "tags": [
           "Assets"
         ]
@@ -3958,7 +3958,7 @@
     },
     "/v1/open-platform/assets/permission": {
       "get": {
-        "description": "These permission are used to control access in KenarDivar Apps. Don't mistake them with OAuth scopes.\nIt's expected that apps be blind about these permissions.These are created for internal usages only, but feel free to request to be enabled for you app as needed.",
+        "description": "این مجوزها برای کنترل دسترسی در اپلیکیشن‌های کنار دیوار استفاده می‌شوند. آنها را با دامنه‌های OAuth اشتباه نگیرید.\nانتظار می‌رود اپلیکیشن‌ها نسبت به این مجوزها کور باشند. اینها فقط برای استفاده‌های داخلی ایجاد شده‌اند، اما در صورت نیاز آزادانه درخواست فعال‌سازی برای اپلیکیشن خود را ارائه دهید.",
         "operationId": "Assets_GetPermissions",
         "responses": {
           "200": {
@@ -3969,7 +3969,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -3979,10 +3979,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get KenarDivar permissions",
+        "summary": "دریافت مجوزهای کنار دیوار",
         "tags": [
           "Assets"
         ]
@@ -3990,7 +3990,7 @@
     },
     "/v1/open-platform/assets/ram-memory": {
       "get": {
-        "description": "Get all available ram-memory options in Divar mobile/tablet/laptop categories.This provides persian translations for each ram-memory options which used in posts.",
+        "description": "دریافت تمام گزینه‌های حافظه رم موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار. این ترجمه فارسی برای هر گزینه حافظه رم که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
         "operationId": "Assets_GetRamMemories",
         "responses": {
           "200": {
@@ -4001,7 +4001,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4011,10 +4011,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get available ram-memory options in Divar mobile/tablet/laptop categories",
+        "summary": "دریافت گزینه‌های حافظه رم موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار",
         "tags": [
           "Assets"
         ]
@@ -4022,7 +4022,7 @@
     },
     "/v1/open-platform/assets/service-type": {
       "get": {
-        "description": "These service types is used to group similar services in KenarDivar.\nAny new idea with new service types are welcome. Feel free to request them as needed.",
+        "description": "این انواع سرویس برای گروه‌بندی سرویس‌های مشابه در کنار دیوار استفاده می‌شود.\nهر ایده جدید با انواع سرویس جدید خوشامد است. در صورت نیاز آزادانه درخواست دهید.",
         "operationId": "Assets_GetServiceTypes",
         "responses": {
           "200": {
@@ -4033,7 +4033,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4043,10 +4043,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get available service types in KenarDivar",
+        "summary": "دریافت انواع سرویس موجود در کنار دیوار",
         "tags": [
           "Assets"
         ]
@@ -4054,7 +4054,7 @@
     },
     "/v1/open-platform/chat/conversations/{conversation_id}": {
       "get": {
-        "description": "This API is used to get the conversation and messages of a conversation by it's ID.This API expects access token with `CHAT_CONVERSATION_READ` scope.",
+        "description": "این API برای دریافت مکالمه و پیام‌های یک مکالمه با شناسه آن استفاده می‌شود. این API توکن دسترسی با دامنه `CHAT_CONVERSATION_READ` را انتظار دارد.",
         "operationId": "ChatAPI_GetConversation",
         "parameters": [
           {
@@ -4076,7 +4076,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4086,10 +4086,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get Conversation by it's ID",
+        "summary": "دریافت مکالمه با شناسه آن",
         "tags": [
           "ChatAPI"
         ]
@@ -4097,7 +4097,7 @@
     },
     "/v1/open-platform/events/subscriptions": {
       "post": {
-        "description": "This requests allows you to subscribe to an event.\nYou need to send access-token in this API to check your access.\nFor subscribing on `NEW_MESSAGE_ON_POST` you need one of these scopes:\n- CHAT_POST_CONVERSATIONS_READ.{post_token}\n- CHAT_SUPPLIER_ALL_CONVERSATIONS_READ\nFor subscribing on `POST_UPDATE` you need `USER_POSTS_GET` scope.\nAfter calling this API, You'll be notified in your webhook when corresponding event occurs.\nMake sure webhook URL is set on providers panel for your app.\nSome events are enabled by default and no subscription is needed for them(e.g chatbot messages).",
+        "description": "این درخواست به شما امکان اشتراک در رویداد را می‌دهد.\nباید access-token را در این API ارسال کنید تا دسترسی شما بررسی شود.\nبرای اشتراک در `NEW_MESSAGE_ON_POST` به یکی از این دامنه‌ها نیاز دارید:\n- CHAT_POST_CONVERSATIONS_READ.{post_token}\n- CHAT_SUPPLIER_ALL_CONVERSATIONS_READ\nبرای اشتراک در `POST_UPDATE` به دامنه `USER_POSTS_GET` نیاز دارید.\nپس از فراخوانی این API، هنگام وقوع رویداد مربوطه در webhook خود مطلع خواهید شد.\nمطمئن شوید URL webhook در پنل ارائه‌دهندگان برای اپلیکیشن شما تنظیم شده است.\nبرخی رویدادها به طور پیش‌فرض فعال هستند و نیازی به اشتراک ندارند (مثل پیام‌های chatbot).",
         "operationId": "Events_RegisterEventSubscription",
         "requestBody": {
           "content": {
@@ -4118,7 +4118,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4128,10 +4128,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Subscribe to an event",
+        "summary": "اشتراک در رویداد",
         "tags": [
           "Events"
         ]
@@ -4160,7 +4160,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4170,10 +4170,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get a Divar post",
+        "summary": "دریافت آگهی دیوار",
         "tags": [
           "Finder"
         ]
@@ -4181,7 +4181,7 @@
     },
     "/v1/open-platform/finder/user-posts": {
       "get": {
-        "description": "This API allows you to get all posts of a user.\nYou can use this API to show user posts in your service.",
+        "description": "این API به شما امکان دریافت تمام آگهی‌های یک کاربر را می‌دهد.\nمی‌توانید از این API برای نمایش آگهی‌های کاربر در سرویس خود استفاده کنید.",
         "operationId": "Finder_GetUserPosts",
         "responses": {
           "200": {
@@ -4192,7 +4192,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4202,10 +4202,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get user posts",
+        "summary": "دریافت آگهی‌های کاربر",
         "tags": [
           "Finder"
         ]
@@ -4213,7 +4213,7 @@
     },
     "/v1/open-platform/payment-ticket/validate": {
       "post": {
-        "description": "Payment tickets are designed to integrate Kenar apps with Divar internal teams.\nUsing this API you can validate a payment ticket and get the issuer payload.",
+        "description": "بلیط‌های پرداخت برای یکپارچه‌سازی اپلیکیشن‌های کنار با تیم‌های داخلی دیوار طراحی شده‌اند.\nبا استفاده از این API می‌توانید بلیط پرداخت را اعتبارسنجی کرده و payload صادرکننده را دریافت کنید.",
         "operationId": "PaymentTicket_Validate",
         "requestBody": {
           "content": {
@@ -4234,7 +4234,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4244,10 +4244,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Validate a payment ticket",
+        "summary": "اعتبارسنجی بلیط پرداخت",
         "tags": [
           "PaymentTicket"
         ]
@@ -4255,7 +4255,7 @@
     },
     "/v1/open-platform/post/image-upload-url": {
       "get": {
-        "description": "This API allows you to get an upload URL for uploading images of a post.\nYou can upload images to the returned URL using a POST request with binary encoding.",
+        "description": "این API به شما امکان دریافت URL آپلود برای آپلود تصاویر آگهی را می‌دهد.\nمی‌توانید تصاویر را با استفاده از درخواست POST با کدگذاری باینری به URL برگشتی آپلود کنید.",
         "operationId": "Post_GetImageUploadURL",
         "responses": {
           "200": {
@@ -4266,7 +4266,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4276,10 +4276,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get image upload URL",
+        "summary": "دریافت URL آپلود تصویر",
         "tags": [
           "Post"
         ]
@@ -4287,7 +4287,7 @@
     },
     "/v1/open-platform/post/{post_token}": {
       "put": {
-        "description": "This API allows you to edit a post. This needs `POST_EDIT.{post_token}` OAuth scope.\nBy now you can only edit title, description, and images of a post.",
+        "description": "این API به شما امکان ویرایش آگهی را می‌دهد. این نیاز به دامنه OAuth `POST_EDIT.{post_token}` دارد.\nدر حال حاضر فقط می‌توانید عنوان، توضیحات و تصاویر آگهی را ویرایش کنید.",
         "operationId": "Post_EditPost",
         "parameters": [
           {
@@ -4318,7 +4318,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4328,10 +4328,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Edit a post",
+        "summary": "ویرایش آگهی",
         "tags": [
           "Post"
         ]
@@ -4339,11 +4339,11 @@
     },
     "/v1/open-platform/post/{post_token}/pricing": {
       "get": {
-        "description": "Using this API and with user permission, you can get the price of various services like Reorder.The price of this API is not necessarily the same as the price on Divar, and pricing may vary.Use this API to get the price before applying services (such as reordering a post).",
+        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید قیمت سرویس‌های مختلف مانند نردبان را دریافت کنید. قیمت این API لزوماً با قیمت روی دیوار یکسان نیست و قیمت‌گذاری ممکن است متفاوت باشد. از این API برای دریافت قیمت قبل از اعمال سرویس‌ها (مانند نردبان آگهی) استفاده کنید.",
         "operationId": "Payment_GetPostPricing",
         "parameters": [
           {
-            "description": "An 8-9 character unique identifier for the post",
+            "description": "شناسه منحصر به فرد 8-9 کاراکتری برای آگهی",
             "in": "path",
             "name": "post_token",
             "required": true,
@@ -4361,7 +4361,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4371,10 +4371,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Retrieve the cost of the service",
+        "summary": "دریافت هزینه سرویس",
         "tags": [
           "limited"
         ]
@@ -4382,7 +4382,7 @@
     },
     "/v1/open-platform/semantic/user/{phone}": {
       "delete": {
-        "description": "You can delete the semantic information of a user by calling this API.",
+        "description": "می‌توانید اطلاعات معنایی یک کاربر را با فراخوانی این API حذف کنید.",
         "operationId": "Semantic_DeleteUserSemantic",
         "parameters": [
           {
@@ -4410,7 +4410,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4420,16 +4420,16 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Delete User Semantic",
+        "summary": "حذف اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
         ]
       },
       "post": {
-        "description": "In some cases, it is necessary to store information about the user in Divar without adding an addon.\nThe username in Divar is the same as the mobile number.\nThis API expects access token having `USER_VERIFICATION_CREATE` scope.\nUse the User Semantic APIs for this purpose.This service allows sending semantic information and an optional payment ticket.",
+        "description": "در برخی موارد، ذخیره اطلاعات مربوط به کاربر در دیوار بدون افزودن افزونه ضروری است.\nنام کاربری در دیوار همان شماره موبایل است.\nاین API توکن دسترسی با دامنه `USER_VERIFICATION_CREATE` را انتظار دارد.\nاز APIهای اطلاعات معنایی کاربر برای این منظور استفاده کنید. این سرویس امکان ارسال اطلاعات معنایی و بلیط پرداخت اختیاری را فراهم می‌کند.",
         "operationId": "Semantic_CreateUserSemantic",
         "parameters": [
           {
@@ -4453,7 +4453,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4463,10 +4463,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Create User Semantic",
+        "summary": "ایجاد اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
         ]
@@ -4474,7 +4474,7 @@
     },
     "/v1/open-platform/semantic/users/{divar_user_id}": {
       "delete": {
-        "description": "You can delete the semantic information of a user by calling this API.",
+        "description": "می‌توانید اطلاعات معنایی یک کاربر را با فراخوانی این API حذف کنید.",
         "operationId": "Semantic_DeleteUserSemantic2",
         "parameters": [
           {
@@ -4502,7 +4502,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4512,16 +4512,16 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Delete User Semantic",
+        "summary": "حذف اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
         ]
       },
       "post": {
-        "description": "In some cases, it is necessary to store information about the user in Divar without adding an addon.\nThe username in Divar is the same as the mobile number.\nThis API expects access token having `USER_VERIFICATION_CREATE` scope.\nUse the User Semantic APIs for this purpose.This service allows sending semantic information and an optional payment ticket.",
+        "description": "در برخی موارد، ذخیره اطلاعات مربوط به کاربر در دیوار بدون افزودن افزونه ضروری است.\nنام کاربری در دیوار همان شماره موبایل است.\nاین API توکن دسترسی با دامنه `USER_VERIFICATION_CREATE` را انتظار دارد.\nاز APIهای اطلاعات معنایی کاربر برای این منظور استفاده کنید. این سرویس امکان ارسال اطلاعات معنایی و بلیط پرداخت اختیاری را فراهم می‌کند.",
         "operationId": "Semantic_CreateUserSemantic2",
         "parameters": [
           {
@@ -4545,7 +4545,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4555,10 +4555,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Create User Semantic",
+        "summary": "ایجاد اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
         ]
@@ -4566,7 +4566,7 @@
     },
     "/v1/open-platform/users": {
       "get": {
-        "description": "After gaining an access token, you can use this API to get user information.\nWith scope `USER_PHONE` you can get user phone number.\nWith scope `USER_ID` you can get user id and you can rely on uniqueness of this id.\n",
+        "description": "پس از دریافت توکن دسترسی، می‌توانید از این API برای دریافت اطلاعات کاربر استفاده کنید.\nبا scope `USER_PHONE` می‌توانید شماره تلفن کاربر را دریافت کنید.\nبا scope `USER_ID` می‌توانید شناسه کاربر را دریافت کرده و می‌توانید روی منحصر به فرد بودن این شناسه تکیه کنید.\n",
         "operationId": "Finder_GetUser2",
         "responses": {
           "200": {
@@ -4577,7 +4577,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4587,16 +4587,16 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get user information",
+        "summary": "دریافت اطلاعات کاربر",
         "tags": [
           "Finder"
         ]
       },
       "post": {
-        "description": "After gaining an access token, you can use this API to get user information.\nWith scope `USER_PHONE` you can get user phone number.\nWith scope `USER_ID` you can get user id and you can rely on uniqueness of this id.\n",
+        "description": "پس از دریافت توکن دسترسی، می‌توانید از این API برای دریافت اطلاعات کاربر استفاده کنید.\nبا scope `USER_PHONE` می‌توانید شماره تلفن کاربر را دریافت کنید.\nبا scope `USER_ID` می‌توانید شناسه کاربر را دریافت کرده و می‌توانید روی منحصر به فرد بودن این شناسه تکیه کنید.\n",
         "operationId": "Finder_GetUser",
         "requestBody": {
           "content": {
@@ -4617,7 +4617,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4627,10 +4627,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get user information",
+        "summary": "دریافت اطلاعات کاربر",
         "tags": [
           "Finder"
         ]
@@ -4638,7 +4638,7 @@
     },
     "/v2/open-platform/addons/post/{token}": {
       "post": {
-        "description": "Using this API and with user permission, you can attach a new AD to a post.\nYou can use available widgets to design your Addon.\nThis API need access token having one of the following scopes:\n- USER_POSTS_ADDON_CREATE\n- POST_ADDON_CREATE.{post_token}",
+        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه جدیدی به آگهی متصل کنید.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه خود استفاده کنید.\nاین API به توکن دسترسی با یکی از دامنه‌های زیر نیاز دارد:\n- USER_POSTS_ADDON_CREATE\n- POST_ADDON_CREATE.{post_token}",
         "operationId": "Addons_CreatePostAddonV2",
         "parameters": [
           {
@@ -4669,7 +4669,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4679,10 +4679,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Attach a new Addon to a post",
+        "summary": "افزودن افزونه جدید به آگهی",
         "tags": [
           "Addons"
         ]
@@ -4690,7 +4690,7 @@
     },
     "/v2/open-platform/addons/user/{phone}": {
       "post": {
-        "description": "Using this API and with user permission, you can create a UserAddon.\nUserAddon will attach to all user posts in future and also back fills last 30 posts in the past.\nYou can use available widgets to design your UserAddon.\nThis API need access token having `USER_ADDON_CREATE` scope",
+        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه کاربر ایجاد کنید.\nافزونه کاربر به تمام آگهی‌های آینده کاربر متصل می‌شود و همچنین 30 آگهی آخر گذشته را پر می‌کند.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه کاربر خود استفاده کنید.\nاین API به توکن دسترسی با دامنه `USER_ADDON_CREATE` نیاز دارد",
         "operationId": "Addons_CreateUserAddonV2",
         "parameters": [
           {
@@ -4714,7 +4714,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4724,10 +4724,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Attach a new Addon to a user",
+        "summary": "افزودن افزونه جدید به کاربر",
         "tags": [
           "Addons"
         ]
@@ -4735,7 +4735,7 @@
     },
     "/v2/open-platform/addons/users/{divar_user_id}": {
       "get": {
-        "description": "Retrieve all UserAddons of a user.",
+        "description": "دریافت تمام افزونه‌های کاربر یک کاربر.",
         "operationId": "Addons_GetUserAddons2",
         "parameters": [
           {
@@ -4763,7 +4763,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4773,16 +4773,16 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Retrieve all UserAddons",
+        "summary": "دریافت تمام افزونه‌های کاربر",
         "tags": [
           "Addons"
         ]
       },
       "post": {
-        "description": "Using this API and with user permission, you can create a UserAddon.\nUserAddon will attach to all user posts in future and also back fills last 30 posts in the past.\nYou can use available widgets to design your UserAddon.\nThis API need access token having `USER_ADDON_CREATE` scope",
+        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه کاربر ایجاد کنید.\nافزونه کاربر به تمام آگهی‌های آینده کاربر متصل می‌شود و همچنین 30 آگهی آخر گذشته را پر می‌کند.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه کاربر خود استفاده کنید.\nاین API به توکن دسترسی با دامنه `USER_ADDON_CREATE` نیاز دارد",
         "operationId": "Addons_CreateUserAddonV22",
         "parameters": [
           {
@@ -4806,7 +4806,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4816,10 +4816,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Attach a new Addon to a user",
+        "summary": "افزودن افزونه جدید به کاربر",
         "tags": [
           "Addons"
         ]
@@ -4827,7 +4827,7 @@
     },
     "/v2/open-platform/conversations/{conversation_id}/messages": {
       "post": {
-        "description": "This API is used to send a message to a conversation.\nYou need one of the following scopes to call this API:\n- CONVERSATION_SEND_MESSAGE.{conversation_id}\n- CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND\n- CHAT_POST_CONVERSATIONS_MESSAGE_SEND.{post_token}\n",
+        "description": "این API برای ارسال پیام به مکالمه استفاده می‌شود.\nبرای فراخوانی این API به یکی از دامنه‌های زیر نیاز دارید:\n- CONVERSATION_SEND_MESSAGE.{conversation_id}\n- CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND\n- CHAT_POST_CONVERSATIONS_MESSAGE_SEND.{post_token}\n",
         "operationId": "ChatAPI_ConversationSendMessage",
         "parameters": [
           {
@@ -4859,7 +4859,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4869,10 +4869,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Send a message to a conversation",
+        "summary": "ارسال پیام به مکالمه",
         "tags": [
           "ChatAPI"
         ]
@@ -4880,7 +4880,7 @@
     },
     "/v2/open-platform/finder/post": {
       "post": {
-        "description": "This API allows you to search Divar posts with some filters.\nYou can search posts by category, city, district, and some other filters.\nPosts will be sorted by their timestamp.\n",
+        "description": "این API به شما امکان جستجو آگهی‌های دیوار با برخی فیلترها را می‌دهد.\nمی‌توانید آگهی‌ها را بر اساس دسته‌بندی، شهر، منطقه و برخی فیلترهای دیگر جستجو کنید.\nآگهی‌ها بر اساس زمان آنها مرتب می‌شوند.\n",
         "operationId": "Finder_SearchPostV2",
         "requestBody": {
           "content": {
@@ -4901,7 +4901,7 @@
                 }
               }
             },
-            "description": "A successful response."
+            "description": "پاسخ موفقیت‌آمیز."
           },
           "default": {
             "content": {
@@ -4911,10 +4911,10 @@
                 }
               }
             },
-            "description": "An unexpected error response."
+            "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Search Divar posts with some filters",
+        "summary": "جستجو آگهی‌های دیوار با فیلترهایی",
         "tags": [
           "Finder"
         ]
