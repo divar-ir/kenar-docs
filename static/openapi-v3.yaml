@@ -989,7 +989,8 @@
           "SPARKLES_F",
           "HAND_CLICK",
           "WHATS_APP",
-          "CHAT_SPARKLES"
+          "CHAT_SPARKLES",
+          "PUZZLE_SPARKLES"
         ],
         "type": "string"
       },
