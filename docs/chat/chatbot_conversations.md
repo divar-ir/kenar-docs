@@ -42,7 +42,7 @@ Content-Type: application/json
 
 
 ```http request
-POST https://open-api.divar.ir/experimental/open-platform/chat/bot/conversations/{conversation_id}/messages
+POST https://open-api.divar.ir/v1/open-platform/chat/bot/conversations/{conversation_id}/messages
 Content-Type: application/json
 X-Api-Key: {your-api-key}
 
@@ -88,7 +88,7 @@ X-Api-Key: {your-api-key}
 | User (OAuth)        | CHAT_BOT_USER_MESSAGE_SEND |
 
 ```http request
-POST https://open-api.divar.ir/experimental/open-platform/chat/bot/users/{user_id}/messages
+POST https://open-api.divar.ir/v1/open-platform/chat/bot/users/{user_id}/messages
 Content-Type: application/json
 X-Api-Key: {your-api-key}
 Authorization: Bearer {your-access-token}
