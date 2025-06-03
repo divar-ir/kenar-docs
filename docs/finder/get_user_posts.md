@@ -21,6 +21,7 @@ Authorization: Bearer {{access_token}}
       "images": [
         "https://s100.divarcdn.com/static/photo/afra/post/5nR_yv4kKEISbwtjwcc0Q/474c536e-bd6d-491b-afrf-72bfar916022.jpg"
       ],
+      "is_phone_hidden": true,
       "category": "apartment-rent"
     }
   ]
