@@ -2,7 +2,7 @@
 // `@type` JSDoc annotations allow editor autocompletion and type checking
 // (when paired with `@ts-check`).
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 const isNetlifyPreview = process.env.IS_NETLIFY === 'true';
 
@@ -14,7 +14,7 @@ const config = {
   tagline: '',
   favicon: 'img/favicon.ico', // Update with your favicon path or generate one with the desired emoji
 
-  url: (isNetlifyPreview && process.env.DEPLOY_PRIME_URL)? process.env.DEPLOY_PRIME_URL  : 'https://divar-ir.github.io',
+  url: (isNetlifyPreview && process.env.DEPLOY_PRIME_URL) ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io',
   baseUrl: isNetlifyPreview ? '/' : '/kenar-docs',
 
   organizationName: 'divar-ir',
@@ -42,6 +42,15 @@ const config = {
         }
       },
     ],
+    [
+      'docusaurus-biel',
+      {
+        project: 'mxzem86g2j',
+        headerTitle: 'دستیار هوش مصنوعی',
+        version: 'latest',
+        bielButtonText: 'از هوش مصنوعی بپرس',
+      }
+    ]
   ],
 
   // Internationalization settings
@@ -74,7 +83,7 @@ const config = {
 
   themeConfig:
 
-  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Social card image
       image: 'img/docusaurus-social-card.jpg',
