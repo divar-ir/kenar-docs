@@ -1224,7 +1224,8 @@
           "REAL_ESTATE",
           "JOBS",
           "MARKETPLACE",
-          "SERVICES"
+          "SERVICES",
+          "PERSONAL"
         ],
         "type": "string"
       },
@@ -2571,6 +2572,10 @@
             "format": "date-time",
             "type": "string"
           },
+          "is_phone_hidden": {
+            "title": "This field is available only in webhook requests",
+            "type": "boolean"
+          },
           "state": {
             "$ref": "#/components/schemas/finderPostExtState"
           },
@@ -2604,6 +2609,9 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "is_phone_hidden": {
+            "type": "boolean"
           },
           "title": {
             "type": "string"
@@ -3124,7 +3132,7 @@
     "/experimental/open-platform/chat/bot/conversations/{conversation_id}/messages": {
       "post": {
         "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
-        "operationId": "ChatAPI_ChatBotSendMessage3",
+        "operationId": "ChatAPI_ChatBotSendMessage5",
         "parameters": [
           {
             "description": "Unique identifier for the conversation",
@@ -3170,7 +3178,7 @@
     "/experimental/open-platform/chat/bot/users/{user_id}/messages": {
       "post": {
         "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
-        "operationId": "ChatAPI_ChatBotSendMessage2",
+        "operationId": "ChatAPI_ChatBotSendMessage4",
         "parameters": [
           {
             "description": "Unique identifier for the user to start or continue a conversation with",
@@ -3258,7 +3266,7 @@
     "/experimental/open-platform/chatbot-conversations/{conversation_id}/messages": {
       "post": {
         "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
-        "operationId": "ChatAPI_ChatBotSendMessage",
+        "operationId": "ChatAPI_ChatBotSendMessage3",
         "parameters": [
           {
             "description": "Unique identifier for the conversation",
@@ -4133,6 +4141,98 @@
         "summary": "دریافت انواع سرویس موجود در کنار دیوار",
         "tags": [
           "Assets"
+        ]
+      }
+    },
+    "/v1/open-platform/chat/bot/conversations/{conversation_id}/messages": {
+      "post": {
+        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
+        "operationId": "ChatAPI_ChatBotSendMessage",
+        "parameters": [
+          {
+            "description": "Unique identifier for the conversation",
+            "in": "path",
+            "name": "conversation_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ChatAPIChatBotSendMessageBody"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chatapiChatBotSendMessageResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ارسال پیام به مکالمه ChatBot",
+        "tags": [
+          "ChatAPI"
+        ]
+      }
+    },
+    "/v1/open-platform/chat/bot/users/{user_id}/messages": {
+      "post": {
+        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
+        "operationId": "ChatAPI_ChatBotSendMessage2",
+        "parameters": [
+          {
+            "description": "Unique identifier for the user to start or continue a conversation with",
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ChatAPIChatBotSendMessageBody"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chatapiChatBotSendMessageResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ارسال پیام به مکالمه ChatBot",
+        "tags": [
+          "ChatAPI"
         ]
       }
     },
