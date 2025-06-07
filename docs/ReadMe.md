@@ -179,7 +179,6 @@
 [پنل کنار]: https://divar.ir/kenar
 [تلگرام کنار]: https://t.me/kenar_divar
 [ایمیل ساپورت کنار]: mailto:kenar.support@divar.ir
-
 [پنل کنار » اپ‌ها]: https://divar.ir/kenar/management/apps
 [راهنما » مدیریت اپ]: ./management
 [راهنما » مدیریت اپ »‌ تعامل در آگهی]: management#تعامل-با-کاربر-پس-از-ثبت-آگهی
@@ -190,7 +189,7 @@
 [راهنما » اطلاعات کاربر]: ./oauth/get_user.md
 [راهنما » افزونه‌های آگهی]: ./addons
 [راهنما » افزونه‌های بیننده آگهی]: ./addons/demand_addon.md
-[راهنما » افزونه‌های آگهی » ساخت]: ./addons/create.md
+[راهنما » افزونه‌های آگهی » ساخت]: ./addons/post_addons.md
 [راهنما » افزونه‌های آگهی » معنی]: ./semantic/semantic_data.md
 [راهنما » افزونه‌های آگهی » تست]: ./addons/test_environment.md
 [راهنما » ویجت‌ها]: ./widgets

@@ -32,7 +32,7 @@ const config = {
     [
       '@scalar/docusaurus',
       {
-        label: 'API Doc',
+        label: 'مستندات API',
         route: '/kenar-docs/api-doc',
         configuration: {
           url: '/kenar-docs/openapi-v3.yaml',
@@ -91,6 +91,12 @@ const config = {
 
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
       // Social card image
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
@@ -107,6 +113,11 @@ const config = {
             label: 'GitHub',
             position: 'left', // Adjust position as needed
           },
+          {
+            href: 'https://divar.ir/kenar',
+            label: 'پنل کنار',
+            position: 'left'
+          }
         ],
       },
       footer: {
@@ -151,13 +162,62 @@ const config = {
         },
 
         // Optional: Algolia search parameters
-        searchParameters: {},
+        searchParameters: {
+          facetFilters: ['language:fa', 'version:current'],
+          hitsPerPage: 10,
+        },
 
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
 
         // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
         insights: false,
+
+        // Enhanced search placeholder and translations
+        placeholder: 'جستجو در مستندات...',
+        translations: {
+          button: {
+            buttonText: 'جستجو',
+            buttonAriaLabel: 'جستجو در مستندات',
+          },
+          modal: {
+            searchBox: {
+              resetButtonTitle: 'پاک کردن جستجو',
+              resetButtonAriaLabel: 'پاک کردن جستجو',
+              cancelButtonText: 'لغو',
+              cancelButtonAriaLabel: 'لغو',
+              searchInputLabel: 'جستجو',
+            },
+            startScreen: {
+              recentSearchesTitle: 'جستجوهای اخیر',
+              noRecentSearchesText: 'جستجوی اخیری وجود ندارد',
+              saveRecentSearchButtonTitle: 'ذخیره این جستجو',
+              removeRecentSearchButtonTitle: 'حذف این جستجو از تاریخچه',
+              favoriteSearchesTitle: 'علاقه‌مندی‌ها',
+              removeFavoriteSearchButtonTitle: 'حذف این جستجو از علاقه‌مندی‌ها',
+            },
+            errorScreen: {
+              titleText: 'امکان دریافت نتایج وجود ندارد',
+              helpText: 'ممکن است نیاز به بررسی اتصال شبکه داشته باشید.',
+            },
+            footer: {
+              selectText: 'انتخاب',
+              selectKeyAriaLabel: 'کلید Enter',
+              navigateText: 'حرکت',
+              navigateUpKeyAriaLabel: 'کلید بالا',
+              navigateDownKeyAriaLabel: 'کلید پایین',
+              closeText: 'بستن',
+              closeKeyAriaLabel: 'کلید Escape',
+              searchByText: 'جستجو توسط',
+            },
+            noResultsScreen: {
+              noResultsText: 'نتیجه‌ای برای',
+              suggestedQueryText: 'سعی کنید جستجو کنید',
+              reportMissingResultsText: 'آیا معتقدید این جستجو باید نتیجه داشته باشد؟',
+              reportMissingResultsLinkText: 'اطلاع دهید',
+            },
+          },
+        },
 
         //... other Algolia params
       },
