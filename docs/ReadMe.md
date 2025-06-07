@@ -184,8 +184,8 @@
 [راهنما » مدیریت اپ]: ./management
 [راهنما » مدیریت اپ »‌ تعامل در آگهی]: management#تعامل-با-کاربر-پس-از-ثبت-آگهی
 [راهنما » مدیریت اپ »‌ تعامل در چت]: management#تعامل-با-کاربر-در-چت
-[راهنما » اطلاعات آگهی]: ./finder/get_post.md
-[راهنما » آگهی‌های کاربر]: ./finder/get_user_posts.md
+[راهنما » اطلاعات آگهی]: ./post/get_post.md
+[راهنما » آگهی‌های کاربر]: ./post/get_user_posts.md
 [راهنما » احراز باز]: ./oauth
 [راهنما » اطلاعات کاربر]: ./oauth/get_user.md
 [راهنما » افزونه‌های آگهی]: ./addons
@@ -214,9 +214,9 @@
 [راهنما » تیکت پرداخت]: ./payment-ticket
 [راهنما » تیکت پرداخت » بررسی صحت]: ./payment-ticket/validate.md
 [ایشوی جدید]: https://github.com/divar-ir/kenar-docs/issues/new
-[راهنما » آگهی]: ./finder
+[راهنما » آگهی]: ./post
 [راهنما » مقادیر]: ./assets
-[راهنما » اطلاعات آگهی » جستجو]: ./finder/search_post.md
+[راهنما » اطلاعات آگهی » جستجو]: ./post/search_post.md
 
 <br /><br />
 
