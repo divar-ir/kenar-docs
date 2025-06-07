@@ -50,7 +50,7 @@ const config = {
         version: 'latest',
         bielButtonText: 'از هوش مصنوعی بپرس',
       }
-    ]
+    ],
   ],
 
   // Internationalization settings
@@ -76,6 +76,12 @@ const config = {
         },
         theme: {
           customCss: './src/css/custom.css', // Your custom CSS file
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
         },
       },
     ],
