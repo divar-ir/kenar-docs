@@ -8,43 +8,44 @@
 > البته ساختمان دادهٔ پاسخ، تغییری که باعث بروز خطا شود، نخواهد داشت.
 
 ## دسته‌ها
-برای اطلاعات بیشتر به [فهرست درخواست‌ها(Swagger)](https://divar.ir/kenar/api-doc#tag/assets) مراجعه کنید
 
-
+برای اطلاعات بیشتر به [فهرست درخواست‌ها(Swagger)](/api-doc#tag/assets) مراجعه کنید
 
 ---
 
 # مقادیر خاص دسته‌بندی خودرو
+
 باتوجه به ثابت بودن این مقادیر نیاز به ارسال درخواست نیست و میتوانید از جدول‌های زیر در برنامه‌ی مد نظرتان استفاده کنید.
+
 ## وضعیت شاسی و بدنه
 
 ### body_chassis_status.body_status وضعیت بدنه
 
-| value                  | display               |
-|------------------------|-----------------------|
+| value                  | display                |
+| ---------------------- | ---------------------- |
 | intact                 | سالم و بی‌خط و خش      |
-| some-scratches         | خط و خش جزیی          |
+| some-scratches         | خط و خش جزیی           |
 | paintless-dent-removal | صافکاری بی‌رنگ         |
 | one-spot-paint         | رنگ‌شدگی، در ۱ ناحیه   |
 | two-spots-paint        | رنگ‌شدگی، در ۲ ناحیه   |
 | some-paint             | رنگ‌شدگی، در چند ناحیه |
-| half-paint             | دوررنگ                |
+| half-paint             | دوررنگ                 |
 | full-paint             | تمام‌رنگ               |
-| accidental             | تصادفی                |
-| junk                   | اوراقی                |
+| accidental             | تصادفی                 |
+| junk                   | اوراقی                 |
 
 ### body_chassis_status.back_chassis_status وضعیت شاسی عقب
 
 | value   | display     |
-|---------|-------------|
+| ------- | ----------- |
 | healthy | سالم و پلمپ |
-| damage  | ضربه‌خورده   |
-| paint   | رنگ‌شده      |
+| damage  | ضربه‌خورده  |
+| paint   | رنگ‌شده     |
 
 ### body_chassis_status.front_chassis_status وضعیت شاسی جلو
 
 | value   | display     |
-|---------|-------------|
+| ------- | ----------- |
 | healthy | سالم و پلمپ |
-| damage  | ضربه‌خورده   |
-| paint   | رنگ‌شده      |
+| damage  | ضربه‌خورده  |
+| paint   | رنگ‌شده     |
