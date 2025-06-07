@@ -1022,10 +1022,14 @@
       "GetPostStatsResponseDailyStats": {
         "properties": {
           "count": {
+            "description": "Number of the daily metric (e.g. view)",
+            "example": 239,
             "format": "int32",
             "type": "integer"
           },
           "date": {
+            "description": "Date in YYYY-MM-DD format",
+            "example": "2025-06-03T00:00:00Z",
             "type": "string"
           }
         },
@@ -1034,12 +1038,15 @@
       "GetPostStatsResponsePostStats": {
         "properties": {
           "daily": {
+            "description": "Daily value the metric over the last seven days",
             "items": {
               "$ref": "#/components/schemas/GetPostStatsResponseDailyStats"
             },
             "type": "array"
           },
           "total": {
+            "description": "Total number of the metric (e.g. view)",
+            "example": 239,
             "format": "int32",
             "type": "integer"
           }
@@ -1365,6 +1372,12 @@
             "description": "An action to send user to your URL directly with just a resource id (if applicable)",
             "example": "https://your-site.com/some-path",
             "type": "string"
+          },
+          "open_post_manage_page": {
+            "$ref": "#/components/schemas/addonsOpenPostManagePage"
+          },
+          "open_post_page": {
+            "$ref": "#/components/schemas/addonsOpenPostPage"
           },
           "open_server_link": {
             "$ref": "#/components/schemas/addonsOpenServerLink"
@@ -1761,6 +1774,36 @@
             "type": "array"
           }
         },
+        "type": "object"
+      },
+      "addonsOpenPostManagePage": {
+        "description": "An action to open a post management page in the app",
+        "properties": {
+          "post_token": {
+            "description": "Token of the post to redirect to its management page",
+            "example": "AJIEWcw",
+            "type": "string"
+          }
+        },
+        "required": [
+          "post_token"
+        ],
+        "title": "Open Post Manage Page",
+        "type": "object"
+      },
+      "addonsOpenPostPage": {
+        "description": "An action to open a post page in the app",
+        "properties": {
+          "post_token": {
+            "description": "Token of the post to open",
+            "example": "AJIEWcw",
+            "type": "string"
+          }
+        },
+        "required": [
+          "post_token"
+        ],
+        "title": "Open Post Page",
         "type": "object"
       },
       "addonsOpenServerLink": {
@@ -3366,6 +3409,7 @@
         "operationId": "Post_GetPostStats",
         "parameters": [
           {
+            "description": "Post token",
             "in": "path",
             "name": "post_token",
             "required": true,
