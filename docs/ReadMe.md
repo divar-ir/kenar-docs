@@ -180,6 +180,44 @@
 [تلگرام کنار]: https://t.me/kenar_divar
 [ایمیل ساپورت کنار]: mailto:kenar.support@divar.ir
 
+[پنل کنار » اپ‌ها]: https://divar.ir/kenar/management/apps
+[راهنما » مدیریت اپ]: ./management
+[راهنما » مدیریت اپ »‌ تعامل در آگهی]: management#تعامل-با-کاربر-پس-از-ثبت-آگهی
+[راهنما » مدیریت اپ »‌ تعامل در چت]: management#تعامل-با-کاربر-در-چت
+[راهنما » اطلاعات آگهی]: ./finder/get_post.md
+[راهنما » آگهی‌های کاربر]: ./finder/get_user_posts.md
+[راهنما » احراز باز]: ./oauth
+[راهنما » اطلاعات کاربر]: ./oauth/get_user.md
+[راهنما » افزونه‌های آگهی]: ./addons
+[راهنما » افزونه‌های بیننده آگهی]: ./addons/demand_addon.md
+[راهنما » افزونه‌های آگهی » ساخت]: ./addons/create.md
+[راهنما » افزونه‌های آگهی » معنی]: ./semantic/semantic_data.md
+[راهنما » افزونه‌های آگهی » تست]: ./addons/test_environment.md
+[راهنما » ویجت‌ها]: ./widgets
+[ویجت‌ها » فیگما]: https://www.figma.com/file/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?type=design&node-id=2-4&mode=design&t=RbiQ2ay29ombNJKz-11
+[راهنما » بازگشت کاربر]: ./misc
+[راهنما » افزونه‌های چت]: ./chat
+[راهنما » افزونه‌های چت » ارسال پیام]: chat/users_conversations.md
+[راهنما » افزونه‌های چت » ارسال پیام‌ » دکمه]: chat/users_conversations.md#کلیک-کاربر-روی-دکمهٔ-درج-شده-زیر-پیام
+[راهنما » رویدادها]: ./events
+[احراز باز]: https://oauth.net/2/
+[احراز باز » ابزارها]: https://oauth.net/code/
+[راهنما » کلیدها]: ./management/api-keys.md
+[راهنما » کلیدها » امنیت]: ./management/api-keys.md#امنیت-کلیدها
+[راهنما » افزونه‌های کاربر]: ./addons#افزونه-کاربر
+[راهنما » افزونه‌های کاربر » اطلاعات معنایی]: ./semantic/semantic_data.md
+[راهنما » افزونه‌های کاربر » ساخت]: ./addons/user-addons.md
+[راهنما » افزونه‌های کاربر » حذف]: ./addons/user-addons.md#حذف-افزونه-کاربر
+[راهنما » اطلاعات معنایی کاربر]: ./semantic
+[راهنما » اطلاعات معنایی کاربر » درج]: ./semantic/user_semantic_create
+[راهنما » اطلاعات معنایی کاربر » حذف]: ./semantic/user_semantic_delete
+[راهنما » تیکت پرداخت]: ./payment-ticket
+[راهنما » تیکت پرداخت » بررسی صحت]: ./payment-ticket/validate.md
+[ایشوی جدید]: https://github.com/divar-ir/kenar-docs/issues/new
+[راهنما » آگهی]: ./finder
+[راهنما » مقادیر]: ./assets
+[راهنما » اطلاعات آگهی » جستجو]: ./finder/search_post.md
+
 <br /><br />
 
 <div align="center">
