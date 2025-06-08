@@ -24,6 +24,7 @@ x-api-key: {{apikey}}
     "city": "tehran",
     "district": "nazi-abad",
     "chat_enabled": true,
+    "supplier_chat_assistant_enabled": true,
     "data": {
         "brand_model": "samsung galaxy j2",
         "color": "gold",

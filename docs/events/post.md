@@ -46,13 +46,14 @@
 [/finder/post/\{post-token\}](../post/get_post.md#پاسخ)
 است.
 
-|       پارامتر        |   نوع    | توضیحات                              |
-| :------------------: | :------: | ------------------------------------ |
-|       `token`        |  string  | توکن آگهی                            |
-|      `category`      |  string  | دسته‌بندی آگهی                       |
-|        `city`        |  string  | شهر                                  |
-|      `district`      |  string  | محله                                 |
-|  `is_phone_hidden`   | boolean  | آیا شماره تلفن این آگهی مخفی شده است |
-|    `chat_enabled`    | boolean  | آیا چت دیوار برای این آگهی فعال است  |
-| `first_published_at` | datetime | زمان اولین انتشار این آگهی           |
-|        `data`        |  Object  | سایر فیلد‌های آگهی                   |
+|              پارامتر              |   نوع    | توضیحات                                        |
+|:---------------------------------:|:--------:|------------------------------------------------|
+|              `token`              |  string  | توکن آگهی                                      |
+|            `category`             |  string  | دسته‌بندی آگهی                                 |
+|              `city`               |  string  | شهر                                            |
+|            `district`             |  string  | محله                                           |
+|         `is_phone_hidden`         | boolean  | آیا شماره تلفن این آگهی مخفی شده است           |
+| `supplier_chat_assistant_enabled` | boolean  | آیا دستیار فروش دیوار بر روی این آگهی فعال است |
+|          `chat_enabled`           | boolean  | آیا چت دیوار برای این آگهی فعال است            |
+|       `first_published_at`        | datetime | زمان اولین انتشار این آگهی                     |
+|              `data`               |  Object  | سایر فیلد‌های آگهی                             |
