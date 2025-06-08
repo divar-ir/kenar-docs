@@ -97,6 +97,37 @@ body {
   --ifm-color-emphasis-900: #1c1e21;
 }
 
+/* Dark mode color scheme */
+[data-theme='dark'] {
+  /* Primary brand colors for dark mode */
+  --ifm-color-primary: #d83939;
+  --ifm-color-primary-dark: #d32626;
+  --ifm-color-primary-darker: #c92424;
+  --ifm-color-primary-darkest: #a61e1e;
+  --ifm-color-primary-light: #dd4c4c;
+  --ifm-color-primary-lighter: #df5454;
+  --ifm-color-primary-lightest: #e57070;
+  
+  /* Dark theme background and text colors */
+  --ifm-background-color: #1b1b1d;
+  --ifm-background-surface-color: #242526;
+  
+  /* Better contrast for dark mode */
+  --ifm-color-emphasis-100: #2d2e30;
+  --ifm-color-emphasis-200: #393a3c;
+  --ifm-color-emphasis-300: #484a4d;
+  --ifm-color-emphasis-400: #606770;
+  --ifm-color-emphasis-500: #8a919a;
+  --ifm-color-emphasis-600: #a8b1ba;
+  --ifm-color-emphasis-700: #bcc4cd;
+  --ifm-color-emphasis-800: #dadde1;
+  --ifm-color-emphasis-900: #e3e6ea;
+  
+  /* Text colors for better readability in dark mode */
+  --ifm-color-content: #e3e6ea;
+  --ifm-color-content-secondary: #bcc4cd;
+}
+
 /* SEO-friendly image optimization */
 img {
   max-width: 100%;

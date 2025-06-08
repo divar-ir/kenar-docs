@@ -7,7 +7,6 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const isNetlifyPreview = process.env.IS_NETLIFY === 'true';
 
 
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'کنار دیوار',
@@ -385,8 +384,6 @@ const config = {
             },
           },
         },
-
-        //... other Algolia params
       },
     }),
 };
