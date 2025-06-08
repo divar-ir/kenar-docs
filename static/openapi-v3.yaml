@@ -92,6 +92,17 @@
         ],
         "type": "string"
       },
+      "AddonsCreateBusinessAddonBody": {
+        "properties": {
+          "widgets": {
+            "items": {
+              "$ref": "#/components/schemas/addonsWidget"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "AddonsCreatePostAddonV2Body": {
         "properties": {
           "notes": {
@@ -1022,13 +1033,13 @@
       "GetPostStatsResponseDailyStats": {
         "properties": {
           "count": {
-            "description": "Number of the daily metric (e.g. view)",
+            "description": "تعداد روزانه‌ی آمار مورد نظر (مثلا بازدید)",
             "example": 239,
             "format": "int32",
             "type": "integer"
           },
           "date": {
-            "description": "Date in YYYY-MM-DD format",
+            "description": "تاریخ به فرمت YYYY-MM-DD",
             "example": "2025-06-03T00:00:00Z",
             "type": "string"
           }
@@ -1038,14 +1049,14 @@
       "GetPostStatsResponsePostStats": {
         "properties": {
           "daily": {
-            "description": "Daily value the metric over the last seven days",
+            "description": "مقدار آمار مورد نظر در هفت روز اخیر",
             "items": {
               "$ref": "#/components/schemas/GetPostStatsResponseDailyStats"
             },
             "type": "array"
           },
           "total": {
-            "description": "Total number of the metric (e.g. view)",
+            "description": "تعداد کلی آمار (مثلا بازدید)",
             "example": 239,
             "format": "int32",
             "type": "integer"
@@ -1558,6 +1569,14 @@
             "$ref": "#/components/schemas/addonsAction"
           },
           "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "addonsCreateBusinessAddonResponse": {
+        "properties": {
+          "id": {
             "type": "string"
           }
         },
@@ -3405,11 +3424,11 @@
     },
     "/experimental/open-platform/posts/{post_token}/stats": {
       "get": {
-        "description": "This API allows you to retrieve the statistics associated with a single post (e.g. views).",
+        "description": "از این api برای مشاهده‌ی آمارهای یک آگهی (مانند تعداد بازدید‌های آگهی) استفاده کنید. ",
         "operationId": "Post_GetPostStats",
         "parameters": [
           {
-            "description": "Post token",
+            "description": "توکن آگهی",
             "in": "path",
             "name": "post_token",
             "required": true,
@@ -3440,7 +3459,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get post statistics",
+        "summary": "دریافت آمارهای آگهی",
         "tags": [
           "Post"
         ]
@@ -3500,7 +3519,7 @@
     },
     "/experimental/open-platform/transactions": {
       "get": {
-        "description": "Using this API you can retrieve a list of transactions. Follow pages till you get an empty list.",
+        "description": "با استفاده از این api میتوانید لیست تراکنش‌های اپ را مشاهده کنید. برای مشاهده‌ی تمام تراکنش‌ها، صفحات را دنبال کنید.",
         "operationId": "Payment_ListTransactions",
         "parameters": [
           {
@@ -3627,6 +3646,58 @@
           }
         },
         "summary": "حذف افزونه از آگهی",
+        "tags": [
+          "Addons"
+        ]
+      }
+    },
+    "/v1/open-platform/addons/business/{business_token}": {
+      "post": {
+        "description": "This will create a BusinessAddon on published posts of a business.\nYou can only create Addons which are created by your app.",
+        "operationId": "Addons_CreateBusinessAddon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "business_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddonsCreateBusinessAddonBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/addonsCreateBusinessAddonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Create a BusinessAddon",
         "tags": [
           "Addons"
         ]
