@@ -344,12 +344,6 @@ const config = {
           to: '/',
         },
 
-        // Optional: Algolia search parameters
-        searchParameters: {
-          facetFilters: ['language:fa', 'version:current'],
-          hitsPerPage: 10,
-        },
-
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
 
