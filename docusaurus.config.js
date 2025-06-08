@@ -188,6 +188,23 @@ const config = {
       {
         docs: {
           sidebarPath: './sidebars.js',
+          async sidebarItemsGenerator({
+            defaultSidebarItemsGenerator,
+            ...args
+          }) {
+
+            function processItems(docs) {
+              return docs.map(doc => {
+                if (doc.sidebarPosition === undefined) {
+                  return { ...doc, sidebarPosition: 0 };
+                }
+                return doc;
+              });
+            }
+
+            const sidebarItems = await defaultSidebarItemsGenerator({ ...args, docs: processItems(args.docs) });
+            return sidebarItems;
+          },
           routeBasePath: '/', // Serve docs at the site's root
           editUrl: 'https://github.com/divar-ir/kenar-docs/edit/master/',
         },
