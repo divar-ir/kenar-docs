@@ -14,6 +14,8 @@ x-api-key: {{apikey}}
 Authorization: Bearer {{access_token}}
 ```
 
+نکته: مقادیر صفر در خروجی API نمی‌آیند. در صورتی که کلیدی وجود ندارد، مقدار آن را صفر در نظر بگیرید.
+
 نمونه پاسخ:
 ```json
 {
@@ -28,19 +30,15 @@ Authorization: Bearer {{access_token}}
         "date": "2025-06-02"
       },
       {
-        "count": 0,
         "date": "2025-06-03"
       },
       {
-        "count": 0,
         "date": "2025-06-04"
       },
       {
-        "count": 0,
         "date": "2025-06-05"
       },
       {
-        "count": 0,
         "date": "2025-06-06"
       },
       {
