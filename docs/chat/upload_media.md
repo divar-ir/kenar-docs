@@ -25,7 +25,7 @@ sequenceDiagram
     ChatUpload-->>Client: {id: "media_token", status: "ok"}
     
     Client->>Platform: POST /send-message
-    Note over Client,Chat: ارسال پیام با media_token
+    Note over Client,Platform: ارسال پیام با media_token
     Platform-->>Client: پیام ارسال شد
 ```
 
