@@ -77,4 +77,147 @@ body {
 
 :root {
   --ifm-heading-font-family: Vazirmatn, sans-serif;
+  
+  /* SEO-friendly brand colors */
+  --ifm-color-primary: #a62626;
+  --ifm-color-primary-dark: #952222;
+  --ifm-color-primary-darker: #8d2020;
+  --ifm-color-primary-darkest: #741a1a;
+  --ifm-color-primary-light: #b72a2a;
+  --ifm-color-primary-lighter: #bf2c2c;
+  --ifm-color-primary-lightest: #d83636;
+  
+  /* Better contrast for accessibility and SEO */
+  --ifm-color-emphasis-300: #dadde1;
+  --ifm-color-emphasis-400: #ccd0d5;
+  --ifm-color-emphasis-500: #bec3c9;
+  --ifm-color-emphasis-600: #8d949e;
+  --ifm-color-emphasis-700: #606770;
+  --ifm-color-emphasis-800: #444950;
+  --ifm-color-emphasis-900: #1c1e21;
+}
+
+/* SEO-friendly image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  /* Improve loading performance */
+  loading: lazy;
+}
+
+/* Better semantic structure for SEO */
+.navbar__title {
+  font-weight: 600;
+  color: var(--ifm-navbar-link-color);
+}
+
+/* Improve readability for better user experience (UX signals for SEO) */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.markdown p {
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+/* Better focus indicators for accessibility (SEO factor) */
+.navbar__link:focus,
+.menu__link:focus,
+.pagination-nav__link:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Optimize table of contents for better navigation (SEO) */
+.table-of-contents {
+  font-size: 0.875rem;
+}
+
+.table-of-contents__link {
+  color: var(--ifm-color-emphasis-700);
+  transition: color 0.2s ease;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Better code block styling for technical documentation */
+.prism-code {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Improve search input visibility */
+.navbar__search-input {
+  background-color: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+.navbar__search-input:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lighter);
+}
+
+/* Better mobile responsiveness for SEO */
+@media (max-width: 768px) {
+  .navbar__title {
+    font-size: 1.1rem;
+  }
+  
+  .markdown h1 {
+    font-size: 1.8rem;
+  }
+  
+  .markdown h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Optimize footer for better information architecture */
+.footer {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.footer__link-item {
+  color: var(--ifm-color-emphasis-700);
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Print styles for better content accessibility */
+@media print {
+  .navbar,
+  .footer,
+  .table-of-contents,
+  .pagination-nav,
+  .theme-doc-sidebar-container {
+    display: none !important;
+  }
+  
+  .main-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .markdown {
+    max-width: none !important;
+    margin: 0 !important;
+  }
 }

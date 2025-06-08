@@ -11,8 +11,8 @@ const isNetlifyPreview = process.env.IS_NETLIFY === 'true';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'کنار دیوار',
-  tagline: '',
-  favicon: 'img/favicon.ico', // Update with your favicon path or generate one with the desired emoji
+  tagline: 'مستندات فنی پلتفرم کنار دیوار - راهنمای توسعه‌دهندگان',
+  favicon: 'img/favicon.ico',
 
   url: (isNetlifyPreview && process.env.DEPLOY_PRIME_URL) ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io',
   baseUrl: isNetlifyPreview ? '/' : '/kenar-docs',
@@ -22,6 +22,124 @@ const config = {
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+
+  // Enhanced head tags for better SEO
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'keywords',
+        content: 'کنار دیوار, API, مستندات, توسعه‌دهنده, دیوار, kenar, divar, documentation, developer, REST API, webhook',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'author',
+        content: 'Divar',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'robots',
+        content: 'index, follow',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:site_name',
+        content: 'کنار دیوار - مستندات فنی',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:site',
+        content: '@divar_ir',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'canonical',
+        href: 'https://divar-ir.github.io/kenar-docs/',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'manifest',
+        href: '/kenar-docs/manifest.json',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        href: '/kenar-docs/img/logo.svg',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'apple-mobile-web-app-status-bar-style',
+        content: 'default',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'TechArticle',
+        headline: 'مستندات فنی کنار دیوار',
+        description: 'راهنمای کامل توسعه‌دهندگان برای استفاده از API های کنار دیوار',
+        author: {
+          '@type': 'Organization',
+          name: 'Divar',
+          url: 'https://divar.ir/kenar',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Divar',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+          },
+        },
+        inLanguage: 'fa-IR',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': 'https://divar-ir.github.io/kenar-docs/',
+        },
+      }),
+    },
+  ],
 
   markdown: {
     mermaid: true,
@@ -135,15 +253,59 @@ const config = {
         darkTheme: prismThemes.dracula,
         additionalLanguages: ["http", "json", "yaml"],
       },
-      // Custom metadata for SEO
+      // Enhanced metadata for better SEO
       metadata: [
         {
-          name: 'title',
+          name: 'description',
+          content: 'مستندات کامل API های کنار دیوار - راهنمای توسعه‌دهندگان برای ادغام با پلتفرم دیوار',
+        },
+        {
+          property: 'og:title',
+          content: 'کنار دیوار - مستندات فنی',
+        },
+        {
+          property: 'og:description',
+          content: 'مستندات کامل API های کنار دیوار - راهنمای توسعه‌دهندگان برای ادغام با پلتفرم دیوار',
+        },
+        {
+          property: 'og:image',
+          content: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+        },
+        {
+          property: 'og:url',
+          content: 'https://divar-ir.github.io/kenar-docs/',
+        },
+        {
+          property: 'og:locale',
+          content: 'fa_IR',
+        },
+        {
+          name: 'twitter:title',
+          content: 'کنار دیوار - مستندات فنی',
+        },
+        {
+          name: 'twitter:description',
+          content: 'مستندات کامل API های کنار دیوار - راهنمای توسعه‌دهندگان برای ادغام با پلتفرم دیوار',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+        },
+        {
+          name: 'application-name',
           content: 'کنار دیوار',
         },
         {
-          name: 'description',
-          content: 'مستندات فنی کنار دیوار',
+          name: 'apple-mobile-web-app-title',
+          content: 'کنار دیوار',
+        },
+        {
+          name: 'theme-color',
+          content: '#a62626',
+        },
+        {
+          name: 'msapplication-TileColor',
+          content: '#a62626',
         },
       ],
       algolia: {
