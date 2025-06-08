@@ -12,10 +12,9 @@
 
 ```mermaid
 sequenceDiagram
-    participant Client as کلاینت
-    participant Platform as Open Platform API
+    participant Client as برنامه شما
+    participant Platform as Kenar API
     participant ChatUpload as Chat Upload Endpoint
-    participant Chat as Chat API
 
     Client->>Platform: POST /experimental/open-platform/chat/upload
     Note over Client,Platform: دریافت upload token
@@ -25,9 +24,9 @@ sequenceDiagram
     Note over Client,ChatUpload: آپلود فایل با Authorization: Bearer upload_token
     ChatUpload-->>Client: {id: "media_token", status: "ok"}
     
-    Client->>Chat: POST /send-message
+    Client->>Platform: POST /send-message
     Note over Client,Chat: ارسال پیام با media_token
-    Chat-->>Client: پیام ارسال شد
+    Platform-->>Client: پیام ارسال شد
 ```
 
 ## محدودیت‌های فایل
