@@ -66,10 +66,12 @@ Authorization: Bearer {{access_token}}
                 "title": "این یک سلکتور رو هست",
                 "has_divider": true,
                 "icon_name": "ADD",
-                "open_server_link": {
-                    "data": {
-                        "your_key_1": "your value",
-                        "your_key_2": "your value"
+                "action": {
+                    "open_server_link": {
+                        "data": {
+                            "your_key_1": "your value",
+                            "your_key_2": "your value"
+                        }
                     }
                 }
             }
