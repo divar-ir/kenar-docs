@@ -62,17 +62,17 @@ Authorization: Bearer {{access_token}}
             },
         },
         {
-          "event_row": {
-            "title": "یه تایتل مناسب",
-            "subtitle": "یه زیر تایتل مناسب تر",
-            "label": "یه لیبل زیبا",
-            "image_id": "someuuid.jpg",
-            "has_divider": true,
-            "icon_name": "ADD",
-            "action": {
-              "open_direct_link": "https://google.com"
+            "selector_row": {
+                "title": "این یک سلکتور رو هست",
+                "has_divider": true,
+                "icon_name": "ADD",
+                "open_server_link": {
+                    "data": {
+                        "your_key_1": "your value",
+                        "your_key_2": "your value"
+                    }
+                }
             }
-          },
         }
     ],
     "notes": "any notes you want to get back on list api"
