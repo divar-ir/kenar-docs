@@ -2120,26 +2120,26 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.29.tgz#5a40109a1ab5f84d6fd8fc928b19f367cbe7e7b1"
   integrity sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==
 
-"@scalar/docusaurus@^0.6.5":
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/@scalar/docusaurus/-/docusaurus-0.6.7.tgz#149e1ff9b9b2f37829fae9fc3d3a8a9379442658"
-  integrity sha512-LL/UDnQG8lOJBeKwZIV+sDyNI+BS/CJnW11WajHlZKumrZJ6AIHAYj4j1Bx9k2aiSlpapIqFCp4pkLfFgQbB9Q==
+"@scalar/docusaurus@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@scalar/docusaurus/-/docusaurus-0.7.2.tgz#dc43eb257dd5c86b88a9706a2f15db7a5076b7de"
+  integrity sha512-uXttNYxCKH7YJSIkBiXxxYPsorWLiHxafZqLlAixLpLYhirJblT2roE9kiiQtLIlQ5fQIO81NMbp5CH8bQCoug==
   dependencies:
-    "@scalar/types" "0.1.16"
+    "@scalar/types" "0.2.2"
 
-"@scalar/openapi-types@0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@scalar/openapi-types/-/openapi-types-0.2.3.tgz#92bf1a53bacf8c41e28e821b42ae1d713648151d"
-  integrity sha512-O1GwqLpcRc3GKXTbeBZ5E12fXR2ltpqGWk4RfhoN4ebKZsPVknV5at5425G97E1SwMy12BporRvn90k1Z+MruQ==
+"@scalar/openapi-types@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@scalar/openapi-types/-/openapi-types-0.3.2.tgz#82c01768e49b97c18bcbd1d5cdfbe803a7b6eb03"
+  integrity sha512-O1AnVF29Z34TTiuMPzA8Bi9zAZuxLq5xGbW5vLvm9zUkwtI1v/mUsDNiWF3b0oOdk5LlVkrppKvI3xRFYUiyXg==
   dependencies:
     zod "3.24.1"
 
-"@scalar/types@0.1.16":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/@scalar/types/-/types-0.1.16.tgz#17309b4f7445e8acb123c6c4936eecca167ed3a0"
-  integrity sha512-v1L96F8Inn27NUw5Xcl0iifw3SOX0R9WBV6GeswR23s8i1SJz7UiLEi8rLOqOB5DiLtC8hDK0kNl4TKn7MNJWQ==
+"@scalar/types@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@scalar/types/-/types-0.2.2.tgz#ed3dc105e7c40712e1067abf227b856ef7e43917"
+  integrity sha512-56KPwde4+zemnA/Nln6TP0ezBiem7K/UcEk94WhsPZU8PV9DVScyepCPU1xEMCNayMrOGG9OHybYyXKkbqt/fA==
   dependencies:
-    "@scalar/openapi-types" "0.2.3"
+    "@scalar/openapi-types" "0.3.2"
     nanoid "^5.1.5"
     zod "3.24.1"
 
