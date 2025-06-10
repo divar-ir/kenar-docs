@@ -267,7 +267,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ["http", "json", "yaml"],
+        additionalLanguages: ["http", "json", "yaml", "diff", "python"],
       },
       // Enhanced metadata for better SEO
       metadata: [
