@@ -13,17 +13,22 @@
 
 [![Contributors](https://img.shields.io/github/contributors/divar-ir/kenar-docs?style=for-the-badge&logo=github)](https://github.com/divar-ir/kenar-docs/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/divar-ir/kenar-docs?style=for-the-badge&logo=github)](https://github.com/divar-ir/kenar-docs/commits)
+
 ---
+
+<a href="https://divar-ir.github.io/kenar-docs" target="_blank">
+  <img src="https://img.shields.io/badge/📖%20Documentation-divar--ir.github.io/kenar--docs-2E86AB?style=for-the-badge&logoColor=white" alt="View Documentation" />
+</a>
 
 </div>
 
 <div dir="rtl" align="right">
 
-## 🚀 دسترسی به مستندات
+## 🚀 دسترسی به [مستندات](https://divar-ir.github.io/kenar-docs)
 
 برای مشاهده‌ی مستندات کامل کنار دیوار به لینک زیر مراجعه کنید:
 
-### 📖 [مشاهده مستندات آنلاین](https://divar-ir.github.io/kenar-docs)
+### 📖 [مشاهده مستندات](https://divar-ir.github.io/kenar-docs)
 
 > 💡 **راهنمایی:** در صورت نیاز به راهنمایی بیشتر یا گزارش مشکل، در [پنل توسعه دهندگان](https://divar.ir/kenar/management/issues/new) تیکت ثبت کنید.
 
