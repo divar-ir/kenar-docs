@@ -1,8 +1,9 @@
 <div align="center">
 
-# 📚 مستندات کنار
-
-<img src="./static/img/logo.svg" alt="Kenar Logo" width="200"/>
+# 📚 مستندات کنار ([divar-ir.github.io/kenar-docs](https://divar-ir.github.io/kenar-docs))
+<a href="https://divar-ir.github.io/kenar-docs" target="_blank">
+  <img src="./static/img/logo.svg" alt="Kenar Logo" width="200"/>
+</a>
 
 ### مستندات سرویس‌های کنار دیوار
 
@@ -24,37 +25,36 @@
 
 <div dir="rtl" align="right">
 
-## 🚀 دسترسی به [مستندات](https://divar-ir.github.io/kenar-docs)
+## 🚀 دسترسی سریع
 
-برای مشاهده‌ی مستندات کامل کنار دیوار به لینک زیر مراجعه کنید:
+### 📖 [👈 مشاهده مستندات کامل](https://divar-ir.github.io/kenar-docs)
 
-### 📖 [مشاهده مستندات](https://divar-ir.github.io/kenar-docs)
+**لینک‌های مفید:**
+- 🏠 [صفحه اصلی کنار](https://divar.ir/kenar)
+- 🛠️ [پنل مدیریت توسعه‌دهندگان](https://divar.ir/kenar/management)
+- 🎫 [گزارش مشکل](https://divar.ir/kenar/management/issues/new)
+- 💬 [انجمن توسعه‌دهندگان](https://t.me/kenar_community)
 
-> 💡 **راهنمایی:** در صورت نیاز به راهنمایی بیشتر یا گزارش مشکل، در [پنل توسعه دهندگان](https://divar.ir/kenar/management/issues/new) تیکت ثبت کنید.
+> 💡 **نکته مهم:** برای دریافت کلید API و شروع توسعه، ابتدا در پنل کنار ثبت‌نام کنید.
 
 </div>
 
 ---
 
-<div dir="rtl" align="right">
-
-## 🎁 جوایز مشارکت
 
 <div align="center">
-<img src="https://img.icons8.com/color/96/000000/coffee-to-go.png" alt="Coffee" width="80"/>
-</div>
+  
+## 🎁 جوایز مشارکت
+  
+
+<img src="https://img.icons8.com/color/96/000000/coffee-to-go.png" alt="Coffee" width="100"/>
 
 مشارکت‌ شما برای ما ارزشمند است. با بهبود دادن مستندات و مشارکت مفید یک فنجان قهوه مهمان ما باشید.
 اگر مشارکت شما فوق‌العاده باشد، از طرف تیم کنار دعوت خواهیدشد تا از ساختمان ما به عنوان مهمان بازدید کنید و با اعضای تیم آشنا شوید! ☕️🏢
 
-</div>
 
----
-
-## 👥 مشارکت کنندگان برتر
-
-<div align="center">
-
+## 👥 مشارکت کنندگان برتر 
+  
 <a href="https://github.com/divar-ir/kenar-docs/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=divar-ir/kenar-docs&max=6" />
 </a>
@@ -78,7 +78,7 @@
 
 ---
 
-### ⭐ نمودار ستاره‌های پروژه
+### ⭐ نمودار رشد ستاره‌ها
 ![Star History Chart](https://api.star-history.com/svg?repos=divar-ir/kenar-docs&type=Date)
 
 ---
