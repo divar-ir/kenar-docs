@@ -3653,7 +3653,7 @@
     },
     "/v1/open-platform/addons/business/{business_token}": {
       "post": {
-        "description": "This will create a BusinessAddon on published posts of a business.\nYou can only create Addons which are created by your app.",
+        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه جدیدی به آگهی‌های کسب‌و‌کار متصل کنید.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه خود استفاده کنید.\nاین API به توکن دسترسی با یکی از دامنه‌های زیر نیاز دارد:\n- BUSINESS_ADDON_CREATE.{business_token}",
         "operationId": "Addons_CreateBusinessAddon",
         "parameters": [
           {
@@ -3697,7 +3697,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Create a BusinessAddon",
+        "summary": "افزودن افزونه جدید به آگهی‌های کسب‌و‌کار",
         "tags": [
           "Addons"
         ]
@@ -5221,6 +5221,9 @@
     }
   },
   "security": [
+    {
+      "APIKey": []
+    },
     {
       "APIKey": []
     }
