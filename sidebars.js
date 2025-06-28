@@ -26,7 +26,7 @@ const sidebars = {
       link: {
         type: "generated-index",
         title: "مستندات API(Swgger)",
-        slug: "/kenar-docs/openapi-doc",
+        slug: "/openapi-doc",
         keywords: ["api", "api doc", "openapi"]
       },
       items: openAPISideBar,
