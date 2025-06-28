@@ -1,0 +1,178 @@
+---
+id: kenar-api
+title: "Kenar API"
+description: ""
+sidebar_label: "Kenar API"
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import Heading from "@theme/Heading";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span
+  className={"theme-doc-version-badge badge badge--secondary"}
+  children={"Version: 1.0"}
+>
+</span>
+
+<Export
+  url={"https://raw.githubusercontent.com/divar-ir/kenar-docs/main/static/openapi-v3.yaml"}
+  proxy={undefined}
+>
+  
+</Export>
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Kenar API"}
+>
+</Heading>
+
+
+
+
+
+<div
+  style={{"marginBottom":"2rem"}}
+>
+  <Heading
+    id={"authentication"}
+    as={"h2"}
+    className={"openapi-tabs__heading"}
+    children={"Authentication"}
+  >
+  </Heading><SchemaTabs
+    className={"openapi-tabs__security-schemes"}
+  >
+    <TabItem
+      label={"API Key: APIKey"}
+      value={"APIKey"}
+    >
+      
+      
+      API Key retrieved from kenar management panel
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                apiKey
+              </td>
+            </tr><tr>
+              <th>
+                Header parameter name:
+              </th><td>
+                X-API-Key
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem><TabItem
+      label={"OAuth 2.0: OAuth"}
+      value={"OAuth"}
+    >
+      
+      
+      OAuth2 access token retrieved from user
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                oauth2
+              </td>
+            </tr><tr>
+              <th>
+                OAuth Flow (authorizationCode):
+              </th><td>
+                <div>
+                  Token URL: oauth.divar.ir/oauth2/token
+                </div><div>
+                  Authorization URL: oauth.divar.ir/oauth2/auth
+                </div><div>
+                  Refresh URL: oauth.divar.ir/oauth2/token
+                </div><span>
+                  Scopes:
+                </span><ul>
+                  <li>
+                    BUSINESS_ADDON_CREATE.resource_id: BUSINESS_ADDON_CREATE.resource_id
+                  </li><li>
+                    CHAT_BOT_USER_MESSAGE_SEND: CHAT_BOT_USER_MESSAGE_SEND
+                  </li><li>
+                    CHAT_CONVERSATION_READ.resource_id: CHAT_CONVERSATION_READ.resource_id
+                  </li><li>
+                    CHAT_MESSAGE_SEND.resource_id: CHAT_MESSAGE_SEND.resource_id
+                  </li><li>
+                    CHAT_POST_CONVERSATIONS_MESSAGE_SEND.resource_id: CHAT_POST_CONVERSATIONS_MESSAGE_SEND.resource_id
+                  </li><li>
+                    CHAT_POST_CONVERSATIONS_READ.resource_id: CHAT_POST_CONVERSATIONS_READ.resource_id
+                  </li><li>
+                    CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND: CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND
+                  </li><li>
+                    CHAT_SUPPLIER_ALL_CONVERSATIONS_READ: CHAT_SUPPLIER_ALL_CONVERSATIONS_READ
+                  </li><li>
+                    CONVERSATION_SEND_MESSAGE.resource_id: CONVERSATION_SEND_MESSAGE.resource_id
+                  </li><li>
+                    MANAGEMENT_APPS_READ.resource_id: MANAGEMENT_APPS_READ.resource_id
+                  </li><li>
+                    MANAGEMENT_APPS_WRITE.resource_id: MANAGEMENT_APPS_WRITE.resource_id
+                  </li><li>
+                    NOTIFICATION_ACCESS_REVOCATION: NOTIFICATION_ACCESS_REVOCATION
+                  </li><li>
+                    PAYMENT_ALL_POSTS_PRICING_READ: PAYMENT_ALL_POSTS_PRICING_READ
+                  </li><li>
+                    PAYMENT_ALL_POSTS_REORDER: PAYMENT_ALL_POSTS_REORDER
+                  </li><li>
+                    POST_ADDON_CREATE.resource_id: POST_ADDON_CREATE.resource_id
+                  </li><li>
+                    POST_EDIT.resource_id: POST_EDIT.resource_id
+                  </li><li>
+                    POST_ONGOING_IMAGES_GET.resource_id: POST_ONGOING_IMAGES_GET.resource_id
+                  </li><li>
+                    POST_SEMANTIC_CREATE.resource_id: POST_SEMANTIC_CREATE.resource_id
+                  </li><li>
+                    USER_ADDON_CREATE: USER_ADDON_CREATE
+                  </li><li>
+                    USER_ID: USER_ID
+                  </li><li>
+                    USER_PHONE: USER_PHONE
+                  </li><li>
+                    USER_POSTS_ADDON_CREATE: USER_POSTS_ADDON_CREATE
+                  </li><li>
+                    USER_POSTS_GET: USER_POSTS_GET
+                  </li><li>
+                    USER_VERIFICATION_CREATE: USER_VERIFICATION_CREATE
+                  </li><li>
+                    offline_access: offline_access
+                  </li><li>
+                    openid: openid
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem>
+  </SchemaTabs>
+</div>
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+      
