@@ -156,7 +156,7 @@ const config: Config = {
               groupPathsBy: "tag",
               categoryLinkSource: "info"
             },
-            baseUrl: "/kenar-docs/openapi-doc/", 
+            baseUrl: "/openapi-doc/", 
             downloadUrl:
               "https://raw.githubusercontent.com/divar-ir/kenar-docs/main/static/openapi-v3.yaml",
 
