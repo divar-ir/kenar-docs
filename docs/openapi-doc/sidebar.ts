@@ -3,11 +3,15 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 const sidebar: SidebarsConfig = {
   apisidebar: [
     {
+      type: "doc",
+      id: "openapi-doc/kenar-api",
+    },
+    {
       type: "category",
       label: "Addons",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/addons",
       },
       items: [
         {
@@ -71,7 +75,7 @@ const sidebar: SidebarsConfig = {
       label: "Assets",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/assets",
       },
       items: [
         {
@@ -153,7 +157,7 @@ const sidebar: SidebarsConfig = {
       label: "ChatAPI",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/chat-api",
       },
       items: [
         {
@@ -211,7 +215,7 @@ const sidebar: SidebarsConfig = {
       label: "Events",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/events",
       },
       items: [
         {
@@ -227,7 +231,7 @@ const sidebar: SidebarsConfig = {
       label: "Finder",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/finder",
       },
       items: [
         {
@@ -267,7 +271,7 @@ const sidebar: SidebarsConfig = {
       label: "Post",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/post",
       },
       items: [
         {
@@ -295,7 +299,7 @@ const sidebar: SidebarsConfig = {
       label: "limited",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/limited",
       },
       items: [
         {
@@ -335,7 +339,7 @@ const sidebar: SidebarsConfig = {
       label: "PaymentTicket",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/payment-ticket",
       },
       items: [
         {
@@ -351,7 +355,7 @@ const sidebar: SidebarsConfig = {
       label: "Semantic",
       link: {
         type: "doc",
-        id: "openapi-doc/kenar-api",
+        id: "openapi-doc/semantic",
       },
       items: [
         {

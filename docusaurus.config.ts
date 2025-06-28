@@ -154,7 +154,7 @@ const config: Config = {
             outputDir: "docs/openapi-doc",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: "info"
+              categoryLinkSource: "tag"
             },
             baseUrl: "/openapi-doc/", 
             downloadUrl:

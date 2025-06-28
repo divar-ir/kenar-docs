@@ -35,7 +35,7 @@ API
 
 ### ریکوئست
 
-لینک این درخواست در [فهرست API-ها](https://divar-ir.github.io/kenar-docs/api-doc/#tag/addons/POST/v2/open-platform/addons/business/{business_token})
+لینک این درخواست در [فهرست API-ها](openapi-doc/#tag/addons/POST/v2/open-platform/addons/business/{business_token})
 
 ```http request
 POST https://open-api.divar.ir/v2/open-platform/addons/business/{{business_token}}
