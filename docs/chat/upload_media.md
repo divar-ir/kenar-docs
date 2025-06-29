@@ -69,8 +69,8 @@ x-api-key: {{apikey}}
 
 پس از دریافت `upload_token`، از آن برای آپلود فایل `media` خود استفاده کنید.
 
-:::tip نکته
-فایل باید به صورت form-data ارسال شود.
+:::important نکته مهم
+فایل باید به صورت **multipart/form-data** و در فیلد با نام **`file`** ارسال شود.
 :::
 
 ### Request
@@ -82,7 +82,56 @@ Accept: */*
 Content-Type: multipart/form-data
 ```
 
-**Body:** فایل به صورت form-data
+**Form Data:**
+```
+file: [فایل شما] (نام فایل باید در value مشخص شده باشد)
+```
+
+### مثال با cURL
+
+```bash
+curl -X POST "https://chat.divar.ir/upload/image" \
+  -H "Authorization: Bearer your_upload_token" \
+  -H "Accept: */*" \
+  -F "file=@/path/to/your/image.jpg"
+```
+
+### مثال با JavaScript (FormData)
+
+```javascript
+const formData = new FormData();
+formData.append('file', fileInput.files[0]); // فایل و نام آن خودکار تنظیم می‌شود
+
+fetch('https://chat.divar.ir/upload/image', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${upload_token}`,
+    'Accept': '*/*'
+  },
+  body: formData
+})
+```
+
+### مثال با Python (requests)
+
+```python
+import requests
+
+files = {
+    'file': ('image.jpg', open('path/to/image.jpg', 'rb'), 'image/jpeg')
+}
+
+headers = {
+    'Authorization': f'Bearer {upload_token}',
+    'Accept': '*/*'
+}
+
+response = requests.post(
+    'https://chat.divar.ir/upload/image',
+    files=files,
+    headers=headers
+)
+```
 
 :::note انواع media_type
 `media_type` می‌تواند یکی از مقادیر زیر باشد: `image`, `video`, `voice`, `file`
@@ -99,7 +148,7 @@ Content-Type: multipart/form-data
 
 ## مرحله ۳: استفاده از `media_token` در چت شما
 
-در نهایت، از توکن رسانه در پیام‌های مکالمه خود استفاده کنید.
+در نهایت، از `media_token` در پیام‌های مکالمه خود استفاده کنید.
 
 این کار با پر کردن فیلد `media_token` در `object` پیام انجام می‌شود.
 
@@ -108,6 +157,7 @@ Content-Type: multipart/form-data
   "media_token": "your_media_token"
 }
 ```
+
 
 :::info لینک‌های مرتبط
 - ارسال پیام با media در چت‌بات را می‌توانید در [اینجا][راهنما » چت‌بات] بخوانید.
