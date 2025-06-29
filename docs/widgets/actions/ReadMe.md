@@ -6,7 +6,10 @@
 
 برخی از ویجت‌ها این قابلیت را دارند و برای مشخص کردن `action` برای ویجت ، یک فیلد `json` با نام `action` میگیرند.
 
-در حال حاضر در افزونه های کنار دیوار ، دو اکشن زیر ساپورت میشوند:
+در حال حاضر در افزونه های کنار دیوار، اکشن‌های زیر ساپورت میشوند:
 
 - [OpenDirectLink](./open_direct_link.md)
 - [OpenServerLink](./open_server_link.md)
+- [DynamicAction](./dynamic_action.md)
+- [OpenPostPage](./post_actions.md#open-post-page)
+- [OpenPostManagePage](./post_actions.md#open-post-management-page)
