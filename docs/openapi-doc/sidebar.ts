@@ -1045,7 +1045,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/schemas/دامنه-oauth-استاندارد-تجزیه-شده-با-استفاده-از-رشته-فرمت-permission-enum-resource-id-را-نمایش-می-دهد-مثال-edit-post-azroi-1-el",
-          label: "دامنه oauth استاندارد تجزیه شده با استفاده از رشته فرمت\n`PERMISSION_ENUM__resource_id` را نمایش می‌دهد. مثال: EDIT_POST__AZrOi1eL",
+          label: "دامنه oauth استاندارد تجزیه شده با استفاده از رشته فرمت\n`PERMISSION_ENUM__{resource_id}` را نمایش می‌دهد. مثال: EDIT_POST__AZrOi1eL",
           className: "schema",
         },
         {
