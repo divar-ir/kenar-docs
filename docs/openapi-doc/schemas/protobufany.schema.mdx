@@ -1,0 +1,114 @@
+---
+id: protobufany
+title: "protobufAny"
+description: "`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با"
+sidebar_label: "protobufAny"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"@type":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"protobufAny"}
+>
+</Heading>
+
+
+
+`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با
+URL که نوع پیام سریالایز شده را توضیح می‌دهد.
+
+کتابخانه Protobuf پشتیبانی برای pack/unpack مقادیر Any را به شکل
+توابع کاربردی یا متدهای اضافی تولید شده نوع Any ارائه می‌دهد.
+
+مثال 1: Pack و unpack پیام در C++.
+
+    Foo foo = ...;
+    Any any;
+    any.PackFrom(foo);
+    ...
+    if (any.UnpackTo(&foo)) \{
+      ...
+    \}
+
+مثال 2: Pack و unpack پیام در Java.
+
+    Foo foo = ...;
+    Any any = Any.pack(foo);
+    ...
+    if (any.is(Foo.class)) \{
+      foo = any.unpack(Foo.class);
+    \}
+
+مثال 3: Pack و unpack پیام در Python.
+
+    foo = Foo(...)
+    any = Any()
+    any.Pack(foo)
+    ...
+    if any.Is(Foo.DESCRIPTOR):
+      any.Unpack(foo)
+      ...
+
+مثال 4: Pack و unpack پیام در Go
+
+     foo := &pb.Foo\{...\}
+     any, err := anypb.New(foo)
+     if err != nil \{
+       ...
+     \}
+     ...
+     foo := &pb.Foo\{\}
+     if err := any.UnmarshalTo(foo); err != nil \{
+       ...
+     \}
+
+متدهای pack ارائه شده توسط کتابخانه protobuf به طور پیش‌فرض از
+'type.googleapis.com/full.type.name' به عنوان URL نوع استفاده می‌کنند و متدهای unpack
+فقط از نام نوع کاملاً واجد شرایط پس از آخرین '/'
+در URL نوع استفاده می‌کنند، مثلاً "foo.bar.com/x/y.z" نام نوع
+"y.z" را ایجاد می‌کند.
+
+
+JSON
+
+نمایش JSON یک مقدار `Any` از نمایش معمولی
+پیام deserialize شده و جاسازی شده، با یک
+فیلد اضافی `@type` که شامل URL نوع است، استفاده می‌کند. مثال:
+
+    package google.profile;
+    message Person \{
+      string first_name = 1;
+      string last_name = 2;
+    \}
+
+    \{
+      "@type": "type.googleapis.com/google.profile.Person",
+      "firstName": &lt;string&gt;,
+      "lastName": &lt;string&gt;
+    \}
+
+اگر نوع پیام جاسازی شده شناخته شده باشد و نمایش JSON سفارشی
+داشته باشد، آن نمایش با افزودن فیلد
+`value` که JSON سفارشی را علاوه بر فیلد `@type`
+نگه می‌دارد، جاسازی می‌شود. مثال (برای پیام [google.protobuf.Duration][]):
+
+    \{
+      "@type": "type.googleapis.com/google.protobuf.Duration",
+      "value": "1.212s"
+    \}
+
+<Schema
+  schema={{"additionalProperties":{},"description":"`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با\nURL که نوع پیام سریالایز شده را توضیح می‌دهد.\n\nکتابخانه Protobuf پشتیبانی برای pack/unpack مقادیر Any را به شکل\nتوابع کاربردی یا متدهای اضافی تولید شده نوع Any ارائه می‌دهد.\n\nمثال 1: Pack و unpack پیام در C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nمثال 2: Pack و unpack پیام در Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nمثال 3: Pack و unpack پیام در Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nمثال 4: Pack و unpack پیام در Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nمتدهای pack ارائه شده توسط کتابخانه protobuf به طور پیش‌فرض از\n'type.googleapis.com/full.type.name' به عنوان URL نوع استفاده می‌کنند و متدهای unpack\nفقط از نام نوع کاملاً واجد شرایط پس از آخرین '/'\nدر URL نوع استفاده می‌کنند، مثلاً \"foo.bar.com/x/y.z\" نام نوع\n\"y.z\" را ایجاد می‌کند.\n\n\nJSON\n\nنمایش JSON یک مقدار `Any` از نمایش معمولی\nپیام deserialize شده و جاسازی شده، با یک\nفیلد اضافی `@type` که شامل URL نوع است، استفاده می‌کند. مثال:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nاگر نوع پیام جاسازی شده شناخته شده باشد و نمایش JSON سفارشی\nداشته باشد، آن نمایش با افزودن فیلد\n`value` که JSON سفارشی را علاوه بر فیلد `@type`\nنگه می‌دارد، جاسازی می‌شود. مثال (برای پیام [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }","properties":{"@type":{"description":"یک URL/نام منبع که نوع پیام protocol buffer سریالایز شده را به طور منحصر به فرد شناسایی می‌کند. این رشته باید حداقل\nیک کاراکتر \"/\" داشته باشد. آخرین بخش مسیر URL باید نام کاملاً واجد شرایط نوع را نمایش دهد (مانند\n`path/google.protobuf.Duration`). نام باید در فرم کانونیکال باشد\n(مثلاً، \".\" ابتدایی پذیرفته نیست).\n\nدر عمل، تیم‌ها معمولاً تمام انواعی که انتظار دارند در زمینه Any استفاده شود را به صورت پیش‌کامپایل در باینری قرار می‌دهند. با این حال، برای URL هایی که از\nطرح `http`، `https` یا بدون طرح استفاده می‌کنند، می‌توان به طور اختیاری یک سرور نوع تنظیم کرد که URL های نوع را به تعاریف پیام نگاشت می‌کند:\n\n* اگر طرحی ارائه نشود، `https` فرض می‌شود.\n* یک HTTP GET روی URL باید مقدار [google.protobuf.Type][] را\n  به فرمت باینری ارائه دهد، یا خطا تولید کند.\n* برنامه‌ها مجاز هستند نتایج جستجو را بر اساس\n  URL کش کنند، یا آنها را در باینری پیش‌کامپایل کنند تا از هر\n  جستجویی جلوگیری کنند. بنابراین، سازگاری باینری باید در\n  تغییرات انواع حفظ شود. (از نام‌های نوع نسخه‌دار برای مدیریت\n  تغییرات شکست‌آور استفاده کنید.)\n\nتوجه: این قابلیت در حال حاضر در نسخه رسمی\nprotobuf در دسترس نیست، و برای URL های نوع که با\ntype.googleapis.com شروع می‌شوند استفاده نمی‌شود.\n\nطرح‌های غیر از `http`، `https` (یا طرح خالی) ممکن است\nبا معناشناسی خاص پیاده‌سازی استفاده شوند.","type":"string"}},"type":"object","title":"protobufAny"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

@@ -1,0 +1,33 @@
+---
+id: addonsbuttonbar
+title: "addonsButtonBar"
+description: ""
+sidebar_label: "addonsButtonBar"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"action":{"get_dynamic_action":{"data":{"your-internal-id":"something"}},"open_direct_link":"https://your-site.com/some-path","open_post_manage_page":{"post_token":"AJIEWcw"},"open_post_page":{"post_token":"AJIEWcw"},"open_server_link":{"data":{"your-internal-id":"something"}}},"title":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"addonsButtonBar"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"action":{"description":"Represents an action that can be performed","properties":{"get_dynamic_action":{"description":"Represents a dynamic action that can be fetched and invoked on user's device","properties":{"data":{"description":"A data that you can set and will be returned to you upon user click to recognize the action","example":{"your-internal-id":"something"},"type":"object"}},"title":"Get Dynamic Action","type":"object"},"open_direct_link":{"description":"An action to send user to your URL directly with just a resource id (if applicable)","example":"https://your-site.com/some-path","type":"string"},"open_post_manage_page":{"description":"An action to open a post management page in the app","properties":{"post_token":{"description":"Token of the post to redirect to its management page","example":"AJIEWcw","type":"string"}},"required":["post_token"],"title":"Open Post Manage Page","type":"object"},"open_post_page":{"description":"An action to open a post page in the app","properties":{"post_token":{"description":"Token of the post to open","example":"AJIEWcw","type":"string"}},"required":["post_token"],"title":"Open Post Page","type":"object"},"open_server_link":{"description":"An action to pass complete session data and retrieve redirect location from your server on each user action","properties":{"data":{"description":"A data that you can set and will be returned to you upon user click to recognize the action","example":{"your-internal-id":"something"},"type":"object"}},"title":"Open Server Link","type":"object"}},"title":"Action","type":"object"},"title":{"type":"string"}},"type":"object","title":"addonsButtonBar"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

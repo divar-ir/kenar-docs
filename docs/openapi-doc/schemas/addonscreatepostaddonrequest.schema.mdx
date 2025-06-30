@@ -1,0 +1,33 @@
+---
+id: addonscreatepostaddonrequest
+title: "addonsCreatePostAddonRequest"
+description: ""
+sidebar_label: "addonsCreatePostAddonRequest"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"link_in_spec":"string","notes":"string","selector":{"brand_models":["string"],"categories":["string"],"cities":["string"],"districts":["string"],"tokens":["string"]},"semantic":{},"semantic_sensitives":["string"],"token":"string","widgets":{}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"addonsCreatePostAddonRequest"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"link_in_spec":{"type":"string"},"notes":{"title":"داده‌های دلخواه ارائه شده توسط سازنده افزونه","type":"string"},"selector":{"properties":{"brand_models":{"items":{"type":"string"},"type":"array"},"categories":{"items":{"type":"string"},"type":"array"},"cities":{"items":{"type":"string"},"type":"array"},"districts":{"items":{"type":"string"},"type":"array"},"tokens":{"items":{"type":"string"},"title":"(OR) آگهی انتخاب می‌شود اگر آرایه زیر شامل فیلد مربوطه باشد","type":"array"}},"title":"(AND) post is selected by this selector if all of the following conditions\nmatches","type":"object"},"semantic":{"additionalProperties":{"type":"string"},"type":"object"},"semantic_sensitives":{"items":{"type":"string"},"type":"array"},"token":{"type":"string"},"widgets":{"type":"object","title":"addonsWidgets"}},"type":"object","title":"addonsCreatePostAddonRequest"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

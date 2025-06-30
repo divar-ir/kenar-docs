@@ -1,0 +1,33 @@
+---
+id: finderuser
+title: "finderUser"
+description: ""
+sidebar_label: "finderUser"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"phone_number":"string","phone_numbers":["string"],"user_id":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"finderUser"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"phone_number":{"type":"string"},"phone_numbers":{"description":"منسوخ شده","items":{"type":"string"},"title":"نیاز به دامنه OAuth: USER_PHONE","type":"array"},"user_id":{"type":"string"}},"type":"object","title":"finderUser"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

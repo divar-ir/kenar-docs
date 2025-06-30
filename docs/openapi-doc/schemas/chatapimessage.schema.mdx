@@ -1,0 +1,33 @@
+---
+id: chatapimessage
+title: "chatapiMessage"
+description: ""
+sidebar_label: "chatapiMessage"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"conversation":{"id":"string","post_token":"string","type":"POST"},"file_data":{"link":"string","name":"string","size_bytes":"string"},"id":"string","image_data":{"height_px":0,"link":"string","size_bytes":"string","width_px":0},"location_data":{"latitude":0,"longitude":0},"sender":{"side":"BUYER","type":"HUMAN"},"sent_at":"2024-07-29T15:51:28.071Z","text":"string","type":"TEXT","video_data":{"link":"string","size_bytes":"string","thumbnail_link":"string"},"voice_data":{"link":"string","size_bytes":"string"}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"chatapiMessage"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"conversation":{"properties":{"id":{"type":"string"},"post_token":{"type":"string"},"type":{"enum":["POST","BOT"],"type":"string","title":"chatapiConversationType"}},"type":"object","title":"chatapiConversation"},"file_data":{"properties":{"link":{"type":"string"},"name":{"type":"string"},"size_bytes":{"format":"uint64","type":"string"}},"type":"object","title":"MessageFileData"},"id":{"type":"string"},"image_data":{"properties":{"height_px":{"format":"int64","type":"integer"},"link":{"type":"string"},"size_bytes":{"format":"uint64","type":"string"},"width_px":{"format":"int64","type":"integer"}},"type":"object","title":"MessageImageData"},"location_data":{"properties":{"latitude":{"description":"عرض جغرافیایی به درجه. باید در محدوده [-90.0, +90.0] باشد.","format":"double","type":"number"},"longitude":{"description":"طول جغرافیایی به درجه. باید در محدوده [-180.0, +180.0] باشد.","format":"double","type":"number"}},"type":"object","title":"MessageLocationData"},"sender":{"properties":{"side":{"enum":["BUYER","SELLER"],"type":"string","title":"chatapiMessageSenderSide"},"type":{"enum":["HUMAN","BOT"],"type":"string","title":"chatapiMessageSenderType"}},"type":"object","title":"MessageSender"},"sent_at":{"format":"date-time","type":"string"},"text":{"type":"string"},"type":{"enum":["TEXT","IMAGE","FILE","VOICE","LOCATION","VIDEO"],"type":"string","title":"chatapiMessageType"},"video_data":{"properties":{"link":{"type":"string"},"size_bytes":{"format":"uint64","type":"string"},"thumbnail_link":{"type":"string"}},"type":"object","title":"MessageVideoData"},"voice_data":{"properties":{"link":{"type":"string"},"size_bytes":{"format":"uint64","type":"string"}},"type":"object","title":"MessageVoiceData"}},"type":"object","title":"chatapiMessage"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

@@ -1,0 +1,33 @@
+---
+id: findersearchquery
+title: "finderSearchQuery"
+description: ""
+sidebar_label: "finderSearchQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"brand_model":["string"],"credit":{"max":"string","min":"string"},"only_with_parking":true,"production_year":{"max":"string","min":"string"},"rent":{"max":"string","min":"string"},"rooms":["string"],"size":{"max":"string","min":"string"},"usage":{"max":"string","min":"string"}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"finderSearchQuery"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"brand_model":{"items":{"type":"string"},"type":"array"},"credit":{"properties":{"max":{"format":"int64","type":"string"},"min":{"format":"int64","type":"string"}},"type":"object","title":"finderSearchQueryNumberRange"},"only_with_parking":{"type":"boolean"},"production_year":{"properties":{"max":{"format":"int64","type":"string"},"min":{"format":"int64","type":"string"}},"type":"object","title":"finderSearchQueryNumberRange"},"rent":{"properties":{"max":{"format":"int64","type":"string"},"min":{"format":"int64","type":"string"}},"type":"object","title":"finderSearchQueryNumberRange"},"rooms":{"items":{"type":"string"},"type":"array"},"size":{"properties":{"max":{"format":"int64","type":"string"},"min":{"format":"int64","type":"string"}},"type":"object","title":"finderSearchQueryNumberRange"},"usage":{"properties":{"max":{"format":"int64","type":"string"},"min":{"format":"int64","type":"string"}},"type":"object","title":"finderSearchQueryNumberRange"}},"type":"object","title":"finderSearchQuery"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

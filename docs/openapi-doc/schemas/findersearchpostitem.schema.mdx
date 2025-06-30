@@ -1,0 +1,33 @@
+---
+id: findersearchpostitem
+title: "finderSearchPostItem"
+description: ""
+sidebar_label: "finderSearchPostItem"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"category":"string","city":"string","community_fields":{},"electronic_devices_fields":{},"home_kitchen_fields":{},"jobs_fields":{},"last_modified_at":"2024-07-29T15:51:28.071Z","leisure_hobbies_fields":{},"personal_goods_fields":{},"price":{"mode":"string","value":"string"},"real_estate_fields":{"credit":{"mode":"string","value":"string"},"daily_rent":"string","floor":0,"has_elevator":true,"has_parking":true,"rent":{"mode":"string","value":"string"},"rooms":"string","size":0,"year":0},"services_fields":{},"title":"string","token":"string","tools_materials_equipment_fields":{},"vehicles_fields":{"custom_post_subtitle":"string","installment_sale":"string","usage":"string"}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"finderSearchPostItem"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"category":{"type":"string"},"city":{"type":"string"},"community_fields":{"type":"object","title":"SearchPostItemCommunityFields"},"electronic_devices_fields":{"type":"object","title":"SearchPostItemElectronicDevicesFields"},"home_kitchen_fields":{"type":"object","title":"SearchPostItemHomeKitchenFields"},"jobs_fields":{"type":"object","title":"SearchPostItemJobsFields"},"last_modified_at":{"format":"date-time","type":"string"},"leisure_hobbies_fields":{"type":"object","title":"SearchPostItemLeisureHobbiesFields"},"personal_goods_fields":{"type":"object","title":"SearchPostItemPersonalGoodsFields"},"price":{"properties":{"mode":{"type":"string"},"value":{"format":"uint64","type":"string"}},"type":"object","title":"SearchPostItemPrice"},"real_estate_fields":{"properties":{"credit":{"properties":{"mode":{"type":"string"},"value":{"format":"uint64","type":"string"}},"type":"object","title":"SearchPostItemPrice"},"daily_rent":{"format":"uint64","type":"string"},"floor":{"format":"int32","type":"integer"},"has_elevator":{"type":"boolean"},"has_parking":{"type":"boolean"},"rent":{"properties":{"mode":{"type":"string"},"value":{"format":"uint64","type":"string"}},"type":"object","title":"SearchPostItemPrice"},"rooms":{"type":"string"},"size":{"format":"int32","type":"integer"},"year":{"format":"int64","type":"integer"}},"type":"object","title":"SearchPostItemRealEstateFields"},"services_fields":{"type":"object","title":"SearchPostItemServicesFields"},"title":{"type":"string"},"token":{"type":"string"},"tools_materials_equipment_fields":{"type":"object","title":"SearchPostItemToolsMaterialsEquipmentFields"},"vehicles_fields":{"properties":{"custom_post_subtitle":{"type":"string"},"installment_sale":{"type":"string"},"usage":{"format":"uint64","type":"string"}},"type":"object","title":"SearchPostItemVehiclesFields"}},"type":"object","title":"finderSearchPostItem"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

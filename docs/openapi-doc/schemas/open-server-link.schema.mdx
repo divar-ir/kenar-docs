@@ -1,0 +1,33 @@
+---
+id: open-server-link
+title: "Open Server Link"
+description: "An action to pass complete session data and retrieve redirect location from your server on each user action"
+sidebar_label: "Open Server Link"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"data":{"your-internal-id":"something"}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open Server Link"}
+>
+</Heading>
+
+
+
+An action to pass complete session data and retrieve redirect location from your server on each user action
+
+<Schema
+  schema={{"description":"An action to pass complete session data and retrieve redirect location from your server on each user action","properties":{"data":{"description":"A data that you can set and will be returned to you upon user click to recognize the action","example":{"your-internal-id":"something"},"type":"object"}},"title":"Open Server Link","type":"object"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

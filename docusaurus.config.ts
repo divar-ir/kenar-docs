@@ -159,7 +159,7 @@ const config: Config = {
             baseUrl: "/openapi-doc/", 
             downloadUrl:
               "https://raw.githubusercontent.com/divar-ir/kenar-docs/main/static/openapi-v3.yaml",
-
+            showSchemas: true,
           } satisfies OpenApiPlugin.Options,
         }
       },
