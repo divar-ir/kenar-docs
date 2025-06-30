@@ -3120,24 +3120,24 @@
             "authorizationUrl": "oauth.divar.ir/oauth2/auth",
             "refreshUrl": "oauth.divar.ir/oauth2/token",
             "scopes": {
-              "BUSINESS_ADDON_CREATE.{resource_id}": "BUSINESS_ADDON_CREATE.{resource_id}",
+              "BUSINESS_ADDON_CREATE.resource_id": "BUSINESS_ADDON_CREATE.resource_id",
               "CHAT_BOT_USER_MESSAGE_SEND": "CHAT_BOT_USER_MESSAGE_SEND",
-              "CHAT_CONVERSATION_READ.{resource_id}": "CHAT_CONVERSATION_READ.{resource_id}",
-              "CHAT_MESSAGE_SEND.{resource_id}": "CHAT_MESSAGE_SEND.{resource_id}",
-              "CHAT_POST_CONVERSATIONS_MESSAGE_SEND.{resource_id}": "CHAT_POST_CONVERSATIONS_MESSAGE_SEND.{resource_id}",
-              "CHAT_POST_CONVERSATIONS_READ.{resource_id}": "CHAT_POST_CONVERSATIONS_READ.{resource_id}",
+              "CHAT_CONVERSATION_READ.resource_id": "CHAT_CONVERSATION_READ.resource_id",
+              "CHAT_MESSAGE_SEND.resource_id": "CHAT_MESSAGE_SEND.resource_id",
+              "CHAT_POST_CONVERSATIONS_MESSAGE_SEND.resource_id": "CHAT_POST_CONVERSATIONS_MESSAGE_SEND.resource_id",
+              "CHAT_POST_CONVERSATIONS_READ.resource_id": "CHAT_POST_CONVERSATIONS_READ.resource_id",
               "CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND": "CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND",
               "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ": "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ",
-              "CONVERSATION_SEND_MESSAGE.{resource_id}": "CONVERSATION_SEND_MESSAGE.{resource_id}",
-              "MANAGEMENT_APPS_READ.{resource_id}": "MANAGEMENT_APPS_READ.{resource_id}",
-              "MANAGEMENT_APPS_WRITE.{resource_id}": "MANAGEMENT_APPS_WRITE.{resource_id}",
+              "CONVERSATION_SEND_MESSAGE.resource_id": "CONVERSATION_SEND_MESSAGE.resource_id",
+              "MANAGEMENT_APPS_READ.resource_id": "MANAGEMENT_APPS_READ.resource_id",
+              "MANAGEMENT_APPS_WRITE.resource_id": "MANAGEMENT_APPS_WRITE.resource_id",
               "NOTIFICATION_ACCESS_REVOCATION": "NOTIFICATION_ACCESS_REVOCATION",
               "PAYMENT_ALL_POSTS_PRICING_READ": "PAYMENT_ALL_POSTS_PRICING_READ",
               "PAYMENT_ALL_POSTS_REORDER": "PAYMENT_ALL_POSTS_REORDER",
-              "POST_ADDON_CREATE.{resource_id}": "POST_ADDON_CREATE.{resource_id}",
-              "POST_EDIT.{resource_id}": "POST_EDIT.{resource_id}",
-              "POST_ONGOING_IMAGES_GET.{resource_id}": "POST_ONGOING_IMAGES_GET.{resource_id}",
-              "POST_SEMANTIC_CREATE.{resource_id}": "POST_SEMANTIC_CREATE.{resource_id}",
+              "POST_ADDON_CREATE.resource_id": "POST_ADDON_CREATE.resource_id",
+              "POST_EDIT.resource_id": "POST_EDIT.resource_id",
+              "POST_ONGOING_IMAGES_GET.resource_id": "POST_ONGOING_IMAGES_GET.resource_id",
+              "POST_SEMANTIC_CREATE.resource_id": "POST_SEMANTIC_CREATE.resource_id",
               "USER_ADDON_CREATE": "USER_ADDON_CREATE",
               "USER_ID": "USER_ID",
               "USER_PHONE": "USER_PHONE",
@@ -5221,6 +5221,9 @@
     }
   },
   "security": [
+    {
+      "APIKey": []
+    },
     {
       "APIKey": []
     },
