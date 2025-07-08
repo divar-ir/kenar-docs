@@ -5223,12 +5223,6 @@
   "security": [
     {
       "APIKey": []
-    },
-    {
-      "APIKey": []
-    },
-    {
-      "APIKey": []
     }
   ],
   "servers": [
