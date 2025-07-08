@@ -182,11 +182,6 @@ img {
   text-decoration: none;
 }
 
-/* Better code block styling for technical documentation */
-.prism-code {
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
 
 /* Improve search input visibility */
 .navbar__search-input {
@@ -251,4 +246,34 @@ img {
     max-width: none !important;
     margin: 0 !important;
   }
+}
+
+html[dir="rtl"] .prism-code,
+html[dir="rtl"] .theme-code-block .prism-code,
+html[dir="rtl"] .theme-code-block pre,
+html[dir="rtl"] .codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module * {
+  /*rtl:ignore*/
+  direction: ltr !important;
+  /*rtl:ignore*/
+  text-align: left !important;
+  overflow-x: auto !important;
+  /*rtl:ignore*/
+  white-space: pre !important;
+}
+
+html[dir="rtl"] .theme-code-block pre code {
+  width: 100%;
+}
+
+/* Force the container to be LTR */
+html[dir="rtl"] .theme-code-block,
+html[dir="rtl"] .codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module {
+  /*rtl:ignore*/
+  direction: ltr !important;
+}
+
+.openapi-right-panel__container {
+  /*rtl:ignore*/
+  direction: ltr;
+
 }

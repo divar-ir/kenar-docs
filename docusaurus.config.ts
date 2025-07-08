@@ -6,7 +6,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 const isNetlifyPreview = process.env.IS_NETLIFY === 'true';
 
 const config: Config = {
-  title: 'کنار دیوار',
+  title: 'مستندات کنار دیوار',
   tagline: 'مستندات فنی پلتفرم کنار دیوار - راهنمای توسعه‌دهندگان',
   favicon: 'img/favicon.ico',
 
@@ -222,7 +222,7 @@ const config: Config = {
           editUrl: 'https://github.com/divar-ir/kenar-docs/edit/master/',
         },
         theme: {
-          customCss: './src/css/custom.css', // Your custom CSS file
+          customCss: require.resolve('./src/css/custom.css'),
         },
         sitemap: {
           changefreq: 'weekly',
@@ -282,7 +282,26 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["http", "json", "yaml", "diff", "python"],
+      additionalLanguages: [
+          'csharp',
+          'http',
+          'dart',
+          'go',
+          'http',
+          'java',
+          'javascript',
+          'kotlin',
+          'c',
+          'objectivec',
+          'ocaml',
+          'php',
+          'powershell',
+          'python',
+          'r',
+          'ruby',
+          'rust',
+          'swift',
+      ],
     },
     // Enhanced metadata for better SEO
     metadata: [
