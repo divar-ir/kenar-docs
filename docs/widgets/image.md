@@ -23,7 +23,6 @@ sequenceDiagram
 PUT /v2/image-service/open-platform/image.jpg HTTP/1.1
 Host: divar.ir
 Content-Type: image/jpeg
-Content-Length: 22
 
 "<file contents here>"
 ```
