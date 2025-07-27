@@ -1001,7 +1001,18 @@
           "HAND_CLICK",
           "WHATS_APP",
           "CHAT_SPARKLES",
-          "PUZZLE_SPARKLES"
+          "PUZZLE_SPARKLES",
+          "AI_STARS",
+          "CRISIS_SUPPORT",
+          "TEMPORARY_SHELTER",
+          "VOLUNTEER_AID",
+          "EMERGENCY_EQUIPMENT",
+          "RIDE_SHARING",
+          "LINK",
+          "BUSINESS_SERVICES",
+          "BELL",
+          "THUMB_DOWN_BORDER",
+          "THUMB_UP_BORDER"
         ],
         "type": "string"
       },
@@ -1202,7 +1213,8 @@
           "CONVERSATION_SEND_MESSAGE",
           "BUSINESS_ADDON_CREATE",
           "POST_SEMANTIC_CREATE",
-          "NOTIFICATION_ACCESS_REVOCATION"
+          "NOTIFICATION_ACCESS_REVOCATION",
+          "SEND_EVENT"
         ],
         "type": "string"
       },
@@ -1372,6 +1384,24 @@
           }
         },
         "type": "object"
+      },
+      "SendEventRequestTargetType": {
+        "enum": [
+          "USER",
+          "POST"
+        ],
+        "type": "string"
+      },
+      "TemporaryResidenceFieldsRoomsCount": {
+        "enum": [
+          "ROOMS_COUNT_0",
+          "ROOMS_COUNT_1",
+          "ROOMS_COUNT_2",
+          "ROOMS_COUNT_3",
+          "ROOMS_COUNT_4",
+          "ROOMS_COUNT_5_OR_MORE"
+        ],
+        "type": "string"
       },
       "addonsAction": {
         "description": "Represents an action that can be performed",
@@ -2575,6 +2605,109 @@
         ],
         "type": "string"
       },
+      "darvazeGetCarOwnershipStatusResponse": {
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/darvazeGetCarOwnershipStatusResponseStatus"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeGetCarOwnershipStatusResponseStatus": {
+        "enum": [
+          "PENDING",
+          "VERIFIED",
+          "REJECTED"
+        ],
+        "type": "string"
+      },
+      "darvazeIranianCarPlate": {
+        "properties": {
+          "area_code": {
+            "format": "int64",
+            "title": "2-digit numeric code representing the regional area (e.g., 12)",
+            "type": "integer"
+          },
+          "province_code": {
+            "format": "int64",
+            "title": "Province code identifying the issuing province (e.g., 66 for Tehran)",
+            "type": "integer"
+          },
+          "serial_letter": {
+            "title": "Single Persian letter indicating the car category or usage (e.g., \"ب\")",
+            "type": "string"
+          },
+          "serial_number": {
+            "format": "int64",
+            "title": "3-digit numeric sequence following the letter (e.g., 345)",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeRequestCarOwnershipDelegationResponse": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeRequestForPostCodeValidationResponse": {
+        "properties": {
+          "request_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeVerifyCarOwnershipDelegationResponse": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeVerifyCarOwnershipResponse": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeVerifyPostCodeValidationResponse": {
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/darvazeVerifyPostCodeValidationResponseStatus"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeVerifyPostCodeValidationResponseStatus": {
+        "enum": [
+          "PENDING",
+          "VERIFIED",
+          "REJECTED"
+        ],
+        "type": "string"
+      },
+      "eventsEventButton": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/addonsAction"
+          },
+          "title": {
+            "description": "The text to display on the button",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "eventsRegisterEventSubscriptionRequest": {
         "properties": {
           "event_resource_id": {
@@ -2597,6 +2730,9 @@
         "type": "string"
       },
       "eventsRegisterEventSubscriptionResponse": {
+        "type": "object"
+      },
+      "eventsSendEventResponse": {
         "type": "object"
       },
       "finderGetAllDevelopmentPostsResponse": {
@@ -2637,6 +2773,10 @@
           "is_phone_hidden": {
             "title": "This field is available only in webhook requests",
             "type": "boolean"
+          },
+          "last_modified_at": {
+            "format": "date-time",
+            "type": "string"
           },
           "state": {
             "$ref": "#/components/schemas/finderPostExtState"
@@ -3048,6 +3188,162 @@
         },
         "type": "object"
       },
+      "postSubmitEmergencyResidencePostRequest": {
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "images": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "phone_number": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "postSubmitEmergencyResidencePostResponse": {
+        "properties": {
+          "post_token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "postSubmitPostRequest": {
+        "properties": {
+          "chat_enabled": {
+            "description": "Whether to enable chat",
+            "example": true,
+            "type": "boolean"
+          },
+          "city": {
+            "description": "City of the post",
+            "example": "tehran",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description of the post",
+            "example": "I'm available only in chat.",
+            "type": "string"
+          },
+          "district": {
+            "description": "District of the post",
+            "example": "abshar",
+            "type": "string"
+          },
+          "hide_phone": {
+            "description": "Whether to hide the phone number from demand users",
+            "example": true,
+            "type": "boolean"
+          },
+          "images": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "latitude": {
+            "description": "Latitude of the post",
+            "example": 35.7152,
+            "format": "double",
+            "type": "number"
+          },
+          "longitude": {
+            "description": "Longitude of the post",
+            "example": 51.4043,
+            "format": "double",
+            "type": "number"
+          },
+          "temporary_residence": {
+            "$ref": "#/components/schemas/postTemporaryResidenceFields"
+          },
+          "title": {
+            "description": "Title of the post",
+            "example": "Temporary Residence for Rent in Tehran",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "postSubmitPostResponse": {
+        "properties": {
+          "post_token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "postTemporaryResidenceFields": {
+        "properties": {
+          "area": {
+            "description": "Area of the residence in square meters",
+            "example": 100,
+            "format": "int32",
+            "type": "integer"
+          },
+          "extra_person_capacity": {
+            "description": "Number of allowed extra people that can stay in the residence",
+            "example": 2,
+            "format": "int32",
+            "type": "integer"
+          },
+          "has_own_image": {
+            "description": "Whether the images are of the property itself and not decorative/stock photos.",
+            "example": true,
+            "type": "boolean"
+          },
+          "price_cost_per_extra_person": {
+            "description": "Cost per extra person per night in Rial",
+            "example": 1500000,
+            "format": "int64",
+            "type": "string"
+          },
+          "price_regular_days": {
+            "description": "Price of the residence for regular days (Saturday to Tuesday) in Rial",
+            "example": 10000000,
+            "format": "int64",
+            "type": "string"
+          },
+          "price_special_days": {
+            "description": "Price of the residence for special days (holidays and occasions) in Rial",
+            "example": 15000000,
+            "format": "int64",
+            "type": "string"
+          },
+          "price_weekends": {
+            "description": "Price of the residence for weekends (Wednesday to Friday) in Rial",
+            "example": 12000000,
+            "format": "int64",
+            "type": "string"
+          },
+          "regular_person_capacity": {
+            "description": "Number of allowed regular people that can stay in the residence",
+            "example": 4,
+            "format": "int32",
+            "type": "integer"
+          },
+          "rooms_count": {
+            "$ref": "#/components/schemas/TemporaryResidenceFieldsRoomsCount"
+          }
+        },
+        "type": "object"
+      },
       "protobufAny": {
         "additionalProperties": {},
         "description": "`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با\nURL که نوع پیام سریالایز شده را توضیح می‌دهد.\n\nکتابخانه Protobuf پشتیبانی برای pack/unpack مقادیر Any را به شکل\nتوابع کاربردی یا متدهای اضافی تولید شده نوع Any ارائه می‌دهد.\n\nمثال 1: Pack و unpack پیام در C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nمثال 2: Pack و unpack پیام در Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nمثال 3: Pack و unpack پیام در Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nمثال 4: Pack و unpack پیام در Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nمتدهای pack ارائه شده توسط کتابخانه protobuf به طور پیش‌فرض از\n'type.googleapis.com/full.type.name' به عنوان URL نوع استفاده می‌کنند و متدهای unpack\nفقط از نام نوع کاملاً واجد شرایط پس از آخرین '/'\nدر URL نوع استفاده می‌کنند، مثلاً \"foo.bar.com/x/y.z\" نام نوع\n\"y.z\" را ایجاد می‌کند.\n\n\nJSON\n\nنمایش JSON یک مقدار `Any` از نمایش معمولی\nپیام deserialize شده و جاسازی شده، با یک\nفیلد اضافی `@type` که شامل URL نوع است، استفاده می‌کند. مثال:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nاگر نوع پیام جاسازی شده شناخته شده باشد و نمایش JSON سفارشی\nداشته باشد، آن نمایش با افزودن فیلد\n`value` که JSON سفارشی را علاوه بر فیلد `@type`\nنگه می‌دارد، جاسازی می‌شود. مثال (برای پیام [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }",
@@ -3371,6 +3667,168 @@
         ]
       }
     },
+    "/experimental/open-platform/events/send": {
+      "post": {
+        "description": "Using this API, you can send an event to a user. The event can be specific to a post or general. The event can include buttons with custom actions allowing users to interact with your app.",
+        "operationId": "Events_SendEvent",
+        "parameters": [
+          {
+            "description": "The event message to display to the user",
+            "in": "query",
+            "name": "message",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The text to display on the button",
+            "in": "query",
+            "name": "primary_button.title",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "An action to send user to your URL directly with just a resource id (if applicable)",
+            "in": "query",
+            "name": "primary_button.action.open_direct_link",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
+            "in": "query",
+            "name": "primary_button.action.open_server_link.data",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
+            "in": "query",
+            "name": "primary_button.action.get_dynamic_action.data",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Token of the post to open",
+            "in": "query",
+            "name": "primary_button.action.open_post_page.post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Token of the post to redirect to its management page",
+            "in": "query",
+            "name": "primary_button.action.open_post_manage_page.post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The text to display on the button",
+            "in": "query",
+            "name": "secondary_button.title",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "An action to send user to your URL directly with just a resource id (if applicable)",
+            "in": "query",
+            "name": "secondary_button.action.open_direct_link",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
+            "in": "query",
+            "name": "secondary_button.action.open_server_link.data",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
+            "in": "query",
+            "name": "secondary_button.action.get_dynamic_action.data",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "description": "Token of the post to open",
+            "in": "query",
+            "name": "secondary_button.action.open_post_page.post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Token of the post to redirect to its management page",
+            "in": "query",
+            "name": "secondary_button.action.open_post_manage_page.post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Target of the event; USER or POST",
+            "in": "query",
+            "name": "target_type",
+            "schema": {
+              "enum": [
+                "USER",
+                "POST"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "id of the target. When target type is USER, it should be the Divar User ID of that user and when target type is POST, it should be the post token. ",
+            "in": "query",
+            "name": "target_resource_id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventsSendEventResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Send an event to a user",
+        "tags": [
+          "Events"
+        ]
+      }
+    },
     "/experimental/open-platform/post/{post_token}/reorder": {
       "post": {
         "description": "قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
@@ -3419,6 +3877,89 @@
         },
         "tags": [
           "limited"
+        ]
+      }
+    },
+    "/experimental/open-platform/posts/emergency-residence": {
+      "post": {
+        "operationId": "Post_SubmitEmergencyResidencePost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postSubmitEmergencyResidencePostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postSubmitEmergencyResidencePostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Submit an emergency residence post",
+        "tags": [
+          "Post"
+        ]
+      }
+    },
+    "/experimental/open-platform/posts/new": {
+      "post": {
+        "description": "This API allows you to submit a post. This needs `POST_SUBMIT` OAuth scope.\nYou can submit a post with title, description, and images and other fields. There are general fields and category specific fields.",
+        "operationId": "Post_SubmitPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postSubmitPostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postSubmitPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Submit a post",
+        "tags": [
+          "Post"
         ]
       }
     },
@@ -5239,6 +5780,9 @@
     },
     {
       "name": "ChatAPI"
+    },
+    {
+      "name": "Darvaze"
     },
     {
       "name": "Events"

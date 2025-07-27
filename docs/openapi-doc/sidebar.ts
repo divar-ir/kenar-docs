@@ -220,6 +220,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "openapi-doc/events-send-event",
+          label: "Send an event to a user",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/events-register-event-subscription",
           label: "اشتراک در رویداد",
           className: "api-method post",
@@ -274,6 +280,18 @@ const sidebar: SidebarsConfig = {
         id: "openapi-doc/post",
       },
       items: [
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-emergency-residence-post",
+          label: "Submit an emergency residence post",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-post",
+          label: "Submit a post",
+          className: "api-method post",
+        },
         {
           type: "doc",
           id: "openapi-doc/post-get-post-stats",
@@ -650,6 +668,18 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/semanticcreateusersemanticbody",
           label: "SemanticCreateUserSemanticBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/sendeventrequesttargettype",
+          label: "SendEventRequestTargetType",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/temporaryresidencefieldsroomscount",
+          label: "TemporaryResidenceFieldsRoomsCount",
           className: "schema",
         },
         {
@@ -1134,6 +1164,66 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/darvazegetcarownershipstatusresponse",
+          label: "darvazeGetCarOwnershipStatusResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazegetcarownershipstatusresponsestatus",
+          label: "darvazeGetCarOwnershipStatusResponseStatus",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazeiraniancarplate",
+          label: "darvazeIranianCarPlate",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazerequestcarownershipdelegationresponse",
+          label: "darvazeRequestCarOwnershipDelegationResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazerequestforpostcodevalidationresponse",
+          label: "darvazeRequestForPostCodeValidationResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazeverifycarownershipdelegationresponse",
+          label: "darvazeVerifyCarOwnershipDelegationResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazeverifycarownershipresponse",
+          label: "darvazeVerifyCarOwnershipResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazeverifypostcodevalidationresponse",
+          label: "darvazeVerifyPostCodeValidationResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazeverifypostcodevalidationresponsestatus",
+          label: "darvazeVerifyPostCodeValidationResponseStatus",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/eventseventbutton",
+          label: "eventsEventButton",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/eventsregistereventsubscriptionrequest",
           label: "eventsRegisterEventSubscriptionRequest",
           className: "schema",
@@ -1148,6 +1238,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/eventsregistereventsubscriptionresponse",
           label: "eventsRegisterEventSubscriptionResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/eventssendeventresponse",
+          label: "eventsSendEventResponse",
           className: "schema",
         },
         {
@@ -1322,6 +1418,36 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postgetpoststatsresponse",
           label: "postGetPostStatsResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmitemergencyresidencepostrequest",
+          label: "postSubmitEmergencyResidencePostRequest",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmitemergencyresidencepostresponse",
+          label: "postSubmitEmergencyResidencePostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmitpostrequest",
+          label: "postSubmitPostRequest",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmitpostresponse",
+          label: "postSubmitPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/posttemporaryresidencefields",
+          label: "postTemporaryResidenceFields",
           className: "schema",
         },
         {
