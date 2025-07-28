@@ -28,16 +28,14 @@ jobs:
         with:
           path: build
 
-  deploy:
+  deploy-pages:
     name: Deploy to GitHub Pages
     needs: build
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -47,3 +45,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-kise:
+    name: Deploy to Kise(s3)
+    needs: build
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.KISE_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.KISE_SECRET_KEY }}
+          aws-region: us-east-1
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync ./build s3://${{ secrets.KISE_BUCKET }} \
+            --endpoint-url ${{ secrets.KISE_HOST }} \
+            --delete
