@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Divar Dev
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  build-divar-dev:
     name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
@@ -22,6 +22,9 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
+        env:
+          PATH_PREFIX: "/"
+          DEPLOY_PRIME_URL: "https://kenar.divar.dev"
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
@@ -29,32 +32,9 @@ jobs:
           name: build-files
           path: build
 
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
-
-  deploy-pages:
-    name: Deploy to GitHub Pages
-    needs: build
-
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
   deploy-kise:
     name: Deploy to Kise(s3)
-    needs: build
+    needs: build-divar-dev
 
     runs-on: ubuntu-latest
     steps:

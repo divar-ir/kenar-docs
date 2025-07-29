@@ -3,15 +3,16 @@ import type { Config } from '@docusaurus/types';
 import type { ThemeConfig } from '@docusaurus/preset-classic';
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
-const isNetlifyPreview = process.env.IS_NETLIFY === 'true';
+const pathPrefix = process.env.PATH_PREFIX ? process.env.PATH_PREFIX : '/kenar-docs/';
+const url = process.env.DEPLOY_PRIME_URL ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io';
 
 const config: Config = {
   title: 'مستندات کنار دیوار',
   tagline: 'مستندات فنی پلتفرم کنار دیوار - راهنمای توسعه‌دهندگان',
   favicon: 'img/favicon.ico',
 
-  url: (isNetlifyPreview && process.env.DEPLOY_PRIME_URL) ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io',
-  baseUrl: isNetlifyPreview ? '/' : '/kenar-docs',
+  baseUrl: pathPrefix,
+  url: url,
 
   organizationName: 'divar-ir',
   projectName: 'kenar-docs',
@@ -156,7 +157,7 @@ const config: Config = {
               groupPathsBy: "tag",
               categoryLinkSource: "tag"
             },
-            baseUrl: "/openapi-doc/", 
+            baseUrl: "/openapi-doc/",
             downloadUrl:
               "https://raw.githubusercontent.com/divar-ir/kenar-docs/main/static/openapi-v3.yaml",
             showSchemas: true,
@@ -283,24 +284,24 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: [
-          'csharp',
-          'http',
-          'dart',
-          'go',
-          'http',
-          'java',
-          'javascript',
-          'kotlin',
-          'c',
-          'objectivec',
-          'ocaml',
-          'php',
-          'powershell',
-          'python',
-          'r',
-          'ruby',
-          'rust',
-          'swift',
+        'csharp',
+        'http',
+        'dart',
+        'go',
+        'http',
+        'java',
+        'javascript',
+        'kotlin',
+        'c',
+        'objectivec',
+        'ocaml',
+        'php',
+        'powershell',
+        'python',
+        'r',
+        'ruby',
+        'rust',
+        'swift',
       ],
     },
     // Enhanced metadata for better SEO
