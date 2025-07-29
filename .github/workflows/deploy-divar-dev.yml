@@ -48,6 +48,7 @@ jobs:
         run: |
           aws s3 sync ./build s3://${{ secrets.KISE_BUCKET }} \
             --endpoint-url ${{ secrets.KISE_HOST }} \
+            --acl public-read \
             --delete
 
         env:
