@@ -19,7 +19,7 @@
 ---
 
 <a href="https://kenar.divar.dev" target="_blank">
-  <img src="https://img.shields.io/badge/📖%20Documentation-divar--ir.github.io/kenar--docs-2E86AB?style=for-the-badge&logoColor=white" alt="View Documentation" />
+  <img src="https://img.shields.io/badge/📖%20Documentation-kenar.divar.dev-2E86AB?style=for-the-badge&logoColor=white" alt="View Documentation" />
 </a>
 
 </div>
@@ -46,7 +46,6 @@
 <div align="center">
   
 ## 🎁 جوایز مشارکت
-
 
 <img src="https://img.icons8.com/color/96/000000/coffee-to-go.png" alt="Coffee" width="100"/>
 
