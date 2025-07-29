@@ -1,7 +1,7 @@
 <div align="center">
 
-# 📚 مستندات کنار ([divar-ir.github.io/kenar-docs](https://divar-ir.github.io/kenar-docs))
-<a href="https://divar-ir.github.io/kenar-docs" target="_blank">
+# 📚 مستندات کنار ([divar-ir.github.io/kenar-docs](https://kenar.divar.dev))
+<a href="https://kenar.divar.dev" target="_blank">
   <img src="./static/img/logo.svg" alt="Kenar Logo" width="200"/>
 </a>
 
@@ -17,7 +17,7 @@
 
 ---
 
-<a href="https://divar-ir.github.io/kenar-docs" target="_blank">
+<a href="https://kenar.divar.dev" target="_blank">
   <img src="https://img.shields.io/badge/📖%20Documentation-divar--ir.github.io/kenar--docs-2E86AB?style=for-the-badge&logoColor=white" alt="View Documentation" />
 </a>
 
@@ -27,7 +27,7 @@
 
 ## 🚀 دسترسی سریع
 
-### 📖 [👈 مشاهده مستندات کامل](https://divar-ir.github.io/kenar-docs)
+### 📖 [👈 مشاهده مستندات کامل](https://kenar.divar.dev)
 
 **لینک‌های مفید:**
 - 🏠 [صفحه اصلی کنار](https://divar.ir/kenar)

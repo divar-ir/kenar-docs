@@ -75,7 +75,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'canonical',
-        href: 'https://divar-ir.github.io/kenar-docs/',
+        href: 'https://kenar.divar.dev/',
       },
     },
     {
@@ -126,13 +126,13 @@ const config: Config = {
           name: 'Divar',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+            url: 'https://kenar.divar.dev/img/logo.svg',
           },
         },
         inLanguage: 'fa-IR',
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': 'https://divar-ir.github.io/kenar-docs/',
+          '@id': 'https://kenar.divar.dev/',
         },
       }),
     },
@@ -320,11 +320,11 @@ const config: Config = {
       },
       {
         property: 'og:image',
-        content: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+        content: 'https://kenar.divar.dev/img/logo.svg',
       },
       {
         property: 'og:url',
-        content: 'https://divar-ir.github.io/kenar-docs/',
+        content: 'https://kenar.divar.dev/',
       },
       {
         property: 'og:locale',
@@ -340,7 +340,7 @@ const config: Config = {
       },
       {
         name: 'twitter:image',
-        content: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+        content: 'https://kenar.divar.dev/img/logo.svg',
       },
       {
         name: 'application-name',
