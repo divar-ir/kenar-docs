@@ -1012,7 +1012,10 @@
           "BUSINESS_SERVICES",
           "BELL",
           "THUMB_DOWN_BORDER",
-          "THUMB_UP_BORDER"
+          "THUMB_UP_BORDER",
+          "CALL_MADE",
+          "CALL_RECEIVED",
+          "CALL_O"
         ],
         "type": "string"
       },
@@ -2605,6 +2608,24 @@
         ],
         "type": "string"
       },
+      "darvazeGenerateOrderForPostCodeValidationResponse": {
+        "properties": {
+          "order_id": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/darvazeGenerateOrderForPostCodeValidationResponseStatus"
+          }
+        },
+        "type": "object"
+      },
+      "darvazeGenerateOrderForPostCodeValidationResponseStatus": {
+        "enum": [
+          "SUCCESS",
+          "FAILED"
+        ],
+        "type": "string"
+      },
       "darvazeGetCarOwnershipStatusResponse": {
         "properties": {
           "description": {
@@ -3309,26 +3330,26 @@
             "type": "boolean"
           },
           "price_cost_per_extra_person": {
-            "description": "Cost per extra person per night in Rial",
-            "example": 1500000,
+            "description": "Cost per extra person per night in Toman",
+            "example": 150000,
             "format": "int64",
             "type": "string"
           },
           "price_regular_days": {
-            "description": "Price of the residence for regular days (Saturday to Tuesday) in Rial",
-            "example": 10000000,
+            "description": "Price of the residence for regular days (Saturday to Tuesday) in Toman",
+            "example": 1000000,
             "format": "int64",
             "type": "string"
           },
           "price_special_days": {
-            "description": "Price of the residence for special days (holidays and occasions) in Rial",
-            "example": 15000000,
+            "description": "Price of the residence for special days (holidays and occasions) in Toman",
+            "example": 1500000,
             "format": "int64",
             "type": "string"
           },
           "price_weekends": {
-            "description": "Price of the residence for weekends (Wednesday to Friday) in Rial",
-            "example": 12000000,
+            "description": "Price of the residence for weekends (Wednesday to Friday) in Toman",
+            "example": 1200000,
             "format": "int64",
             "type": "string"
           },

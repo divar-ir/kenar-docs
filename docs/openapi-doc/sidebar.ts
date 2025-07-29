@@ -1164,6 +1164,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/darvazegenerateorderforpostcodevalidationresponse",
+          label: "darvazeGenerateOrderForPostCodeValidationResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazegenerateorderforpostcodevalidationresponsestatus",
+          label: "darvazeGenerateOrderForPostCodeValidationResponseStatus",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/darvazegetcarownershipstatusresponse",
           label: "darvazeGetCarOwnershipStatusResponse",
           className: "schema",
