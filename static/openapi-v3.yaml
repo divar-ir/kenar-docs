@@ -3944,7 +3944,7 @@
     },
     "/experimental/open-platform/posts/new": {
       "post": {
-        "description": "This API allows you to submit a post. This needs `POST_SUBMIT` OAuth scope.\nYou can submit a post with title, description, and images and other fields. There are general fields and category specific fields.",
+        "description": "این API به شما امکان ثبت آگهی را می‌دهد. این نیاز به دامنه OAuth `POST_SUBMIT` دارد.\nمی‌توانید آگهی را با عنوان، توضیحات، تصاویر و سایر فیلدها ثبت کنید. فیلدهای عمومی و فیلدهای مخصوص دسته‌بندی وجود دارند.",
         "operationId": "Post_SubmitPost",
         "requestBody": {
           "content": {
@@ -3978,7 +3978,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Submit a post",
+        "summary": "ثبت آگهی",
         "tags": [
           "Post"
         ]

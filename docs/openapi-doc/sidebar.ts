@@ -289,7 +289,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/post-submit-post",
-          label: "Submit a post",
+          label: "ثبت آگهی",
           className: "api-method post",
         },
         {
