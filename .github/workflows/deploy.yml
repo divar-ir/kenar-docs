@@ -66,20 +66,13 @@ jobs:
 
       - name: Sync to S3
         run: |
-          aws --version
-
           aws s3 sync ./build s3://${{ secrets.KISE_BUCKET }} \
             --endpoint-url ${{ secrets.KISE_HOST }} \
-            --delete \
-            --content-type "text/html" \
-            --exclude "*" \
-            --include "*.html"
-
-          aws s3 sync ./build s3://${{ vars.S3_BUCKET_NAME }} \
-            --endpoint-url ${{ vars.S3_ENDPOINT_URL }} \
-            --exclude "*.html"
+            --delete
 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.KISE_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.KISE_SECRET_KEY }}
           AWS_DEFAULT_REGION: us-east-1
+          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
