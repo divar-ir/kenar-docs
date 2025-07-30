@@ -10,7 +10,12 @@ const config: Config = {
   title: 'مستندات کنار دیوار',
   tagline: 'مستندات فنی پلتفرم کنار دیوار - راهنمای توسعه‌دهندگان',
   favicon: 'img/favicon.ico',
-
+ future: {
+    // Activates the experimental Rust-based toolchain (Rspack/SWC) for significantly faster builds and hot-reloads.
+    experimental_faster: true,
+    // Enables all upcoming breaking changes for Docusaurus v4, preparing the site for future updates.
+    v4: true,
+  },
   baseUrl: pathPrefix,
   url: url,
 
