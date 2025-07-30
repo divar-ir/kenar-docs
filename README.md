@@ -1,7 +1,9 @@
+
 <div align="center">
 
-# 📚 مستندات کنار ([divar-ir.github.io/kenar-docs](https://divar-ir.github.io/kenar-docs))
-<a href="https://divar-ir.github.io/kenar-docs" target="_blank">
+# 📚 مستندات کنار ([kenar.divar.dev](https://kenar.divar.dev))
+
+<a href="https://kenar.divar.dev" target="_blank">
   <img src="./static/img/logo.svg" alt="Kenar Logo" width="200"/>
 </a>
 
@@ -17,8 +19,8 @@
 
 ---
 
-<a href="https://divar-ir.github.io/kenar-docs" target="_blank">
-  <img src="https://img.shields.io/badge/📖%20Documentation-divar--ir.github.io/kenar--docs-2E86AB?style=for-the-badge&logoColor=white" alt="View Documentation" />
+<a href="https://kenar.divar.dev" target="_blank">
+  <img src="https://img.shields.io/badge/📖%20Documentation-kenar.divar.dev-2E86AB?style=for-the-badge&logoColor=white" alt="View Documentation" />
 </a>
 
 </div>
@@ -27,13 +29,15 @@
 
 ## 🚀 دسترسی سریع
 
-### 📖 [👈 مشاهده مستندات کامل](https://divar-ir.github.io/kenar-docs)
+### 📖 [👈 مشاهده مستندات کامل](https://kenar.divar.dev)
 
 **لینک‌های مفید:**
+
 - 🏠 [صفحه اصلی کنار](https://divar.ir/kenar)
 - 🛠️ [پنل مدیریت توسعه‌دهندگان](https://divar.ir/kenar/management)
 - 🎫 [گزارش مشکل](https://divar.ir/kenar/management/issues/new)
 - 💬 [انجمن توسعه‌دهندگان](https://t.me/kenar_community)
+- 📢 [کانال اعلانات فنی](https://t.me/divar_kenar_news)
 
 > 💡 **نکته مهم:** برای دریافت کلید API و شروع توسعه، ابتدا در پنل کنار ثبت‌نام کنید.
 
@@ -41,20 +45,17 @@
 
 ---
 
-
 <div align="center">
   
 ## 🎁 جوایز مشارکت
-  
 
 <img src="https://img.icons8.com/color/96/000000/coffee-to-go.png" alt="Coffee" width="100"/>
 
-مشارکت‌ شما برای ما ارزشمند است. با بهبود دادن مستندات و مشارکت مفید یک فنجان قهوه مهمان ما باشید.
-اگر مشارکت شما فوق‌العاده باشد، از طرف تیم کنار دعوت خواهیدشد تا از ساختمان ما به عنوان مهمان بازدید کنید و با اعضای تیم آشنا شوید! ☕️🏢
+مشارکت شما برای ما ارزشمند است! با بهبود دادن مستندات و مشارکت مفید، یک فنجان قهوه مهمان ما باشید.
+اگر مشارکت شما فوق‌العاده باشد، از طرف تیم کنار دعوت خواهید شد تا از ساختمان ما به عنوان مهمان بازدید کنید و با اعضای تیم آشنا شوید! ☕️🏢
 
+## 👥 مشارکت کنندگان برتر
 
-## 👥 مشارکت کنندگان برتر 
-  
 <a href="https://github.com/divar-ir/kenar-docs/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=divar-ir/kenar-docs&max=6" />
 </a>
@@ -79,6 +80,7 @@
 ---
 
 ### ⭐ نمودار رشد ستاره‌ها
+
 ![Star History Chart](https://api.star-history.com/svg?repos=divar-ir/kenar-docs&type=Date)
 
 ---

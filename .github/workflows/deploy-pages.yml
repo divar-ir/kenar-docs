@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  build-pages:
     name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
@@ -22,22 +22,29 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
+        env:
+          PATH_PREFIX: "/kenar-docs/"
+          DEPLOY_PRIME_URL: "https://divar-ir.github.io"
 
       - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: build
+
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
 
-  deploy:
+  deploy-pages:
     name: Deploy to GitHub Pages
-    needs: build
+    needs: build-pages
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

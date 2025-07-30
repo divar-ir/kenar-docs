@@ -289,7 +289,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/post-submit-post",
-          label: "Submit a post",
+          label: "ثبت آگهی",
           className: "api-method post",
         },
         {
@@ -1160,6 +1160,18 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/chatapimessagetype",
           label: "chatapiMessageType",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazegenerateorderforpostcodevalidationresponse",
+          label: "darvazeGenerateOrderForPostCodeValidationResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/darvazegenerateorderforpostcodevalidationresponsestatus",
+          label: "darvazeGenerateOrderForPostCodeValidationResponseStatus",
           className: "schema",
         },
         {

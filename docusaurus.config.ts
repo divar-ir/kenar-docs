@@ -3,7 +3,8 @@ import type { Config } from '@docusaurus/types';
 import type { ThemeConfig } from '@docusaurus/preset-classic';
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
-const isNetlifyPreview = process.env.IS_NETLIFY === 'true';
+const pathPrefix = process.env.PATH_PREFIX ? process.env.PATH_PREFIX : '/kenar-docs/';
+const url = process.env.DEPLOY_PRIME_URL ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io';
 
 const config: Config = {
   title: 'مستندات کنار دیوار',
@@ -17,6 +18,7 @@ const config: Config = {
   },
   url: (isNetlifyPreview && process.env.DEPLOY_PRIME_URL) ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io',
   baseUrl: isNetlifyPreview ? '/' : '/kenar-docs',
+
 
   organizationName: 'divar-ir',
   projectName: 'kenar-docs',
@@ -79,7 +81,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'canonical',
-        href: 'https://divar-ir.github.io/kenar-docs/',
+        href: 'https://kenar.divar.dev/',
       },
     },
     {
@@ -130,13 +132,13 @@ const config: Config = {
           name: 'Divar',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+            url: 'https://kenar.divar.dev/img/logo.svg',
           },
         },
         inLanguage: 'fa-IR',
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': 'https://divar-ir.github.io/kenar-docs/',
+          '@id': 'https://kenar.divar.dev/',
         },
       }),
     },
@@ -324,11 +326,11 @@ const config: Config = {
       },
       {
         property: 'og:image',
-        content: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+        content: 'https://kenar.divar.dev/img/logo.svg',
       },
       {
         property: 'og:url',
-        content: 'https://divar-ir.github.io/kenar-docs/',
+        content: 'https://kenar.divar.dev/',
       },
       {
         property: 'og:locale',
@@ -344,7 +346,7 @@ const config: Config = {
       },
       {
         name: 'twitter:image',
-        content: 'https://divar-ir.github.io/kenar-docs/img/logo.svg',
+        content: 'https://kenar.divar.dev/img/logo.svg',
       },
       {
         name: 'application-name',

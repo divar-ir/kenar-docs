@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://divar-ir.github.io/kenar-docs/sitemap.xml
+Sitemap: https://kenar.divar.dev/sitemap.xml
 
 # Disallow certain paths for better crawling
 Disallow: /search
