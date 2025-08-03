@@ -40,12 +40,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/addons-get-user-addons",
-          label: "دریافت تمام افزونه‌های کاربر",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
           id: "openapi-doc/addons-create-post-addon-v-2",
           label: "افزودن افزونه جدید به آگهی",
           className: "api-method post",
@@ -55,12 +49,6 @@ const sidebar: SidebarsConfig = {
           id: "openapi-doc/addons-create-user-addon-v-2",
           label: "افزودن افزونه جدید به کاربر",
           className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/addons-get-user-addons-2",
-          label: "دریافت تمام افزونه‌های کاربر",
-          className: "api-method get",
         },
         {
           type: "doc",
@@ -414,12 +402,6 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "openapi-doc/schemas/addonsecondarylinkageposition",
-          label: "AddonSecondaryLinkagePosition",
-          className: "schema",
-        },
-        {
-          type: "doc",
           id: "openapi-doc/schemas/addonsemanticcarverificationstage",
           label: "AddonSemanticCarVerificationStage",
           className: "schema",
@@ -642,12 +624,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/searchpostitemservicesfields",
-          label: "SearchPostItemServicesFields",
-          className: "schema",
-        },
-        {
-          type: "doc",
           id: "openapi-doc/schemas/searchpostitemtoolsmaterialsequipmentfields",
           label: "SearchPostItemToolsMaterialsEquipmentFields",
           className: "schema",
@@ -678,6 +654,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/submitpostrequestlocationtype",
+          label: "SubmitPostRequestLocationType",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/temporaryresidencefieldsroomscount",
           label: "TemporaryResidenceFieldsRoomsCount",
           className: "schema",
@@ -704,6 +686,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/addonsaddonsecondarylinkage",
           label: "addonsAddonSecondaryLinkage",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/addonsaddonsecondarylinkageposition",
+          label: "addonsAddonSecondaryLinkagePosition",
           className: "schema",
         },
         {
@@ -818,12 +806,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/addonsgetpostaddonsresponse",
           label: "addonsGetPostAddonsResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/addonsgetuseraddonsresponse",
-          label: "addonsGetUserAddonsResponse",
           className: "schema",
         },
         {
@@ -1164,72 +1146,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/darvazegenerateorderforpostcodevalidationresponse",
-          label: "darvazeGenerateOrderForPostCodeValidationResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazegenerateorderforpostcodevalidationresponsestatus",
-          label: "darvazeGenerateOrderForPostCodeValidationResponseStatus",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazegetcarownershipstatusresponse",
-          label: "darvazeGetCarOwnershipStatusResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazegetcarownershipstatusresponsestatus",
-          label: "darvazeGetCarOwnershipStatusResponseStatus",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazeiraniancarplate",
-          label: "darvazeIranianCarPlate",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazerequestcarownershipdelegationresponse",
-          label: "darvazeRequestCarOwnershipDelegationResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazerequestforpostcodevalidationresponse",
-          label: "darvazeRequestForPostCodeValidationResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazeverifycarownershipdelegationresponse",
-          label: "darvazeVerifyCarOwnershipDelegationResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazeverifycarownershipresponse",
-          label: "darvazeVerifyCarOwnershipResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazeverifypostcodevalidationresponse",
-          label: "darvazeVerifyPostCodeValidationResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/darvazeverifypostcodevalidationresponsestatus",
-          label: "darvazeVerifyPostCodeValidationResponseStatus",
-          className: "schema",
-        },
-        {
-          type: "doc",
           id: "openapi-doc/schemas/eventseventbutton",
           label: "eventsEventButton",
           className: "schema",
@@ -1302,6 +1218,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/findersearchpostitemservicesfields",
+          label: "finderSearchPostItemServicesFields",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/findersearchpostv-2-response",
           label: "finderSearchPostV2Response",
           className: "schema",
@@ -1346,6 +1268,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/managementpreset",
           label: "managementPreset",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/open-platformpostservicesfields",
+          label: "open_platformpostServicesFields",
           className: "schema",
         },
         {
@@ -1430,6 +1358,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postgetpoststatsresponse",
           label: "postGetPostStatsResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postservicesfieldscategory",
+          label: "postServicesFieldsCategory",
           className: "schema",
         },
         {
