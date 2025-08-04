@@ -7,6 +7,12 @@ const pathPrefix = process.env.PATH_PREFIX ? process.env.PATH_PREFIX : '/kenar-d
 const url = process.env.DEPLOY_PRIME_URL ? process.env.DEPLOY_PRIME_URL : 'https://divar-ir.github.io';
 
 const config: Config = {
+  future: {
+    // Activates the experimental Rust-based toolchain (Rspack/SWC) for significantly faster builds and hot-reloads.
+    experimental_faster: true,
+    // Enables all upcoming breaking changes for Docusaurus v4, preparing the site for future updates.
+    v4: true,
+  },
   title: 'مستندات کنار دیوار',
   tagline: 'مستندات فنی پلتفرم کنار دیوار - راهنمای توسعه‌دهندگان',
   favicon: 'img/favicon.ico',
