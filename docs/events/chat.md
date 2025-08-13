@@ -6,7 +6,7 @@
 |      `id`      |              string              |                            شناسه‌ی پیام |
 | `conversation` |  [Conversation](#conversation)   |   مکالمه‌ای که پیام در آن ارسال شده است |
 |    `sender`    | [MessageSender](#message-sender) |                      ارسال‌کننده‌ی پیام |
-|     `type`     |              string              | نوع پیام: `TEXT`، `IMAGE`، `FILE`، `VOICE`، `LOCATION`، `VIDEO` |
+|     `type`     |              string              | نوع پیام: `TEXT`، `IMAGE`، `FILE`، `VOICE`، `LOCATION`، `VIDEO`، `CONTACT` |
 |   `sent_at`    |        Timestamp (int64)         |                         زمان ارسال پیام |
 |     `text`     |              string              |  متن پیام (در صورتی که نوع پیام `TEXT` باشد) |
 |  `image_data`  |      [ImageData](#imagedata)     | اطلاعات تصویر (در صورتی که نوع پیام `IMAGE` باشد) |
@@ -14,6 +14,7 @@
 |  `voice_data`  |     [VoiceData](#voicedata)      | اطلاعات صوتی (در صورتی که نوع پیام `VOICE` باشد) |
 | `location_data`|    [LocationData](#locationdata) | موقعیت مکان (در صورتی که نوع پیام `LOCATION` باشد) |
 |  `video_data`  |     [VideoData](#videodata)      |  اطلاعات ویدئو (در صورتی که نوع پیام `VIDEO` باشد) |
+| `contact_data` |    [ContactData](#contactdata)   | اطلاعات تماس (در صورتی که نوع پیام `CONTACT` باشد) |
 
 #### Text
 
@@ -195,6 +196,36 @@
     "link": "https://example.com/videos/video.mp4",
     "thumbnail_link": "https://example.com/videos/thumbnail.jpg",
     "size_bytes": 20971520
+  }
+}
+
+```
+#### ContactData
+
+| پارامتر |   نوع   |        توضیحات        |
+|:-------:|:-------:|----------------------|
+|  `name` |  string (Optional)  | نام کاربر (در صورتی که تنظیم کرده باشد، در غیر این صورت خالی) |
+| `phone` |  string  | شماره تلفن تماس     |
+
+#### نمونه پیام اطلاعات تماس (Contact)
+
+```json
+{
+  "id": "3edd6da4-d6df-4716-94e1-5836b7a8788b",
+  "conversation": {
+    "id": "edbb9499-cccc-4d35-b21f-621fa95f2b3e",
+    "type": "POST",
+    "post_token": "gZd7omnS"
+  },
+  "sender": {
+    "side": "SELLER",
+    "type": "USER"
+  },
+  "type": "CONTACT",
+  "sent_at": 1729430626140000,
+  "contact_data": {
+    "name": "Sample Name",
+    "phone": "+989123456789"
   }
 }
 ```
