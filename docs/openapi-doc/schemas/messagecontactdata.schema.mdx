@@ -1,12 +1,12 @@
 ---
-id: managementpreset
-title: "managementPreset"
+id: messagecontactdata
+title: "MessageContactData"
 description: ""
-sidebar_label: "managementPreset"
+sidebar_label: "MessageContactData"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: "LIGHT"
+sample: {"name":"string","phone":"string"}
 custom_edit_url: null
 ---
 
@@ -16,7 +16,7 @@ import Heading from "@theme/Heading";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"managementPreset"}
+  children={"MessageContactData"}
 >
 </Heading>
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"enum":["LIGHT","CRAFTSMEN","MOBILE_PHONES","APARTMENT_SELL","SUITE_APARTMENT"],"type":"string","title":"managementPreset"}}
+  schema={{"properties":{"name":{"type":"string"},"phone":{"type":"string"}},"type":"object","title":"MessageContactData"}}
   schemaType={"response"}
 >
   
