@@ -1,12 +1,12 @@
 ---
 id: submitpostrequestlocationtype
 title: "SubmitPostRequestLocationType"
-description: ""
+description: "Type of the location"
 sidebar_label: "SubmitPostRequestLocationType"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: "LOCATION_TYPE_EMPTY"
+sample: "LOCATION_TYPE_EXACT"
 custom_edit_url: null
 ---
 
@@ -22,10 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Type of the location
 
 <Schema
-  schema={{"enum":["LOCATION_TYPE_EMPTY","LOCATION_TYPE_EXACT","LOCATION_TYPE_APPROXIMATE"],"type":"string","title":"SubmitPostRequestLocationType"}}
+  schema={{"description":"Type of the location","enum":["LOCATION_TYPE_EMPTY","LOCATION_TYPE_EXACT","LOCATION_TYPE_APPROXIMATE"],"example":"LOCATION_TYPE_EXACT","type":"string","title":"SubmitPostRequestLocationType"}}
   schemaType={"response"}
 >
   
