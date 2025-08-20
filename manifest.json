@@ -1,0 +1,35 @@
+{
+  "name": "کنار دیوار - مستندات فنی",
+  "short_name": "کنار دیوار",
+  "description": "مستندات کامل API های کنار دیوار - راهنمای توسعه‌دهندگان برای ادغام با پلتفرم دیوار",
+  "start_url": "/kenar-docs/",
+  "display": "standalone",
+  "theme_color": "#a62626",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "lang": "fa-IR",
+  "dir": "rtl",
+  "categories": ["documentation", "developer", "api"],
+  "icons": [
+    {
+      "src": "img/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "img/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "img/logo.svg",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ]
+}
+

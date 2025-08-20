@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkenar_docs=self.webpackChunkkenar_docs||[]).push([["3432"],{71359:function(e,r,s){s.r(r),s.d(r,{default:()=>k});var a=s(85893);s(67294);var c=s(67026),n=s(79741),u=s(84681),t=s(18790),d=s(74652);function k(e){return(0,a.jsx)(n.FG,{className:(0,c.Z)(u.k.wrapper.docsPages),children:(0,a.jsx)(d.Z,{children:(0,t.H)(e.route.routes)})})}}}]);
