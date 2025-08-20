@@ -1399,14 +1399,17 @@
         "type": "string"
       },
       "SubmitPostRequestLocationType": {
+        "description": "Type of the location",
         "enum": [
           "LOCATION_TYPE_EMPTY",
           "LOCATION_TYPE_EXACT",
           "LOCATION_TYPE_APPROXIMATE"
         ],
+        "example": "LOCATION_TYPE_EXACT",
         "type": "string"
       },
       "TemporaryResidenceFieldsComfortAmenity": {
+        "description": "List of comfort amenities available in the residence",
         "enum": [
           "COMFORT_AMENITY_TV",
           "COMFORT_AMENITY_AUDIO_SYSTEM",
@@ -1436,6 +1439,7 @@
         "type": "string"
       },
       "TemporaryResidenceFieldsHeatingCoolingSystem": {
+        "description": "List of heating and cooling systems available",
         "enum": [
           "HEATING_COOLING_SYSTEM_EVAPORATIVE_COOLER",
           "HEATING_COOLING_SYSTEM_RADIATOR",
@@ -1450,22 +1454,27 @@
         "type": "string"
       },
       "TemporaryResidenceFieldsPetsAllowed": {
+        "description": "Pet policy for the residence",
         "enum": [
           "PETS_ALLOWED_YES",
           "PETS_ALLOWED_NO",
           "PETS_ALLOWED_WITH_AGREEMENT"
         ],
+        "example": "PETS_ALLOWED_YES",
         "type": "string"
       },
       "TemporaryResidenceFieldsRentalPeriod": {
+        "description": "Rental period type (daily, weekly, monthly)",
         "enum": [
           "RENTAL_PERIOD_DAILY",
           "RENTAL_PERIOD_WEEKLY",
           "RENTAL_PERIOD_MONTHLY"
         ],
+        "example": "RENTAL_PERIOD_DAILY",
         "type": "string"
       },
       "TemporaryResidenceFieldsRoomsCount": {
+        "description": "Number of rooms in the residence",
         "enum": [
           "ROOMS_COUNT_0",
           "ROOMS_COUNT_1",
@@ -1474,6 +1483,7 @@
           "ROOMS_COUNT_4",
           "ROOMS_COUNT_5_OR_MORE"
         ],
+        "example": "ROOMS_COUNT_2",
         "type": "string"
       },
       "addonsAction": {
@@ -3223,6 +3233,7 @@
         "type": "object"
       },
       "postServicesFieldsCategory": {
+        "description": "The subcategory of the service",
         "enum": [
           "CATEGORY_CAR_AND_MOTOR",
           "CATEGORY_CATERING",
@@ -3235,6 +3246,7 @@
           "CATEGORY_GARDEN_AND_LANDSCAPING",
           "CATEGORY_TEACHING"
         ],
+        "example": "CATEGORY_CAR_AND_MOTOR",
         "type": "string"
       },
       "postSubmitEmergencyResidencePostRequest": {
@@ -3374,7 +3386,11 @@
             "type": "string"
           },
           "comfort_amenities": {
-            "description": "List of comfort amenities available in the residence",
+            "example": [
+              "COMFORT_AMENITY_TV",
+              "COMFORT_AMENITY_WASHING_MACHINE",
+              "COMFORT_AMENITY_AIR_CONDITIONER"
+            ],
             "items": {
               "$ref": "#/components/schemas/TemporaryResidenceFieldsComfortAmenity"
             },
@@ -3403,7 +3419,10 @@
             "type": "boolean"
           },
           "heating_cooling_system": {
-            "description": "List of heating and cooling systems available",
+            "example": [
+              "HEATING_COOLING_SYSTEM_SPLIT",
+              "HEATING_COOLING_SYSTEM_RADIATOR"
+            ],
             "items": {
               "$ref": "#/components/schemas/TemporaryResidenceFieldsHeatingCoolingSystem"
             },
