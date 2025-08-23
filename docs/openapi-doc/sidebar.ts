@@ -270,12 +270,6 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "openapi-doc/post-submit-emergency-residence-post",
-          label: "Submit an emergency residence post",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
           id: "openapi-doc/post-submit-post",
           label: "ثبت آگهی",
           className: "api-method post",
@@ -1388,18 +1382,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postservicesfieldscategory",
           label: "postServicesFieldsCategory",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/postsubmitemergencyresidencepostrequest",
-          label: "postSubmitEmergencyResidencePostRequest",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/postsubmitemergencyresidencepostresponse",
-          label: "postSubmitEmergencyResidencePostResponse",
           className: "schema",
         },
         {

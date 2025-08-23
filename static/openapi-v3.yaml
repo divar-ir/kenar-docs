@@ -1255,6 +1255,10 @@
             "type": "string"
           }
         },
+        "required": [
+          "title",
+          "description"
+        ],
         "type": "object"
       },
       "PremiumPanelBusinessDataSubBusinessType": {
@@ -3060,6 +3064,14 @@
             "type": "boolean"
           }
         },
+        "required": [
+          "category",
+          "expertise_ids",
+          "work_on_holidays",
+          "works_24_7",
+          "work_hours_start",
+          "work_hours_end"
+        ],
         "type": "object"
       },
       "paymentGetBalanceResponse": {
@@ -3233,43 +3245,6 @@
         "example": "CATEGORY_CAR_AND_MOTOR",
         "type": "string"
       },
-      "postSubmitEmergencyResidencePostRequest": {
-        "properties": {
-          "city": {
-            "type": "string"
-          },
-          "data": {
-            "type": "object"
-          },
-          "description": {
-            "type": "string"
-          },
-          "district": {
-            "type": "string"
-          },
-          "images": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "phone_number": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "postSubmitEmergencyResidencePostResponse": {
-        "properties": {
-          "post_token": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "postSubmitPostRequest": {
         "properties": {
           "chat_enabled": {
@@ -3341,6 +3316,15 @@
             "type": "string"
           }
         },
+        "required": [
+          "title",
+          "description",
+          "images",
+          "city",
+          "location_type",
+          "hide_phone",
+          "chat_enabled"
+        ],
         "type": "object"
       },
       "postSubmitPostResponse": {
@@ -3463,6 +3447,17 @@
             "$ref": "#/components/schemas/TemporaryResidenceFieldsRoomsCount"
           }
         },
+        "required": [
+          "rooms_count",
+          "area",
+          "has_own_image",
+          "regular_person_capacity",
+          "extra_person_capacity",
+          "price_regular_days",
+          "price_weekends",
+          "price_special_days",
+          "price_cost_per_extra_person"
+        ],
         "type": "object"
       },
       "protobufAny": {
@@ -3951,47 +3946,6 @@
         },
         "tags": [
           "limited"
-        ]
-      }
-    },
-    "/experimental/open-platform/posts/emergency-residence": {
-      "post": {
-        "operationId": "Post_SubmitEmergencyResidencePost",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/postSubmitEmergencyResidencePostRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/postSubmitEmergencyResidencePostResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "summary": "Submit an emergency residence post",
-        "tags": [
-          "Post"
         ]
       }
     },
