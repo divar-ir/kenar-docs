@@ -1,0 +1,33 @@
+---
+id: postapartmentsellfields
+title: "postApartmentSellFields"
+description: ""
+sidebar_label: "postApartmentSellFields"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"floor":1,"has_elevator":true,"has_own_image":true,"has_parking":true,"has_warehouse":true,"price":1000000000,"rooms_count":"ROOMS_COUNT_2","size":100,"year_built":1404}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"postApartmentSellFields"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"floor":{"description":"Floor of the property. Use -1 for under ground floor and 0 for ground floor. Use 1 for first floor and so on.","example":1,"format":"int32","type":"integer"},"has_elevator":{"description":"Whether the property has an elevator","example":true,"type":"boolean"},"has_own_image":{"description":"تصاویر مربوط به خود ملک بوده و تزئینی نیستند.","example":true,"type":"boolean"},"has_parking":{"description":"Whether the property has a parking","example":true,"type":"boolean"},"has_warehouse":{"description":"Whether the property has a warehouse","example":true,"type":"boolean"},"price":{"description":"Price of the property in Toman","example":1000000000,"format":"int64","type":"string"},"rooms_count":{"description":"Number of rooms in the residence","enum":["ROOMS_COUNT_0","ROOMS_COUNT_1","ROOMS_COUNT_2","ROOMS_COUNT_3","ROOMS_COUNT_4","ROOMS_COUNT_5_OR_MORE"],"example":"ROOMS_COUNT_2","type":"string","title":"postRoomsCount"},"size":{"description":"Size of the property in square meters","example":100,"format":"int32","type":"integer"},"year_built":{"description":"Year the property was built (Persian/Shamsi calendar)","example":1404,"format":"int32","type":"integer"}},"required":["rooms_count","has_own_image","year_built","floor","size","has_elevator","has_parking","has_warehouse","price"],"type":"object","title":"postApartmentSellFields"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

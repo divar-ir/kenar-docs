@@ -70,6 +70,12 @@
         ],
         "type": "string"
       },
+      "AddonSemanticOnlineReservationCapability": {
+        "enum": [
+          "ONLINE_RESERVATION_AVAILABLE"
+        ],
+        "type": "string"
+      },
       "AddonSemanticOwnershipResult": {
         "enum": [
           "OWNERSHIP_CONFIRMED",
@@ -1084,6 +1090,75 @@
         },
         "type": "object"
       },
+      "HomePresellFieldsConstructionPhase": {
+        "description": "Current construction phase of the project",
+        "enum": [
+          "CONSTRUCTION_PHASE_PERMIT_AND_LAND_PREPARATION",
+          "CONSTRUCTION_PHASE_EXCAVATION",
+          "CONSTRUCTION_PHASE_FOUNDATION",
+          "CONSTRUCTION_PHASE_STRUCTURE",
+          "CONSTRUCTION_PHASE_ROOFING",
+          "CONSTRUCTION_PHASE_MASONRY",
+          "CONSTRUCTION_PHASE_MEP_ROUGH_IN",
+          "CONSTRUCTION_PHASE_INTERIOR_PLASTERING",
+          "CONSTRUCTION_PHASE_FACADE",
+          "CONSTRUCTION_PHASE_TILING_AND_FLOORING",
+          "CONSTRUCTION_PHASE_PAINTING_AND_INTERIOR_DECORATION",
+          "CONSTRUCTION_PHASE_DOOR_AND_WINDOW_INSTALLATION",
+          "CONSTRUCTION_PHASE_FINAL_MEP_INSTALLATION",
+          "CONSTRUCTION_PHASE_LANDSCAPING",
+          "CONSTRUCTION_PHASE_COMPLETION_CERTIFICATE",
+          "CONSTRUCTION_PHASE_FINAL_DELIVERY"
+        ],
+        "example": "CONSTRUCTION_PHASE_EXCAVATION",
+        "type": "string"
+      },
+      "HomePresellFieldsDeliveryMonth": {
+        "description": "Delivery month (Persian/Shamsi calendar)",
+        "enum": [
+          "DELIVERY_MONTH_FARVARDIN",
+          "DELIVERY_MONTH_ORDIBEHESHT",
+          "DELIVERY_MONTH_KHORDAD",
+          "DELIVERY_MONTH_TIR",
+          "DELIVERY_MONTH_MORDAD",
+          "DELIVERY_MONTH_SHAHRIVAR",
+          "DELIVERY_MONTH_MEHR",
+          "DELIVERY_MONTH_ABAN",
+          "DELIVERY_MONTH_AZAR",
+          "DELIVERY_MONTH_DEY",
+          "DELIVERY_MONTH_BAHMAN",
+          "DELIVERY_MONTH_ESFAND"
+        ],
+        "example": "DELIVERY_MONTH_TIR",
+        "type": "string"
+      },
+      "HomePresellFieldsDeliveryYear": {
+        "description": "Delivery year (Persian/Shamsi calendar)",
+        "enum": [
+          "DELIVERY_YEAR_1404",
+          "DELIVERY_YEAR_1405",
+          "DELIVERY_YEAR_1406",
+          "DELIVERY_YEAR_1407",
+          "DELIVERY_YEAR_1408",
+          "DELIVERY_YEAR_1409",
+          "DELIVERY_YEAR_1410",
+          "DELIVERY_YEAR_1411",
+          "DELIVERY_YEAR_1412",
+          "DELIVERY_YEAR_1413",
+          "DELIVERY_YEAR_1414"
+        ],
+        "example": "DELIVERY_YEAR_1405",
+        "type": "string"
+      },
+      "HomePresellFieldsUnitType": {
+        "description": "Type of units offered in the project",
+        "enum": [
+          "UNIT_TYPE_RESIDENTIAL_APARTMENT",
+          "UNIT_TYPE_COMMERCIAL_UNIT",
+          "UNIT_TYPE_OFFICE_UNIT"
+        ],
+        "type": "string"
+      },
       "ImageCarouselRowImageItem": {
         "properties": {
           "description": {
@@ -1223,7 +1298,8 @@
           "BUSINESS_ADDON_CREATE",
           "POST_SEMANTIC_CREATE",
           "NOTIFICATION_ACCESS_REVOCATION",
-          "SEND_EVENT"
+          "SEND_EVENT",
+          "CREATE_WALLET_PAYMENT"
         ],
         "type": "string"
       },
@@ -1477,19 +1553,6 @@
         "example": "RENTAL_PERIOD_DAILY",
         "type": "string"
       },
-      "TemporaryResidenceFieldsRoomsCount": {
-        "description": "Number of rooms in the residence",
-        "enum": [
-          "ROOMS_COUNT_0",
-          "ROOMS_COUNT_1",
-          "ROOMS_COUNT_2",
-          "ROOMS_COUNT_3",
-          "ROOMS_COUNT_4",
-          "ROOMS_COUNT_5_OR_MORE"
-        ],
-        "example": "ROOMS_COUNT_2",
-        "type": "string"
-      },
       "addonsAction": {
         "description": "Represents an action that can be performed",
         "properties": {
@@ -1640,6 +1703,9 @@
           },
           "new_face_verification_result": {
             "$ref": "#/components/schemas/AddonSemanticNewFaceVerificationResult"
+          },
+          "online_reservation_capability": {
+            "$ref": "#/components/schemas/AddonSemanticOnlineReservationCapability"
           },
           "ownership_result": {
             "$ref": "#/components/schemas/AddonSemanticOwnershipResult"
@@ -3074,6 +3140,59 @@
         ],
         "type": "object"
       },
+      "paymentCommitWalletTransactionRequest": {
+        "properties": {
+          "token": {
+            "description": "Token of the transaction you want to commit",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "paymentCommitWalletTransactionResponse": {
+        "properties": {
+          "transaction": {
+            "$ref": "#/components/schemas/paymentWalletTransaction"
+          }
+        },
+        "type": "object"
+      },
+      "paymentCreateWalletPaymentRequest": {
+        "properties": {
+          "amount_rials": {
+            "description": "Transaction amount in rials",
+            "format": "int64",
+            "type": "string"
+          },
+          "description": {
+            "description": "A description of the transaction",
+            "type": "string"
+          },
+          "redirect_url": {
+            "description": "The address user should be redirected to after paying the amount",
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount_rials",
+          "description",
+          "redirect_url"
+        ],
+        "type": "object"
+      },
+      "paymentCreateWalletPaymentResponse": {
+        "properties": {
+          "payment_url": {
+            "description": "The address you should redirect the user to",
+            "type": "string"
+          },
+          "token": {
+            "description": "Token of the transaction. used for next operations",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "paymentGetBalanceResponse": {
         "properties": {
           "balance_rials": {
@@ -3130,6 +3249,14 @@
         },
         "type": "object"
       },
+      "paymentRetrieveWalletTransactionResponse": {
+        "properties": {
+          "transaction": {
+            "$ref": "#/components/schemas/paymentWalletTransaction"
+          }
+        },
+        "type": "object"
+      },
       "paymentTransaction": {
         "properties": {
           "cost_rials": {
@@ -3174,6 +3301,31 @@
         ],
         "type": "string"
       },
+      "paymentWalletTransaction": {
+        "properties": {
+          "amount_rials": {
+            "format": "int64",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/paymentWalletTransactionStatus"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "paymentWalletTransactionStatus": {
+        "description": "Represents the various states a wallet transaction can be in during its lifecycle. UNKNOWN: Default/uninitialized status - should not be used in normal operation. CREATED: Transaction has been created and is awaiting payment or further processing. EXPIRED: Transaction was created but expired before completion (e.g., payment timeout). PAID: Transaction has been paid/funded and is still pending final confirmation. COMMITTED: Transaction has been successfully committed and finalized in the system.",
+        "enum": [
+          "CREATED",
+          "EXPIRED",
+          "PAID",
+          "COMMITTED"
+        ],
+        "type": "string"
+      },
       "payment_ticketGenerateResponse": {
         "properties": {
           "ticket_uuid": {
@@ -3209,6 +3361,69 @@
         },
         "type": "object"
       },
+      "postApartmentSellFields": {
+        "properties": {
+          "floor": {
+            "description": "Floor of the property. Use -1 for under ground floor and 0 for ground floor. Use 1 for first floor and so on.",
+            "example": 1,
+            "format": "int32",
+            "type": "integer"
+          },
+          "has_elevator": {
+            "description": "Whether the property has an elevator",
+            "example": true,
+            "type": "boolean"
+          },
+          "has_own_image": {
+            "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
+            "example": true,
+            "type": "boolean"
+          },
+          "has_parking": {
+            "description": "Whether the property has a parking",
+            "example": true,
+            "type": "boolean"
+          },
+          "has_warehouse": {
+            "description": "Whether the property has a warehouse",
+            "example": true,
+            "type": "boolean"
+          },
+          "price": {
+            "description": "Price of the property in Toman",
+            "example": 1000000000,
+            "format": "int64",
+            "type": "string"
+          },
+          "rooms_count": {
+            "$ref": "#/components/schemas/postRoomsCount"
+          },
+          "size": {
+            "description": "Size of the property in square meters",
+            "example": 100,
+            "format": "int32",
+            "type": "integer"
+          },
+          "year_built": {
+            "description": "Year the property was built (Persian/Shamsi calendar)",
+            "example": 1404,
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "rooms_count",
+          "has_own_image",
+          "year_built",
+          "floor",
+          "size",
+          "has_elevator",
+          "has_parking",
+          "has_warehouse",
+          "price"
+        ],
+        "type": "object"
+      },
       "postEditPostResponse": {
         "type": "object"
       },
@@ -3227,6 +3442,92 @@
           }
         },
         "type": "object"
+      },
+      "postHomePresellFields": {
+        "properties": {
+          "base_price_per_square_meter": {
+            "description": "Base price per square meter in Toman",
+            "example": 50000000,
+            "format": "int64",
+            "type": "string"
+          },
+          "construction_phase": {
+            "$ref": "#/components/schemas/HomePresellFieldsConstructionPhase"
+          },
+          "delivery_month": {
+            "$ref": "#/components/schemas/HomePresellFieldsDeliveryMonth"
+          },
+          "delivery_payment_percentage": {
+            "description": "Payment percentage required upon delivery",
+            "example": 60,
+            "format": "int32",
+            "type": "integer"
+          },
+          "delivery_year": {
+            "$ref": "#/components/schemas/HomePresellFieldsDeliveryYear"
+          },
+          "developer_company_name": {
+            "description": "Name of the developer company",
+            "example": "Mehr Construction Group",
+            "type": "string"
+          },
+          "down_payment_percentage": {
+            "description": "Down payment percentage required",
+            "example": 40,
+            "format": "int32",
+            "type": "integer"
+          },
+          "has_own_image": {
+            "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
+            "example": true,
+            "type": "boolean"
+          },
+          "min_unit_size": {
+            "description": "Minimum unit size in square meters",
+            "example": 60,
+            "format": "int32",
+            "type": "integer"
+          },
+          "project_name": {
+            "description": "Name of the home presell project",
+            "example": "Paradise Tower",
+            "type": "string"
+          },
+          "project_physical_progress_percentage": {
+            "description": "Physical progress percentage of the project",
+            "example": 10,
+            "format": "int32",
+            "type": "integer"
+          },
+          "unit_types_offered": {
+            "description": "List of unit types offered in the project",
+            "example": [
+              "UNIT_TYPE_RESIDENTIAL_APARTMENT",
+              "UNIT_TYPE_COMMERCIAL_UNIT"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/HomePresellFieldsUnitType"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "has_own_image"
+        ],
+        "type": "object"
+      },
+      "postRoomsCount": {
+        "description": "Number of rooms in the residence",
+        "enum": [
+          "ROOMS_COUNT_0",
+          "ROOMS_COUNT_1",
+          "ROOMS_COUNT_2",
+          "ROOMS_COUNT_3",
+          "ROOMS_COUNT_4",
+          "ROOMS_COUNT_5_OR_MORE"
+        ],
+        "example": "ROOMS_COUNT_2",
+        "type": "string"
       },
       "postServicesFieldsCategory": {
         "description": "The subcategory of the service",
@@ -3247,6 +3548,9 @@
       },
       "postSubmitPostRequest": {
         "properties": {
+          "apartment_sell": {
+            "$ref": "#/components/schemas/postApartmentSellFields"
+          },
           "chat_enabled": {
             "description": "امکان چت فعال باشد",
             "example": true,
@@ -3271,6 +3575,9 @@
             "description": "عدم نمایش شماره تماس به کاربران",
             "example": true,
             "type": "boolean"
+          },
+          "home_presell": {
+            "$ref": "#/components/schemas/postHomePresellFields"
           },
           "images": {
             "items": {
@@ -3444,7 +3751,7 @@
             "$ref": "#/components/schemas/TemporaryResidenceFieldsRentalPeriod"
           },
           "rooms_count": {
-            "$ref": "#/components/schemas/TemporaryResidenceFieldsRoomsCount"
+            "$ref": "#/components/schemas/postRoomsCount"
           }
         },
         "required": [
@@ -3462,10 +3769,10 @@
       },
       "protobufAny": {
         "additionalProperties": {},
-        "description": "`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با\nURL که نوع پیام سریالایز شده را توضیح می‌دهد.\n\nکتابخانه Protobuf پشتیبانی برای pack/unpack مقادیر Any را به شکل\nتوابع کاربردی یا متدهای اضافی تولید شده نوع Any ارائه می‌دهد.\n\nمثال 1: Pack و unpack پیام در C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nمثال 2: Pack و unpack پیام در Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nمثال 3: Pack و unpack پیام در Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nمثال 4: Pack و unpack پیام در Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nمتدهای pack ارائه شده توسط کتابخانه protobuf به طور پیش‌فرض از\n'type.googleapis.com/full.type.name' به عنوان URL نوع استفاده می‌کنند و متدهای unpack\nفقط از نام نوع کاملاً واجد شرایط پس از آخرین '/'\nدر URL نوع استفاده می‌کنند، مثلاً \"foo.bar.com/x/y.z\" نام نوع\n\"y.z\" را ایجاد می‌کند.\n\n\nJSON\n\nنمایش JSON یک مقدار `Any` از نمایش معمولی\nپیام deserialize شده و جاسازی شده، با یک\nفیلد اضافی `@type` که شامل URL نوع است، استفاده می‌کند. مثال:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nاگر نوع پیام جاسازی شده شناخته شده باشد و نمایش JSON سفارشی\nداشته باشد، آن نمایش با افزودن فیلد\n`value` که JSON سفارشی را علاوه بر فیلد `@type`\nنگه می‌دارد، جاسازی می‌شود. مثال (برای پیام [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }",
+        "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := ptypes.MarshalAny(foo)\n     ...\n     foo := \u0026pb.Foo{}\n     if err := ptypes.UnmarshalAny(any, foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }",
         "properties": {
           "@type": {
-            "description": "یک URL/نام منبع که نوع پیام protocol buffer سریالایز شده را به طور منحصر به فرد شناسایی می‌کند. این رشته باید حداقل\nیک کاراکتر \"/\" داشته باشد. آخرین بخش مسیر URL باید نام کاملاً واجد شرایط نوع را نمایش دهد (مانند\n`path/google.protobuf.Duration`). نام باید در فرم کانونیکال باشد\n(مثلاً، \".\" ابتدایی پذیرفته نیست).\n\nدر عمل، تیم‌ها معمولاً تمام انواعی که انتظار دارند در زمینه Any استفاده شود را به صورت پیش‌کامپایل در باینری قرار می‌دهند. با این حال، برای URL هایی که از\nطرح `http`، `https` یا بدون طرح استفاده می‌کنند، می‌توان به طور اختیاری یک سرور نوع تنظیم کرد که URL های نوع را به تعاریف پیام نگاشت می‌کند:\n\n* اگر طرحی ارائه نشود، `https` فرض می‌شود.\n* یک HTTP GET روی URL باید مقدار [google.protobuf.Type][] را\n  به فرمت باینری ارائه دهد، یا خطا تولید کند.\n* برنامه‌ها مجاز هستند نتایج جستجو را بر اساس\n  URL کش کنند، یا آنها را در باینری پیش‌کامپایل کنند تا از هر\n  جستجویی جلوگیری کنند. بنابراین، سازگاری باینری باید در\n  تغییرات انواع حفظ شود. (از نام‌های نوع نسخه‌دار برای مدیریت\n  تغییرات شکست‌آور استفاده کنید.)\n\nتوجه: این قابلیت در حال حاضر در نسخه رسمی\nprotobuf در دسترس نیست، و برای URL های نوع که با\ntype.googleapis.com شروع می‌شوند استفاده نمی‌شود.\n\nطرح‌های غیر از `http`، `https` (یا طرح خالی) ممکن است\nبا معناشناسی خاص پیاده‌سازی استفاده شوند.",
+            "description": "A URL/resource name whose content describes the type of the\nserialized protocol buffer message.\n\nFor URLs which use the scheme `http`, `https`, or no scheme, the\nfollowing restrictions and interpretations apply:\n\n* If no scheme is provided, `https` is assumed.\n* The last segment of the URL's path must represent the fully\n  qualified name of the type (as in `path/google.protobuf.Duration`).\n  The name should be in a canonical form (e.g., leading \".\" is\n  not accepted).\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics.",
             "type": "string"
           }
         },
@@ -4157,6 +4464,130 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/paymentGetTransactionResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "tags": [
+          "limited"
+        ]
+      }
+    },
+    "/experimental/open-platform/wallet/payments/commit": {
+      "post": {
+        "description": "Using this API you can commit a successful payment. This API is idempotent and you can call it multiple times.",
+        "operationId": "Payment_CommitWalletTransaction",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentCommitWalletTransactionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentCommitWalletTransactionResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "tags": [
+          "limited"
+        ]
+      }
+    },
+    "/experimental/open-platform/wallet/payments/create": {
+      "post": {
+        "description": "Using this API you can start a payment transaction from the users wallet.",
+        "operationId": "Payment_CreateWalletPayment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentCreateWalletPaymentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentCreateWalletPaymentResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "tags": [
+          "limited"
+        ]
+      }
+    },
+    "/experimental/open-platform/wallet/payments/{token}": {
+      "get": {
+        "description": "Using this API you can retrieve a transaction and its status. Use this API to validate the payment before committing.",
+        "operationId": "Payment_RetrieveWalletTransaction",
+        "parameters": [
+          {
+            "description": "Token of the transaction you want to retrieve",
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentRetrieveWalletTransactionResponse"
                 }
               }
             },
@@ -5705,13 +6136,7 @@
   ],
   "tags": [
     {
-      "name": "Addons"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "ChatAPI"
+      "name": "PaymentTicket"
     },
     {
       "name": "Events"
@@ -5723,14 +6148,20 @@
       "name": "Post"
     },
     {
-      "description": "Limited APIs, Create tickets if you need to use them.",
-      "name": "limited"
-    },
-    {
-      "name": "PaymentTicket"
+      "name": "Addons"
     },
     {
       "name": "Semantic"
+    },
+    {
+      "name": "ChatAPI"
+    },
+    {
+      "name": "Assets"
+    },
+    {
+      "description": "Limited APIs, Create tickets if you need to use them.",
+      "name": "limited"
     }
   ]
 }

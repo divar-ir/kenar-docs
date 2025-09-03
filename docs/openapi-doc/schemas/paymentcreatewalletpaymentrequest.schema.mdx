@@ -1,0 +1,33 @@
+---
+id: paymentcreatewalletpaymentrequest
+title: "paymentCreateWalletPaymentRequest"
+description: ""
+sidebar_label: "paymentCreateWalletPaymentRequest"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"amount_rials":"string","description":"string","redirect_url":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"paymentCreateWalletPaymentRequest"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"amount_rials":{"description":"Transaction amount in rials","format":"int64","type":"string"},"description":{"description":"A description of the transaction","type":"string"},"redirect_url":{"description":"The address user should be redirected to after paying the amount","type":"string"}},"required":["amount_rials","description","redirect_url"],"type":"object","title":"paymentCreateWalletPaymentRequest"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

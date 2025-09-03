@@ -1,0 +1,33 @@
+---
+id: paymentwallettransaction
+title: "paymentWalletTransaction"
+description: ""
+sidebar_label: "paymentWalletTransaction"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"amount_rials":"string","status":"CREATED","token":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"paymentWalletTransaction"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"amount_rials":{"format":"int64","type":"string"},"status":{"description":"Represents the various states a wallet transaction can be in during its lifecycle. UNKNOWN: Default/uninitialized status - should not be used in normal operation. CREATED: Transaction has been created and is awaiting payment or further processing. EXPIRED: Transaction was created but expired before completion (e.g., payment timeout). PAID: Transaction has been paid/funded and is still pending final confirmation. COMMITTED: Transaction has been successfully committed and finalized in the system.","enum":["CREATED","EXPIRED","PAID","COMMITTED"],"type":"string","title":"paymentWalletTransactionStatus"},"token":{"type":"string"}},"type":"object","title":"paymentWalletTransaction"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
