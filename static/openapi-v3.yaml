@@ -2319,7 +2319,8 @@
           "EXPERT_INSPECTED",
           "CAR_EXPERT_INSPECTED",
           "HOME_EXPERT_INSPECTED",
-          "MOBILE_EXPERT_INSPECTED"
+          "MOBILE_EXPERT_INSPECTED",
+          "ONLINE_RESERVATION"
         ],
         "type": "string"
       },
@@ -2538,6 +2539,14 @@
               "$ref": "#/components/schemas/GetServiceTypesResponseServiceTypeData"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "assetsGetSubmitSchemaResponse": {
+        "properties": {
+          "schema": {
+            "type": "object"
           }
         },
         "type": "object"
@@ -3830,13 +3839,13 @@
     },
     "securitySchemes": {
       "APIKey": {
-        "description": "کلید API دریافت شده از پنل مدیریت کنار",
+        "description": "API Key retrieved from kenar management panel",
         "in": "header",
         "name": "X-API-Key",
         "type": "apiKey"
       },
       "OAuth": {
-        "description": "توکن دسترسی OAuth2 دریافت شده از کاربر",
+        "description": "OAuth2 access token retrieved from user",
         "flows": {
           "authorizationCode": {
             "authorizationUrl": "oauth.divar.ir/oauth2/auth",
@@ -5210,6 +5219,48 @@
         ]
       }
     },
+    "/v1/open-platform/assets/submit-schema/{category_slug}": {
+      "get": {
+        "description": "This API allows you to get the submit schema for a given category slug. Response is in JSON Schema format.\n\nThe schema defines the structure and validation rules for form fields when submitting posts in a specific category. Each field in the schema can have one of the following types:\n\n**Basic Types:**\n- `string`: Text input fields (e.g., titles, descriptions, time values)\n- `integer`: Numeric input fields for whole numbers (e.g., prices, counts, sizes)\n- `float`: Numeric input fields for decimal numbers\n- `boolean`: True/false checkbox fields\n- `array`: Multi-select fields that allow multiple values\n\n**Enum Fields:**\nFields with predefined options use `enum` and `enumNames` properties:\n- `enum`: Array of internal values used for API communication\n- `enumNames`: Array of display labels shown to users (usually in Persian)\n- These are used for single-select dropdowns (e.g., floor selection, parking availability)\n\n**Array Fields with Enums:**\nMulti-select fields combine `type: \"array\"` with enum properties:\n- `items.enum`: Available options for selection\n- `items.enumNames`: Display labels for each option\n- Users can select multiple values (e.g., comfort amenities, heating systems)\n\n**Field Properties:**\n- `title`: Persian display name for the field\n- `required`: Array of field names that must be provided\n- `type`: Data type of the field\n\n**Example Usage:**\n```json\n{\n  \"properties\": {\n    \"size\": {\n      \"title\": \"متراژ (متر مربع)\",\n      \"type\": \"integer\"\n    },\n    \"elevator\": {\n      \"enum\": [\"دارد\", \"ندارد\"],\n      \"enumNames\": [\"دارد\", \"ندارد\"],\n      \"title\": \"آسانسور\",\n      \"type\": \"string\"\n    },\n    \"comfort_amenities\": {\n      \"items\": {\n        \"enum\": [\"اینترنت_پرسرعت\", \"تلویزیون\"],\n        \"enumNames\": [\"اینترنت پرسرعت\", \"تلویزیون\"],\n        \"type\": \"string\"\n      },\n      \"title\": \"امکانات رفاهی\",\n      \"type\": \"array\"\n    }\n  }\n}\n```",
+        "operationId": "Assets_GetSubmitSchema",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/assetsGetSubmitSchemaResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Get submit schema",
+        "tags": [
+          "Assets"
+        ]
+      }
+    },
     "/v1/open-platform/chat/bot/conversations/{conversation_id}/messages": {
       "post": {
         "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
@@ -6136,32 +6187,32 @@
   ],
   "tags": [
     {
-      "name": "PaymentTicket"
+      "name": "Addons"
+    },
+    {
+      "name": "Assets"
+    },
+    {
+      "name": "ChatAPI"
+    },
+    {
+      "name": "Events"
     },
     {
       "name": "Finder"
     },
     {
-      "name": "Addons"
+      "name": "Post"
     },
     {
       "description": "Limited APIs, Create tickets if you need to use them.",
       "name": "limited"
     },
     {
+      "name": "PaymentTicket"
+    },
+    {
       "name": "Semantic"
-    },
-    {
-      "name": "Events"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "Post"
-    },
-    {
-      "name": "ChatAPI"
     }
   ]
 }
