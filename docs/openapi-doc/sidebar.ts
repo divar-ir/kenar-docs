@@ -141,7 +141,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/assets-get-submit-schema",
-          label: "Get submit schema",
+          label: "دریافت ساختار ثبت",
           className: "api-method get",
         },
       ],
@@ -282,9 +282,21 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/post-submit-post-v-2",
+          label: "ثبت آگهی با استفاده از اعتبارسنجی ساختار JSON",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/post-get-post-stats",
           label: "دریافت آمارهای آگهی",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-user-post",
+          label: "ثبت آگهی به عنوان کاربر",
+          className: "api-method post",
         },
         {
           type: "doc",
@@ -355,6 +367,12 @@ const sidebar: SidebarsConfig = {
           id: "openapi-doc/payment-get-post-pricing",
           label: "دریافت هزینه سرویس",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-submit-user-payment",
+          label: "Submit a user payment",
+          className: "api-method post",
         },
       ],
     },
@@ -704,12 +722,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/sendeventrequesttargettype",
           label: "SendEventRequestTargetType",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/submitpostrequestlocationtype",
-          label: "SubmitPostRequestLocationType",
           className: "schema",
         },
         {
@@ -1410,6 +1422,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/paymentsubmituserpaymentresponse",
+          label: "paymentSubmitUserPaymentResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/paymenttransaction",
           label: "paymentTransaction",
           className: "schema",
@@ -1488,6 +1506,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/postlocationtype",
+          label: "postLocationType",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/postroomscount",
           label: "postRoomsCount",
           className: "schema",
@@ -1500,6 +1524,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/postsubmitpostgeneraldata",
+          label: "postSubmitPostGeneralData",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/postsubmitpostrequest",
           label: "postSubmitPostRequest",
           className: "schema",
@@ -1508,6 +1538,18 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postsubmitpostresponse",
           label: "postSubmitPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmitpostv-2-request",
+          label: "postSubmitPostV2Request",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmituserpostrequest",
+          label: "postSubmitUserPostRequest",
           className: "schema",
         },
         {
