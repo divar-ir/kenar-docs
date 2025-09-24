@@ -3228,7 +3228,7 @@
             "type": "string"
           },
           "transactions": {
-            "description": "List of transactions matching the request",
+            "description": "شناسه مرجع فاکتور یا تراکنش",
             "items": {
               "$ref": "#/components/schemas/paymentTransaction"
             },
@@ -6071,11 +6071,11 @@
     },
     "/v1/open-platform/user-payments": {
       "post": {
-        "description": "Using this API, you should submit a user payment. It is imperative you use this API to submit a user payment along with the received amount. This api is expected to be called with access token having `SUBMIT_USER_PAYMENT` scope.",
+        "description": "این API مخصوص ثبت پرداخت‌های کاربران در سرویس شما هست. ضروری است که از این API برای ثبت پرداخت کاربر به همراه مبلغ دریافتی استفاده کنید. انتظار می‌رود این API با توکن دسترسی دارای دامنه SUBMIT_USER_PAYMENT فراخوانی شود.",
         "operationId": "Payment_SubmitUserPayment",
         "parameters": [
           {
-            "description": "Total amount paid by the user, in rials.",
+            "description": "میزان پول پرداختی توسط کاربر به ریال",
             "in": "query",
             "name": "amount_rials",
             "schema": {
@@ -6084,7 +6084,7 @@
             }
           },
           {
-            "description": "Profit or commission gained from this transaction, in rials.",
+            "description": "بخشی از مبلغ پرداختی که به شما تعلق می‌گیرد به ریال",
             "in": "query",
             "name": "profit_rials",
             "schema": {
@@ -6093,7 +6093,7 @@
             }
           },
           {
-            "description": "List of service slugs the user paid for (e.g. 'banner', 'title_refinement').",
+            "description": "لیست شناسه سرویس‌هایی که کاربر برای آنها پرداخت انجام داده است (مثلاً «بنر»، «بهبود عنوان» و ...)",
             "explode": true,
             "in": "query",
             "name": "services",
