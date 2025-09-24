@@ -173,7 +173,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-submit-user-payment",
-          label: "Submit a user payment",
+          label: "ثبت پرداخت کاربر",
           className: "api-method post",
         },
       ],

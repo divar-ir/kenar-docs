@@ -6135,7 +6135,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Submit a user payment",
+        "summary": "ثبت پرداخت کاربر",
         "tags": [
           "limited"
         ]
