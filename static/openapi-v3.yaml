@@ -6105,7 +6105,7 @@
             }
           },
           {
-            "description": "Reference ID of the invoice or transaction.",
+            "description": "شناسه مرجع فاکتور یا تراکنش",
             "in": "query",
             "name": "reference_id",
             "schema": {
