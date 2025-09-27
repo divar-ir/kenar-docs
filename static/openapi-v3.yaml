@@ -1036,13 +1036,16 @@
         },
         "type": "object"
       },
-      "GetPostResponseBusinessData": {
+      "GetPostPricingResponseSubmit": {
         "properties": {
-          "business_name": {
-            "type": "string"
+          "available": {
+            "description": "Indicates if the post can be submitted. If false, the submit API will return an error",
+            "type": "boolean"
           },
-          "business_type": {
-            "$ref": "#/components/schemas/PremiumPanelBusinessDataSubBusinessType"
+          "cost_rials": {
+            "description": "The cost of submitting post in rials",
+            "format": "int64",
+            "type": "string"
           }
         },
         "type": "object"
@@ -2815,7 +2818,7 @@
       "finderGetPostResponse": {
         "properties": {
           "business_data": {
-            "$ref": "#/components/schemas/GetPostResponseBusinessData"
+            "$ref": "#/components/schemas/finderGetPostResponseBusinessData"
           },
           "category": {
             "type": "string"
@@ -2852,6 +2855,17 @@
           },
           "token": {
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "finderGetPostResponseBusinessData": {
+        "properties": {
+          "business_name": {
+            "type": "string"
+          },
+          "business_type": {
+            "$ref": "#/components/schemas/PremiumPanelBusinessDataSubBusinessType"
           }
         },
         "type": "object"
@@ -3209,6 +3223,9 @@
         "properties": {
           "reorder": {
             "$ref": "#/components/schemas/GetPostPricingResponseReorder"
+          },
+          "submit": {
+            "$ref": "#/components/schemas/GetPostPricingResponseSubmit"
           }
         },
         "type": "object"
@@ -5844,7 +5861,7 @@
     },
     "/v1/open-platform/post/{post_token}/pricing": {
       "get": {
-        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید قیمت سرویس‌های مختلف مانند نردبان را دریافت کنید. قیمت این API لزوماً با قیمت روی دیوار یکسان نیست و قیمت‌گذاری ممکن است متفاوت باشد. از این API برای دریافت قیمت قبل از اعمال سرویس‌ها (مانند نردبان آگهی) استفاده کنید.",
+        "description": "Using this API and with user permission, you can get the price of various services like Reorder and Submit.The price of this API is not necessarily the same as the price on Divar, and pricing may vary.Use this API to get the price before applying services (such as reordering a post or submitting a post).",
         "operationId": "Payment_GetPostPricing",
         "parameters": [
           {
@@ -6463,32 +6480,32 @@
   ],
   "tags": [
     {
-      "name": "PaymentTicket"
+      "name": "Addons"
+    },
+    {
+      "name": "Assets"
+    },
+    {
+      "name": "ChatAPI"
+    },
+    {
+      "name": "Events"
     },
     {
       "name": "Finder"
     },
     {
-      "name": "Addons"
+      "name": "Post"
     },
     {
       "description": "Limited APIs, Create tickets if you need to use them.",
       "name": "limited"
     },
     {
+      "name": "PaymentTicket"
+    },
+    {
       "name": "Semantic"
-    },
-    {
-      "name": "Events"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "Post"
-    },
-    {
-      "name": "ChatAPI"
     }
   ]
 }
