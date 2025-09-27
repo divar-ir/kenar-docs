@@ -4030,7 +4030,7 @@
   "paths": {
     "/experimental/open-platform/balance": {
       "get": {
-        "description": "(Limited) Using this API you can retrieve current balance of your app.",
+        "description": "(محدود) با استفاده از این API می‌توانید موجودی فعلی اپلیکیشن خود را دریافت کنید.",
         "operationId": "Payment_GetBalance",
         "responses": {
           "200": {
@@ -4353,7 +4353,7 @@
     },
     "/experimental/open-platform/post/{post_token}/reorder": {
       "post": {
-        "description": "(Limited) Use GetPostPricing API to get the cost of the service before calling this API.",
+        "description": "(محدود) قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
         "operationId": "Payment_ReorderPost",
         "parameters": [
           {
@@ -4583,7 +4583,7 @@
     },
     "/experimental/open-platform/transactions": {
       "get": {
-        "description": "(Limited) Using this API you can retrieve a list of transactions. Follow pages till you get an empty list.",
+        "description": "(محدود) با استفاده از این api میتوانید لیست تراکنش‌های اپ را مشاهده کنید. برای مشاهده‌ی تمام تراکنش‌ها، صفحات را دنبال کنید.",
         "operationId": "Payment_ListTransactions",
         "parameters": [
           {
@@ -4633,7 +4633,7 @@
     },
     "/experimental/open-platform/transactions/{id}": {
       "get": {
-        "description": "(Limited) Using this API you can retrieve transaction details.",
+        "description": "با استفاده از این (محدود) API می‌توانید جزئیات تراکنش را دریافت کنید.",
         "operationId": "Payment_GetTransaction",
         "parameters": [
           {
@@ -4717,7 +4717,7 @@
     },
     "/experimental/open-platform/wallet/payments/commit": {
       "post": {
-        "description": "(Limited) Using this API you can commit a successful payment. This API is idempotent and you can call it multiple times.",
+        "description": "(محدود) با استفاده از این API می‌توانید یک پرداخت موفق را commit کنید. این API idempotent است و می‌توانید چندین بار آن را فراخوانی کنید.",
         "operationId": "Payment_CommitWalletTransaction",
         "requestBody": {
           "content": {
@@ -4758,7 +4758,7 @@
     },
     "/experimental/open-platform/wallet/payments/create": {
       "post": {
-        "description": "(Limited) Using this API you can start a payment transaction from the users wallet.",
+        "description": "(محدود) با استفاده از این API می‌توانید یک تراکنش پرداخت از کیف پول کاربران شروع کنید.",
         "operationId": "Payment_CreateWalletPayment",
         "requestBody": {
           "content": {
@@ -4799,7 +4799,7 @@
     },
     "/experimental/open-platform/wallet/payments/{token}": {
       "get": {
-        "description": "(Limited) Using this API you can retrieve a transaction and its status. Use this API to validate the payment before committing.",
+        "description": "با استفاده از این API می‌توانید یک تراکنش و وضعیت آن را بازیابی کنید. (محدود) از این API برای اعتبارسنجی پرداخت قبل از commit استفاده کنید.",
         "operationId": "Payment_RetrieveWalletTransaction",
         "parameters": [
           {
@@ -6486,7 +6486,7 @@
       "name": "PaymentTicket"
     },
     {
-      "description": "Some APIs are limited, Create tickets if you need to use them.",
+      "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
       "name": "Payment"
     },
     {
