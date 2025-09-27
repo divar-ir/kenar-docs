@@ -4030,7 +4030,7 @@
   "paths": {
     "/experimental/open-platform/balance": {
       "get": {
-        "description": "با استفاده از این API می‌توانید موجودی فعلی اپلیکیشن خود را دریافت کنید.",
+        "description": "(Limited) Using this API you can retrieve current balance of your app.",
         "operationId": "Payment_GetBalance",
         "responses": {
           "200": {
@@ -4055,7 +4055,7 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
@@ -4353,7 +4353,7 @@
     },
     "/experimental/open-platform/post/{post_token}/reorder": {
       "post": {
-        "description": "قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
+        "description": "(Limited) Use GetPostPricing API to get the cost of the service before calling this API.",
         "operationId": "Payment_ReorderPost",
         "parameters": [
           {
@@ -4398,7 +4398,7 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
@@ -4583,7 +4583,7 @@
     },
     "/experimental/open-platform/transactions": {
       "get": {
-        "description": "با استفاده از این api میتوانید لیست تراکنش‌های اپ را مشاهده کنید. برای مشاهده‌ی تمام تراکنش‌ها، صفحات را دنبال کنید.",
+        "description": "(Limited) Using this API you can retrieve a list of transactions. Follow pages till you get an empty list.",
         "operationId": "Payment_ListTransactions",
         "parameters": [
           {
@@ -4627,13 +4627,13 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
     "/experimental/open-platform/transactions/{id}": {
       "get": {
-        "description": "با استفاده از این API می‌توانید جزئیات تراکنش را دریافت کنید.",
+        "description": "(Limited) Using this API you can retrieve transaction details.",
         "operationId": "Payment_GetTransaction",
         "parameters": [
           {
@@ -4669,7 +4669,7 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
@@ -4717,7 +4717,7 @@
     },
     "/experimental/open-platform/wallet/payments/commit": {
       "post": {
-        "description": "با استفاده از این API می‌توانید یک پرداخت موفق را commit کنید. این API idempotent است و می‌توانید چندین بار آن را فراخوانی کنید.",
+        "description": "(Limited) Using this API you can commit a successful payment. This API is idempotent and you can call it multiple times.",
         "operationId": "Payment_CommitWalletTransaction",
         "requestBody": {
           "content": {
@@ -4752,13 +4752,13 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
     "/experimental/open-platform/wallet/payments/create": {
       "post": {
-        "description": "با استفاده از این API می‌توانید یک تراکنش پرداخت از کیف پول کاربران شروع کنید.",
+        "description": "(Limited) Using this API you can start a payment transaction from the users wallet.",
         "operationId": "Payment_CreateWalletPayment",
         "requestBody": {
           "content": {
@@ -4793,13 +4793,13 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
     "/experimental/open-platform/wallet/payments/{token}": {
       "get": {
-        "description": "با استفاده از این API می‌توانید یک تراکنش و وضعیت آن را بازیابی کنید. از این API برای اعتبارسنجی پرداخت قبل از commit استفاده کنید.",
+        "description": "(Limited) Using this API you can retrieve a transaction and its status. Use this API to validate the payment before committing.",
         "operationId": "Payment_RetrieveWalletTransaction",
         "parameters": [
           {
@@ -4835,7 +4835,7 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
@@ -5898,7 +5898,7 @@
         },
         "summary": "دریافت هزینه سرویس",
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
@@ -6154,7 +6154,7 @@
         },
         "summary": "ثبت پرداخت کاربر",
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
@@ -6480,32 +6480,32 @@
   ],
   "tags": [
     {
-      "name": "Addons"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "ChatAPI"
-    },
-    {
-      "name": "Events"
-    },
-    {
-      "name": "Finder"
-    },
-    {
-      "name": "Post"
-    },
-    {
-      "description": "Limited APIs, Create tickets if you need to use them.",
-      "name": "limited"
+      "name": "Semantic"
     },
     {
       "name": "PaymentTicket"
     },
     {
-      "name": "Semantic"
+      "description": "Some APIs are limited, Create tickets if you need to use them.",
+      "name": "Payment"
+    },
+    {
+      "name": "Post"
+    },
+    {
+      "name": "Finder"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "ChatAPI"
+    },
+    {
+      "name": "Assets"
+    },
+    {
+      "name": "Addons"
     }
   ]
 }
