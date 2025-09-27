@@ -4633,7 +4633,7 @@
     },
     "/experimental/open-platform/transactions/{id}": {
       "get": {
-        "description": "با استفاده از این (محدود) API می‌توانید جزئیات تراکنش را دریافت کنید.",
+        "description": "(محدود) با استفاده از این API می‌توانید جزئیات تراکنش را دریافت کنید.",
         "operationId": "Payment_GetTransaction",
         "parameters": [
           {
@@ -4799,7 +4799,7 @@
     },
     "/experimental/open-platform/wallet/payments/{token}": {
       "get": {
-        "description": "با استفاده از این API می‌توانید یک تراکنش و وضعیت آن را بازیابی کنید. (محدود) از این API برای اعتبارسنجی پرداخت قبل از commit استفاده کنید.",
+        "description": "(محدود) با استفاده از این API می‌توانید یک تراکنش و وضعیت آن را بازیابی کنید. از این API برای اعتبارسنجی پرداخت قبل از commit استفاده کنید.",
         "operationId": "Payment_RetrieveWalletTransaction",
         "parameters": [
           {
@@ -6480,32 +6480,32 @@
   ],
   "tags": [
     {
-      "name": "Semantic"
+      "name": "Addons"
     },
     {
-      "name": "PaymentTicket"
+      "name": "Assets"
+    },
+    {
+      "name": "ChatAPI"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "Finder"
+    },
+    {
+      "name": "Post"
     },
     {
       "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
       "name": "Payment"
     },
     {
-      "name": "Post"
+      "name": "PaymentTicket"
     },
     {
-      "name": "Finder"
-    },
-    {
-      "name": "Events"
-    },
-    {
-      "name": "ChatAPI"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "Addons"
+      "name": "Semantic"
     }
   ]
 }
