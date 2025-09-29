@@ -1018,7 +1018,8 @@
           "TAG_O",
           "PHONE_SPARKLES",
           "PAINT_BRUSH",
-          "VIDEO_LIBRARY"
+          "VIDEO_LIBRARY",
+          "MAGNIFIER_SPARKLE"
         ],
         "type": "string"
       },
@@ -6110,7 +6111,7 @@
             }
           },
           {
-            "description": "لیست شناسه سرویس‌هایی که کاربر برای آنها پرداخت انجام داده است (مثلاً «بنر»، «بهبود عنوان» و ...)",
+            "description": "لیست شناسه سرویس‌هایی که کاربر برای آنها پرداخت انجام داده است (مثلاً «banner»، «title_refinement» و ...). توصیه می‌شود از نام‌های انگلیسی کوتاه و توصیفی به‌عنوان شناسه سرویس استفاده شود.",
             "explode": true,
             "in": "query",
             "name": "services",
