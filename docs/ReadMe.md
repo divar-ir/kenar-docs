@@ -216,7 +216,6 @@
 [راهنما » افزونه‌های آگهی » تست]: ./development/README.md
 [راهنما » ویجت‌ها]: ./widgets
 [ویجت‌ها » فیگما]: https://www.figma.com/file/ZhhSihwKTjiER1VUDX4ovh/%F0%9F%93%92-Kenar-Docs-(WIP)?type=design&node-id=2-4&mode=design&t=RbiQ2ay29ombNJKz-11
-[راهنما » بازگشت کاربر]: ./misc
 [راهنما » افزونه‌های چت]: ./chat
 [راهنما » افزونه‌های چت » ارسال پیام]: chat/users_conversations.md
 [راهنما » افزونه‌های چت » ارسال پیام‌ » دکمه]: chat/users_conversations.md#کلیک-کاربر-روی-دکمهٔ-درج-شده-زیر-پیام
