@@ -1,0 +1,33 @@
+---
+id: paymentsubmituserpaymentrequest
+title: "paymentSubmitUserPaymentRequest"
+description: ""
+sidebar_label: "paymentSubmitUserPaymentRequest"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"amount_rials":"string","profit_rials":"string","reference_id":"string","services":["string"]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"paymentSubmitUserPaymentRequest"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"amount_rials":{"description":"کل مبلغ پرداختی توسط کاربر، به ریال","format":"uint64","type":"string"},"profit_rials":{"description":"بخشی از مبلغ پرداختی که به شما تعلق می‌گیرد (سود یا کمیسیون)، به ریال","format":"uint64","type":"string"},"reference_id":{"description":"شناسه مرجع فاکتور یا تراکنش","type":"string"},"services":{"description":"لیست شناسه خدماتی که کاربر برای آنها پرداخت انجام داده است (مثلاً «banner»، «title_refinement» و ...). توصیه می‌شود از نام‌های انگلیسی کوتاه و توصیفی به‌عنوان شناسه خدمت استفاده شود.","items":{"type":"string"},"type":"array"}},"required":["amount_rials","profit_rials","services","reference_id"],"type":"object","title":"paymentSubmitUserPaymentRequest"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

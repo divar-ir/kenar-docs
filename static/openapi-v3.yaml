@@ -1924,6 +1924,17 @@
         },
         "type": "object"
       },
+      "addonsGetUserAddonsResponse": {
+        "properties": {
+          "user_addons": {
+            "items": {
+              "$ref": "#/components/schemas/addonsUserAddon"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "addonsGetUserPostAddonsResponse": {
         "properties": {
           "addons": {
@@ -3277,6 +3288,38 @@
         },
         "type": "object"
       },
+      "paymentSubmitUserPaymentRequest": {
+        "properties": {
+          "amount_rials": {
+            "description": "کل مبلغ پرداختی توسط کاربر، به ریال",
+            "format": "uint64",
+            "type": "string"
+          },
+          "profit_rials": {
+            "description": "بخشی از مبلغ پرداختی که به شما تعلق می‌گیرد (سود یا کمیسیون)، به ریال",
+            "format": "uint64",
+            "type": "string"
+          },
+          "reference_id": {
+            "description": "شناسه مرجع فاکتور یا تراکنش",
+            "type": "string"
+          },
+          "services": {
+            "description": "لیست شناسه خدماتی که کاربر برای آنها پرداخت انجام داده است (مثلاً «banner»، «title_refinement» و ...). توصیه می‌شود از نام‌های انگلیسی کوتاه و توصیفی به‌عنوان شناسه خدمت استفاده شود.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "amount_rials",
+          "profit_rials",
+          "services",
+          "reference_id"
+        ],
+        "type": "object"
+      },
       "paymentSubmitUserPaymentResponse": {
         "type": "object"
       },
@@ -3444,6 +3487,14 @@
           "has_warehouse",
           "price"
         ],
+        "type": "object"
+      },
+      "postCanUserSubmitPostResponse": {
+        "properties": {
+          "can_submit": {
+            "type": "boolean"
+          }
+        },
         "type": "object"
       },
       "postEditPostResponse": {
@@ -4671,6 +4722,38 @@
         },
         "tags": [
           "Payment"
+        ]
+      }
+    },
+    "/experimental/open-platform/user-posts/can-submit": {
+      "get": {
+        "description": "This API allows you to check if a user can submit a post.This API expects the user's access token in the request headers with the `SUBMIT_USER_POST` OAuth scope.",
+        "operationId": "Post_CanUserSubmitPost",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postCanUserSubmitPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Check if user can submit post",
+        "tags": [
+          "Post"
         ]
       }
     },
@@ -6091,46 +6174,16 @@
       "post": {
         "description": "باید با استفاده از این API پرداخت کاربران را ثبت کنید. ضروری است که از این API برای ثبت هر پرداخت کاربر به همراه مبلغ دریافتی استفاده کنید. انتظار می‌رود این API با توکن دسترسی دارای دامنه SUBMIT_USER_PAYMENT فراخوانی شود.",
         "operationId": "Payment_SubmitUserPayment",
-        "parameters": [
-          {
-            "description": "کل مبلغ پرداختی توسط کاربر، به ریال",
-            "in": "query",
-            "name": "amount_rials",
-            "schema": {
-              "format": "uint64",
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentSubmitUserPaymentRequest"
+              }
             }
           },
-          {
-            "description": "بخشی از مبلغ پرداختی که به شما تعلق می‌گیرد (سود یا کمیسیون)، به ریال",
-            "in": "query",
-            "name": "profit_rials",
-            "schema": {
-              "format": "uint64",
-              "type": "string"
-            }
-          },
-          {
-            "description": "لیست شناسه سرویس‌هایی که کاربر برای آنها پرداخت انجام داده است (مثلاً «banner»، «title_refinement» و ...). توصیه می‌شود از نام‌های انگلیسی کوتاه و توصیفی به‌عنوان شناسه سرویس استفاده شود.",
-            "explode": true,
-            "in": "query",
-            "name": "services",
-            "schema": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          },
-          {
-            "description": "شناسه مرجع فاکتور یا تراکنش",
-            "in": "query",
-            "name": "reference_id",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+          "required": true
+        },
         "responses": {
           "200": {
             "content": {

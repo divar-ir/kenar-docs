@@ -294,6 +294,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/post-can-user-submit-post",
+          label: "Check if user can submit post",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/post-submit-user-post",
           label: "ثبت آگهی به عنوان کاربر",
           className: "api-method post",
@@ -894,6 +900,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/addonsgetuseraddonsresponse",
+          label: "addonsGetUserAddonsResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/addonsgetuserpostaddonsresponse",
           label: "addonsGetUserPostAddonsResponse",
           className: "schema",
@@ -1428,6 +1440,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/paymentsubmituserpaymentrequest",
+          label: "paymentSubmitUserPaymentRequest",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/paymentsubmituserpaymentresponse",
           label: "paymentSubmitUserPaymentResponse",
           className: "schema",
@@ -1484,6 +1502,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postapartmentsellfields",
           label: "postApartmentSellFields",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postcanusersubmitpostresponse",
+          label: "postCanUserSubmitPostResponse",
           className: "schema",
         },
         {
