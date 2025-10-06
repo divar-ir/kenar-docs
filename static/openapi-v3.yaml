@@ -4727,7 +4727,7 @@
     },
     "/experimental/open-platform/user-posts/can-submit": {
       "get": {
-        "description": "This API allows you to check if a user can submit a post.This API expects the user's access token in the request headers with the `SUBMIT_USER_POST` OAuth scope.",
+        "description": "با این API میتوانید بررسی کنید آیا کاربر می‌تواند آگهی ارسال کند یا خیر.این API انتظار دارد توکن کاربر در درخواست با اسکوپ `SUBMIT_USER_POST` موجود باشد.",
         "operationId": "Post_CanUserSubmitPost",
         "responses": {
           "200": {
@@ -4751,7 +4751,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Check if user can submit post",
+        "summary": "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
         "tags": [
           "Post"
         ]

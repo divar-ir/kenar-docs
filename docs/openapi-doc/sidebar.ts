@@ -295,7 +295,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/post-can-user-submit-post",
-          label: "Check if user can submit post",
+          label: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
           className: "api-method get",
         },
         {
