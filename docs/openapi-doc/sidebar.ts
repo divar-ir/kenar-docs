@@ -268,58 +268,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Post",
-      link: {
-        type: "doc",
-        id: "openapi-doc/post",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-post",
-          label: "ثبت آگهی",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-post-v-2",
-          label: "ثبت آگهی با استفاده از اعتبارسنجی قالب JSON",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-post-stats",
-          label: "دریافت آمارهای آگهی",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-can-user-submit-post",
-          label: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-user-post",
-          label: "ثبت آگهی به عنوان کاربر",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-image-upload-url",
-          label: "دریافت URL آپلود تصویر",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-edit-post",
-          label: "ویرایش آگهی",
-          className: "api-method put",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Payment",
       link: {
         type: "doc",
@@ -331,6 +279,12 @@ const sidebar: SidebarsConfig = {
           id: "openapi-doc/payment-get-balance",
           label: "Payment_GetBalance",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-publish-user-post",
+          label: "Pay for user post submission on behalf of provider",
+          className: "api-method post",
         },
         {
           type: "doc",
@@ -395,6 +349,70 @@ const sidebar: SidebarsConfig = {
           id: "openapi-doc/payment-ticket-validate",
           label: "اعتبارسنجی بلیط پرداخت",
           className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Post",
+      link: {
+        type: "doc",
+        id: "openapi-doc/post",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-post",
+          label: "ثبت آگهی",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-post-v-2",
+          label: "ثبت آگهی با استفاده از اعتبارسنجی قالب JSON",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-delete-post-customized-button",
+          label: "حذف دکمه اختصاصی از آگهی",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-set-post-customized-button",
+          label: "تنظیم دکمه اختصاصی بر روی آگهی ثبت شده",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-post-stats",
+          label: "دریافت آمارهای آگهی",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-can-user-submit-post",
+          label: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-user-post",
+          label: "ثبت آگهی به عنوان کاربر",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-image-upload-url",
+          label: "دریافت URL آپلود تصویر",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-edit-post",
+          label: "ویرایش آگهی",
+          className: "api-method put",
         },
       ],
     },
@@ -636,6 +654,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/paymentpublishuserpostbody",
+          label: "PaymentPublishUserPostBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/paymentreorderpostbody",
           label: "PaymentReorderPostBody",
           className: "schema",
@@ -644,6 +668,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/posteditpostbody",
           label: "PostEditPostBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsetpostcustomizedbuttonbody",
+          label: "PostSetPostCustomizedButtonBody",
           className: "schema",
         },
         {
@@ -1254,6 +1284,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/eventseventbuttonlist",
+          label: "eventsEventButtonList",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/eventsregistereventsubscriptionrequest",
           label: "eventsRegisterEventSubscriptionRequest",
           className: "schema",
@@ -1428,6 +1464,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/paymentpublishuserpostresponse",
+          label: "paymentPublishUserPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/paymentreorderpostresponse",
           label: "paymentReorderPostResponse",
           className: "schema",
@@ -1512,6 +1554,24 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/postcustomizedbutton",
+          label: "postCustomizedButton",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postcustomizedbuttontype",
+          label: "postCustomizedButtonType",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postdeletepostcustomizedbuttonresponse",
+          label: "postDeletePostCustomizedButtonResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/posteditpostresponse",
           label: "postEditPostResponse",
           className: "schema",
@@ -1550,6 +1610,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postservicesfieldscategory",
           label: "postServicesFieldsCategory",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsetpostcustomizedbuttonresponse",
+          label: "postSetPostCustomizedButtonResponse",
           className: "schema",
         },
         {

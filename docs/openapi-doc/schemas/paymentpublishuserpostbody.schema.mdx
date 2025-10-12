@@ -1,0 +1,33 @@
+---
+id: paymentpublishuserpostbody
+title: "PaymentPublishUserPostBody"
+description: ""
+sidebar_label: "PaymentPublishUserPostBody"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"extra_details":"string","id":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"PaymentPublishUserPostBody"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"extra_details":{"description":"جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.","type":"string"},"id":{"description":"یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.","type":"string"}},"type":"object","title":"PaymentPublishUserPostBody"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
