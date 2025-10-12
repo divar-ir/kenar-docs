@@ -1307,9 +1307,23 @@
           "SEND_EVENT",
           "CREATE_WALLET_PAYMENT",
           "SUBMIT_USER_POST",
-          "SUBMIT_USER_PAYMENT"
+          "SUBMIT_USER_PAYMENT",
+          "USER_SET_CUSTOMIZED_BUTTON"
         ],
         "type": "string"
+      },
+      "PaymentPublishUserPostBody": {
+        "properties": {
+          "extra_details": {
+            "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
+            "type": "string"
+          },
+          "id": {
+            "description": "یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "PaymentReorderPostBody": {
         "properties": {
@@ -1342,6 +1356,17 @@
         "required": [
           "title",
           "description"
+        ],
+        "type": "object"
+      },
+      "PostSetPostCustomizedButtonBody": {
+        "properties": {
+          "customized_button": {
+            "$ref": "#/components/schemas/postCustomizedButton"
+          }
+        },
+        "required": [
+          "customized_button"
         ],
         "type": "object"
       },
@@ -2789,6 +2814,17 @@
         },
         "type": "object"
       },
+      "eventsEventButtonList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/eventsEventButton"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "eventsRegisterEventSubscriptionRequest": {
         "properties": {
           "event_resource_id": {
@@ -3266,6 +3302,14 @@
         },
         "type": "object"
       },
+      "paymentPublishUserPostResponse": {
+        "properties": {
+          "transaction": {
+            "$ref": "#/components/schemas/paymentTransaction"
+          }
+        },
+        "type": "object"
+      },
       "paymentReorderPostResponse": {
         "properties": {
           "cost_rials": {
@@ -3363,7 +3407,8 @@
       },
       "paymentTransactionType": {
         "enum": [
-          "TRANSACTION_TYPE_REORDER"
+          "TRANSACTION_TYPE_REORDER",
+          "TRANSACTION_TYPE_SUBMIT"
         ],
         "type": "string"
       },
@@ -3497,6 +3542,31 @@
         },
         "type": "object"
       },
+      "postCustomizedButton": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/addonsAction"
+          },
+          "type": {
+            "$ref": "#/components/schemas/postCustomizedButtonType"
+          }
+        },
+        "required": [
+          "type",
+          "action"
+        ],
+        "type": "object"
+      },
+      "postCustomizedButtonType": {
+        "description": "نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند.\n\nانواع موجود:\n- `UNKNOWN`: نوع دکمه ناشناخته (نباید استفاده شود)\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n",
+        "enum": [
+          "ACCOMMODATION_BOOKING"
+        ],
+        "type": "string"
+      },
+      "postDeletePostCustomizedButtonResponse": {
+        "type": "object"
+      },
       "postEditPostResponse": {
         "type": "object"
       },
@@ -3628,6 +3698,9 @@
         ],
         "example": "CATEGORY_CAR_AND_MOTOR",
         "type": "string"
+      },
+      "postSetPostCustomizedButtonResponse": {
+        "type": "object"
       },
       "postSubmitPostGeneralData": {
         "properties": {
@@ -4305,56 +4378,6 @@
             }
           },
           {
-            "description": "The text to display on the button",
-            "in": "query",
-            "name": "primary_button.title",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "An action to send user to your URL directly with just a resource id (if applicable)",
-            "in": "query",
-            "name": "primary_button.action.open_direct_link",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
-            "in": "query",
-            "name": "primary_button.action.open_server_link.data",
-            "schema": {
-              "type": "object"
-            }
-          },
-          {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
-            "in": "query",
-            "name": "primary_button.action.get_dynamic_action.data",
-            "schema": {
-              "type": "object"
-            }
-          },
-          {
-            "description": "Token of the post to open",
-            "in": "query",
-            "name": "primary_button.action.open_post_page.post_token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Token of the post to redirect to its management page",
-            "in": "query",
-            "name": "primary_button.action.open_post_manage_page.post_token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "description": "Target of the event; USER or POST",
             "in": "query",
             "name": "target_type",
@@ -4367,7 +4390,7 @@
             }
           },
           {
-            "description": "id of the target. When target type is USER, it should be the Divar User ID of that user and when target type is POST, it should be the post token. ",
+            "description": "Id of the target. When target type is USER, it should be the Divar User ID of that user and when target type is POST, it should be the post token.",
             "in": "query",
             "name": "target_resource_id",
             "schema": {
@@ -4400,6 +4423,59 @@
         "summary": "Send an event to a user",
         "tags": [
           "Events"
+        ]
+      }
+    },
+    "/experimental/open-platform/post/{post_token}/publish": {
+      "post": {
+        "description": "This API allows providers to pay for user post submission costs. The post_token should be obtained from the SubmitUserPost API in post collection.",
+        "operationId": "Payment_PublishUserPost",
+        "parameters": [
+          {
+            "description": "Post token obtained from SubmitUserPost RPC. An 8-9 character unique identifier for the user-submitted post.",
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentPublishUserPostBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentPublishUserPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Pay for user post submission on behalf of provider",
+        "tags": [
+          "Payment"
         ]
       }
     },
@@ -4456,7 +4532,7 @@
     },
     "/experimental/open-platform/posts/new": {
       "post": {
-        "description": "این API به شما امکان ثبت آگهی را می‌دهد. این نیاز به دامنه OAuth `POST_SUBMIT` دارد.\nمی‌توانید آگهی را با عنوان، توضیحات، تصاویر و سایر فیلدها ثبت کنید. فیلدهای عمومی و فیلدهای مخصوص دسته‌بندی وجود دارند.",
+        "description": "این API به شما امکان ثبت آگهی را می‌دهد. این نیاز به دامنه OAuth `SUBMIT_POST` دارد.\nمی‌توانید آگهی را با عنوان، توضیحات، تصاویر و سایر فیلدها ثبت کنید. فیلدهای عمومی و فیلدهای مخصوص دسته‌بندی وجود دارند.",
         "operationId": "Post_SubmitPost",
         "requestBody": {
           "content": {
@@ -4498,7 +4574,7 @@
     },
     "/experimental/open-platform/posts/new-v2": {
       "post": {
-        "description": "این API به شما امکان ثبت آگهی با استفاده از اعتبارسنجی قالب JSON را می‌دهد. این به مجوز `POST_SUBMIT` نیاز دارد.\nشما داده‌های کامل آگهی را به عنوان یک رشته JSON ارائه می‌دهید که با احترام به قالب ثبت برای دسته‌بندی مشخص شده موجود در دارایی‌ها اعتبارسنجی خواهد شد.",
+        "description": "این API به شما امکان ثبت آگهی با استفاده از اعتبارسنجی قالب JSON را می‌دهد. این به مجوز `SUBMIT_POST` نیاز دارد.\nشما داده‌های کامل آگهی را به عنوان یک رشته JSON ارائه می‌دهید که با احترام به قالب ثبت برای دسته‌بندی مشخص شده موجود در دارایی‌ها اعتبارسنجی خواهد شد.",
         "operationId": "Post_SubmitPostV2",
         "requestBody": {
           "content": {
@@ -4533,6 +4609,98 @@
           }
         },
         "summary": "ثبت آگهی با استفاده از اعتبارسنجی قالب JSON",
+        "tags": [
+          "Post"
+        ]
+      }
+    },
+    "/experimental/open-platform/posts/{post_token}/customized-button": {
+      "delete": {
+        "description": "این API دکمه اختصاصی را از آگهی ثبت شده توسط سرویس شما حذف می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\n",
+        "operationId": "Post_DeletePostCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDeletePostCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "حذف دکمه اختصاصی از آگهی",
+        "tags": [
+          "Post"
+        ]
+      },
+      "post": {
+        "description": "این API برای آگهی‌ ثبت شده توسط سرویس شما دکمه اختصاصی تنظیم می‌کند. اگر دکمه‌ای وجود نداشته باشد، ایجاد خواهد شد. اگر از قبل وجود داشته باشد، تنظیمات آن به‌روزرسانی می‌شود. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\nاگر این آگهی به عنوان کاربر ثبت شده باشد، این API نیاز به توکن دسترسی کاربر در هدرهای درخواست با دامنه `USER_SET_CUSTOMIZED_BUTTON` دارد.",
+        "operationId": "Post_SetPostCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostSetPostCustomizedButtonBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postSetPostCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "تنظیم دکمه اختصاصی بر روی آگهی ثبت شده",
         "tags": [
           "Post"
         ]
@@ -6549,14 +6717,14 @@
       "name": "Finder"
     },
     {
-      "name": "Post"
-    },
-    {
       "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
       "name": "Payment"
     },
     {
       "name": "PaymentTicket"
+    },
+    {
+      "name": "Post"
     },
     {
       "name": "Semantic"
