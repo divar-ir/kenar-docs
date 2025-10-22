@@ -3558,11 +3558,14 @@
         "type": "object"
       },
       "postCustomizedButtonType": {
-        "description": "نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند.\n\nانواع موجود:\n- `UNKNOWN`: نوع دکمه ناشناخته (نباید استفاده شود)\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n",
+        "description": "نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند.\n\nانواع موجود:\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n",
         "enum": [
           "ACCOMMODATION_BOOKING"
         ],
         "type": "string"
+      },
+      "postDeleteCustomizedButtonsOffloadedResponse": {
+        "type": "object"
       },
       "postDeletePostCustomizedButtonResponse": {
         "type": "object"
@@ -6702,32 +6705,32 @@
   ],
   "tags": [
     {
-      "name": "Addons"
+      "name": "Semantic"
     },
     {
-      "name": "Assets"
-    },
-    {
-      "name": "ChatAPI"
-    },
-    {
-      "name": "Events"
-    },
-    {
-      "name": "Finder"
+      "name": "PaymentTicket"
     },
     {
       "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
       "name": "Payment"
     },
     {
-      "name": "PaymentTicket"
-    },
-    {
       "name": "Post"
     },
     {
-      "name": "Semantic"
+      "name": "Finder"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "ChatAPI"
+    },
+    {
+      "name": "Assets"
+    },
+    {
+      "name": "Addons"
     }
   ]
 }
