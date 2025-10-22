@@ -6,7 +6,7 @@ sidebar_label: "postGetPostStatsResponse"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"views":{"daily":[{"count":239,"date":"2025-06-03T00:00:00Z"}],"total":239}}
+sample: {"chats":{"daily":[{"count":239,"date":"2025-06-03T00:00:00Z"}],"total":239},"impressions":{"daily":[{"count":239,"date":"2025-06-03T00:00:00Z"}],"total":239},"views":{"daily":[{"count":239,"date":"2025-06-03T00:00:00Z"}],"total":239}}
 custom_edit_url: null
 ---
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"views":{"properties":{"daily":{"description":"مقدار آمار مورد نظر در هفت روز اخیر","items":{"properties":{"count":{"description":"تعداد روزانه‌ی آمار مورد نظر (مثلا بازدید)","example":239,"format":"int32","type":"integer"},"date":{"description":"تاریخ به فرمت YYYY-MM-DD","example":"2025-06-03T00:00:00Z","type":"string"}},"type":"object","title":"GetPostStatsResponseDailyStats"},"type":"array"},"total":{"description":"تعداد کلی آمار (مثلا بازدید)","example":239,"format":"int32","type":"integer"}},"type":"object","title":"GetPostStatsResponsePostStats"}},"type":"object","title":"postGetPostStatsResponse"}}
+  schema={{"properties":{"chats":{"properties":{"daily":{"description":"مقدار آمار مورد نظر در هفت روز اخیر","items":{"properties":{"count":{"description":"تعداد روزانه‌ی آمار مورد نظر (مثلا بازدید)","example":239,"format":"int32","type":"integer"},"date":{"description":"تاریخ به فرمت YYYY-MM-DD","example":"2025-06-03T00:00:00Z","type":"string"}},"type":"object","title":"GetPostStatsResponseDailyStats"},"type":"array"},"total":{"description":"تعداد کلی آمار (مثلا بازدید)","example":239,"format":"int32","type":"integer"}},"type":"object","title":"GetPostStatsResponsePostStats"},"impressions":{"properties":{"daily":{"description":"مقدار آمار مورد نظر در هفت روز اخیر","items":{"properties":{"count":{"description":"تعداد روزانه‌ی آمار مورد نظر (مثلا بازدید)","example":239,"format":"int32","type":"integer"},"date":{"description":"تاریخ به فرمت YYYY-MM-DD","example":"2025-06-03T00:00:00Z","type":"string"}},"type":"object","title":"GetPostStatsResponseDailyStats"},"type":"array"},"total":{"description":"تعداد کلی آمار (مثلا بازدید)","example":239,"format":"int32","type":"integer"}},"type":"object","title":"GetPostStatsResponsePostStats"},"views":{"properties":{"daily":{"description":"مقدار آمار مورد نظر در هفت روز اخیر","items":{"properties":{"count":{"description":"تعداد روزانه‌ی آمار مورد نظر (مثلا بازدید)","example":239,"format":"int32","type":"integer"},"date":{"description":"تاریخ به فرمت YYYY-MM-DD","example":"2025-06-03T00:00:00Z","type":"string"}},"type":"object","title":"GetPostStatsResponseDailyStats"},"type":"array"},"total":{"description":"تعداد کلی آمار (مثلا بازدید)","example":239,"format":"int32","type":"integer"}},"type":"object","title":"GetPostStatsResponsePostStats"}},"type":"object","title":"postGetPostStatsResponse"}}
   schemaType={"response"}
 >
   

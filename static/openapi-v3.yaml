@@ -1308,7 +1308,8 @@
           "CREATE_WALLET_PAYMENT",
           "SUBMIT_USER_POST",
           "SUBMIT_USER_PAYMENT",
-          "USER_SET_CUSTOMIZED_BUTTON"
+          "USER_SET_CUSTOMIZED_BUTTON",
+          "BUSINESS_CREATE_CUSTOMIZED_BUTTON"
         ],
         "type": "string"
       },
@@ -1336,6 +1337,17 @@
             "type": "string"
           }
         },
+        "type": "object"
+      },
+      "PostCreateBusinessCustomizedButtonBody": {
+        "properties": {
+          "customized_button": {
+            "$ref": "#/components/schemas/postCustomizedButton"
+          }
+        },
+        "required": [
+          "customized_button"
+        ],
         "type": "object"
       },
       "PostEditPostBody": {
@@ -2918,6 +2930,22 @@
         },
         "type": "object"
       },
+      "finderGetUserIDByPhoneRequest": {
+        "properties": {
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "finderGetUserIDByPhoneResponse": {
+        "properties": {
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "finderGetUserPostsResponse": {
         "properties": {
           "posts": {
@@ -3345,7 +3373,7 @@
             "type": "string"
           },
           "reference_id": {
-            "description": "شناسه مرجع فاکتور یا تراکنش",
+            "description": "A unique identifier between Divar and the provider for the invoice or transaction. This is not a payment gateway reference ID.",
             "type": "string"
           },
           "services": {
@@ -3369,6 +3397,10 @@
       },
       "paymentTransaction": {
         "properties": {
+          "app_slug": {
+            "description": "The slug of the app that created the transaction",
+            "type": "string"
+          },
           "cost_rials": {
             "description": "هزینه تراکنش به ریال برای اپلیکیشن شما",
             "format": "int64",
@@ -3542,6 +3574,9 @@
         },
         "type": "object"
       },
+      "postCreateBusinessCustomizedButtonResponse": {
+        "type": "object"
+      },
       "postCustomizedButton": {
         "properties": {
           "action": {
@@ -3564,6 +3599,9 @@
         ],
         "type": "string"
       },
+      "postDeleteBusinessCustomizedButtonResponse": {
+        "type": "object"
+      },
       "postDeleteCustomizedButtonsOffloadedResponse": {
         "type": "object"
       },
@@ -3571,6 +3609,20 @@
         "type": "object"
       },
       "postEditPostResponse": {
+        "type": "object"
+      },
+      "postGetBusinessCustomizedButtonResponse": {
+        "properties": {
+          "app_name": {
+            "type": "string"
+          },
+          "app_slug": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/postCustomizedButtonType"
+          }
+        },
         "type": "object"
       },
       "postGetImageUploadURLResponse": {
@@ -3583,6 +3635,12 @@
       },
       "postGetPostStatsResponse": {
         "properties": {
+          "chats": {
+            "$ref": "#/components/schemas/GetPostStatsResponsePostStats"
+          },
+          "impressions": {
+            "$ref": "#/components/schemas/GetPostStatsResponsePostStats"
+          },
           "views": {
             "$ref": "#/components/schemas/GetPostStatsResponsePostStats"
           }
@@ -4184,6 +4242,98 @@
         },
         "tags": [
           "Payment"
+        ]
+      }
+    },
+    "/experimental/open-platform/business/{business_token}/customized-button": {
+      "delete": {
+        "description": "This API deletes the customized button configuration from all posts of the business.This API requires the `SET_CUSTOMIZED_BUTTON` permission.\n",
+        "operationId": "Post_DeleteBusinessCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "business_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDeleteBusinessCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Delete customized button from business posts",
+        "tags": [
+          "Post"
+        ]
+      },
+      "post": {
+        "description": "This API creates a customized button configuration for all posts from the business.\nThis API requires the `SET_CUSTOMIZED_BUTTON` permission and `BUSINESS_CREATE_CUSTOMIZED_BUTTON.{business_ref}` OAuth scope.\n",
+        "operationId": "Post_CreateBusinessCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "business_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCreateBusinessCustomizedButtonBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postCreateBusinessCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Creates customized button for business posts",
+        "tags": [
+          "Post"
         ]
       }
     },
@@ -5988,6 +6138,48 @@
         ]
       }
     },
+    "/v1/open-platform/get-user-id-by-phone": {
+      "post": {
+        "description": "You should use this API when a user reaches your CRM/support service and leaves their phone and you need to translate their phone number to user id.",
+        "operationId": "Finder_GetUserIDByPhone",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/finderGetUserIDByPhoneRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/finderGetUserIDByPhoneResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Get user id by phone number",
+        "tags": [
+          "Finder"
+        ]
+      }
+    },
     "/v1/open-platform/payment-ticket/validate": {
       "post": {
         "description": "بلیط‌های پرداخت برای یکپارچه‌سازی اپلیکیشن‌های کنار با تیم‌های داخلی دیوار طراحی شده‌اند.\nبا استفاده از این API می‌توانید بلیط پرداخت را اعتبارسنجی کرده و payload صادرکننده را دریافت کنید.",
@@ -6343,7 +6535,7 @@
     },
     "/v1/open-platform/user-payments": {
       "post": {
-        "description": "باید با استفاده از این API پرداخت کاربران را ثبت کنید. ضروری است که از این API برای ثبت هر پرداخت کاربر به همراه مبلغ دریافتی استفاده کنید. انتظار می‌رود این API با توکن دسترسی دارای دامنه SUBMIT_USER_PAYMENT فراخوانی شود.",
+        "description": "Using this API, you should submit a user payment. It is imperative you use this API to submit a user payment along with the received amount. This API requires an access token with the `SUBMIT_USER_PAYMENT` OAuth scope.",
         "operationId": "Payment_SubmitUserPayment",
         "requestBody": {
           "content": {
@@ -6705,32 +6897,32 @@
   ],
   "tags": [
     {
-      "name": "Semantic"
+      "name": "Addons"
     },
     {
-      "name": "PaymentTicket"
+      "name": "Assets"
+    },
+    {
+      "name": "ChatAPI"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "Finder"
+    },
+    {
+      "name": "Post"
     },
     {
       "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
       "name": "Payment"
     },
     {
-      "name": "Post"
+      "name": "PaymentTicket"
     },
     {
-      "name": "Finder"
-    },
-    {
-      "name": "Events"
-    },
-    {
-      "name": "ChatAPI"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "Addons"
+      "name": "Semantic"
     }
   ]
 }

@@ -6,7 +6,7 @@ sidebar_label: "paymentListTransactionsResponse"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"next_page_token":"string","transactions":[{"cost_rials":"string","created_at":"2024-07-29T15:51:28.071Z","extra_details":"string","id":"string","state":"TRANSACTION_STATE_PENDING","type":"TRANSACTION_TYPE_REORDER"}]}
+sample: {"next_page_token":"string","transactions":[{"app_slug":"string","cost_rials":"string","created_at":"2024-07-29T15:51:28.071Z","extra_details":"string","id":"string","state":"TRANSACTION_STATE_PENDING","type":"TRANSACTION_TYPE_REORDER"}]}
 custom_edit_url: null
 ---
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"next_page_token":{"description":"Token for the next page of results.","type":"string"},"transactions":{"description":"شناسه مرجع فاکتور یا تراکنش","items":{"properties":{"cost_rials":{"description":"هزینه تراکنش به ریال برای اپلیکیشن شما","format":"int64","type":"string"},"created_at":{"description":"The time when the transaction was created","format":"date-time","type":"string"},"extra_details":{"description":"همان جزئیات اضافی که در درخواست ارسال کردید","type":"string"},"id":{"description":"همان uuid هنگام ایجاد تراکنش","type":"string"},"state":{"enum":["TRANSACTION_STATE_PENDING","TRANSACTION_STATE_COMPLETED","TRANSACTION_STATE_FAILED","TRANSACTION_STATE_REFUNDED"],"type":"string","title":"paymentTransactionState"},"type":{"enum":["TRANSACTION_TYPE_REORDER","TRANSACTION_TYPE_SUBMIT"],"type":"string","title":"paymentTransactionType"}},"type":"object","title":"paymentTransaction"},"type":"array"}},"type":"object","title":"paymentListTransactionsResponse"}}
+  schema={{"properties":{"next_page_token":{"description":"Token for the next page of results.","type":"string"},"transactions":{"description":"شناسه مرجع فاکتور یا تراکنش","items":{"properties":{"app_slug":{"description":"The slug of the app that created the transaction","type":"string"},"cost_rials":{"description":"هزینه تراکنش به ریال برای اپلیکیشن شما","format":"int64","type":"string"},"created_at":{"description":"The time when the transaction was created","format":"date-time","type":"string"},"extra_details":{"description":"همان جزئیات اضافی که در درخواست ارسال کردید","type":"string"},"id":{"description":"همان uuid هنگام ایجاد تراکنش","type":"string"},"state":{"enum":["TRANSACTION_STATE_PENDING","TRANSACTION_STATE_COMPLETED","TRANSACTION_STATE_FAILED","TRANSACTION_STATE_REFUNDED"],"type":"string","title":"paymentTransactionState"},"type":{"enum":["TRANSACTION_TYPE_REORDER","TRANSACTION_TYPE_SUBMIT"],"type":"string","title":"paymentTransactionType"}},"type":"object","title":"paymentTransaction"},"type":"array"}},"type":"object","title":"paymentListTransactionsResponse"}}
   schemaType={"response"}
 >
   
