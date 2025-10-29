@@ -46,11 +46,43 @@ Using this API, you should submit a user payment. It is imperative you use this 
 >
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
+<ParamsDetails parameters={undefined} />
+
+<Heading
+  id={"request-headers"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request Headers"}
 >
-  
-</ParamsDetails>
+</Heading>
+
+<ParamsDetails
+  parameters={[
+    {
+      name: "Authorization",
+      in: "header",
+      required: true,
+      schema: { type: "string" },
+      description:
+        "Access token with the `SUBMIT_USER_PAYMENT` OAuth scope. Example: `Bearer eyJhbGci...`",
+    },
+    {
+      name: "X-API-KEY",
+      in: "header",
+      required: true,
+      schema: { type: "string" },
+      description:
+        "Your API key issued by the platform. Used to authenticate the provider integration.",
+    },
+    {
+      name: "Content-Type",
+      in: "header",
+      required: true,
+      schema: { type: "string", example: "application/json" },
+      description: "Specifies that the request body format is JSON.",
+    },
+  ]}
+/>
 
 <RequestSchema
   title={"Body"}
