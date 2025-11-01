@@ -16,6 +16,11 @@ jobs:
           node-version: 22
           cache: yarn
 
+      - name: Download latest OpenAPI spec
+        run: |
+          curl -o static/openapi-v3.yaml https://panel.kenar.divarcdn.com/openapi-v3.yaml
+          echo "OpenAPI spec downloaded successfully"
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
@@ -24,11 +29,12 @@ jobs:
 
       - name: Check git diff
         run: |
-          if git diff --quiet; then
-            echo "No changes detected"
+          # Exclude openapi-v3.yaml since it's downloaded at build time
+          if git diff --quiet -- . ':!static/openapi-v3.yaml'; then
+            echo "No changes detected in generated files"
             exit 0
           else
-            echo "Changes detected"
-            git diff 
+            echo "Changes detected in generated files"
+            git diff -- . ':!static/openapi-v3.yaml'
             exit 1
           fi
