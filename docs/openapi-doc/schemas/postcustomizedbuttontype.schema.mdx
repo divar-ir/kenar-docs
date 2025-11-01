@@ -1,7 +1,7 @@
 ---
 id: postcustomizedbuttontype
 title: "postCustomizedButtonType"
-description: "نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند."
+description: "Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type."
 sidebar_label: "postCustomizedButtonType"
 hide_title: true
 hide_table_of_contents: true
@@ -22,14 +22,15 @@ import Heading from "@theme/Heading";
 
 
 
-نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند.
+Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.
 
-انواع موجود:
-- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه
+Available types:
+- `ACCOMMODATION_BOOKING`: For booking accommodation
+- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores
 
 
 <Schema
-  schema={{"description":"نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند.\n\nانواع موجود:\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n","enum":["ACCOMMODATION_BOOKING"],"type":"string","title":"postCustomizedButtonType"}}
+  schema={{"description":"Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.\n\nAvailable types:\n- `ACCOMMODATION_BOOKING`: For booking accommodation\n- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores\n","enum":["ACCOMMODATION_BOOKING","EXTERNAL_PRODUCT_STORE"],"type":"string","title":"postCustomizedButtonType"}}
   schemaType={"response"}
 >
   

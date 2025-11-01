@@ -6,7 +6,7 @@ sidebar_label: "postGetBusinessCustomizedButtonResponse"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"app_name":"string","app_slug":"string","type":"ACCOMMODATION_BOOKING"}
+sample: {"app_name":"string","app_slug":"string","is_active":true,"type":"ACCOMMODATION_BOOKING"}
 custom_edit_url: null
 ---
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"app_name":{"type":"string"},"app_slug":{"type":"string"},"type":{"description":"نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند.\n\nانواع موجود:\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n","enum":["ACCOMMODATION_BOOKING"],"type":"string","title":"postCustomizedButtonType"}},"type":"object","title":"postGetBusinessCustomizedButtonResponse"}}
+  schema={{"properties":{"app_name":{"type":"string"},"app_slug":{"type":"string"},"is_active":{"type":"boolean"},"type":{"description":"Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.\n\nAvailable types:\n- `ACCOMMODATION_BOOKING`: For booking accommodation\n- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores\n","enum":["ACCOMMODATION_BOOKING","EXTERNAL_PRODUCT_STORE"],"type":"string","title":"postCustomizedButtonType"}},"type":"object","title":"postGetBusinessCustomizedButtonResponse"}}
   schemaType={"response"}
 >
   

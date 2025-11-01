@@ -1019,7 +1019,8 @@
           "PHONE_SPARKLES",
           "PAINT_BRUSH",
           "VIDEO_LIBRARY",
-          "MAGNIFIER_SPARKLE"
+          "MAGNIFIER_SPARKLE",
+          "PIN_VARIANT"
         ],
         "type": "string"
       },
@@ -1309,7 +1310,8 @@
           "SUBMIT_USER_POST",
           "SUBMIT_USER_PAYMENT",
           "USER_SET_CUSTOMIZED_BUTTON",
-          "BUSINESS_CREATE_CUSTOMIZED_BUTTON"
+          "BUSINESS_CREATE_CUSTOMIZED_BUTTON",
+          "DELETE_USER_POST"
         ],
         "type": "string"
       },
@@ -1368,6 +1370,33 @@
         "required": [
           "title",
           "description"
+        ],
+        "type": "object"
+      },
+      "PostEditPostV2Body": {
+        "properties": {
+          "category_data": {
+            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/",
+            "type": "object"
+          },
+          "general_data": {
+            "$ref": "#/components/schemas/postPostGeneralData"
+          },
+          "update_mask": {
+            "description": "فیلد ماسک مشخص می‌کند کدام فیلدها به‌روزرسانی شوند. از مسیرهای تو در تو برای هر دو general_data و category_data استفاده کنید (مثلاً، 'general_data.title'، 'category_data.price'). این امکان تمایز بین حذف یک فیلد و به‌روزرسانی نکردن آن را فراهم می‌کند.",
+            "example": [
+              "general_data.title",
+              "general_data.description",
+              "category_data.price"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "update_mask"
         ],
         "type": "object"
       },
@@ -3593,9 +3622,10 @@
         "type": "object"
       },
       "postCustomizedButtonType": {
-        "description": "نوع دکمه اختصاصی که هدف و رفتار آن را مشخص می‌کند. ویژگی‌هایی مانند عنوان دکمه از نوع آن به دست می‌آیند.\n\nانواع موجود:\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n",
+        "description": "Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.\n\nAvailable types:\n- `ACCOMMODATION_BOOKING`: For booking accommodation\n- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores\n",
         "enum": [
-          "ACCOMMODATION_BOOKING"
+          "ACCOMMODATION_BOOKING",
+          "EXTERNAL_PRODUCT_STORE"
         ],
         "type": "string"
       },
@@ -3608,6 +3638,9 @@
       "postDeletePostCustomizedButtonResponse": {
         "type": "object"
       },
+      "postDeleteUserPostResponse": {
+        "type": "object"
+      },
       "postEditPostResponse": {
         "type": "object"
       },
@@ -3618,6 +3651,9 @@
           },
           "app_slug": {
             "type": "string"
+          },
+          "is_active": {
+            "type": "boolean"
           },
           "type": {
             "$ref": "#/components/schemas/postCustomizedButtonType"
@@ -3730,40 +3766,7 @@
         "example": "LOCATION_TYPE_EXACT",
         "type": "string"
       },
-      "postRoomsCount": {
-        "description": "Number of rooms in the residence",
-        "enum": [
-          "ROOMS_COUNT_0",
-          "ROOMS_COUNT_1",
-          "ROOMS_COUNT_2",
-          "ROOMS_COUNT_3",
-          "ROOMS_COUNT_4",
-          "ROOMS_COUNT_5_OR_MORE"
-        ],
-        "example": "ROOMS_COUNT_2",
-        "type": "string"
-      },
-      "postServicesFieldsCategory": {
-        "description": "The subcategory of the service",
-        "enum": [
-          "CATEGORY_CAR_AND_MOTOR",
-          "CATEGORY_CATERING",
-          "CATEGORY_COMPUTER_AND_MOBILE",
-          "CATEGORY_ACCOUNTING_AND_FINANCE",
-          "CATEGORY_TRANSPORT",
-          "CATEGORY_CRAFTSMEN",
-          "CATEGORY_BEAUTY_AND_HAIRCARE",
-          "CATEGORY_CLEANING",
-          "CATEGORY_GARDEN_AND_LANDSCAPING",
-          "CATEGORY_TEACHING"
-        ],
-        "example": "CATEGORY_CAR_AND_MOTOR",
-        "type": "string"
-      },
-      "postSetPostCustomizedButtonResponse": {
-        "type": "object"
-      },
-      "postSubmitPostGeneralData": {
+      "postPostGeneralData": {
         "properties": {
           "category_slug": {
             "description": "نام دسته‌بندی هدف. دسته‌بندی‌های موجود را در این آدرس بیابید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-categories/",
@@ -3832,6 +3835,39 @@
           "hide_phone",
           "chat_enabled"
         ],
+        "type": "object"
+      },
+      "postRoomsCount": {
+        "description": "Number of rooms in the residence",
+        "enum": [
+          "ROOMS_COUNT_0",
+          "ROOMS_COUNT_1",
+          "ROOMS_COUNT_2",
+          "ROOMS_COUNT_3",
+          "ROOMS_COUNT_4",
+          "ROOMS_COUNT_5_OR_MORE"
+        ],
+        "example": "ROOMS_COUNT_2",
+        "type": "string"
+      },
+      "postServicesFieldsCategory": {
+        "description": "The subcategory of the service",
+        "enum": [
+          "CATEGORY_CAR_AND_MOTOR",
+          "CATEGORY_CATERING",
+          "CATEGORY_COMPUTER_AND_MOBILE",
+          "CATEGORY_ACCOUNTING_AND_FINANCE",
+          "CATEGORY_TRANSPORT",
+          "CATEGORY_CRAFTSMEN",
+          "CATEGORY_BEAUTY_AND_HAIRCARE",
+          "CATEGORY_CLEANING",
+          "CATEGORY_GARDEN_AND_LANDSCAPING",
+          "CATEGORY_TEACHING"
+        ],
+        "example": "CATEGORY_CAR_AND_MOTOR",
+        "type": "string"
+      },
+      "postSetPostCustomizedButtonResponse": {
         "type": "object"
       },
       "postSubmitPostRequest": {
@@ -3937,7 +3973,7 @@
             "type": "object"
           },
           "general_data": {
-            "$ref": "#/components/schemas/postSubmitPostGeneralData"
+            "$ref": "#/components/schemas/postPostGeneralData"
           },
           "landline_numbers": {
             "description": "Landline numbers to be added to the post",
@@ -3964,7 +4000,7 @@
             "type": "object"
           },
           "general_data": {
-            "$ref": "#/components/schemas/postSubmitPostGeneralData"
+            "$ref": "#/components/schemas/postPostGeneralData"
           }
         },
         "required": [
@@ -6140,7 +6176,7 @@
     },
     "/v1/open-platform/get-user-id-by-phone": {
       "post": {
-        "description": "You should use this API when a user reaches your CRM/support service and leaves their phone and you need to translate their phone number to user id.",
+        "description": "با استفاده از این API می‌توانید شناسه‌ی دیوار یک کاربر را با استفاده از شماره تلفن دریافت کنید. این اجازه مختص برنامه‌هایی است که دسترسی به شماره تماس کاربر ندارند و برای ارائه‌ی خدمات پشتیبانی به کاربران، نیاز به تبدیل شماره به شناسه‌ی دیوار دارند.",
         "operationId": "Finder_GetUserIDByPhone",
         "requestBody": {
           "content": {
@@ -6174,7 +6210,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get user id by phone number",
+        "summary": "دریافت شناسه دیوار کاربر با شماره تلفن",
         "tags": [
           "Finder"
         ]
@@ -6255,6 +6291,47 @@
       }
     },
     "/v1/open-platform/post/{post_token}": {
+      "delete": {
+        "description": "این API به شما امکان حذف آگهی را می‌دهد. این نیاز به اسکوپ OAuth `DELETE_USER_POST` دارد.",
+        "operationId": "Post_DeleteUserPost",
+        "parameters": [
+          {
+            "description": "توکن آگهی برای حذف",
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDeleteUserPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "حذف آگهی",
+        "tags": [
+          "Post"
+        ]
+      },
       "put": {
         "description": "این API به شما امکان ویرایش آگهی را می‌دهد. این نیاز به دامنه OAuth `POST_EDIT.{post_token}` دارد.\nدر حال حاضر فقط می‌توانید عنوان، توضیحات و تصاویر آگهی را ویرایش کنید.",
         "operationId": "Post_EditPost",
@@ -6883,6 +6960,59 @@
           "Finder"
         ]
       }
+    },
+    "/v2/open-platform/post/{post_token}": {
+      "put": {
+        "description": "این API به شما امکان ویرایش آگهی با استفاده از احراز هویت OAuth را می‌دهد.\nتوکن دسترسی از یک کاربر با اسکوپ OAuth `POST_EDIT.{post_token}` مورد نیاز است.\n\nمی‌توانید عنوان، توضیحات، تصاویر، موقعیت، فیلدهای مخصوص دسته‌بندی و سایر ویژگی‌های آگهی را ویرایش کنید. فیلدهای مخصوص دسته‌بندی باید از قالب دسته‌بندی آگهی پیروی کنند. قالب را از اینجا دریافت کنید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/\n\nاز فیلد update_mask برای مشخص کردن فیلدهایی که می‌خواهید به‌روزرسانی کنید استفاده کنید.",
+        "operationId": "Post_EditPostV2",
+        "parameters": [
+          {
+            "description": "توکن آگهی",
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostEditPostV2Body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postEditPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ویرایش آگهی با پشتیبانی از فیلد ماسک",
+        "tags": [
+          "Post"
+        ]
+      }
     }
   },
   "security": [
@@ -6897,32 +7027,32 @@
   ],
   "tags": [
     {
-      "name": "Addons"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "ChatAPI"
-    },
-    {
-      "name": "Events"
+      "name": "PaymentTicket"
     },
     {
       "name": "Finder"
     },
     {
-      "name": "Post"
+      "name": "Addons"
     },
     {
       "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
       "name": "Payment"
     },
     {
-      "name": "PaymentTicket"
+      "name": "Semantic"
     },
     {
-      "name": "Semantic"
+      "name": "Events"
+    },
+    {
+      "name": "Assets"
+    },
+    {
+      "name": "Post"
+    },
+    {
+      "name": "ChatAPI"
     }
   ]
 }

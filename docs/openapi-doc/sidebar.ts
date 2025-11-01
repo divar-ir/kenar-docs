@@ -8,6 +8,68 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "PaymentTicket",
+      link: {
+        type: "doc",
+        id: "openapi-doc/payment-ticket",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/payment-ticket-validate",
+          label: "اعتبارسنجی بلیط پرداخت",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Finder",
+      link: {
+        type: "doc",
+        id: "openapi-doc/finder",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-post",
+          label: "دریافت آگهی دیوار",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user-posts",
+          label: "دریافت آگهی‌های کاربر",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user-id-by-phone",
+          label: "دریافت شناسه دیوار کاربر با شماره تلفن",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user-2",
+          label: "دریافت اطلاعات کاربر",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user",
+          label: "دریافت اطلاعات کاربر",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-search-post-v-2",
+          label: "جستجو آگهی‌های دیوار با فیلترهایی",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Addons",
       link: {
         type: "doc",
@@ -54,6 +116,138 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/addons-create-user-addon-v-22",
           label: "افزودن افزونه جدید به کاربر",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Payment",
+      link: {
+        type: "doc",
+        id: "openapi-doc/payment",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/payment-get-balance",
+          label: "Payment_GetBalance",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-publish-user-post",
+          label: "Pay for user post submission on behalf of provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-reorder-post",
+          label: "Payment_ReorderPost",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-list-transactions",
+          label: "Payment_ListTransactions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-get-transaction",
+          label: "Payment_GetTransaction",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-commit-wallet-transaction",
+          label: "Payment_CommitWalletTransaction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-create-wallet-payment",
+          label: "Payment_CreateWalletPayment",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-retrieve-wallet-transaction",
+          label: "Payment_RetrieveWalletTransaction",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-get-post-pricing",
+          label: "دریافت هزینه سرویس",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-submit-user-payment",
+          label: "ثبت پرداخت کاربر",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Semantic",
+      link: {
+        type: "doc",
+        id: "openapi-doc/semantic",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-create-post-semantic",
+          label: "ایجاد اطلاعات معنایی آگهی",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-delete-user-semantic",
+          label: "حذف اطلاعات معنایی کاربر",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-create-user-semantic",
+          label: "ایجاد اطلاعات معنایی کاربر",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-delete-user-semantic-2",
+          label: "حذف اطلاعات معنایی کاربر",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-create-user-semantic-2",
+          label: "ایجاد اطلاعات معنایی کاربر",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Events",
+      link: {
+        type: "doc",
+        id: "openapi-doc/events",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/events-send-event",
+          label: "Send an event to a user",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/events-register-event-subscription",
+          label: "اشتراک در رویداد",
           className: "api-method post",
         },
       ],
@@ -148,132 +342,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "ChatAPI",
-      link: {
-        type: "doc",
-        id: "openapi-doc/chat-api",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-chat-bot-send-message-5",
-          label: "ارسال پیام به مکالمه ChatBot",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-chat-bot-send-message-4",
-          label: "ارسال پیام به مکالمه ChatBot",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-generate-upload-token",
-          label: "تولید توکن آپلود",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-chat-bot-send-message-3",
-          label: "ارسال پیام به مکالمه ChatBot",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-chat-bot-send-message",
-          label: "ارسال پیام به مکالمه ChatBot",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-chat-bot-send-message-2",
-          label: "ارسال پیام به مکالمه ChatBot",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-get-conversation",
-          label: "دریافت مکالمه با شناسه آن",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/chat-api-conversation-send-message",
-          label: "ارسال پیام به مکالمه",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Events",
-      link: {
-        type: "doc",
-        id: "openapi-doc/events",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/events-send-event",
-          label: "Send an event to a user",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/events-register-event-subscription",
-          label: "اشتراک در رویداد",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Finder",
-      link: {
-        type: "doc",
-        id: "openapi-doc/finder",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-post",
-          label: "دریافت آگهی دیوار",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-user-posts",
-          label: "دریافت آگهی‌های کاربر",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-user-id-by-phone",
-          label: "Get user id by phone number",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-user-2",
-          label: "دریافت اطلاعات کاربر",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-user",
-          label: "دریافت اطلاعات کاربر",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-search-post-v-2",
-          label: "جستجو آگهی‌های دیوار با فیلترهایی",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Post",
       link: {
         type: "doc",
@@ -342,134 +410,78 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/post-delete-user-post",
+          label: "حذف آگهی",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/post-edit-post",
           label: "ویرایش آگهی",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-edit-post-v-2",
+          label: "ویرایش آگهی با پشتیبانی از فیلد ماسک",
           className: "api-method put",
         },
       ],
     },
     {
       type: "category",
-      label: "Payment",
+      label: "ChatAPI",
       link: {
         type: "doc",
-        id: "openapi-doc/payment",
+        id: "openapi-doc/chat-api",
       },
       items: [
         {
           type: "doc",
-          id: "openapi-doc/payment-get-balance",
-          label: "Payment_GetBalance",
+          id: "openapi-doc/chat-api-chat-bot-send-message-5",
+          label: "ارسال پیام به مکالمه ChatBot",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/chat-api-chat-bot-send-message-4",
+          label: "ارسال پیام به مکالمه ChatBot",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/chat-api-generate-upload-token",
+          label: "تولید توکن آپلود",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/chat-api-chat-bot-send-message-3",
+          label: "ارسال پیام به مکالمه ChatBot",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/chat-api-chat-bot-send-message",
+          label: "ارسال پیام به مکالمه ChatBot",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/chat-api-chat-bot-send-message-2",
+          label: "ارسال پیام به مکالمه ChatBot",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/chat-api-get-conversation",
+          label: "دریافت مکالمه با شناسه آن",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "openapi-doc/payment-publish-user-post",
-          label: "Pay for user post submission on behalf of provider",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-reorder-post",
-          label: "Payment_ReorderPost",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-list-transactions",
-          label: "Payment_ListTransactions",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-get-transaction",
-          label: "Payment_GetTransaction",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-commit-wallet-transaction",
-          label: "Payment_CommitWalletTransaction",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-create-wallet-payment",
-          label: "Payment_CreateWalletPayment",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-retrieve-wallet-transaction",
-          label: "Payment_RetrieveWalletTransaction",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-get-post-pricing",
-          label: "دریافت هزینه سرویس",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-submit-user-payment",
-          label: "ثبت پرداخت کاربر",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "PaymentTicket",
-      link: {
-        type: "doc",
-        id: "openapi-doc/payment-ticket",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/payment-ticket-validate",
-          label: "اعتبارسنجی بلیط پرداخت",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Semantic",
-      link: {
-        type: "doc",
-        id: "openapi-doc/semantic",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-create-post-semantic",
-          label: "ایجاد اطلاعات معنایی آگهی",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-delete-user-semantic",
-          label: "حذف اطلاعات معنایی کاربر",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-create-user-semantic",
-          label: "ایجاد اطلاعات معنایی کاربر",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-delete-user-semantic-2",
-          label: "حذف اطلاعات معنایی کاربر",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-create-user-semantic-2",
-          label: "ایجاد اطلاعات معنایی کاربر",
+          id: "openapi-doc/chat-api-conversation-send-message",
+          label: "ارسال پیام به مکالمه",
           className: "api-method post",
         },
       ],
@@ -692,6 +704,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/posteditpostbody",
           label: "PostEditPostBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/posteditpostv-2-body",
+          label: "PostEditPostV2Body",
           className: "schema",
         },
         {
@@ -1626,6 +1644,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/postdeleteuserpostresponse",
+          label: "postDeleteUserPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/posteditpostresponse",
           label: "postEditPostResponse",
           className: "schema",
@@ -1662,6 +1686,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/postpostgeneraldata",
+          label: "postPostGeneralData",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/postroomscount",
           label: "postRoomsCount",
           className: "schema",
@@ -1676,12 +1706,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postsetpostcustomizedbuttonresponse",
           label: "postSetPostCustomizedButtonResponse",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/postsubmitpostgeneraldata",
-          label: "postSubmitPostGeneralData",
           className: "schema",
         },
         {
