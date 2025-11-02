@@ -16,11 +16,6 @@ jobs:
           node-version: 22
           cache: yarn
 
-      - name: Download latest OpenAPI spec
-        run: |
-          curl -o static/openapi-v3.yaml https://panel.kenar.divarcdn.com/openapi-v3.yaml
-          echo "OpenAPI spec downloaded successfully"
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
