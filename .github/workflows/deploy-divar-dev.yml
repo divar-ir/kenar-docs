@@ -28,6 +28,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      
+      - name: Generate API docs
+        run: yarn generate
+      
       - name: Build website
         run: yarn build
         env:
