@@ -4283,7 +4283,7 @@
     },
     "/experimental/open-platform/business/{business_token}/customized-button": {
       "delete": {
-        "description": "This API deletes the customized button configuration from all posts of the business.This API requires the `SET_CUSTOMIZED_BUTTON` permission.\n",
+        "description": "این API دکمه اختصاصی را از آگهی‌های کسب‌و‌کار حذف می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\n",
         "operationId": "Post_DeleteBusinessCustomizedButton",
         "parameters": [
           {
@@ -4317,13 +4317,13 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Delete customized button from business posts",
+        "summary": "حذف دکمه اختصاصی از آگهی‌های کسب‌و‌کار",
         "tags": [
           "Post"
         ]
       },
       "post": {
-        "description": "This API creates a customized button configuration for all posts from the business.\nThis API requires the `SET_CUSTOMIZED_BUTTON` permission and `BUSINESS_CREATE_CUSTOMIZED_BUTTON.{business_ref}` OAuth scope.\n",
+        "description": "این API دکمه اختصاصی را برای آگهی‌های کسب‌و‌کار ایجاد می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دامنه OAuth `BUSINESS_CREATE_CUSTOMIZED_BUTTON.{business_ref}` دارد.\n",
         "operationId": "Post_CreateBusinessCustomizedButton",
         "parameters": [
           {
@@ -4367,7 +4367,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Creates customized button for business posts",
+        "summary": "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌و‌کار",
         "tags": [
           "Post"
         ]
