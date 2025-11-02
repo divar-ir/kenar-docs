@@ -351,13 +351,13 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/post-delete-business-customized-button",
-          label: "Delete customized button from business posts",
+          label: "حذف دکمه اختصاصی از آگهی‌های کسب‌و‌کار",
           className: "api-method delete",
         },
         {
           type: "doc",
           id: "openapi-doc/post-create-business-customized-button",
-          label: "Creates customized button for business posts",
+          label: "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌و‌کار",
           className: "api-method post",
         },
         {
