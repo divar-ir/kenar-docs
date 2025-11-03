@@ -389,13 +389,15 @@ flowchart TB
     CustomButton --> End5([پایان])
     
     %% استایل‌ها
-    classDef process fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    classDef decision fill:#fff8e1,stroke:#fbc02d,stroke-width:2px
-    classDef state fill:#f1f8e9,stroke:#689f38,stroke-width:2px
+    classDef process fill:#2962ff,stroke:#fff,stroke-width:2px,color:#fff
+    classDef decision fill:#ff6d00,stroke:#fff,stroke-width:2px,color:#fff
+    classDef state fill:#00c853,stroke:#fff,stroke-width:2px,color:#fff
+    classDef terminal fill:#6a1b9a,stroke:#fff,stroke-width:2px,color:#fff
     
     class Provider,User,UploadImages,GetSchema,FillForm,Submit,Payment,Edit,Reorder,CustomButton process
     class SelectMethod,UserCheck,PostActions decision
     class PendingPayment,Review,Published state
+    class Start,End,End2,End3,End4,End5 terminal
 ```
 
 ## مثال کامل
