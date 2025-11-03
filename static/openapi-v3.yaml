@@ -4555,7 +4555,7 @@
     },
     "/experimental/open-platform/events/send": {
       "post": {
-        "description": "Using this API, you can send an event to a user. The event can be specific to a post or general. The event can include buttons with custom actions allowing users to interact with your app.",
+        "description": "با استفاده از این API، می‌توانید رویدادی به کاربر ارسال کنید. رویداد می‌تواند مربوط به یک آگهی خاص یا عمومی باشد. رویداد می‌تواند شامل دکمه‌هایی با عملیات سفارشی باشد که به کاربران اجازه می‌دهد با برنامه شما تعامل داشته باشند.",
         "operationId": "Events_SendEvent",
         "parameters": [
           {
@@ -4609,7 +4609,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Send an event to a user",
+        "summary": "ارسال رویداد به کاربر با استفاده از API",
         "tags": [
           "Events"
         ]

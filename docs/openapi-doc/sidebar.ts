@@ -241,7 +241,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/events-send-event",
-          label: "Send an event to a user",
+          label: "ارسال رویداد به کاربر با استفاده از API",
           className: "api-method post",
         },
         {
