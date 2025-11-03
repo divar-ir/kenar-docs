@@ -65,7 +65,7 @@ API های ثبت آگهی به شما این امکان را می‌دهند ک
 
 قبل از ثبت آگهی، باید تصاویر مورد نظر را آپلود کنید تا شناسه آن‌ها را در درخواست ثبت استفاده کنید.
 
-برای آپلود تصاویر، به [مستندات آپلود تصویر](/widgets/image) مراجعه کنید. پس از آپلود موفق، شناسه تصویر (`image_name`) را دریافت خواهید کرد که باید در آرایه `images` درخواست ثبت آگهی استفاده شود.
+برای آپلود تصاویر، به [مستندات دریافت لینک آپلود عکس](/post/get_image_upload_url) مراجعه کنید. پس از آپلود موفق، شناسه تصویر (`path`) را دریافت خواهید کرد که باید در آرایه `images` درخواست ثبت آگهی استفاده شود.
 
 ### مرحله 1: دریافت قالب ثبت دسته‌بندی
 
@@ -404,19 +404,27 @@ flowchart TB
 
 ```javascript
 // 0. آپلود تصویر
-const imageFile = /* فایل تصویر شما */;
-const uploadImageResponse = await fetch(
-  'https://divar.ir/v2/image-service/open-platform/image.jpg',
+// ابتدا لینک آپلود را دریافت کنید
+const uploadUrlResponse = await fetch(
+  'https://open-api.divar.ir/v1/open-platform/post/image-upload-url',
   {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'image/jpeg'
-    },
-    body: imageFile
+    headers: { 'x-api-key': API_KEY }
   }
 );
 
-const { image_name } = await uploadImageResponse.json();
+const { upload_url } = await uploadUrlResponse.json();
+
+// سپس تصویر را آپلود کنید
+const imageFile = /* فایل تصویر شما */;
+const uploadImageResponse = await fetch(upload_url, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'image/jpeg'
+  },
+  body: imageFile
+});
+
+const { path } = await uploadImageResponse.json();
 
 // 1. دریافت قالب
 const schema = await fetch(
@@ -438,7 +446,7 @@ const submitResponse = await fetch(
         category_slug: 'apartment-rent',
         title: 'اجاره آپارتمان',
         description: 'آپارتمان نوساز',
-        images: [image_name], // استفاده از شناسه تصویر آپلود شده
+        images: [path], // استفاده از شناسه تصویر آپلود شده
         city: 'tehran',
         district: 'abshar',
         location_type: 'LOCATION_TYPE_EXACT',
