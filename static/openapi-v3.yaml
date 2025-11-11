@@ -159,17 +159,17 @@
             "$ref": "#/components/schemas/chatapiChatButtonGrid"
           },
           "media_token": {
-            "description": "Token for attached media (if any)",
+            "description": "توکن برای مدیای ضمیمه شده (در صورت وجود)",
             "example": "media_token_12345",
             "type": "string"
           },
           "text_message": {
-            "description": "Text message content to be sent by the bot",
+            "description": "محتوای پیام متنی برای ارسال توسط ربات",
             "example": "Thank you for your inquiry. How can I help you?",
             "type": "string"
           },
           "user_id": {
-            "description": "Unique identifier for the user to start or continue a conversation with",
+            "description": "شناسه منحصر به فرد کاربر برای شروع یا ادامه مکالمه",
             "example": "user_789012",
             "type": "string"
           }
@@ -182,12 +182,12 @@
       "ChatAPIConversationSendMessageBody": {
         "properties": {
           "media_token": {
-            "description": "Token for attached media (if any)",
+            "description": "توکن برای مدیای ضمیمه شده (در صورت وجود)",
             "example": "media_token_12345",
             "type": "string"
           },
           "message": {
-            "description": "Text message content to be sent",
+            "description": "محتوای پیام متنی برای ارسال",
             "example": "Hello, I'm interested in your product",
             "type": "string"
           },
@@ -1024,6 +1024,20 @@
         ],
         "type": "string"
       },
+      "GetPostPricingResponseRenew": {
+        "properties": {
+          "available": {
+            "description": "نشان می‌دهد که آیا آگهی قابل تمدید است. اگر false باشد، API تمدید خطا برمی‌گرداند",
+            "type": "boolean"
+          },
+          "cost_rials": {
+            "description": "هزینه تمدید به ریال",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "GetPostPricingResponseReorder": {
         "properties": {
           "available": {
@@ -1041,11 +1055,11 @@
       "GetPostPricingResponseSubmit": {
         "properties": {
           "available": {
-            "description": "Indicates if the post can be submitted. If false, the submit API will return an error",
+            "description": "نشان می‌دهد که آیا آگهی قابل ثبت است. اگر false باشد، API ثبت خطا برمی‌گرداند",
             "type": "boolean"
           },
           "cost_rials": {
-            "description": "The cost of submitting post in rials",
+            "description": "هزینه ثبت آگهی به ریال",
             "format": "int64",
             "type": "string"
           }
@@ -1093,6 +1107,17 @@
           },
           "slug": {
             "$ref": "#/components/schemas/appsServiceType"
+          }
+        },
+        "type": "object"
+      },
+      "GetUploadURLsV2ResponseUploadFormat": {
+        "properties": {
+          "http_method": {
+            "$ref": "#/components/schemas/open_platformpostHTTPMethod"
+          },
+          "url": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -1296,6 +1321,7 @@
           "OPENID",
           "PAYMENT_ALL_POSTS_PRICING_READ",
           "PAYMENT_ALL_POSTS_REORDER",
+          "PAYMENT_ALL_POSTS_RENEW",
           "MANAGEMENT_APPS_READ",
           "MANAGEMENT_APPS_WRITE",
           "POST_ONGOING_IMAGES_GET",
@@ -1316,6 +1342,19 @@
         "type": "string"
       },
       "PaymentPublishUserPostBody": {
+        "properties": {
+          "extra_details": {
+            "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
+            "type": "string"
+          },
+          "id": {
+            "description": "یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "PaymentRenewPostBody": {
         "properties": {
           "extra_details": {
             "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
@@ -1553,7 +1592,7 @@
         "type": "string"
       },
       "TemporaryResidenceFieldsComfortAmenity": {
-        "description": "List of comfort amenities available in the residence",
+        "description": "فهرست امکانات رفاهی موجود در اقامتگاه",
         "enum": [
           "COMFORT_AMENITY_TV",
           "COMFORT_AMENITY_AUDIO_SYSTEM",
@@ -1583,7 +1622,7 @@
         "type": "string"
       },
       "TemporaryResidenceFieldsHeatingCoolingSystem": {
-        "description": "List of heating and cooling systems available",
+        "description": "فهرست سیستم‌های گرمایش و سرمایش موجود",
         "enum": [
           "HEATING_COOLING_SYSTEM_EVAPORATIVE_COOLER",
           "HEATING_COOLING_SYSTEM_RADIATOR",
@@ -1598,7 +1637,7 @@
         "type": "string"
       },
       "TemporaryResidenceFieldsPetsAllowed": {
-        "description": "Pet policy for the residence",
+        "description": "سیاست نگهداری حیوان خانگی برای اقامتگاه",
         "enum": [
           "PETS_ALLOWED_YES",
           "PETS_ALLOWED_NO",
@@ -1608,7 +1647,7 @@
         "type": "string"
       },
       "TemporaryResidenceFieldsRentalPeriod": {
-        "description": "Rental period type (daily, weekly, monthly)",
+        "description": "نوع دوره اجاره (روزانه، هفتگی، ماهانه)",
         "enum": [
           "RENTAL_PERIOD_DAILY",
           "RENTAL_PERIOD_WEEKLY",
@@ -1618,13 +1657,13 @@
         "type": "string"
       },
       "addonsAction": {
-        "description": "Represents an action that can be performed",
+        "description": "نمایان‌گر یک عملیات که می‌تواند انجام شود",
         "properties": {
           "get_dynamic_action": {
             "$ref": "#/components/schemas/addonsGetDynamicAction"
           },
           "open_direct_link": {
-            "description": "An action to send user to your URL directly with just a resource id (if applicable)",
+            "description": "عملیاتی برای ارسال کاربر به URL شما به صورت مستقیم با فقط یک شناسه منبع (در صورت وجود)",
             "example": "https://your-site.com/some-path",
             "type": "string"
           },
@@ -1638,7 +1677,7 @@
             "$ref": "#/components/schemas/addonsOpenServerLink"
           }
         },
-        "title": "Action",
+        "title": "عملیات",
         "type": "object"
       },
       "addonsAddonLinkage": {
@@ -1741,7 +1780,7 @@
             "type": "array"
           }
         },
-        "title": "(AND) post is selected by this selector if all of the following conditions\nmatches",
+        "title": "(AND) آگهی توسط این انتخابگر انتخاب می‌شود اگر تمام شرایط زیر\nبرقرار باشند",
         "type": "object"
       },
       "addonsAddonSemantic": {
@@ -1966,17 +2005,17 @@
         "type": "object"
       },
       "addonsGetDynamicAction": {
-        "description": "Represents a dynamic action that can be fetched and invoked on user's device",
+        "description": "نمایان‌گر یک اکشن پویا که می‌تواند در دستگاه کاربر دریافت و اجرا شود",
         "properties": {
           "data": {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
+            "description": "داده‌ای که می‌توانید تنظیم کنید و پس از کلیک کاربر برای شناسایی عملیات به شما برگردانده می‌شود",
             "example": {
               "your-internal-id": "something"
             },
             "type": "object"
           }
         },
-        "title": "Get Dynamic Action",
+        "title": "دریافت اکشن پویا",
         "type": "object"
       },
       "addonsGetPostAddonsResponse": {
@@ -2052,10 +2091,10 @@
         "type": "object"
       },
       "addonsOpenPostManagePage": {
-        "description": "An action to open a post management page in the app",
+        "description": "عملیاتی برای باز کردن صفحه مدیریت آگهی در اپلیکیشن",
         "properties": {
           "post_token": {
-            "description": "Token of the post to redirect to its management page",
+            "description": "توکن آگهی برای هدایت به صفحه مدیریت آن",
             "example": "AJIEWcw",
             "type": "string"
           }
@@ -2063,14 +2102,14 @@
         "required": [
           "post_token"
         ],
-        "title": "Open Post Manage Page",
+        "title": "باز کردن صفحه مدیریت آگهی",
         "type": "object"
       },
       "addonsOpenPostPage": {
-        "description": "An action to open a post page in the app",
+        "description": "عملیاتی برای باز کردن صفحه آگهی در اپلیکیشن",
         "properties": {
           "post_token": {
-            "description": "Token of the post to open",
+            "description": "توکن آگهی برای باز کردن",
             "example": "AJIEWcw",
             "type": "string"
           }
@@ -2078,21 +2117,21 @@
         "required": [
           "post_token"
         ],
-        "title": "Open Post Page",
+        "title": "باز کردن صفحه آگهی",
         "type": "object"
       },
       "addonsOpenServerLink": {
-        "description": "An action to pass complete session data and retrieve redirect location from your server on each user action",
+        "description": "عملیاتی برای ارسال داده‌های کامل نشست و دریافت مکان هدایت از سرور شما در هر عملیات کاربر",
         "properties": {
           "data": {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
+            "description": "داده‌ای که می‌توانید تنظیم کنید و پس از کلیک کاربر برای شناسایی عملیات به شما برگردانده می‌شود",
             "example": {
               "your-internal-id": "something"
             },
             "type": "object"
           }
         },
-        "title": "Open Server Link",
+        "title": "باز کردن لینک سرور",
         "type": "object"
       },
       "addonsPostAddon": {
@@ -2661,7 +2700,7 @@
       "chatapiChatBotSendMessageResponse": {
         "properties": {
           "conversation_id": {
-            "description": "ID of the conversation created or updated",
+            "description": "شناسه مکالمه ایجاد شده یا به‌روزرسانی شده",
             "example": "conv_123456",
             "readOnly": true,
             "type": "string"
@@ -2748,7 +2787,7 @@
       "chatapiGenerateUploadTokenResponse": {
         "properties": {
           "token": {
-            "description": "A url safe base64 encoded token that can be used in the upload endpoint",
+            "description": "توکن کدگذاری شده base64 ایمن برای URL که می‌تواند در نقطه پایانی آپلود استفاده شود",
             "example": "some_random_base64",
             "readOnly": true,
             "type": "string"
@@ -2762,7 +2801,7 @@
             "$ref": "#/components/schemas/chatapiConversation"
           },
           "messages": {
-            "description": "List of messages in the conversation",
+            "description": "فهرست پیام‌های مکالمه",
             "items": {
               "$ref": "#/components/schemas/chatapiMessage"
             },
@@ -2849,7 +2888,7 @@
             "$ref": "#/components/schemas/addonsAction"
           },
           "title": {
-            "description": "The text to display on the button",
+            "description": "متن برای نمایش روی دکمه",
             "type": "string"
           }
         },
@@ -2929,7 +2968,7 @@
             "type": "string"
           },
           "is_phone_hidden": {
-            "title": "This field is available only in webhook requests",
+            "title": "این فیلد فقط در درخواست‌های webhook در دسترس است",
             "type": "boolean"
           },
           "last_modified_at": {
@@ -3212,13 +3251,39 @@
         },
         "type": "object"
       },
+      "open_platformpostHTTPMethod": {
+        "enum": [
+          "GET",
+          "POST",
+          "PUT",
+          "DELETE",
+          "PATCH",
+          "HEAD",
+          "OPTIONS"
+        ],
+        "type": "string"
+      },
+      "open_platformpostPostState": {
+        "enum": [
+          "POST_STATE_IN_PUBLISH_QUEUE",
+          "POST_STATE_PUBLISHED",
+          "POST_STATE_WAITING_FOR_EDIT",
+          "POST_STATE_WAITING_FOR_PAYMENT",
+          "POST_STATE_WAITING_FOR_REVIEW",
+          "POST_STATE_PUBLISHED_AND_EDIT_REJECTED",
+          "POST_STATE_REJECTED",
+          "POST_STATE_DELETED",
+          "POST_STATE_RETIRED"
+        ],
+        "type": "string"
+      },
       "open_platformpostServicesFields": {
         "properties": {
           "category": {
             "$ref": "#/components/schemas/postServicesFieldsCategory"
           },
           "expertise_ids": {
-            "description": "List of expertise ids",
+            "description": "فهرست شناسه‌های تخصص",
             "example": [
               "1",
               "2"
@@ -3229,24 +3294,24 @@
             "type": "array"
           },
           "work_hours_end": {
-            "description": "End hour of work in 24-hour format (e.g. 18 for 18:00). Only applicable if `works_24_7` is false.",
+            "description": "ساعت پایان کار به فرمت 24 ساعته (مثلاً 18 برای 18:00). فقط در صورتی اعمال می‌شود که `works_24_7` false باشد.",
             "example": 18,
             "format": "int32",
             "type": "integer"
           },
           "work_hours_start": {
-            "description": "Start hour of work in 24-hour format (e.g. 9 for 9:00). Only applicable if `works_24_7` is false.",
+            "description": "ساعت شروع کار به فرمت 24 ساعته (مثلاً 9 برای 9:00). فقط در صورتی اعمال می‌شود که `works_24_7` false باشد.",
             "example": 9,
             "format": "int32",
             "type": "integer"
           },
           "work_on_holidays": {
-            "description": "Whether the service provider works on holidays",
+            "description": "آیا ارائه‌دهنده سرویس در تعطیلات کار می‌کند",
             "example": true,
             "type": "boolean"
           },
           "works_24_7": {
-            "description": "Whether the service provider is available 24/7. If true, `work_hours_start` and `work_hours_end` are ignored.",
+            "description": "آیا ارائه‌دهنده سرویس به صورت 24/7 در دسترس است. اگر true باشد، `work_hours_start` و `work_hours_end` نادیده گرفته می‌شوند.",
             "example": false,
             "type": "boolean"
           }
@@ -3326,6 +3391,9 @@
       },
       "paymentGetPostPricingResponse": {
         "properties": {
+          "renew": {
+            "$ref": "#/components/schemas/GetPostPricingResponseRenew"
+          },
           "reorder": {
             "$ref": "#/components/schemas/GetPostPricingResponseReorder"
           },
@@ -3346,7 +3414,7 @@
       "paymentListTransactionsResponse": {
         "properties": {
           "next_page_token": {
-            "description": "Token for the next page of results.",
+            "description": "توکن برای صفحه بعدی نتایج.",
             "type": "string"
           },
           "transactions": {
@@ -3360,6 +3428,14 @@
         "type": "object"
       },
       "paymentPublishUserPostResponse": {
+        "properties": {
+          "transaction": {
+            "$ref": "#/components/schemas/paymentTransaction"
+          }
+        },
+        "type": "object"
+      },
+      "paymentRenewPostResponse": {
         "properties": {
           "transaction": {
             "$ref": "#/components/schemas/paymentTransaction"
@@ -3402,7 +3478,7 @@
             "type": "string"
           },
           "reference_id": {
-            "description": "A unique identifier between Divar and the provider for the invoice or transaction. This is not a payment gateway reference ID.",
+            "description": "شناسه منحصر به فرد بین دیوار و ارائه‌دهنده برای فاکتور یا تراکنش. این شناسه مرجع درگاه پرداخت نیست.",
             "type": "string"
           },
           "services": {
@@ -3427,7 +3503,7 @@
       "paymentTransaction": {
         "properties": {
           "app_slug": {
-            "description": "The slug of the app that created the transaction",
+            "description": "شناسه اپلیکیشنی که تراکنش را ایجاد کرده است",
             "type": "string"
           },
           "cost_rials": {
@@ -3436,7 +3512,7 @@
             "type": "string"
           },
           "created_at": {
-            "description": "The time when the transaction was created",
+            "description": "زمان ایجاد تراکنش",
             "format": "date-time",
             "type": "string"
           },
@@ -3469,7 +3545,8 @@
       "paymentTransactionType": {
         "enum": [
           "TRANSACTION_TYPE_REORDER",
-          "TRANSACTION_TYPE_SUBMIT"
+          "TRANSACTION_TYPE_SUBMIT",
+          "TRANSACTION_TYPE_RENEW"
         ],
         "type": "string"
       },
@@ -3622,10 +3699,11 @@
         "type": "object"
       },
       "postCustomizedButtonType": {
-        "description": "Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.\n\nAvailable types:\n- `ACCOMMODATION_BOOKING`: For booking accommodation\n- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores\n",
+        "description": "نوع دکمه اختصاصی که هدف و رفتار آن را تعیین می‌کند. ویژگی‌هایی مانند عنوان دکمه بر اساس نوع آن تعیین می‌شوند.\n\nانواع موجود:\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n- `EXTERNAL_PRODUCT_STORE`: برای مشاهده و خرید محصولات در فروشگاه‌های آنلاین\n- `RESUME_SUBMISSION`: برای ارسال رزومه\n",
         "enum": [
           "ACCOMMODATION_BOOKING",
-          "EXTERNAL_PRODUCT_STORE"
+          "EXTERNAL_PRODUCT_STORE",
+          "RESUME_SUBMISSION"
         ],
         "type": "string"
       },
@@ -3679,6 +3757,48 @@
           },
           "views": {
             "$ref": "#/components/schemas/GetPostStatsResponsePostStats"
+          }
+        },
+        "type": "object"
+      },
+      "postGetUploadURLsV2Response": {
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/GetUploadURLsV2ResponseUploadFormat"
+          },
+          "video": {
+            "$ref": "#/components/schemas/GetUploadURLsV2ResponseUploadFormat"
+          }
+        },
+        "type": "object"
+      },
+      "postGetUserPostResponse": {
+        "properties": {
+          "business_data": {
+            "$ref": "#/components/schemas/postGetUserPostResponseBusinessData"
+          },
+          "category_fields": {
+            "type": "object"
+          },
+          "general_data": {
+            "$ref": "#/components/schemas/postPostGeneralData"
+          },
+          "reject_reason": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/open_platformpostPostState"
+          }
+        },
+        "type": "object"
+      },
+      "postGetUserPostResponseBusinessData": {
+        "properties": {
+          "business_name": {
+            "type": "string"
+          },
+          "business_type": {
+            "$ref": "#/components/schemas/PremiumPanelBusinessDataSubBusinessType"
           }
         },
         "type": "object"
@@ -3757,7 +3877,7 @@
         "type": "object"
       },
       "postLocationType": {
-        "description": "Type of the location",
+        "description": "نوع موقعیت",
         "enum": [
           "LOCATION_TYPE_EMPTY",
           "LOCATION_TYPE_EXACT",
@@ -3838,7 +3958,7 @@
         "type": "object"
       },
       "postRoomsCount": {
-        "description": "Number of rooms in the residence",
+        "description": "تعداد اتاق‌های اقامتگاه",
         "enum": [
           "ROOMS_COUNT_0",
           "ROOMS_COUNT_1",
@@ -3851,7 +3971,7 @@
         "type": "string"
       },
       "postServicesFieldsCategory": {
-        "description": "The subcategory of the service",
+        "description": "زیردسته‌بندی سرویس",
         "enum": [
           "CATEGORY_CAR_AND_MOTOR",
           "CATEGORY_CATERING",
@@ -3910,7 +4030,7 @@
             "type": "array"
           },
           "landline_numbers": {
-            "description": "Landline numbers to be added to the post",
+            "description": "شماره‌های ثابت برای افزودن به آگهی",
             "example": [
               "02188888888",
               "02188888889"
@@ -3976,7 +4096,7 @@
             "$ref": "#/components/schemas/postPostGeneralData"
           },
           "landline_numbers": {
-            "description": "Landline numbers to be added to the post",
+            "description": "شماره‌های ثابت برای افزودن به آگهی",
             "example": [
               "02188888888",
               "02188888889"
@@ -4018,12 +4138,12 @@
             "type": "integer"
           },
           "check_in_time": {
-            "description": "Check-in time",
+            "description": "زمان ورود",
             "example": "08:00",
             "type": "string"
           },
           "check_out_time": {
-            "description": "Check-out time",
+            "description": "زمان خروج",
             "example": "20:00",
             "type": "string"
           },
@@ -4039,7 +4159,7 @@
             "type": "array"
           },
           "damage_deposit": {
-            "description": "Damage deposit amount in Toman",
+            "description": "مبلغ ودیعه خسارت به تومان",
             "example": 2000000,
             "format": "int64",
             "type": "string"
@@ -4051,7 +4171,7 @@
             "type": "integer"
           },
           "fully_furnished": {
-            "description": "Whether the residence is fully furnished",
+            "description": "آیا اقامتگاه کاملاً مبله است",
             "example": true,
             "type": "boolean"
           },
@@ -4071,12 +4191,12 @@
             "type": "array"
           },
           "house_rules": {
-            "description": "House rules and regulations",
+            "description": "قوانین و مقررات خانه",
             "example": "no smoking",
             "type": "string"
           },
           "minimum_stay": {
-            "description": "Minimum number of days required for stay",
+            "description": "حداقل تعداد روزهای مورد نیاز برای اقامت",
             "example": 3,
             "format": "int32",
             "type": "integer"
@@ -4245,7 +4365,7 @@
     }
   },
   "info": {
-    "title": "Kenar API",
+    "title": "API کنار",
     "version": "1.0"
   },
   "openapi": "3.0.0",
@@ -4283,7 +4403,7 @@
     },
     "/experimental/open-platform/business/{business_token}/customized-button": {
       "delete": {
-        "description": "این API دکمه اختصاصی را از آگهی‌های کسب‌و‌کار حذف می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\n",
+        "description": "این API دکمه اختصاصی را از تمام آگهی‌های کسب‌وکار حذف می‌کند. این API به مجوز `BUSINESS_CUSTOMIZED_BUTTON_CREATE` نیاز دارد.\n",
         "operationId": "Post_DeleteBusinessCustomizedButton",
         "parameters": [
           {
@@ -4323,7 +4443,7 @@
         ]
       },
       "post": {
-        "description": "این API دکمه اختصاصی را برای آگهی‌های کسب‌و‌کار ایجاد می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دامنه OAuth `BUSINESS_CREATE_CUSTOMIZED_BUTTON.{business_ref}` دارد.\n",
+        "description": "این API برای ایجاد دکمه اختصاصی برای تمام آگهی‌های کسب‌وکار استفاده می‌شود.\nاین API به مجوز `BUSINESS_CUSTOMIZED_BUTTON_CREATE` و دامنه OAuth `BUSINESS_CREATE_CUSTOMIZED_BUTTON.{business_ref}` نیاز دارد.\n",
         "operationId": "Post_CreateBusinessCustomizedButton",
         "parameters": [
           {
@@ -4379,7 +4499,7 @@
         "operationId": "ChatAPI_ChatBotSendMessage5",
         "parameters": [
           {
-            "description": "Unique identifier for the conversation",
+            "description": "شناسه منحصر به فرد برای مکالمه",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -4425,7 +4545,7 @@
         "operationId": "ChatAPI_ChatBotSendMessage4",
         "parameters": [
           {
-            "description": "Unique identifier for the user to start or continue a conversation with",
+            "description": "شناسه منحصر به فرد کاربر برای شروع یا ادامه مکالمه",
             "in": "path",
             "name": "user_id",
             "required": true,
@@ -4513,7 +4633,7 @@
         "operationId": "ChatAPI_ChatBotSendMessage3",
         "parameters": [
           {
-            "description": "Unique identifier for the conversation",
+            "description": "شناسه منحصر به فرد برای مکالمه",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -4559,7 +4679,7 @@
         "operationId": "Events_SendEvent",
         "parameters": [
           {
-            "description": "The event message to display to the user",
+            "description": "پیام رویداد برای نمایش به کاربر",
             "in": "query",
             "name": "message",
             "schema": {
@@ -4567,7 +4687,7 @@
             }
           },
           {
-            "description": "Target of the event; USER or POST",
+            "description": "هدف رویداد؛ USER یا POST",
             "in": "query",
             "name": "target_type",
             "schema": {
@@ -4579,7 +4699,7 @@
             }
           },
           {
-            "description": "Id of the target. When target type is USER, it should be the Divar User ID of that user and when target type is POST, it should be the post token.",
+            "description": "شناسه هدف. وقتی نوع هدف USER است، باید شناسه کاربر دیوار آن کاربر باشد و وقتی نوع هدف POST است، باید توکن آگهی باشد.",
             "in": "query",
             "name": "target_resource_id",
             "schema": {
@@ -4617,11 +4737,11 @@
     },
     "/experimental/open-platform/post/{post_token}/publish": {
       "post": {
-        "description": "This API allows providers to pay for user post submission costs. The post_token should be obtained from the SubmitUserPost API in post collection.",
+        "description": "این API به ارائه‌دهندگان امکان پرداخت هزینه ثبت آگهی کاربر را می‌دهد. post_token باید از API SubmitUserPost در مجموعه آگهی‌ها دریافت شود.",
         "operationId": "Payment_PublishUserPost",
         "parameters": [
           {
-            "description": "Post token obtained from SubmitUserPost RPC. An 8-9 character unique identifier for the user-submitted post.",
+            "description": "توکن آگهی دریافت شده از RPC SubmitUserPost. شناسه منحصر به فرد 8-9 کاراکتری برای آگهی ثبت شده توسط کاربر.",
             "in": "path",
             "name": "post_token",
             "required": true,
@@ -4662,7 +4782,58 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Pay for user post submission on behalf of provider",
+        "summary": "پرداخت هزینه ثبت آگهی کاربر از طرف ارائه‌دهنده",
+        "tags": [
+          "Payment"
+        ]
+      }
+    },
+    "/experimental/open-platform/post/{post_token}/renew": {
+      "post": {
+        "description": "(محدود) از این API برای تمدید آگهی استفاده کنید که دوره نمایش آن را تمدید می‌کند. قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
+        "operationId": "Payment_RenewPost",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRenewPostBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentRenewPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
         "tags": [
           "Payment"
         ]
@@ -4845,7 +5016,7 @@
         ]
       },
       "post": {
-        "description": "این API برای آگهی‌ ثبت شده توسط سرویس شما دکمه اختصاصی تنظیم می‌کند. اگر دکمه‌ای وجود نداشته باشد، ایجاد خواهد شد. اگر از قبل وجود داشته باشد، تنظیمات آن به‌روزرسانی می‌شود. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\nاگر این آگهی به عنوان کاربر ثبت شده باشد، این API نیاز به توکن دسترسی کاربر در هدرهای درخواست با دامنه `USER_SET_CUSTOMIZED_BUTTON` دارد.",
+        "description": "این API برای تنظیم دکمه اختصاصی برای یک آگهی استفاده می‌شود. اگر دکمه‌ای وجود نداشته باشد، ایجاد خواهد شد. اگر از قبل وجود داشته باشد، داده‌های آن به‌روزرسانی خواهد شد. این API به مجوز `SET_CUSTOMIZED_BUTTON` نیاز دارد.\nاگر این آگهی توسط کاربر ثبت شده باشد، این API به توکن دسترسی کاربر در هدرهای درخواست با دامنه OAuth `USER_SET_CUSTOMIZED_BUTTON` نیاز دارد.",
         "operationId": "Post_SetPostCustomizedButton",
         "parameters": [
           {
@@ -4996,7 +5167,7 @@
         "operationId": "Payment_ListTransactions",
         "parameters": [
           {
-            "description": "Number of transactions to return per page",
+            "description": "تعداد تراکنش‌ها برای برگرداندن در هر صفحه",
             "in": "query",
             "name": "page_size",
             "schema": {
@@ -5005,7 +5176,7 @@
             }
           },
           {
-            "description": "Token for the next page of results",
+            "description": "توکن برای صفحه بعدی نتایج",
             "in": "query",
             "name": "page_token",
             "schema": {
@@ -5929,7 +6100,7 @@
         "operationId": "ChatAPI_ChatBotSendMessage",
         "parameters": [
           {
-            "description": "Unique identifier for the conversation",
+            "description": "شناسه منحصر به فرد برای مکالمه",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -5975,7 +6146,7 @@
         "operationId": "ChatAPI_ChatBotSendMessage2",
         "parameters": [
           {
-            "description": "Unique identifier for the user to start or continue a conversation with",
+            "description": "شناسه منحصر به فرد کاربر برای شروع یا ادامه مکالمه",
             "in": "path",
             "name": "user_id",
             "required": true,
@@ -6021,7 +6192,7 @@
         "operationId": "ChatAPI_GetConversation",
         "parameters": [
           {
-            "description": "Unique identifier for the conversation",
+            "description": "شناسه منحصر به فرد برای مکالمه",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -6102,7 +6273,7 @@
     },
     "/v1/open-platform/finder/post/{token}": {
       "get": {
-        "description": "This API allows you to get details about Divar post by its token.\nYou can use the token to get the post data and its state ",
+        "description": "این API به شما امکان دریافت جزئیات آگهی دیوار با استفاده از توکن آن را می‌دهد.\nمی‌توانید از توکن برای دریافت داده‌های آگهی و وضعیت آن استفاده کنید",
         "operationId": "Finder_GetPost",
         "parameters": [
           {
@@ -6385,7 +6556,7 @@
     },
     "/v1/open-platform/post/{post_token}/pricing": {
       "get": {
-        "description": "Using this API and with user permission, you can get the price of various services like Reorder and Submit.The price of this API is not necessarily the same as the price on Divar, and pricing may vary.Use this API to get the price before applying services (such as reordering a post or submitting a post).",
+        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید قیمت سرویس‌های مختلف مانند نردبان، تمدید و ثبت را دریافت کنید. قیمت این API لزوماً با قیمت در دیوار یکسان نیست و ممکن است متفاوت باشد. از این API برای دریافت قیمت قبل از اعمال سرویس‌ها (مانند نردبان آگهی، تمدید آگهی یا ثبت آگهی) استفاده کنید.",
         "operationId": "Payment_GetPostPricing",
         "parameters": [
           {
@@ -6612,7 +6783,7 @@
     },
     "/v1/open-platform/user-payments": {
       "post": {
-        "description": "Using this API, you should submit a user payment. It is imperative you use this API to submit a user payment along with the received amount. This API requires an access token with the `SUBMIT_USER_PAYMENT` OAuth scope.",
+        "description": "با استفاده از این API، باید پرداخت کاربر را ثبت کنید. ضروری است که از این API برای ثبت پرداخت کاربر همراه با مبلغ دریافت شده استفاده کنید. این API به توکن دسترسی با دامنه OAuth `SUBMIT_USER_PAYMENT` نیاز دارد.",
         "operationId": "Payment_SubmitUserPayment",
         "requestBody": {
           "content": {
@@ -6649,6 +6820,46 @@
         "summary": "ثبت پرداخت کاربر",
         "tags": [
           "Payment"
+        ]
+      }
+    },
+    "/v1/open-platform/user-post/{token}": {
+      "get": {
+        "operationId": "Post_GetUserPost",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postGetUserPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "tags": [
+          "Post"
         ]
       }
     },
@@ -6872,7 +7083,7 @@
         "operationId": "ChatAPI_ConversationSendMessage",
         "parameters": [
           {
-            "description": "Unique identifier for the conversation",
+            "description": "شناسه منحصر به فرد برای مکالمه",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -6958,6 +7169,38 @@
         "summary": "جستجو آگهی‌های دیوار با فیلترهایی",
         "tags": [
           "Finder"
+        ]
+      }
+    },
+    "/v2/open-platform/post/upload-urls": {
+      "get": {
+        "description": "این API به شما امکان دریافت URL آپلود برای آپلود تصاویر و ویدیوهای آگهی را می‌دهد.\nمی‌توانید تصاویر/ویدیوها را با استفاده از درخواست POST یا PUT با کدگذاری باینری به URL برگشتی آپلود کنید. آدرس برگشتی این API به api-key شما برای آپلود نیاز دارد. لطفاً توجه داشته باشید که آدرس برگشتی ممکن است بدون اطلاع قبلی تغییر کند.",
+        "operationId": "Post_GetUploadURLsV2",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postGetUploadURLsV2Response"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "دریافت URL آپلود تصویر",
+        "tags": [
+          "Post"
         ]
       }
     },
