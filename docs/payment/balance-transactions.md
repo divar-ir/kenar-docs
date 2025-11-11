@@ -121,6 +121,8 @@ x-api-key: {{apikey}}
 |            نوع             | توضیحات |
 |:--------------------------:|--------:|
 | `TRANSACTION_TYPE_REORDER` |  نردبان |
+| `TRANSACTION_TYPE_RENEW`   |  تمدید |
+| `TRANSACTION_TYPE_SUBMIT`  |  ثبت آگهی |
 
 ## نکات مهم
 
