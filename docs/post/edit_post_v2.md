@@ -69,7 +69,7 @@ Content-Type: application/json
 
 ### ساختار category_data
 
-فیلدهای `category_data` به دسته‌بندی آگهی بستگی دارند. برای مشاهده فیلدهای قابل ویرایش در هر دسته‌بندی، می‌توانید از [این API](https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/) استفاده کنید.
+فیلدهای `category_data` به دسته‌بندی آگهی بستگی دارند. برای مشاهده فیلدهای قابل ویرایش در هر دسته‌بندی، می‌توانید از [این API](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) استفاده کنید.
 
 ## پاسخ
 
@@ -85,6 +85,6 @@ Content-Type: application/json
 
 2. **عدم ارسال فیلد در update_mask**: اگر فیلدی در `update_mask` نباشد، حتی اگر در بدنه درخواست ارسال شود، به‌روزرسانی نخواهد شد.
 
-3. **قالب فیلدهای دسته‌بندی**: فیلدهای `category_data` باید مطابق قالب دسته‌بندی آگهی باشند. برای دریافت قالب از [این API](https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/) استفاده کنید.
+3. **قالب فیلدهای دسته‌بندی**: فیلدهای `category_data` باید مطابق قالب دسته‌بندی آگهی باشند. برای دریافت قالب از [این API](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) استفاده کنید.
 
 4. **آپلود تصاویر**: برای آپلود تصاویر جدید می‌توانید از [این اندپوینت](./get_image_upload_url.md) استفاده کنید.
