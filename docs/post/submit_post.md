@@ -150,12 +150,12 @@ x-api-key: {{apikey}}
 
 |      نام فیلد      | اجباری |      نوع      | توضیح                                                                                                          |
 |:-----------------:|:------:|:-------------:|----------------------------------------------------------------------------------------------------------------|
-|  category_slug   |   ✓    |    string     | [دسته‌بندی دیوار](https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-categories/)                    |
+|  category_slug   |   ✓    |    string     | [دسته‌بندی دیوار](https://kenar.divar.dev/openapi-doc/assets-get-categories/)                    |
 |      title       |   ✓    |    string     | عنوان آگهی                                                                                                     |
 |   description    |   ✓    |    string     | توضیحات آگهی                                                                                                   |
 |      images      |   ✓    | array[string] | آرایه شناسه‌های تصاویر (با استفاده از [مرحله 0: آپلود تصاویر](#مرحله-0-آپلود-تصاویر-پیشنیاز) دریافت شود)    |
-|       city       |   ✓    |    string     | [شهر دیوار](https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-cities/)                              |
-|     district     |        |    string     | [محله دیوار](https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-districts/)                          |
+|       city       |   ✓    |    string     | [شهر دیوار](https://kenar.divar.dev/openapi-doc/assets-get-cities/)                              |
+|     district     |        |    string     | [محله دیوار](https://kenar.divar.dev/openapi-doc/assets-get-districts/)                          |
 |     latitude     |        |    double     | عرض جغرافیایی                                                                                                  |
 |    longitude     |        |    double     | طول جغرافیایی                                                                                                  |
 |  location_type   |   ✓    |    string     | نوع موقعیت: `LOCATION_TYPE_EMPTY`, `LOCATION_TYPE_EXACT`, `LOCATION_TYPE_APPROXIMATE`                         |
