@@ -1,0 +1,33 @@
+---
+id: paymentretrievewallettransactionresponse
+title: "paymentRetrieveWalletTransactionResponse"
+description: ""
+sidebar_label: "paymentRetrieveWalletTransactionResponse"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"transaction":{"amount_rials":"string","status":"CREATED","token":"string"}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"paymentRetrieveWalletTransactionResponse"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"transaction":{"properties":{"amount_rials":{"format":"int64","type":"string"},"status":{"description":"وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم.","enum":["CREATED","EXPIRED","PAID","COMMITTED"],"type":"string","title":"paymentWalletTransactionStatus"},"token":{"type":"string"}},"type":"object","title":"paymentWalletTransaction"}},"type":"object","title":"paymentRetrieveWalletTransactionResponse"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

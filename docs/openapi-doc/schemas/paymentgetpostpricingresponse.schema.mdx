@@ -6,7 +6,7 @@ sidebar_label: "paymentGetPostPricingResponse"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"reorder":{"available":true,"cost_rials":"string"}}
+sample: {"reorder":{"available":true,"cost_rials":"string"},"submit":{"available":true,"cost_rials":"string"}}
 custom_edit_url: null
 ---
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"reorder":{"properties":{"available":{"description":"نشان می‌دهد که آیا آگهی قابل نردبان است. اگر false باشد، API نردبان خطا برمی‌گرداند","type":"boolean"},"cost_rials":{"description":"هزینه نردبان به ریال","format":"int64","type":"string"}},"type":"object","title":"GetPostPricingResponseReorder"}},"type":"object","title":"paymentGetPostPricingResponse"}}
+  schema={{"properties":{"reorder":{"properties":{"available":{"description":"نشان می‌دهد که آیا آگهی قابل نردبان است. اگر false باشد، API نردبان خطا برمی‌گرداند","type":"boolean"},"cost_rials":{"description":"هزینه نردبان به ریال","format":"int64","type":"string"}},"type":"object","title":"GetPostPricingResponseReorder"},"submit":{"properties":{"available":{"description":"Indicates if the post can be submitted. If false, the submit API will return an error","type":"boolean"},"cost_rials":{"description":"The cost of submitting post in rials","format":"int64","type":"string"}},"type":"object","title":"GetPostPricingResponseSubmit"}},"type":"object","title":"paymentGetPostPricingResponse"}}
   schemaType={"response"}
 >
   

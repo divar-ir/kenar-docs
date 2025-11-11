@@ -1,0 +1,33 @@
+---
+id: paymentwallettransactionstatus
+title: "paymentWalletTransactionStatus"
+description: "وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم."
+sidebar_label: "paymentWalletTransactionStatus"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: "CREATED"
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"paymentWalletTransactionStatus"}
+>
+</Heading>
+
+
+
+وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم.
+
+<Schema
+  schema={{"description":"وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم.","enum":["CREATED","EXPIRED","PAID","COMMITTED"],"type":"string","title":"paymentWalletTransactionStatus"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

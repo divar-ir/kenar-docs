@@ -70,6 +70,12 @@
         ],
         "type": "string"
       },
+      "AddonSemanticOnlineReservationCapability": {
+        "enum": [
+          "ONLINE_RESERVATION_AVAILABLE"
+        ],
+        "type": "string"
+      },
       "AddonSemanticOwnershipResult": {
         "enum": [
           "OWNERSHIP_CONFIRMED",
@@ -1008,7 +1014,13 @@
           "CALL_RECEIVED",
           "CALL_O",
           "AI_STARS_F",
-          "CHEVRON_DOWN"
+          "CHEVRON_DOWN",
+          "TAG_O",
+          "PHONE_SPARKLES",
+          "PAINT_BRUSH",
+          "VIDEO_LIBRARY",
+          "MAGNIFIER_SPARKLE",
+          "PIN_VARIANT"
         ],
         "type": "string"
       },
@@ -1026,13 +1038,16 @@
         },
         "type": "object"
       },
-      "GetPostResponseBusinessData": {
+      "GetPostPricingResponseSubmit": {
         "properties": {
-          "business_name": {
-            "type": "string"
+          "available": {
+            "description": "Indicates if the post can be submitted. If false, the submit API will return an error",
+            "type": "boolean"
           },
-          "business_type": {
-            "$ref": "#/components/schemas/PremiumPanelBusinessDataSubBusinessType"
+          "cost_rials": {
+            "description": "The cost of submitting post in rials",
+            "format": "int64",
+            "type": "string"
           }
         },
         "type": "object"
@@ -1082,12 +1097,92 @@
         },
         "type": "object"
       },
+      "HomePresellFieldsConstructionPhase": {
+        "description": "وضعیت فعلی پروژه",
+        "enum": [
+          "CONSTRUCTION_PHASE_PERMIT_AND_LAND_PREPARATION",
+          "CONSTRUCTION_PHASE_EXCAVATION",
+          "CONSTRUCTION_PHASE_FOUNDATION",
+          "CONSTRUCTION_PHASE_STRUCTURE",
+          "CONSTRUCTION_PHASE_ROOFING",
+          "CONSTRUCTION_PHASE_MASONRY",
+          "CONSTRUCTION_PHASE_MEP_ROUGH_IN",
+          "CONSTRUCTION_PHASE_INTERIOR_PLASTERING",
+          "CONSTRUCTION_PHASE_FACADE",
+          "CONSTRUCTION_PHASE_TILING_AND_FLOORING",
+          "CONSTRUCTION_PHASE_PAINTING_AND_INTERIOR_DECORATION",
+          "CONSTRUCTION_PHASE_DOOR_AND_WINDOW_INSTALLATION",
+          "CONSTRUCTION_PHASE_FINAL_MEP_INSTALLATION",
+          "CONSTRUCTION_PHASE_LANDSCAPING",
+          "CONSTRUCTION_PHASE_COMPLETION_CERTIFICATE",
+          "CONSTRUCTION_PHASE_FINAL_DELIVERY"
+        ],
+        "example": "CONSTRUCTION_PHASE_EXCAVATION",
+        "type": "string"
+      },
+      "HomePresellFieldsDeliveryMonth": {
+        "description": "ماه تحویل (تقویم شمسی)",
+        "enum": [
+          "DELIVERY_MONTH_FARVARDIN",
+          "DELIVERY_MONTH_ORDIBEHESHT",
+          "DELIVERY_MONTH_KHORDAD",
+          "DELIVERY_MONTH_TIR",
+          "DELIVERY_MONTH_MORDAD",
+          "DELIVERY_MONTH_SHAHRIVAR",
+          "DELIVERY_MONTH_MEHR",
+          "DELIVERY_MONTH_ABAN",
+          "DELIVERY_MONTH_AZAR",
+          "DELIVERY_MONTH_DEY",
+          "DELIVERY_MONTH_BAHMAN",
+          "DELIVERY_MONTH_ESFAND"
+        ],
+        "example": "DELIVERY_MONTH_TIR",
+        "type": "string"
+      },
+      "HomePresellFieldsDeliveryYear": {
+        "description": "سال تحویل (تقویم شمسی)",
+        "enum": [
+          "DELIVERY_YEAR_1404",
+          "DELIVERY_YEAR_1405",
+          "DELIVERY_YEAR_1406",
+          "DELIVERY_YEAR_1407",
+          "DELIVERY_YEAR_1408",
+          "DELIVERY_YEAR_1409",
+          "DELIVERY_YEAR_1410",
+          "DELIVERY_YEAR_1411",
+          "DELIVERY_YEAR_1412",
+          "DELIVERY_YEAR_1413",
+          "DELIVERY_YEAR_1414"
+        ],
+        "example": "DELIVERY_YEAR_1405",
+        "type": "string"
+      },
+      "HomePresellFieldsUnitType": {
+        "description": "نوع واحدهای ارائه شده در پروژه",
+        "enum": [
+          "UNIT_TYPE_RESIDENTIAL_APARTMENT",
+          "UNIT_TYPE_COMMERCIAL_UNIT",
+          "UNIT_TYPE_OFFICE_UNIT"
+        ],
+        "type": "string"
+      },
       "ImageCarouselRowImageItem": {
         "properties": {
           "description": {
             "type": "string"
           },
           "image_id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "MessageContactData": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "phone": {
             "type": "string"
           }
         },
@@ -1210,9 +1305,28 @@
           "BUSINESS_ADDON_CREATE",
           "POST_SEMANTIC_CREATE",
           "NOTIFICATION_ACCESS_REVOCATION",
-          "SEND_EVENT"
+          "SEND_EVENT",
+          "CREATE_WALLET_PAYMENT",
+          "SUBMIT_USER_POST",
+          "SUBMIT_USER_PAYMENT",
+          "USER_SET_CUSTOMIZED_BUTTON",
+          "BUSINESS_CREATE_CUSTOMIZED_BUTTON",
+          "DELETE_USER_POST"
         ],
         "type": "string"
+      },
+      "PaymentPublishUserPostBody": {
+        "properties": {
+          "extra_details": {
+            "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
+            "type": "string"
+          },
+          "id": {
+            "description": "یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "PaymentReorderPostBody": {
         "properties": {
@@ -1225,6 +1339,17 @@
             "type": "string"
           }
         },
+        "type": "object"
+      },
+      "PostCreateBusinessCustomizedButtonBody": {
+        "properties": {
+          "customized_button": {
+            "$ref": "#/components/schemas/postCustomizedButton"
+          }
+        },
+        "required": [
+          "customized_button"
+        ],
         "type": "object"
       },
       "PostEditPostBody": {
@@ -1242,6 +1367,48 @@
             "type": "string"
           }
         },
+        "required": [
+          "title",
+          "description"
+        ],
+        "type": "object"
+      },
+      "PostEditPostV2Body": {
+        "properties": {
+          "category_data": {
+            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/",
+            "type": "object"
+          },
+          "general_data": {
+            "$ref": "#/components/schemas/postPostGeneralData"
+          },
+          "update_mask": {
+            "description": "فیلد ماسک مشخص می‌کند کدام فیلدها به‌روزرسانی شوند. از مسیرهای تو در تو برای هر دو general_data و category_data استفاده کنید (مثلاً، 'general_data.title'، 'category_data.price'). این امکان تمایز بین حذف یک فیلد و به‌روزرسانی نکردن آن را فراهم می‌کند.",
+            "example": [
+              "general_data.title",
+              "general_data.description",
+              "category_data.price"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "update_mask"
+        ],
+        "type": "object"
+      },
+      "PostSetPostCustomizedButtonBody": {
+        "properties": {
+          "customized_button": {
+            "$ref": "#/components/schemas/postCustomizedButton"
+          }
+        },
+        "required": [
+          "customized_button"
+        ],
         "type": "object"
       },
       "PremiumPanelBusinessDataSubBusinessType": {
@@ -1385,23 +1552,69 @@
         ],
         "type": "string"
       },
-      "SubmitPostRequestLocationType": {
+      "TemporaryResidenceFieldsComfortAmenity": {
+        "description": "List of comfort amenities available in the residence",
         "enum": [
-          "LOCATION_TYPE_EMPTY",
-          "LOCATION_TYPE_EXACT",
-          "LOCATION_TYPE_APPROXIMATE"
+          "COMFORT_AMENITY_TV",
+          "COMFORT_AMENITY_AUDIO_SYSTEM",
+          "COMFORT_AMENITY_REFRIGERATOR",
+          "COMFORT_AMENITY_HIGH_SPEED_INTERNET",
+          "COMFORT_AMENITY_WASHING_MACHINE",
+          "COMFORT_AMENITY_GAS_STOVE",
+          "COMFORT_AMENITY_MICROWAVE",
+          "COMFORT_AMENITY_COOKING_UTENSILS",
+          "COMFORT_AMENITY_CLEAN_SHEETS_TOWELS",
+          "COMFORT_AMENITY_IRON",
+          "COMFORT_AMENITY_HAIR_DRYER",
+          "COMFORT_AMENITY_AIR_CONDITIONER",
+          "COMFORT_AMENITY_PRIVATE_PARKING",
+          "COMFORT_AMENITY_BALCONY",
+          "COMFORT_AMENITY_PRIVATE_BATHROOM",
+          "COMFORT_AMENITY_WORK_SPACE",
+          "COMFORT_AMENITY_ELEVATOR_ACCESS",
+          "COMFORT_AMENITY_SECURITY_SYSTEM",
+          "COMFORT_AMENITY_COFFEE_MAKER",
+          "COMFORT_AMENITY_AIR_CONDITIONING_SYSTEM",
+          "COMFORT_AMENITY_CENTRAL_HEATING",
+          "COMFORT_AMENITY_DISHWASHER",
+          "COMFORT_AMENITY_POOL",
+          "COMFORT_AMENITY_OUTDOOR_SPACE"
         ],
         "type": "string"
       },
-      "TemporaryResidenceFieldsRoomsCount": {
+      "TemporaryResidenceFieldsHeatingCoolingSystem": {
+        "description": "List of heating and cooling systems available",
         "enum": [
-          "ROOMS_COUNT_0",
-          "ROOMS_COUNT_1",
-          "ROOMS_COUNT_2",
-          "ROOMS_COUNT_3",
-          "ROOMS_COUNT_4",
-          "ROOMS_COUNT_5_OR_MORE"
+          "HEATING_COOLING_SYSTEM_EVAPORATIVE_COOLER",
+          "HEATING_COOLING_SYSTEM_RADIATOR",
+          "HEATING_COOLING_SYSTEM_SPLIT",
+          "HEATING_COOLING_SYSTEM_PACKAGE",
+          "HEATING_COOLING_SYSTEM_GAS_HEATER",
+          "HEATING_COOLING_SYSTEM_FAN_COIL",
+          "HEATING_COOLING_SYSTEM_CHAUFFAGE",
+          "HEATING_COOLING_SYSTEM_AIR_CONDITIONER",
+          "HEATING_COOLING_SYSTEM_UNDERFLOOR_HEATING"
         ],
+        "type": "string"
+      },
+      "TemporaryResidenceFieldsPetsAllowed": {
+        "description": "Pet policy for the residence",
+        "enum": [
+          "PETS_ALLOWED_YES",
+          "PETS_ALLOWED_NO",
+          "PETS_ALLOWED_WITH_AGREEMENT"
+        ],
+        "example": "PETS_ALLOWED_YES",
+        "type": "string"
+      },
+      "TemporaryResidenceFieldsRentalPeriod": {
+        "description": "Rental period type (daily, weekly, monthly)",
+        "enum": [
+          "RENTAL_PERIOD_DAILY",
+          "RENTAL_PERIOD_WEEKLY",
+          "RENTAL_PERIOD_MONTHLY"
+        ],
+        "example": "RENTAL_PERIOD_DAILY",
         "type": "string"
       },
       "addonsAction": {
@@ -1554,6 +1767,9 @@
           },
           "new_face_verification_result": {
             "$ref": "#/components/schemas/AddonSemanticNewFaceVerificationResult"
+          },
+          "online_reservation_capability": {
+            "$ref": "#/components/schemas/AddonSemanticOnlineReservationCapability"
           },
           "ownership_result": {
             "$ref": "#/components/schemas/AddonSemanticOwnershipResult"
@@ -1768,6 +1984,17 @@
           "addons": {
             "items": {
               "$ref": "#/components/schemas/addonsPostAddon"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "addonsGetUserAddonsResponse": {
+        "properties": {
+          "user_addons": {
+            "items": {
+              "$ref": "#/components/schemas/addonsUserAddon"
             },
             "type": "array"
           }
@@ -2007,7 +2234,6 @@
       "addonsUserAddon": {
         "properties": {
           "divar_user_id": {
-            "title": "فیلد جدید",
             "type": "string"
           },
           "filters": {
@@ -2017,7 +2243,7 @@
             "$ref": "#/components/schemas/addonsAddonMetaData"
           },
           "phone": {
-            "title": "منسوخ خواهد شد",
+            "title": "منسوخ شده. از divar_user_id استفاده کنید",
             "type": "string"
           },
           "semantic": {
@@ -2167,7 +2393,8 @@
           "EXPERT_INSPECTED",
           "CAR_EXPERT_INSPECTED",
           "HOME_EXPERT_INSPECTED",
-          "MOBILE_EXPERT_INSPECTED"
+          "MOBILE_EXPERT_INSPECTED",
+          "ONLINE_RESERVATION"
         ],
         "type": "string"
       },
@@ -2390,6 +2617,14 @@
         },
         "type": "object"
       },
+      "assetsGetSubmitSchemaResponse": {
+        "properties": {
+          "schema": {
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
       "authorizationAPICallerInfo": {
         "properties": {
           "api_key_id": {
@@ -2542,6 +2777,9 @@
       },
       "chatapiMessage": {
         "properties": {
+          "contact_data": {
+            "$ref": "#/components/schemas/MessageContactData"
+          },
           "conversation": {
             "$ref": "#/components/schemas/chatapiConversation"
           },
@@ -2600,7 +2838,8 @@
           "FILE",
           "VOICE",
           "LOCATION",
-          "VIDEO"
+          "VIDEO",
+          "CONTACT"
         ],
         "type": "string"
       },
@@ -2612,6 +2851,17 @@
           "title": {
             "description": "The text to display on the button",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "eventsEventButtonList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/eventsEventButton"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -2657,7 +2907,7 @@
       "finderGetPostResponse": {
         "properties": {
           "business_data": {
-            "$ref": "#/components/schemas/GetPostResponseBusinessData"
+            "$ref": "#/components/schemas/finderGetPostResponseBusinessData"
           },
           "category": {
             "type": "string"
@@ -2693,6 +2943,33 @@
             "type": "boolean"
           },
           "token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "finderGetPostResponseBusinessData": {
+        "properties": {
+          "business_name": {
+            "type": "string"
+          },
+          "business_type": {
+            "$ref": "#/components/schemas/PremiumPanelBusinessDataSubBusinessType"
+          }
+        },
+        "type": "object"
+      },
+      "finderGetUserIDByPhoneRequest": {
+        "properties": {
+          "phone": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "finderGetUserIDByPhoneResponse": {
+        "properties": {
+          "user_id": {
             "type": "string"
           }
         },
@@ -2929,24 +3206,11 @@
           "mng_token": {
             "type": "string"
           },
-          "preset": {
-            "$ref": "#/components/schemas/managementPreset"
-          },
           "token": {
             "type": "string"
           }
         },
         "type": "object"
-      },
-      "managementPreset": {
-        "enum": [
-          "LIGHT",
-          "CRAFTSMEN",
-          "MOBILE_PHONES",
-          "APARTMENT_SELL",
-          "SUITE_APARTMENT"
-        ],
-        "type": "string"
       },
       "open_platformpostServicesFields": {
         "properties": {
@@ -2987,6 +3251,67 @@
             "type": "boolean"
           }
         },
+        "required": [
+          "category",
+          "expertise_ids",
+          "work_on_holidays",
+          "works_24_7",
+          "work_hours_start",
+          "work_hours_end"
+        ],
+        "type": "object"
+      },
+      "paymentCommitWalletTransactionRequest": {
+        "properties": {
+          "token": {
+            "description": "توکن تراکنشی که می‌خواهید commit کنید",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "paymentCommitWalletTransactionResponse": {
+        "properties": {
+          "transaction": {
+            "$ref": "#/components/schemas/paymentWalletTransaction"
+          }
+        },
+        "type": "object"
+      },
+      "paymentCreateWalletPaymentRequest": {
+        "properties": {
+          "amount_rials": {
+            "description": "مبلغ تراکنش به ریال",
+            "format": "int64",
+            "type": "string"
+          },
+          "description": {
+            "description": "توضیحات تراکنش",
+            "type": "string"
+          },
+          "redirect_url": {
+            "description": "آدرسی که کاربر باید بعد از پرداخت مبلغ به آن هدایت شود",
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount_rials",
+          "description",
+          "redirect_url"
+        ],
+        "type": "object"
+      },
+      "paymentCreateWalletPaymentResponse": {
+        "properties": {
+          "payment_url": {
+            "description": "آدرسی که باید کاربر را به آن هدایت کنید",
+            "type": "string"
+          },
+          "token": {
+            "description": "توکن تراکنش. برای عملیات‌های بعدی استفاده می‌شود",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "paymentGetBalanceResponse": {
@@ -3003,6 +3328,9 @@
         "properties": {
           "reorder": {
             "$ref": "#/components/schemas/GetPostPricingResponseReorder"
+          },
+          "submit": {
+            "$ref": "#/components/schemas/GetPostPricingResponseSubmit"
           }
         },
         "type": "object"
@@ -3022,11 +3350,19 @@
             "type": "string"
           },
           "transactions": {
-            "description": "List of transactions matching the request",
+            "description": "شناسه مرجع فاکتور یا تراکنش",
             "items": {
               "$ref": "#/components/schemas/paymentTransaction"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "paymentPublishUserPostResponse": {
+        "properties": {
+          "transaction": {
+            "$ref": "#/components/schemas/paymentTransaction"
           }
         },
         "type": "object"
@@ -3045,8 +3381,55 @@
         },
         "type": "object"
       },
+      "paymentRetrieveWalletTransactionResponse": {
+        "properties": {
+          "transaction": {
+            "$ref": "#/components/schemas/paymentWalletTransaction"
+          }
+        },
+        "type": "object"
+      },
+      "paymentSubmitUserPaymentRequest": {
+        "properties": {
+          "amount_rials": {
+            "description": "کل مبلغ پرداختی توسط کاربر، به ریال",
+            "format": "uint64",
+            "type": "string"
+          },
+          "profit_rials": {
+            "description": "بخشی از مبلغ پرداختی که به شما تعلق می‌گیرد، به ریال. به عنوان مثال در افزونه‌های پرداخت امن بخش اعظم مبلغ پرداختی سهم فروشنده آگهی هست و این پارامتر باید برابر بخشی از مبلغ پرداختی که مربوط به کمیسیون سرویس‌دهنده پرداخت امن است قرار بگیرد. در صورتی که چنین مفهومی در فرایند پرداخت شما وجود ندارد مقدار این پارامتر را دقیقا برابر amount_rials ارسال کنید.",
+            "format": "uint64",
+            "type": "string"
+          },
+          "reference_id": {
+            "description": "A unique identifier between Divar and the provider for the invoice or transaction. This is not a payment gateway reference ID.",
+            "type": "string"
+          },
+          "services": {
+            "description": "لیست شناسه خدماتی که کاربر برای آنها پرداخت انجام داده است (مثلاً «banner»، «title_refinement» و ...). توصیه می‌شود از نام‌های انگلیسی کوتاه و توصیفی به‌عنوان شناسه خدمت استفاده شود.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "amount_rials",
+          "profit_rials",
+          "services",
+          "reference_id"
+        ],
+        "type": "object"
+      },
+      "paymentSubmitUserPaymentResponse": {
+        "type": "object"
+      },
       "paymentTransaction": {
         "properties": {
+          "app_slug": {
+            "description": "The slug of the app that created the transaction",
+            "type": "string"
+          },
           "cost_rials": {
             "description": "هزینه تراکنش به ریال برای اپلیکیشن شما",
             "format": "int64",
@@ -3085,7 +3468,33 @@
       },
       "paymentTransactionType": {
         "enum": [
-          "TRANSACTION_TYPE_REORDER"
+          "TRANSACTION_TYPE_REORDER",
+          "TRANSACTION_TYPE_SUBMIT"
+        ],
+        "type": "string"
+      },
+      "paymentWalletTransaction": {
+        "properties": {
+          "amount_rials": {
+            "format": "int64",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/paymentWalletTransactionStatus"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "paymentWalletTransactionStatus": {
+        "description": "وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم.",
+        "enum": [
+          "CREATED",
+          "EXPIRED",
+          "PAID",
+          "COMMITTED"
         ],
         "type": "string"
       },
@@ -3100,7 +3509,6 @@
       "payment_ticketValidateRequest": {
         "properties": {
           "phone_number": {
-            "description": "منسوخ شده. از divar_user_id استفاده کنید.",
             "type": "string"
           },
           "service_cost": {
@@ -3124,7 +3532,133 @@
         },
         "type": "object"
       },
+      "postApartmentSellFields": {
+        "properties": {
+          "floor": {
+            "description": "طبقه ملک. از -1 برای زیرزمین و 0 برای همکف استفاده کنید. از 1 برای طبقه اول و غیره.",
+            "example": 1,
+            "format": "int32",
+            "type": "integer"
+          },
+          "has_elevator": {
+            "description": "آیا ملک آسانسور دارد",
+            "example": true,
+            "type": "boolean"
+          },
+          "has_own_image": {
+            "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
+            "example": true,
+            "type": "boolean"
+          },
+          "has_parking": {
+            "description": "آیا ملک پارکینگ دارد",
+            "example": true,
+            "type": "boolean"
+          },
+          "has_warehouse": {
+            "description": "آیا ملک انباری دارد",
+            "example": true,
+            "type": "boolean"
+          },
+          "price": {
+            "description": "قیمت ملک به تومان",
+            "example": 1000000000,
+            "format": "int64",
+            "type": "string"
+          },
+          "rooms_count": {
+            "$ref": "#/components/schemas/postRoomsCount"
+          },
+          "size": {
+            "description": "مساحت ملک بر حسب متر مربع",
+            "example": 100,
+            "format": "int32",
+            "type": "integer"
+          },
+          "year_built": {
+            "description": "سال ساخت ملک (تقویم شمسی)",
+            "example": 1404,
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "rooms_count",
+          "has_own_image",
+          "year_built",
+          "floor",
+          "size",
+          "has_elevator",
+          "has_parking",
+          "has_warehouse",
+          "price"
+        ],
+        "type": "object"
+      },
+      "postCanUserSubmitPostResponse": {
+        "properties": {
+          "can_submit": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "postCreateBusinessCustomizedButtonResponse": {
+        "type": "object"
+      },
+      "postCustomizedButton": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/addonsAction"
+          },
+          "type": {
+            "$ref": "#/components/schemas/postCustomizedButtonType"
+          }
+        },
+        "required": [
+          "type",
+          "action"
+        ],
+        "type": "object"
+      },
+      "postCustomizedButtonType": {
+        "description": "Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.\n\nAvailable types:\n- `ACCOMMODATION_BOOKING`: For booking accommodation\n- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores\n",
+        "enum": [
+          "ACCOMMODATION_BOOKING",
+          "EXTERNAL_PRODUCT_STORE"
+        ],
+        "type": "string"
+      },
+      "postDeleteBusinessCustomizedButtonResponse": {
+        "type": "object"
+      },
+      "postDeleteCustomizedButtonsOffloadedResponse": {
+        "type": "object"
+      },
+      "postDeletePostCustomizedButtonResponse": {
+        "type": "object"
+      },
+      "postDeleteUserPostResponse": {
+        "type": "object"
+      },
       "postEditPostResponse": {
+        "type": "object"
+      },
+      "postGetBusinessCustomizedButtonResponse": {
+        "properties": {
+          "app_name": {
+            "type": "string"
+          },
+          "app_slug": {
+            "type": "string"
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "type": {
+            "$ref": "#/components/schemas/postCustomizedButtonType"
+          }
+        },
         "type": "object"
       },
       "postGetImageUploadURLResponse": {
@@ -3137,66 +3671,108 @@
       },
       "postGetPostStatsResponse": {
         "properties": {
+          "chats": {
+            "$ref": "#/components/schemas/GetPostStatsResponsePostStats"
+          },
+          "impressions": {
+            "$ref": "#/components/schemas/GetPostStatsResponsePostStats"
+          },
           "views": {
             "$ref": "#/components/schemas/GetPostStatsResponsePostStats"
           }
         },
         "type": "object"
       },
-      "postServicesFieldsCategory": {
-        "enum": [
-          "CATEGORY_CAR_AND_MOTOR",
-          "CATEGORY_CATERING",
-          "CATEGORY_COMPUTER_AND_MOBILE",
-          "CATEGORY_ACCOUNTING_AND_FINANCE",
-          "CATEGORY_TRANSPORT",
-          "CATEGORY_CRAFTSMEN",
-          "CATEGORY_BEAUTY_AND_HAIRCARE",
-          "CATEGORY_CLEANING",
-          "CATEGORY_GARDEN_AND_LANDSCAPING",
-          "CATEGORY_TEACHING"
-        ],
-        "type": "string"
-      },
-      "postSubmitEmergencyResidencePostRequest": {
+      "postHomePresellFields": {
         "properties": {
-          "city": {
+          "base_price_per_square_meter": {
+            "description": "قیمت پایه هر متر مربع به تومان",
+            "example": 50000000,
+            "format": "int64",
             "type": "string"
           },
-          "data": {
-            "type": "object"
+          "construction_phase": {
+            "$ref": "#/components/schemas/HomePresellFieldsConstructionPhase"
           },
-          "description": {
+          "delivery_month": {
+            "$ref": "#/components/schemas/HomePresellFieldsDeliveryMonth"
+          },
+          "delivery_payment_percentage": {
+            "description": "درصد پرداخت مورد نیاز در زمان تحویل",
+            "example": 60,
+            "format": "int32",
+            "type": "integer"
+          },
+          "delivery_year": {
+            "$ref": "#/components/schemas/HomePresellFieldsDeliveryYear"
+          },
+          "developer_company_name": {
+            "description": "نام شرکت سازنده",
+            "example": "Mehr Construction Group",
             "type": "string"
           },
-          "district": {
+          "down_payment_percentage": {
+            "description": "درصد پیش پرداخت اولیه",
+            "example": 40,
+            "format": "int32",
+            "type": "integer"
+          },
+          "has_own_image": {
+            "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
+            "example": true,
+            "type": "boolean"
+          },
+          "min_unit_size": {
+            "description": "حداقل مساحت واحد بر حسب متر مربع",
+            "example": 60,
+            "format": "int32",
+            "type": "integer"
+          },
+          "project_name": {
+            "description": "نام پروژه پیش‌فروش مسکن",
+            "example": "Paradise Tower",
             "type": "string"
           },
-          "images": {
+          "project_physical_progress_percentage": {
+            "description": "درصد پیشرفت فیزیکی پروژه",
+            "example": 10,
+            "format": "int32",
+            "type": "integer"
+          },
+          "unit_types_offered": {
+            "description": "فهرست انواع واحد ارائه شده در پروژه",
+            "example": [
+              "UNIT_TYPE_RESIDENTIAL_APARTMENT",
+              "UNIT_TYPE_COMMERCIAL_UNIT"
+            ],
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/HomePresellFieldsUnitType"
             },
             "type": "array"
-          },
-          "phone_number": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
           }
         },
+        "required": [
+          "has_own_image"
+        ],
         "type": "object"
       },
-      "postSubmitEmergencyResidencePostResponse": {
+      "postLocationType": {
+        "description": "Type of the location",
+        "enum": [
+          "LOCATION_TYPE_EMPTY",
+          "LOCATION_TYPE_EXACT",
+          "LOCATION_TYPE_APPROXIMATE"
+        ],
+        "example": "LOCATION_TYPE_EXACT",
+        "type": "string"
+      },
+      "postPostGeneralData": {
         "properties": {
-          "post_token": {
+          "category_slug": {
+            "description": "نام دسته‌بندی هدف. دسته‌بندی‌های موجود را در این آدرس بیابید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-categories/",
+            "example": "apartment-sell",
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "postSubmitPostRequest": {
-        "properties": {
+          },
           "chat_enabled": {
             "description": "امکان چت فعال باشد",
             "example": true,
@@ -3228,6 +3804,111 @@
             },
             "type": "array"
           },
+          "latitude": {
+            "description": "عرض جغرافیایی آگهی",
+            "example": 35.7152,
+            "format": "double",
+            "type": "number"
+          },
+          "location_type": {
+            "$ref": "#/components/schemas/postLocationType"
+          },
+          "longitude": {
+            "description": "طول جغرافیایی آگهی",
+            "example": 51.4043,
+            "format": "double",
+            "type": "number"
+          },
+          "title": {
+            "description": "عنوان آگهی",
+            "example": "Temporary Residence for Rent in Tehran",
+            "type": "string"
+          }
+        },
+        "required": [
+          "category_slug",
+          "title",
+          "description",
+          "images",
+          "city",
+          "location_type",
+          "hide_phone",
+          "chat_enabled"
+        ],
+        "type": "object"
+      },
+      "postRoomsCount": {
+        "description": "Number of rooms in the residence",
+        "enum": [
+          "ROOMS_COUNT_0",
+          "ROOMS_COUNT_1",
+          "ROOMS_COUNT_2",
+          "ROOMS_COUNT_3",
+          "ROOMS_COUNT_4",
+          "ROOMS_COUNT_5_OR_MORE"
+        ],
+        "example": "ROOMS_COUNT_2",
+        "type": "string"
+      },
+      "postServicesFieldsCategory": {
+        "description": "The subcategory of the service",
+        "enum": [
+          "CATEGORY_CAR_AND_MOTOR",
+          "CATEGORY_CATERING",
+          "CATEGORY_COMPUTER_AND_MOBILE",
+          "CATEGORY_ACCOUNTING_AND_FINANCE",
+          "CATEGORY_TRANSPORT",
+          "CATEGORY_CRAFTSMEN",
+          "CATEGORY_BEAUTY_AND_HAIRCARE",
+          "CATEGORY_CLEANING",
+          "CATEGORY_GARDEN_AND_LANDSCAPING",
+          "CATEGORY_TEACHING"
+        ],
+        "example": "CATEGORY_CAR_AND_MOTOR",
+        "type": "string"
+      },
+      "postSetPostCustomizedButtonResponse": {
+        "type": "object"
+      },
+      "postSubmitPostRequest": {
+        "properties": {
+          "apartment_sell": {
+            "$ref": "#/components/schemas/postApartmentSellFields"
+          },
+          "chat_enabled": {
+            "description": "امکان چت فعال باشد",
+            "example": true,
+            "type": "boolean"
+          },
+          "city": {
+            "description": "شهر آگهی",
+            "example": "tehran",
+            "type": "string"
+          },
+          "description": {
+            "description": "توضیحات آگهی",
+            "example": "I'm available only in chat.",
+            "type": "string"
+          },
+          "district": {
+            "description": "محله آگهی",
+            "example": "abshar",
+            "type": "string"
+          },
+          "hide_phone": {
+            "description": "عدم نمایش شماره تماس به کاربران",
+            "example": true,
+            "type": "boolean"
+          },
+          "home_presell": {
+            "$ref": "#/components/schemas/postHomePresellFields"
+          },
+          "images": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "landline_numbers": {
             "description": "Landline numbers to be added to the post",
             "example": [
@@ -3246,7 +3927,7 @@
             "type": "number"
           },
           "location_type": {
-            "$ref": "#/components/schemas/SubmitPostRequestLocationType"
+            "$ref": "#/components/schemas/postLocationType"
           },
           "longitude": {
             "description": "طول جغرافیایی آگهی",
@@ -3266,6 +3947,15 @@
             "type": "string"
           }
         },
+        "required": [
+          "title",
+          "description",
+          "images",
+          "city",
+          "location_type",
+          "hide_phone",
+          "chat_enabled"
+        ],
         "type": "object"
       },
       "postSubmitPostResponse": {
@@ -3276,6 +3966,49 @@
         },
         "type": "object"
       },
+      "postSubmitPostV2Request": {
+        "properties": {
+          "category_fields": {
+            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/",
+            "type": "object"
+          },
+          "general_data": {
+            "$ref": "#/components/schemas/postPostGeneralData"
+          },
+          "landline_numbers": {
+            "description": "Landline numbers to be added to the post",
+            "example": [
+              "02188888888",
+              "02188888889"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "category_fields",
+          "general_data"
+        ],
+        "type": "object"
+      },
+      "postSubmitUserPostRequest": {
+        "properties": {
+          "category_fields": {
+            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/",
+            "type": "object"
+          },
+          "general_data": {
+            "$ref": "#/components/schemas/postPostGeneralData"
+          }
+        },
+        "required": [
+          "category_fields",
+          "general_data"
+        ],
+        "type": "object"
+      },
       "postTemporaryResidenceFields": {
         "properties": {
           "area": {
@@ -3284,16 +4017,72 @@
             "format": "int32",
             "type": "integer"
           },
+          "check_in_time": {
+            "description": "Check-in time",
+            "example": "08:00",
+            "type": "string"
+          },
+          "check_out_time": {
+            "description": "Check-out time",
+            "example": "20:00",
+            "type": "string"
+          },
+          "comfort_amenities": {
+            "example": [
+              "COMFORT_AMENITY_TV",
+              "COMFORT_AMENITY_WASHING_MACHINE",
+              "COMFORT_AMENITY_AIR_CONDITIONER"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/TemporaryResidenceFieldsComfortAmenity"
+            },
+            "type": "array"
+          },
+          "damage_deposit": {
+            "description": "Damage deposit amount in Toman",
+            "example": 2000000,
+            "format": "int64",
+            "type": "string"
+          },
           "extra_person_capacity": {
             "description": "تعداد افراد اضافه مجاز در اقامتگاه",
             "example": 2,
             "format": "int32",
             "type": "integer"
           },
+          "fully_furnished": {
+            "description": "Whether the residence is fully furnished",
+            "example": true,
+            "type": "boolean"
+          },
           "has_own_image": {
             "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
             "example": true,
             "type": "boolean"
+          },
+          "heating_cooling_system": {
+            "example": [
+              "HEATING_COOLING_SYSTEM_SPLIT",
+              "HEATING_COOLING_SYSTEM_RADIATOR"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/TemporaryResidenceFieldsHeatingCoolingSystem"
+            },
+            "type": "array"
+          },
+          "house_rules": {
+            "description": "House rules and regulations",
+            "example": "no smoking",
+            "type": "string"
+          },
+          "minimum_stay": {
+            "description": "Minimum number of days required for stay",
+            "example": 3,
+            "format": "int32",
+            "type": "integer"
+          },
+          "pets_allowed": {
+            "$ref": "#/components/schemas/TemporaryResidenceFieldsPetsAllowed"
           },
           "price_cost_per_extra_person": {
             "description": "هزینه هر نفر اضافه به ازای هر شب به تومان",
@@ -3325,10 +4114,24 @@
             "format": "int32",
             "type": "integer"
           },
+          "rental_period": {
+            "$ref": "#/components/schemas/TemporaryResidenceFieldsRentalPeriod"
+          },
           "rooms_count": {
-            "$ref": "#/components/schemas/TemporaryResidenceFieldsRoomsCount"
+            "$ref": "#/components/schemas/postRoomsCount"
           }
         },
+        "required": [
+          "rooms_count",
+          "area",
+          "has_own_image",
+          "regular_person_capacity",
+          "extra_person_capacity",
+          "price_regular_days",
+          "price_weekends",
+          "price_special_days",
+          "price_cost_per_extra_person"
+        ],
         "type": "object"
       },
       "protobufAny": {
@@ -3379,10 +4182,14 @@
           "app_slug": {
             "type": "string"
           },
+          "divar_user_id": {
+            "type": "string"
+          },
           "id": {
             "type": "string"
           },
           "phone": {
+            "title": "منسوخ شده. از divar_user_id استفاده کنید",
             "type": "string"
           }
         },
@@ -3445,7 +4252,7 @@
   "paths": {
     "/experimental/open-platform/balance": {
       "get": {
-        "description": "با استفاده از این API می‌توانید موجودی فعلی اپلیکیشن خود را دریافت کنید.",
+        "description": "(محدود) با استفاده از این API می‌توانید موجودی فعلی اپلیکیشن خود را دریافت کنید.",
         "operationId": "Payment_GetBalance",
         "responses": {
           "200": {
@@ -3470,7 +4277,99 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
+        ]
+      }
+    },
+    "/experimental/open-platform/business/{business_token}/customized-button": {
+      "delete": {
+        "description": "این API دکمه اختصاصی را از آگهی‌های کسب‌و‌کار حذف می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\n",
+        "operationId": "Post_DeleteBusinessCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "business_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDeleteBusinessCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "حذف دکمه اختصاصی از آگهی‌های کسب‌و‌کار",
+        "tags": [
+          "Post"
+        ]
+      },
+      "post": {
+        "description": "این API دکمه اختصاصی را برای آگهی‌های کسب‌و‌کار ایجاد می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دامنه OAuth `BUSINESS_CREATE_CUSTOMIZED_BUTTON.{business_ref}` دارد.\n",
+        "operationId": "Post_CreateBusinessCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "business_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCreateBusinessCustomizedButtonBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postCreateBusinessCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌و‌کار",
+        "tags": [
+          "Post"
         ]
       }
     },
@@ -3656,113 +4555,13 @@
     },
     "/experimental/open-platform/events/send": {
       "post": {
-        "description": "Using this API, you can send an event to a user. The event can be specific to a post or general. The event can include buttons with custom actions allowing users to interact with your app.",
+        "description": "با استفاده از این API، می‌توانید رویدادی به کاربر ارسال کنید. رویداد می‌تواند مربوط به یک آگهی خاص یا عمومی باشد. رویداد می‌تواند شامل دکمه‌هایی با عملیات سفارشی باشد که به کاربران اجازه می‌دهد با برنامه شما تعامل داشته باشند.",
         "operationId": "Events_SendEvent",
         "parameters": [
           {
             "description": "The event message to display to the user",
             "in": "query",
             "name": "message",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "The text to display on the button",
-            "in": "query",
-            "name": "primary_button.title",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "An action to send user to your URL directly with just a resource id (if applicable)",
-            "in": "query",
-            "name": "primary_button.action.open_direct_link",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
-            "in": "query",
-            "name": "primary_button.action.open_server_link.data",
-            "schema": {
-              "type": "object"
-            }
-          },
-          {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
-            "in": "query",
-            "name": "primary_button.action.get_dynamic_action.data",
-            "schema": {
-              "type": "object"
-            }
-          },
-          {
-            "description": "Token of the post to open",
-            "in": "query",
-            "name": "primary_button.action.open_post_page.post_token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Token of the post to redirect to its management page",
-            "in": "query",
-            "name": "primary_button.action.open_post_manage_page.post_token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "The text to display on the button",
-            "in": "query",
-            "name": "secondary_button.title",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "An action to send user to your URL directly with just a resource id (if applicable)",
-            "in": "query",
-            "name": "secondary_button.action.open_direct_link",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
-            "in": "query",
-            "name": "secondary_button.action.open_server_link.data",
-            "schema": {
-              "type": "object"
-            }
-          },
-          {
-            "description": "A data that you can set and will be returned to you upon user click to recognize the action",
-            "in": "query",
-            "name": "secondary_button.action.get_dynamic_action.data",
-            "schema": {
-              "type": "object"
-            }
-          },
-          {
-            "description": "Token of the post to open",
-            "in": "query",
-            "name": "secondary_button.action.open_post_page.post_token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Token of the post to redirect to its management page",
-            "in": "query",
-            "name": "secondary_button.action.open_post_manage_page.post_token",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -3780,7 +4579,7 @@
             }
           },
           {
-            "description": "id of the target. When target type is USER, it should be the Divar User ID of that user and when target type is POST, it should be the post token. ",
+            "description": "Id of the target. When target type is USER, it should be the Divar User ID of that user and when target type is POST, it should be the post token.",
             "in": "query",
             "name": "target_resource_id",
             "schema": {
@@ -3810,15 +4609,68 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Send an event to a user",
+        "summary": "ارسال رویداد به کاربر با استفاده از API",
         "tags": [
           "Events"
         ]
       }
     },
+    "/experimental/open-platform/post/{post_token}/publish": {
+      "post": {
+        "description": "This API allows providers to pay for user post submission costs. The post_token should be obtained from the SubmitUserPost API in post collection.",
+        "operationId": "Payment_PublishUserPost",
+        "parameters": [
+          {
+            "description": "Post token obtained from SubmitUserPost RPC. An 8-9 character unique identifier for the user-submitted post.",
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentPublishUserPostBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentPublishUserPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "Pay for user post submission on behalf of provider",
+        "tags": [
+          "Payment"
+        ]
+      }
+    },
     "/experimental/open-platform/post/{post_token}/reorder": {
       "post": {
-        "description": "قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
+        "description": "(محدود) قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
         "operationId": "Payment_ReorderPost",
         "parameters": [
           {
@@ -3863,54 +4715,13 @@
           }
         },
         "tags": [
-          "limited"
-        ]
-      }
-    },
-    "/experimental/open-platform/posts/emergency-residence": {
-      "post": {
-        "operationId": "Post_SubmitEmergencyResidencePost",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/postSubmitEmergencyResidencePostRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/postSubmitEmergencyResidencePostResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "summary": "Submit an emergency residence post",
-        "tags": [
-          "Post"
+          "Payment"
         ]
       }
     },
     "/experimental/open-platform/posts/new": {
       "post": {
-        "description": "این API به شما امکان ثبت آگهی را می‌دهد. این نیاز به دامنه OAuth `POST_SUBMIT` دارد.\nمی‌توانید آگهی را با عنوان، توضیحات، تصاویر و سایر فیلدها ثبت کنید. فیلدهای عمومی و فیلدهای مخصوص دسته‌بندی وجود دارند.",
+        "description": "این API به شما امکان ثبت آگهی را می‌دهد. این نیاز به دامنه OAuth `SUBMIT_POST` دارد.\nمی‌توانید آگهی را با عنوان، توضیحات، تصاویر و سایر فیلدها ثبت کنید. فیلدهای عمومی و فیلدهای مخصوص دسته‌بندی وجود دارند.",
         "operationId": "Post_SubmitPost",
         "requestBody": {
           "content": {
@@ -3945,6 +4756,140 @@
           }
         },
         "summary": "ثبت آگهی",
+        "tags": [
+          "Post"
+        ]
+      }
+    },
+    "/experimental/open-platform/posts/new-v2": {
+      "post": {
+        "description": "این API به شما امکان ثبت آگهی با استفاده از اعتبارسنجی قالب JSON را می‌دهد. این به مجوز `SUBMIT_POST` نیاز دارد.\nشما داده‌های کامل آگهی را به عنوان یک رشته JSON ارائه می‌دهید که با احترام به قالب ثبت برای دسته‌بندی مشخص شده موجود در دارایی‌ها اعتبارسنجی خواهد شد.",
+        "operationId": "Post_SubmitPostV2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postSubmitPostV2Request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postSubmitPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ثبت آگهی با استفاده از اعتبارسنجی قالب JSON",
+        "tags": [
+          "Post"
+        ]
+      }
+    },
+    "/experimental/open-platform/posts/{post_token}/customized-button": {
+      "delete": {
+        "description": "این API دکمه اختصاصی را از آگهی ثبت شده توسط سرویس شما حذف می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\n",
+        "operationId": "Post_DeletePostCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDeletePostCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "حذف دکمه اختصاصی از آگهی",
+        "tags": [
+          "Post"
+        ]
+      },
+      "post": {
+        "description": "این API برای آگهی‌ ثبت شده توسط سرویس شما دکمه اختصاصی تنظیم می‌کند. اگر دکمه‌ای وجود نداشته باشد، ایجاد خواهد شد. اگر از قبل وجود داشته باشد، تنظیمات آن به‌روزرسانی می‌شود. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\nاگر این آگهی به عنوان کاربر ثبت شده باشد، این API نیاز به توکن دسترسی کاربر در هدرهای درخواست با دامنه `USER_SET_CUSTOMIZED_BUTTON` دارد.",
+        "operationId": "Post_SetPostCustomizedButton",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostSetPostCustomizedButtonBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postSetPostCustomizedButtonResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "تنظیم دکمه اختصاصی بر روی آگهی ثبت شده",
         "tags": [
           "Post"
         ]
@@ -4047,7 +4992,7 @@
     },
     "/experimental/open-platform/transactions": {
       "get": {
-        "description": "با استفاده از این api میتوانید لیست تراکنش‌های اپ را مشاهده کنید. برای مشاهده‌ی تمام تراکنش‌ها، صفحات را دنبال کنید.",
+        "description": "(محدود) با استفاده از این api میتوانید لیست تراکنش‌های اپ را مشاهده کنید. برای مشاهده‌ی تمام تراکنش‌ها، صفحات را دنبال کنید.",
         "operationId": "Payment_ListTransactions",
         "parameters": [
           {
@@ -4091,13 +5036,13 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
     "/experimental/open-platform/transactions/{id}": {
       "get": {
-        "description": "با استفاده از این API می‌توانید جزئیات تراکنش را دریافت کنید.",
+        "description": "(محدود) با استفاده از این API می‌توانید جزئیات تراکنش را دریافت کنید.",
         "operationId": "Payment_GetTransaction",
         "parameters": [
           {
@@ -4133,7 +5078,205 @@
           }
         },
         "tags": [
-          "limited"
+          "Payment"
+        ]
+      }
+    },
+    "/experimental/open-platform/user-posts/can-submit": {
+      "get": {
+        "description": "با این API میتوانید بررسی کنید آیا کاربر می‌تواند آگهی ارسال کند یا خیر.این API انتظار دارد توکن کاربر در درخواست با اسکوپ `SUBMIT_USER_POST` موجود باشد.",
+        "operationId": "Post_CanUserSubmitPost",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postCanUserSubmitPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
+        "tags": [
+          "Post"
+        ]
+      }
+    },
+    "/experimental/open-platform/user-posts/new": {
+      "post": {
+        "description": "این API به شما امکان ثبت آگهی از طرف یک کاربر احراز هویت شده با استفاده از اعتبارسنجی قالب JSON را می‌دهد. این به احراز هویت OAuth با توکن دسترسی معتبر و دامنه OAuth `SUBMIT_USER_POST` نیاز دارد.\nبر خلاف SubmitPostV2 که آگهی‌ها را به عنوان ارائه‌دهنده ثبت می‌کند، این نقطه پایانی آگهی‌ها را به عنوان کاربر مرتبط با توکن دسترسی ارائه شده ثبت می‌کند. آگهی متعلق به کاربر احراز هویت شده خواهد بود.\nشما داده‌های کامل آگهی را به عنوان یک رشته JSON ارائه می‌دهید که با احترام به قالب ثبت برای دسته‌بندی مشخص شده موجود در دارایی‌ها اعتبارسنجی خواهد شد.",
+        "operationId": "Post_SubmitUserPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postSubmitUserPostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postSubmitPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ثبت آگهی به عنوان کاربر",
+        "tags": [
+          "Post"
+        ]
+      }
+    },
+    "/experimental/open-platform/wallet/payments/commit": {
+      "post": {
+        "description": "(محدود) با استفاده از این API می‌توانید یک پرداخت موفق را commit کنید. این API idempotent است و می‌توانید چندین بار آن را فراخوانی کنید.",
+        "operationId": "Payment_CommitWalletTransaction",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentCommitWalletTransactionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentCommitWalletTransactionResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "tags": [
+          "Payment"
+        ]
+      }
+    },
+    "/experimental/open-platform/wallet/payments/create": {
+      "post": {
+        "description": "(محدود) با استفاده از این API می‌توانید یک تراکنش پرداخت از کیف پول کاربران شروع کنید.",
+        "operationId": "Payment_CreateWalletPayment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentCreateWalletPaymentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentCreateWalletPaymentResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "tags": [
+          "Payment"
+        ]
+      }
+    },
+    "/experimental/open-platform/wallet/payments/{token}": {
+      "get": {
+        "description": "(محدود) با استفاده از این API می‌توانید یک تراکنش و وضعیت آن را بازیابی کنید. از این API برای اعتبارسنجی پرداخت قبل از commit استفاده کنید.",
+        "operationId": "Payment_RetrieveWalletTransaction",
+        "parameters": [
+          {
+            "description": "توکن تراکنشی که می‌خواهید بازیابی کنید",
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentRetrieveWalletTransactionResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "tags": [
+          "Payment"
         ]
       }
     },
@@ -4738,6 +5881,48 @@
         ]
       }
     },
+    "/v1/open-platform/assets/submit-schema/{category_slug}": {
+      "get": {
+        "description": "این API به شما امکان دریافت قالب ثبت آگهی برای یک دسته‌بندی مشخص را می‌دهد. پاسخ در قالب JSON Schema است.\n\nقالب تعریف کننده ساختار و قوانین برای فیلدهای فرم زمانی که آگهی در یک دسته‌بندی مشخص ثبت می‌شود. هر فیلد در قالب می‌تواند یکی از انواع زیر را داشته باشد:\n\n**انواع اصلی:**\n- `string`: فیلدهای ورودی متنی (مانند عنوان، توضیحات، مقادیر زمانی)\n- `integer`: فیلدهای ورودی عددی برای اعداد صحیح (مانند قیمت، تعداد، اندازه)\n- `float`: فیلدهای ورودی عددی برای اعداد اعشاری\n- `boolean`: فیلدهای ورودی بولین (صحیح/غلط)\n- `array`: فیلدهای ورودی چندگانه که امکان انتخاب چند مقدار را دارند\n\n**فیلدهای Enum:**\nفیلدها با گزینه‌های پیش‌تعریف شده از `enum` و `enumNames` استفاده می‌کنند:\n- `enum`: آرایه از مقادیر داخلی استفاده شده برای ارتباط API\n- `enumNames`: آرایه از برچسب‌های نمایشی نشان داده شده به کاربر (معمولاً به زبان فارسی)\n- اینها برای فیلدهای ورودی چندگانه (مانند انتخاب طبقه، امکان استفاده از پارکینگ) استفاده می‌شوند\n\n**فیلدهای آرایه با Enum:**\nفیلدهای ورودی چندگانه ترکیب `type: \"array\"` با کلید Enum را دارند:\n- `items.enum`: گزینه‌های موجود برای انتخاب\n- `items.enumNames`: برچسب‌های نمایشی برای هر گزینه\n- کاربران می‌توانند چند مقدار را انتخاب کنند (مانند امکانات رفاهی، سیستم‌های گرمایش)\n\n**ویژگی‌های فیلد:**\n- `title`: نام نمایشی فارسی برای فیلد\n- `required`: آرایه از نام فیلدهای اجباری که باید ارائه شوند\n- `type`: نوع داده فیلد\n\n**مثال استفاده:**\n```json\n{\n  \"properties\": {\n    \"size\": {\n      \"title\": \"متراژ (متر مربع)\",\n      \"type\": \"integer\"\n    },\n    \"elevator\": {\n      \"enum\": [\"دارد\", \"ندارد\"],\n      \"enumNames\": [\"دارد\", \"ندارد\"],\n      \"title\": \"آسانسور\",\n      \"type\": \"string\"\n    },\n    \"comfort_amenities\": {\n      \"items\": {\n        \"enum\": [\"اینترنت_پرسرعت\", \"تلویزیون\"],\n        \"enumNames\": [\"اینترنت پرسرعت\", \"تلویزیون\"],\n        \"type\": \"string\"\n      },\n      \"title\": \"امکانات رفاهی\",\n      \"type\": \"array\"\n    }\n  }\n}\n```",
+        "operationId": "Assets_GetSubmitSchema",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/assetsGetSubmitSchemaResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "دریافت قالب ثبت",
+        "tags": [
+          "Assets"
+        ]
+      }
+    },
     "/v1/open-platform/chat/bot/conversations/{conversation_id}/messages": {
       "post": {
         "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
@@ -4989,6 +6174,48 @@
         ]
       }
     },
+    "/v1/open-platform/get-user-id-by-phone": {
+      "post": {
+        "description": "با استفاده از این API می‌توانید شناسه‌ی دیوار یک کاربر را با استفاده از شماره تلفن دریافت کنید. این اجازه مختص برنامه‌هایی است که دسترسی به شماره تماس کاربر ندارند و برای ارائه‌ی خدمات پشتیبانی به کاربران، نیاز به تبدیل شماره به شناسه‌ی دیوار دارند.",
+        "operationId": "Finder_GetUserIDByPhone",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/finderGetUserIDByPhoneRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/finderGetUserIDByPhoneResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "دریافت شناسه دیوار کاربر با شماره تلفن",
+        "tags": [
+          "Finder"
+        ]
+      }
+    },
     "/v1/open-platform/payment-ticket/validate": {
       "post": {
         "description": "بلیط‌های پرداخت برای یکپارچه‌سازی اپلیکیشن‌های کنار با تیم‌های داخلی دیوار طراحی شده‌اند.\nبا استفاده از این API می‌توانید بلیط پرداخت را اعتبارسنجی کرده و payload صادرکننده را دریافت کنید.",
@@ -5064,6 +6291,47 @@
       }
     },
     "/v1/open-platform/post/{post_token}": {
+      "delete": {
+        "description": "این API به شما امکان حذف آگهی را می‌دهد. این نیاز به اسکوپ OAuth `DELETE_USER_POST` دارد.",
+        "operationId": "Post_DeleteUserPost",
+        "parameters": [
+          {
+            "description": "توکن آگهی برای حذف",
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postDeleteUserPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "حذف آگهی",
+        "tags": [
+          "Post"
+        ]
+      },
       "put": {
         "description": "این API به شما امکان ویرایش آگهی را می‌دهد. این نیاز به دامنه OAuth `POST_EDIT.{post_token}` دارد.\nدر حال حاضر فقط می‌توانید عنوان، توضیحات و تصاویر آگهی را ویرایش کنید.",
         "operationId": "Post_EditPost",
@@ -5117,7 +6385,7 @@
     },
     "/v1/open-platform/post/{post_token}/pricing": {
       "get": {
-        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید قیمت سرویس‌های مختلف مانند نردبان را دریافت کنید. قیمت این API لزوماً با قیمت روی دیوار یکسان نیست و قیمت‌گذاری ممکن است متفاوت باشد. از این API برای دریافت قیمت قبل از اعمال سرویس‌ها (مانند نردبان آگهی) استفاده کنید.",
+        "description": "Using this API and with user permission, you can get the price of various services like Reorder and Submit.The price of this API is not necessarily the same as the price on Divar, and pricing may vary.Use this API to get the price before applying services (such as reordering a post or submitting a post).",
         "operationId": "Payment_GetPostPricing",
         "parameters": [
           {
@@ -5154,7 +6422,7 @@
         },
         "summary": "دریافت هزینه سرویس",
         "tags": [
-          "limited"
+          "Payment"
         ]
       }
     },
@@ -5339,6 +6607,48 @@
         "summary": "ایجاد اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
+        ]
+      }
+    },
+    "/v1/open-platform/user-payments": {
+      "post": {
+        "description": "Using this API, you should submit a user payment. It is imperative you use this API to submit a user payment along with the received amount. This API requires an access token with the `SUBMIT_USER_PAYMENT` OAuth scope.",
+        "operationId": "Payment_SubmitUserPayment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentSubmitUserPaymentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentSubmitUserPaymentResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ثبت پرداخت کاربر",
+        "tags": [
+          "Payment"
         ]
       }
     },
@@ -5650,6 +6960,59 @@
           "Finder"
         ]
       }
+    },
+    "/v2/open-platform/post/{post_token}": {
+      "put": {
+        "description": "این API به شما امکان ویرایش آگهی با استفاده از احراز هویت OAuth را می‌دهد.\nتوکن دسترسی از یک کاربر با اسکوپ OAuth `POST_EDIT.{post_token}` مورد نیاز است.\n\nمی‌توانید عنوان، توضیحات، تصاویر، موقعیت، فیلدهای مخصوص دسته‌بندی و سایر ویژگی‌های آگهی را ویرایش کنید. فیلدهای مخصوص دسته‌بندی باید از قالب دسته‌بندی آگهی پیروی کنند. قالب را از اینجا دریافت کنید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/\n\nاز فیلد update_mask برای مشخص کردن فیلدهایی که می‌خواهید به‌روزرسانی کنید استفاده کنید.",
+        "operationId": "Post_EditPostV2",
+        "parameters": [
+          {
+            "description": "توکن آگهی",
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostEditPostV2Body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/postEditPostResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "ویرایش آگهی با پشتیبانی از فیلد ماسک",
+        "tags": [
+          "Post"
+        ]
+      }
     }
   },
   "security": [
@@ -5664,32 +7027,32 @@
   ],
   "tags": [
     {
-      "name": "Addons"
-    },
-    {
-      "name": "Assets"
-    },
-    {
-      "name": "ChatAPI"
-    },
-    {
-      "name": "Events"
+      "name": "PaymentTicket"
     },
     {
       "name": "Finder"
     },
     {
-      "name": "Post"
+      "name": "Addons"
     },
     {
-      "description": "Limited APIs, Create tickets if you need to use them.",
-      "name": "limited"
-    },
-    {
-      "name": "PaymentTicket"
+      "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
+      "name": "Payment"
     },
     {
       "name": "Semantic"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "Assets"
+    },
+    {
+      "name": "Post"
+    },
+    {
+      "name": "ChatAPI"
     }
   ]
 }

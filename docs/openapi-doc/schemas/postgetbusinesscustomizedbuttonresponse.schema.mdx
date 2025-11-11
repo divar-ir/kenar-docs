@@ -1,0 +1,33 @@
+---
+id: postgetbusinesscustomizedbuttonresponse
+title: "postGetBusinessCustomizedButtonResponse"
+description: ""
+sidebar_label: "postGetBusinessCustomizedButtonResponse"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"app_name":"string","app_slug":"string","is_active":true,"type":"ACCOMMODATION_BOOKING"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"postGetBusinessCustomizedButtonResponse"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"app_name":{"type":"string"},"app_slug":{"type":"string"},"is_active":{"type":"boolean"},"type":{"description":"Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.\n\nAvailable types:\n- `ACCOMMODATION_BOOKING`: For booking accommodation\n- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores\n","enum":["ACCOMMODATION_BOOKING","EXTERNAL_PRODUCT_STORE"],"type":"string","title":"postCustomizedButtonType"}},"type":"object","title":"postGetBusinessCustomizedButtonResponse"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

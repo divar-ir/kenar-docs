@@ -8,6 +8,68 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "PaymentTicket",
+      link: {
+        type: "doc",
+        id: "openapi-doc/payment-ticket",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/payment-ticket-validate",
+          label: "اعتبارسنجی بلیط پرداخت",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Finder",
+      link: {
+        type: "doc",
+        id: "openapi-doc/finder",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-post",
+          label: "دریافت آگهی دیوار",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user-posts",
+          label: "دریافت آگهی‌های کاربر",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user-id-by-phone",
+          label: "دریافت شناسه دیوار کاربر با شماره تلفن",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user-2",
+          label: "دریافت اطلاعات کاربر",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-get-user",
+          label: "دریافت اطلاعات کاربر",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/finder-search-post-v-2",
+          label: "جستجو آگهی‌های دیوار با فیلترهایی",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Addons",
       link: {
         type: "doc",
@@ -54,6 +116,138 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/addons-create-user-addon-v-22",
           label: "افزودن افزونه جدید به کاربر",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Payment",
+      link: {
+        type: "doc",
+        id: "openapi-doc/payment",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/payment-get-balance",
+          label: "Payment_GetBalance",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-publish-user-post",
+          label: "Pay for user post submission on behalf of provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-reorder-post",
+          label: "Payment_ReorderPost",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-list-transactions",
+          label: "Payment_ListTransactions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-get-transaction",
+          label: "Payment_GetTransaction",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-commit-wallet-transaction",
+          label: "Payment_CommitWalletTransaction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-create-wallet-payment",
+          label: "Payment_CreateWalletPayment",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-retrieve-wallet-transaction",
+          label: "Payment_RetrieveWalletTransaction",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-get-post-pricing",
+          label: "دریافت هزینه سرویس",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-submit-user-payment",
+          label: "ثبت پرداخت کاربر",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Semantic",
+      link: {
+        type: "doc",
+        id: "openapi-doc/semantic",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-create-post-semantic",
+          label: "ایجاد اطلاعات معنایی آگهی",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-delete-user-semantic",
+          label: "حذف اطلاعات معنایی کاربر",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-create-user-semantic",
+          label: "ایجاد اطلاعات معنایی کاربر",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-delete-user-semantic-2",
+          label: "حذف اطلاعات معنایی کاربر",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/semantic-create-user-semantic-2",
+          label: "ایجاد اطلاعات معنایی کاربر",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Events",
+      link: {
+        type: "doc",
+        id: "openapi-doc/events",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/events-send-event",
+          label: "ارسال رویداد به کاربر با استفاده از API",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/events-register-event-subscription",
+          label: "اشتراک در رویداد",
           className: "api-method post",
         },
       ],
@@ -138,6 +332,100 @@ const sidebar: SidebarsConfig = {
           label: "دریافت انواع سرویس موجود در کنار دیوار",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "openapi-doc/assets-get-submit-schema",
+          label: "دریافت قالب ثبت",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Post",
+      link: {
+        type: "doc",
+        id: "openapi-doc/post",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/post-delete-business-customized-button",
+          label: "حذف دکمه اختصاصی از آگهی‌های کسب‌و‌کار",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-create-business-customized-button",
+          label: "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌و‌کار",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-post",
+          label: "ثبت آگهی",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-post-v-2",
+          label: "ثبت آگهی با استفاده از اعتبارسنجی قالب JSON",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-delete-post-customized-button",
+          label: "حذف دکمه اختصاصی از آگهی",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-set-post-customized-button",
+          label: "تنظیم دکمه اختصاصی بر روی آگهی ثبت شده",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-post-stats",
+          label: "دریافت آمارهای آگهی",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-can-user-submit-post",
+          label: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-user-post",
+          label: "ثبت آگهی به عنوان کاربر",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-image-upload-url",
+          label: "دریافت URL آپلود تصویر",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-delete-user-post",
+          label: "حذف آگهی",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-edit-post",
+          label: "ویرایش آگهی",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-edit-post-v-2",
+          label: "ویرایش آگهی با پشتیبانی از فیلد ماسک",
+          className: "api-method put",
+        },
       ],
     },
     {
@@ -200,204 +488,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Events",
-      link: {
-        type: "doc",
-        id: "openapi-doc/events",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/events-send-event",
-          label: "Send an event to a user",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/events-register-event-subscription",
-          label: "اشتراک در رویداد",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Finder",
-      link: {
-        type: "doc",
-        id: "openapi-doc/finder",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-post",
-          label: "دریافت آگهی دیوار",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-user-posts",
-          label: "دریافت آگهی‌های کاربر",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-user-2",
-          label: "دریافت اطلاعات کاربر",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-get-user",
-          label: "دریافت اطلاعات کاربر",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/finder-search-post-v-2",
-          label: "جستجو آگهی‌های دیوار با فیلترهایی",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Post",
-      link: {
-        type: "doc",
-        id: "openapi-doc/post",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-emergency-residence-post",
-          label: "Submit an emergency residence post",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-post",
-          label: "ثبت آگهی",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-post-stats",
-          label: "دریافت آمارهای آگهی",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-image-upload-url",
-          label: "دریافت URL آپلود تصویر",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-edit-post",
-          label: "ویرایش آگهی",
-          className: "api-method put",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "limited",
-      link: {
-        type: "doc",
-        id: "openapi-doc/limited",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/payment-get-balance",
-          label: "Payment_GetBalance",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-reorder-post",
-          label: "Payment_ReorderPost",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-list-transactions",
-          label: "Payment_ListTransactions",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-get-transaction",
-          label: "Payment_GetTransaction",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/payment-get-post-pricing",
-          label: "دریافت هزینه سرویس",
-          className: "api-method get",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "PaymentTicket",
-      link: {
-        type: "doc",
-        id: "openapi-doc/payment-ticket",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/payment-ticket-validate",
-          label: "اعتبارسنجی بلیط پرداخت",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Semantic",
-      link: {
-        type: "doc",
-        id: "openapi-doc/semantic",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-create-post-semantic",
-          label: "ایجاد اطلاعات معنایی آگهی",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-delete-user-semantic",
-          label: "حذف اطلاعات معنایی کاربر",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-create-user-semantic",
-          label: "ایجاد اطلاعات معنایی کاربر",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-delete-user-semantic-2",
-          label: "حذف اطلاعات معنایی کاربر",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/semantic-create-user-semantic-2",
-          label: "ایجاد اطلاعات معنایی کاربر",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Schemas",
       items: [
         {
@@ -428,6 +518,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/addonsemanticnewfaceverificationresult",
           label: "AddonSemanticNewFaceVerificationResult",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/addonsemanticonlinereservationcapability",
+          label: "AddonSemanticOnlineReservationCapability",
           className: "schema",
         },
         {
@@ -486,8 +582,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/getpostresponsebusinessdata",
-          label: "GetPostResponseBusinessData",
+          id: "openapi-doc/schemas/getpostpricingresponsesubmit",
+          label: "GetPostPricingResponseSubmit",
           className: "schema",
         },
         {
@@ -510,8 +606,38 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/homepresellfieldsconstructionphase",
+          label: "HomePresellFieldsConstructionPhase",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/homepresellfieldsdeliverymonth",
+          label: "HomePresellFieldsDeliveryMonth",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/homepresellfieldsdeliveryyear",
+          label: "HomePresellFieldsDeliveryYear",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/homepresellfieldsunittype",
+          label: "HomePresellFieldsUnitType",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/imagecarouselrowimageitem",
           label: "ImageCarouselRowImageItem",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/messagecontactdata",
+          label: "MessageContactData",
           className: "schema",
         },
         {
@@ -558,14 +684,38 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/paymentpublishuserpostbody",
+          label: "PaymentPublishUserPostBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/paymentreorderpostbody",
           label: "PaymentReorderPostBody",
           className: "schema",
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/postcreatebusinesscustomizedbuttonbody",
+          label: "PostCreateBusinessCustomizedButtonBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/posteditpostbody",
           label: "PostEditPostBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/posteditpostv-2-body",
+          label: "PostEditPostV2Body",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsetpostcustomizedbuttonbody",
+          label: "PostSetPostCustomizedButtonBody",
           className: "schema",
         },
         {
@@ -654,14 +804,26 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/submitpostrequestlocationtype",
-          label: "SubmitPostRequestLocationType",
+          id: "openapi-doc/schemas/temporaryresidencefieldscomfortamenity",
+          label: "TemporaryResidenceFieldsComfortAmenity",
           className: "schema",
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/temporaryresidencefieldsroomscount",
-          label: "TemporaryResidenceFieldsRoomsCount",
+          id: "openapi-doc/schemas/temporaryresidencefieldsheatingcoolingsystem",
+          label: "TemporaryResidenceFieldsHeatingCoolingSystem",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/temporaryresidencefieldspetsallowed",
+          label: "TemporaryResidenceFieldsPetsAllowed",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/temporaryresidencefieldsrentalperiod",
+          label: "TemporaryResidenceFieldsRentalPeriod",
           className: "schema",
         },
         {
@@ -806,6 +968,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/addonsgetpostaddonsresponse",
           label: "addonsGetPostAddonsResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/addonsgetuseraddonsresponse",
+          label: "addonsGetUserAddonsResponse",
           className: "schema",
         },
         {
@@ -1050,6 +1218,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/assetsgetsubmitschemaresponse",
+          label: "assetsGetSubmitSchemaResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/authorizationapicallerinfo",
           label: "authorizationAPICallerInfo",
           className: "schema",
@@ -1152,6 +1326,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/eventseventbuttonlist",
+          label: "eventsEventButtonList",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/eventsregistereventsubscriptionrequest",
           label: "eventsRegisterEventSubscriptionRequest",
           className: "schema",
@@ -1184,6 +1364,24 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/findergetpostresponse",
           label: "finderGetPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/findergetpostresponsebusinessdata",
+          label: "finderGetPostResponseBusinessData",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/findergetuseridbyphonerequest",
+          label: "finderGetUserIDByPhoneRequest",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/findergetuseridbyphoneresponse",
+          label: "finderGetUserIDByPhoneResponse",
           className: "schema",
         },
         {
@@ -1266,14 +1464,32 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/managementpreset",
-          label: "managementPreset",
+          id: "openapi-doc/schemas/open-platformpostservicesfields",
+          label: "open_platformpostServicesFields",
           className: "schema",
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/open-platformpostservicesfields",
-          label: "open_platformpostServicesFields",
+          id: "openapi-doc/schemas/paymentcommitwallettransactionrequest",
+          label: "paymentCommitWalletTransactionRequest",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentcommitwallettransactionresponse",
+          label: "paymentCommitWalletTransactionResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentcreatewalletpaymentrequest",
+          label: "paymentCreateWalletPaymentRequest",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentcreatewalletpaymentresponse",
+          label: "paymentCreateWalletPaymentResponse",
           className: "schema",
         },
         {
@@ -1302,8 +1518,32 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/paymentpublishuserpostresponse",
+          label: "paymentPublishUserPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/paymentreorderpostresponse",
           label: "paymentReorderPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentretrievewallettransactionresponse",
+          label: "paymentRetrieveWalletTransactionResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentsubmituserpaymentrequest",
+          label: "paymentSubmitUserPaymentRequest",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentsubmituserpaymentresponse",
+          label: "paymentSubmitUserPaymentResponse",
           className: "schema",
         },
         {
@@ -1326,6 +1566,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/paymentwallettransaction",
+          label: "paymentWalletTransaction",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentwallettransactionstatus",
+          label: "paymentWalletTransactionStatus",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/payment-ticketgenerateresponse",
           label: "payment_ticketGenerateResponse",
           className: "schema",
@@ -1344,8 +1596,68 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/postapartmentsellfields",
+          label: "postApartmentSellFields",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postcanusersubmitpostresponse",
+          label: "postCanUserSubmitPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postcreatebusinesscustomizedbuttonresponse",
+          label: "postCreateBusinessCustomizedButtonResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postcustomizedbutton",
+          label: "postCustomizedButton",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postcustomizedbuttontype",
+          label: "postCustomizedButtonType",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postdeletebusinesscustomizedbuttonresponse",
+          label: "postDeleteBusinessCustomizedButtonResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postdeletecustomizedbuttonsoffloadedresponse",
+          label: "postDeleteCustomizedButtonsOffloadedResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postdeletepostcustomizedbuttonresponse",
+          label: "postDeletePostCustomizedButtonResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postdeleteuserpostresponse",
+          label: "postDeleteUserPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/posteditpostresponse",
           label: "postEditPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postgetbusinesscustomizedbuttonresponse",
+          label: "postGetBusinessCustomizedButtonResponse",
           className: "schema",
         },
         {
@@ -1362,20 +1674,38 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/posthomepresellfields",
+          label: "postHomePresellFields",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postlocationtype",
+          label: "postLocationType",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postpostgeneraldata",
+          label: "postPostGeneralData",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postroomscount",
+          label: "postRoomsCount",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/postservicesfieldscategory",
           label: "postServicesFieldsCategory",
           className: "schema",
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/postsubmitemergencyresidencepostrequest",
-          label: "postSubmitEmergencyResidencePostRequest",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/schemas/postsubmitemergencyresidencepostresponse",
-          label: "postSubmitEmergencyResidencePostResponse",
+          id: "openapi-doc/schemas/postsetpostcustomizedbuttonresponse",
+          label: "postSetPostCustomizedButtonResponse",
           className: "schema",
         },
         {
@@ -1388,6 +1718,18 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postsubmitpostresponse",
           label: "postSubmitPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmitpostv-2-request",
+          label: "postSubmitPostV2Request",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postsubmituserpostrequest",
+          label: "postSubmitUserPostRequest",
           className: "schema",
         },
         {

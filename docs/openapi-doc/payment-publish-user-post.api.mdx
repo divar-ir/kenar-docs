@@ -1,0 +1,71 @@
+---
+id: payment-publish-user-post
+title: "Pay for user post submission on behalf of provider"
+description: "This API allows providers to pay for user post submission costs. The post_token should be obtained from the SubmitUserPost API in post collection."
+sidebar_label: "Pay for user post submission on behalf of provider"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNWltvG8cV/ivTeYilhF7GSlC0TF2EliiFiUwRJJU2MAVqRA7FjZe7m92lbUYQEBsSKaD8FX4IZUaySkmJoz74d8xKb/klxTkzeyG5ugQBiubBoeZy7uebM2d2hza4W3d029Mtk2ZopaW7JFvME2YY1nOX2I71TG9wxyWeRWzWJU3LIR2XO8S2XI+4na227rq6ZZK65XquRiotjlM1z3rKTeK2rI7RIFucWFse003eIE3HahOvxUkZNnvrLneKQAu46qakW7cMg9dBJo2mqGVzh8Ef+QbN0CLrtrnp1YqdLUN3W8F+mqI2c1ibe9xxaebJzpRmyEMKNSnKlBil4qJGsib5y/2/knqLOazucYd0TP27Did6g5ue3tS5g4YALcAY99EOnscbKD7IrANPm3ktmqIma3P4KzQLTVGHf9fRHd6gGc/p8BR16y3eZjSzQ72uDatdz9HNbbq7uyEXc9d7ZDW6sKJumR43PfjJbNvQ62ic9LcuKLoTI2U7YDpP5y78xV94Dqs1uMd0AwcmDSSOxKn48WoghmJExFD8Iob+y6sBuXzj94m/fzX47YeBeOsfiKHfvxqIEyIO/T4RZ/6+GMGinhiKMWwcizMx9PdwDBZqRAyvBn6PADl/D3YOxVsxQlbjqwH8eSZGxD8I2YyQTQ+ZiDFsJ+LY3yPI5EwMxenlidz82w8Dvy+GRJwA8xEsRlnOFVX/pRiKExD03D8QJ+CaKQOnqN6YtcbV4PIN6XT0BvA8E2/9PvlUmkIcgjxx0fy+GBP/vRiLE6kZ8ff9njgWP4NMYCX/JUziVnEeswgyiAiiDtKg4tzfB7VG/oG/J2fPUQ//QK07EWPpDjRezO5KUyKGl7AQOAyllSdXKHXiNvP3/QP/pf+KgG8IuM/fR+/LYaASkzFy+gnqNVLWAUnFgIi34p3yDJDzX4KY8QC6fANWSXDJbjhibX3L65Dbnu4ZPMr+qeTHzNiFfZN5hQOubZmuTIGFjz/+AwnkOcx0WV1GyPQks+2aa3S2Z0MJIBFmiNVExGC2TbwW80jd4QwwAwbjtBNCFNC15ugsKXH9vjiFaJp2psxPafu9WCIN/fcQUpdvrgbi3O+pUKMp2rScNvNohuqm9+dPE8WQEteYl6ymp7c5ed7i5rRO5DlzA33jnBrM4/dhVxK3WwDL74PcoMBNyHVLssgYhHC8KzKEbCU69P0eYJG/j1kmjgBuJvyQRNf1mMcRk81Om2ae0EopWyhnFyv5tUKtXMlWcrVirrCUL6zQVMLc4trj4mqukltKnF3O5levmSrlltcLS7klujEtVJRhtsywSuS8MkobJmWy1JVvikB/rbSUK03xxqny+qPH+crvY1yBlTehweyWuyyfAo+SQggJIFPOfo8h8zYGgWIEJ9RrOKrEqUZxS5N1DO8PIEvdaqBh4xn4yUIUObrp8W3uSGZhOugeb0vsaTR04MOMYpzsjDabWbO7CQfJ0N/39wiecf57BIh9KPU8q24ZZKvTbHKHiLMAOzCwT4MDSJz4ewGME0yGMf4E5K+a66VVVTH0/ANxEZG/ltxYHXPil6uBOA5LgBO/L060qlk1L9+IkRiKQ/EW0s7vkyJIutVpwpl7jnXEIcwAtgUgZ7P603THhP+B615BVl4NxJhkza5iieh4fvnG36uasuAQh+ICAAHQ4VDCgjoI98UIBVLnaAAwCaez1Bq5AJmh+DFWPUU6+fviJ8SfBxlSRCEPSCBuaDFArsWPPsINhBCybFmkaVnkIdE07TM5BpyY2VV/MbOrAbllx2rPNS1rXo1rmiZ/6E0yB4vWkVfFmvsAVs2THTkdW7k7IebCLWJ+yZ6xu8hJHsIvDSjcKJ/uzi1bllY3mOvGxZNkYYUUI7bqsyS5P7lF7mLXa1lmKLkkv2xZc5qmzYc2lVLPzU8aGRWYlR+m81L8pVx5sZQvVtZK85lAg8j6sf2KQkzwT28RfMUKZEahMw/JB/aWtmxZO5qm7aoZZnZThDsOTDOza29pBf48zlZv4vSfHhJTNyIrR/qQgFQ0MsVud5KU5KStm23muC1mVCzp5zvwQe2jPEOlY0kU4AWk6pl4R2ZgwQ5gQab2O/8Ay3KocuCWACX4L0DwtGreA1zVti1r2+DM1l2tbrXTzY5haDgBF7Z7iswFpjSc9wBtKr+n7hYqv+G8x0sL3mRiqkgPVk04QMQ7lAGvMv5+QBBQBzBZDP1/EcSiIwkqCGfiHUDdmdwoXou3AKV+j9xL36uaGA53lk0MQLSfFKcqbVqWtsUcNMCLdFf7vkonRauaVSqHJWxGRU6MskK1qvllea2AnuxBkQSmJzCkjhoAYry3EXUSSUOES/19cYEH7d7VoGqGAd/gLofaV/+ex29BR8FdEJAYhwWeAEPkBtaOrpsBYm9+Dg7eVKVhcBDOWE8MbjAj3K2CPM0EWQgOZtucyJjSbMdq6gZXmNTmrguTRe64lhnFvyyBSFN3XK8GQUcekgefTc0aLJpciIMc/AhJVSlqVqUZUqVJ0T0pmCZFqdJURADFKLA2Evmb5P732DwIMj0dE0ddN2fO/Vk3wY2jJ2/KsbxWF0dMnqnoEWfoh7E4h7i45rb5GjoM0UYMBLx1nsJlN9Z+qJqbz5jRCaJghoMK9AvMkQPJZRw1L1QIQYxfnsQPd9yPosRVDqbVpTwE+LmofRCY6knkIwQybakj+14bTzbmM3/E5ZPkJryOppA0HmgLDxbcKlVOhY7aRJX6eVD/J7RK1kur6QA3oPkhS6mEOvDOZWZUpCkkv6anch40ha4GkbmDPFV9FnBsGDCyXjsGh/mvoPpDBVTdN8RjZUyqNA2QNxtqWhyA8fRB3DrD6hKAJGShzHE7tCvkGWPLJQpgrBbJnLxtgjpVcxM6itf6dXNeC5hO9pTAVIEkPf8ASmX8vRdqVTXnomNBDEiVaqA+HK8jMIK07Xvxb1ATOjno2asBYOQ8Yr+8Z1+gplAZQ+soaM5FuI5GECPUCW7M8nAVF+FtHbp+I/Fr1FYayzYgUj8F7+JZrwrs2QZfPG5+hriBblxQAyhXvMeo2FNED2WMYCfSf4XlxjhesatAOlSHH3j9GMM1dt3AA6SvzKQUgTpDvBNjcUw2W55nb4qB/OFuyluFOBQn4AyiVt3h4J7ojk5kx1RLFUMaUkumjoqwkd8Tv4JjVNtDihoJPxGKkvpIXEiS/ssoh2XLAxJjMt8Qoz4MGo9SraDzqG5CPemmmC1UYTaJk0AGdfiiUimSlVyFgCrK0lGGRQXFDHZC72DjyQbqAoAWYoZsr8a9Hi8yMemEuvcFHczomhcWOx+i82W2+f1YoB/JoqaPvuxJGBjJqgkOBigujqB6kSaWnoOz4gyElLdncU5iXpeSvIawhx/jsNk9EbjXhHhYkoIMJBBtjAYJhcGoFUf+nn9wibdkGcS9IPIRYFWo+z2I+4kW/JQx48iDfEbiP8ABbTyK5Ty09F+KX8N+9VysLlYGjUIy6MKHJ22s/b4vlNRilMTw/PINaCq7NgeBxaNEC98p5hHHILuO/H4mfLWA5sEh+n+kLH8ssfMYC8uxwtjgmQBaixDMVTO6kKge5Bn2Bc9C5IScPkhCkehaEDZWEg54PESkdaLkkd6egpLedHYF0BTZGWwmbXM6i1dzMggVTsGFa+9qMA/5tw/WU/yqJqIkoj2EjDqZr/ApYCh+VgACIoEsYVE4i+MYeb/rXSCwddbsRp1KyhyH4d+qAk96X7ueprS2Y9ehAdpxb+wPSqgI7YjFCpxjY7+vSSZsG54lgwcMaIS2udeyGuplEN8vvRbN0DR/YXNHh1XMSFs2N+/bBvOgN5iGlemd6CVxN23LZiZNUZc7z4K3z45j0AxF72XSkgazda2hP2OOpjsUXhVdXu84utfFDdli/isOPzfiU2XoV8riL1gwXf3Bs+1XvEsc7jk6fxa8qj7lJnNIm5lsm4MmxGYmN4KH0RZnDe5ET6P/vJ8t5u8D/ch1tg5/76boWrYDdplmjMMLhNXr3HXVy+6UEPA2C68N8JSNfdKO17Ic/XuslhZVz3VicB3tZsFYaKw0/rmQhn/x5bbpcLd108rgkdetW7a03qP1cr6QK5dr2aWltUJtsZTLVnKaw12r49R5Dd4Z7rAmRRe/yFZqj9YqtfVyrlR7nCuXsyu5WjlXWKKZmybVzsW1wte5UjmLbflSLrs0JcIdFilKcepJRK6dV/uLa+VJTuVbSf6eLddzuU7ruyxVVMvrxeJqPleqZVdXbxAooHzX5bdTB4HuQBWXpeiEH4FDwG5a/TutS9HH2UJ2Jfc4V6jUssVioiVvXTJL5R+l/Ewm3L4mRQtrlfxyflFKnV1chMQp5b5ekyM0c9uCFC1mv5EsVlfR++VasZRfzBdWAjvfsiCJQvAAlrQ5ehzDWLsBCW6eV/tzS/lK0r6ZcbV+rbCyBrLnH2dXcuXaSi5x9y2rFK1y7nG2UMkv3iD+TUtSFBEqriHNJIypdfmlYDa/FIwVv1grhJvkH8EMGjuJdsLMxJ6VXGVyKQyoFV/nSlE0TZJNmkpRq9k0dJPX5PkER8XkAH7WZKK91A8oEuDguP1kiRctOI4j8MhYir4Uyr1gbdvgCV/+RE+vyD723G02LSyRVAH0FR7i2WKepiiUFvLgfaB9DIuhCGkzfNZUp3jxpu/DLJNs8RYzmvAZRPBZGZ2qp2IPqP+fn6Ipq3v8hZe2DaabYAkstnZU+faExss35eawgKOpoNjLTHwOFlRxGynagvnME7qzs8Vcvu4Yu7sw/F2HO1ifpegz5uhsCzwEX7npLvxu0EyTGS6/waBzJfVtzDz5H38Ml2i1oM4zoejDLiTNUJqiT6HKjH8st7uxmwoqRtBYLliUet3HbwQiAjOv7rupYEe2Xue2d+PaeFEOEEBTdEt9dNfGcpE67DnUgOy5FNZCO2OJh2M71GDmdgevGlTShP/+C7E76VY=
+sidebar_class_name: "post api-method"
+info_path: openapi-doc/kenar-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Pay for user post submission on behalf of provider"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/experimental/open-platform/post/{post_token}/publish"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This API allows providers to pay for user post submission costs. The post_token should be obtained from the SubmitUserPost API in post collection.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Post token obtained from SubmitUserPost RPC. An 8-9 character unique identifier for the user-submitted post.","in":"path","name":"post_token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"extra_details":{"description":"جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.","type":"string"},"id":{"description":"یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.","type":"string"}},"type":"object","title":"PaymentPublishUserPostBody"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"transaction":{"properties":{"app_slug":{"description":"The slug of the app that created the transaction","type":"string"},"cost_rials":{"description":"هزینه تراکنش به ریال برای اپلیکیشن شما","format":"int64","type":"string"},"created_at":{"description":"The time when the transaction was created","format":"date-time","type":"string"},"extra_details":{"description":"همان جزئیات اضافی که در درخواست ارسال کردید","type":"string"},"id":{"description":"همان uuid هنگام ایجاد تراکنش","type":"string"},"state":{"enum":["TRANSACTION_STATE_PENDING","TRANSACTION_STATE_COMPLETED","TRANSACTION_STATE_FAILED","TRANSACTION_STATE_REFUNDED"],"type":"string","title":"paymentTransactionState"},"type":{"enum":["TRANSACTION_TYPE_REORDER","TRANSACTION_TYPE_SUBMIT"],"type":"string","title":"paymentTransactionType"}},"type":"object","title":"paymentTransaction"}},"type":"object","title":"paymentPublishUserPostResponse"}}},"description":"پاسخ موفقیت‌آمیز."},"default":{"content":{"application/json":{"schema":{"properties":{"code":{"format":"int32","type":"integer"},"details":{"items":{"additionalProperties":{},"description":"`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با\nURL که نوع پیام سریالایز شده را توضیح می‌دهد.\n\nکتابخانه Protobuf پشتیبانی برای pack/unpack مقادیر Any را به شکل\nتوابع کاربردی یا متدهای اضافی تولید شده نوع Any ارائه می‌دهد.\n\nمثال 1: Pack و unpack پیام در C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nمثال 2: Pack و unpack پیام در Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nمثال 3: Pack و unpack پیام در Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nمثال 4: Pack و unpack پیام در Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nمتدهای pack ارائه شده توسط کتابخانه protobuf به طور پیش‌فرض از\n'type.googleapis.com/full.type.name' به عنوان URL نوع استفاده می‌کنند و متدهای unpack\nفقط از نام نوع کاملاً واجد شرایط پس از آخرین '/'\nدر URL نوع استفاده می‌کنند، مثلاً \"foo.bar.com/x/y.z\" نام نوع\n\"y.z\" را ایجاد می‌کند.\n\n\nJSON\n\nنمایش JSON یک مقدار `Any` از نمایش معمولی\nپیام deserialize شده و جاسازی شده، با یک\nفیلد اضافی `@type` که شامل URL نوع است، استفاده می‌کند. مثال:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nاگر نوع پیام جاسازی شده شناخته شده باشد و نمایش JSON سفارشی\nداشته باشد، آن نمایش با افزودن فیلد\n`value` که JSON سفارشی را علاوه بر فیلد `@type`\nنگه می‌دارد، جاسازی می‌شود. مثال (برای پیام [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }","properties":{"@type":{"description":"یک URL/نام منبع که نوع پیام protocol buffer سریالایز شده را به طور منحصر به فرد شناسایی می‌کند. این رشته باید حداقل\nیک کاراکتر \"/\" داشته باشد. آخرین بخش مسیر URL باید نام کاملاً واجد شرایط نوع را نمایش دهد (مانند\n`path/google.protobuf.Duration`). نام باید در فرم کانونیکال باشد\n(مثلاً، \".\" ابتدایی پذیرفته نیست).\n\nدر عمل، تیم‌ها معمولاً تمام انواعی که انتظار دارند در زمینه Any استفاده شود را به صورت پیش‌کامپایل در باینری قرار می‌دهند. با این حال، برای URL هایی که از\nطرح `http`، `https` یا بدون طرح استفاده می‌کنند، می‌توان به طور اختیاری یک سرور نوع تنظیم کرد که URL های نوع را به تعاریف پیام نگاشت می‌کند:\n\n* اگر طرحی ارائه نشود، `https` فرض می‌شود.\n* یک HTTP GET روی URL باید مقدار [google.protobuf.Type][] را\n  به فرمت باینری ارائه دهد، یا خطا تولید کند.\n* برنامه‌ها مجاز هستند نتایج جستجو را بر اساس\n  URL کش کنند، یا آنها را در باینری پیش‌کامپایل کنند تا از هر\n  جستجویی جلوگیری کنند. بنابراین، سازگاری باینری باید در\n  تغییرات انواع حفظ شود. (از نام‌های نوع نسخه‌دار برای مدیریت\n  تغییرات شکست‌آور استفاده کنید.)\n\nتوجه: این قابلیت در حال حاضر در نسخه رسمی\nprotobuf در دسترس نیست، و برای URL های نوع که با\ntype.googleapis.com شروع می‌شوند استفاده نمی‌شود.\n\nطرح‌های غیر از `http`، `https` (یا طرح خالی) ممکن است\nبا معناشناسی خاص پیاده‌سازی استفاده شوند.","type":"string"}},"type":"object","title":"protobufAny"},"type":"array"},"message":{"type":"string"}},"type":"object","title":"googlerpcStatus"}}},"description":"پاسخ خطای غیرمنتظره."}}}
+>
+  
+</StatusCodes>
+
+
+      

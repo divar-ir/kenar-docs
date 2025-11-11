@@ -1,0 +1,33 @@
+---
+id: posthomepresellfields
+title: "postHomePresellFields"
+description: ""
+sidebar_label: "postHomePresellFields"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"base_price_per_square_meter":50000000,"construction_phase":"CONSTRUCTION_PHASE_EXCAVATION","delivery_month":"DELIVERY_MONTH_TIR","delivery_payment_percentage":60,"delivery_year":"DELIVERY_YEAR_1405","developer_company_name":"Mehr Construction Group","down_payment_percentage":40,"has_own_image":true,"min_unit_size":60,"project_name":"Paradise Tower","project_physical_progress_percentage":10,"unit_types_offered":["UNIT_TYPE_RESIDENTIAL_APARTMENT","UNIT_TYPE_COMMERCIAL_UNIT"]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"postHomePresellFields"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"base_price_per_square_meter":{"description":"قیمت پایه هر متر مربع به تومان","example":50000000,"format":"int64","type":"string"},"construction_phase":{"description":"وضعیت فعلی پروژه","enum":["CONSTRUCTION_PHASE_PERMIT_AND_LAND_PREPARATION","CONSTRUCTION_PHASE_EXCAVATION","CONSTRUCTION_PHASE_FOUNDATION","CONSTRUCTION_PHASE_STRUCTURE","CONSTRUCTION_PHASE_ROOFING","CONSTRUCTION_PHASE_MASONRY","CONSTRUCTION_PHASE_MEP_ROUGH_IN","CONSTRUCTION_PHASE_INTERIOR_PLASTERING","CONSTRUCTION_PHASE_FACADE","CONSTRUCTION_PHASE_TILING_AND_FLOORING","CONSTRUCTION_PHASE_PAINTING_AND_INTERIOR_DECORATION","CONSTRUCTION_PHASE_DOOR_AND_WINDOW_INSTALLATION","CONSTRUCTION_PHASE_FINAL_MEP_INSTALLATION","CONSTRUCTION_PHASE_LANDSCAPING","CONSTRUCTION_PHASE_COMPLETION_CERTIFICATE","CONSTRUCTION_PHASE_FINAL_DELIVERY"],"example":"CONSTRUCTION_PHASE_EXCAVATION","type":"string","title":"HomePresellFieldsConstructionPhase"},"delivery_month":{"description":"ماه تحویل (تقویم شمسی)","enum":["DELIVERY_MONTH_FARVARDIN","DELIVERY_MONTH_ORDIBEHESHT","DELIVERY_MONTH_KHORDAD","DELIVERY_MONTH_TIR","DELIVERY_MONTH_MORDAD","DELIVERY_MONTH_SHAHRIVAR","DELIVERY_MONTH_MEHR","DELIVERY_MONTH_ABAN","DELIVERY_MONTH_AZAR","DELIVERY_MONTH_DEY","DELIVERY_MONTH_BAHMAN","DELIVERY_MONTH_ESFAND"],"example":"DELIVERY_MONTH_TIR","type":"string","title":"HomePresellFieldsDeliveryMonth"},"delivery_payment_percentage":{"description":"درصد پرداخت مورد نیاز در زمان تحویل","example":60,"format":"int32","type":"integer"},"delivery_year":{"description":"سال تحویل (تقویم شمسی)","enum":["DELIVERY_YEAR_1404","DELIVERY_YEAR_1405","DELIVERY_YEAR_1406","DELIVERY_YEAR_1407","DELIVERY_YEAR_1408","DELIVERY_YEAR_1409","DELIVERY_YEAR_1410","DELIVERY_YEAR_1411","DELIVERY_YEAR_1412","DELIVERY_YEAR_1413","DELIVERY_YEAR_1414"],"example":"DELIVERY_YEAR_1405","type":"string","title":"HomePresellFieldsDeliveryYear"},"developer_company_name":{"description":"نام شرکت سازنده","example":"Mehr Construction Group","type":"string"},"down_payment_percentage":{"description":"درصد پیش پرداخت اولیه","example":40,"format":"int32","type":"integer"},"has_own_image":{"description":"تصاویر مربوط به خود ملک بوده و تزئینی نیستند.","example":true,"type":"boolean"},"min_unit_size":{"description":"حداقل مساحت واحد بر حسب متر مربع","example":60,"format":"int32","type":"integer"},"project_name":{"description":"نام پروژه پیش‌فروش مسکن","example":"Paradise Tower","type":"string"},"project_physical_progress_percentage":{"description":"درصد پیشرفت فیزیکی پروژه","example":10,"format":"int32","type":"integer"},"unit_types_offered":{"description":"فهرست انواع واحد ارائه شده در پروژه","example":["UNIT_TYPE_RESIDENTIAL_APARTMENT","UNIT_TYPE_COMMERCIAL_UNIT"],"items":{"description":"نوع واحدهای ارائه شده در پروژه","enum":["UNIT_TYPE_RESIDENTIAL_APARTMENT","UNIT_TYPE_COMMERCIAL_UNIT","UNIT_TYPE_OFFICE_UNIT"],"type":"string","title":"HomePresellFieldsUnitType"},"type":"array"}},"required":["has_own_image"],"type":"object","title":"postHomePresellFields"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

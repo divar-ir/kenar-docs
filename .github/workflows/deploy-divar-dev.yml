@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  schedule:
+    - cron: '*/15 * * * *'  # Run every 15 minutes
+  workflow_dispatch:  # Allow manual trigger
 
 jobs:
   build-divar-dev:
@@ -20,6 +23,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      
+      - name: Generate API docs
+        run: yarn generate
+      
       - name: Build website
         run: yarn build
         env:

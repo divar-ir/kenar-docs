@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"description":{"type":"string"},"image_paths":{"items":{"type":"string"},"type":"array"},"title":{"type":"string"}},"type":"object","title":"PostEditPostBody"}}
+  schema={{"properties":{"description":{"type":"string"},"image_paths":{"items":{"type":"string"},"type":"array"},"title":{"type":"string"}},"required":["title","description"],"type":"object","title":"PostEditPostBody"}}
   schemaType={"response"}
 >
   

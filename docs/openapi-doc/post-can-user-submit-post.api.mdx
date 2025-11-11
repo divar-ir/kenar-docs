@@ -1,0 +1,63 @@
+---
+id: post-can-user-submit-post
+title: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند"
+description: "با این API میتوانید بررسی کنید آیا کاربر می‌تواند آگهی ارسال کند یا خیر.این API انتظار دارد توکن کاربر در درخواست با اسکوپ `SUBMIT_USER_POST` موجود باشد."
+sidebar_label: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: openapi-doc/kenar-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/experimental/open-platform/user-posts/can-submit"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+با این API میتوانید بررسی کنید آیا کاربر می‌تواند آگهی ارسال کند یا خیر.این API انتظار دارد توکن کاربر در درخواست با اسکوپ `SUBMIT_USER_POST` موجود باشد.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"can_submit":{"type":"boolean"}},"type":"object","title":"postCanUserSubmitPostResponse"}}},"description":"پاسخ موفقیت‌آمیز."},"default":{"content":{"application/json":{"schema":{"properties":{"code":{"format":"int32","type":"integer"},"details":{"items":{"additionalProperties":{},"description":"`Any` شامل یک پیام protocol buffer سریالایز شده دلخواه همراه با\nURL که نوع پیام سریالایز شده را توضیح می‌دهد.\n\nکتابخانه Protobuf پشتیبانی برای pack/unpack مقادیر Any را به شکل\nتوابع کاربردی یا متدهای اضافی تولید شده نوع Any ارائه می‌دهد.\n\nمثال 1: Pack و unpack پیام در C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nمثال 2: Pack و unpack پیام در Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nمثال 3: Pack و unpack پیام در Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nمثال 4: Pack و unpack پیام در Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nمتدهای pack ارائه شده توسط کتابخانه protobuf به طور پیش‌فرض از\n'type.googleapis.com/full.type.name' به عنوان URL نوع استفاده می‌کنند و متدهای unpack\nفقط از نام نوع کاملاً واجد شرایط پس از آخرین '/'\nدر URL نوع استفاده می‌کنند، مثلاً \"foo.bar.com/x/y.z\" نام نوع\n\"y.z\" را ایجاد می‌کند.\n\n\nJSON\n\nنمایش JSON یک مقدار `Any` از نمایش معمولی\nپیام deserialize شده و جاسازی شده، با یک\nفیلد اضافی `@type` که شامل URL نوع است، استفاده می‌کند. مثال:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nاگر نوع پیام جاسازی شده شناخته شده باشد و نمایش JSON سفارشی\nداشته باشد، آن نمایش با افزودن فیلد\n`value` که JSON سفارشی را علاوه بر فیلد `@type`\nنگه می‌دارد، جاسازی می‌شود. مثال (برای پیام [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }","properties":{"@type":{"description":"یک URL/نام منبع که نوع پیام protocol buffer سریالایز شده را به طور منحصر به فرد شناسایی می‌کند. این رشته باید حداقل\nیک کاراکتر \"/\" داشته باشد. آخرین بخش مسیر URL باید نام کاملاً واجد شرایط نوع را نمایش دهد (مانند\n`path/google.protobuf.Duration`). نام باید در فرم کانونیکال باشد\n(مثلاً، \".\" ابتدایی پذیرفته نیست).\n\nدر عمل، تیم‌ها معمولاً تمام انواعی که انتظار دارند در زمینه Any استفاده شود را به صورت پیش‌کامپایل در باینری قرار می‌دهند. با این حال، برای URL هایی که از\nطرح `http`، `https` یا بدون طرح استفاده می‌کنند، می‌توان به طور اختیاری یک سرور نوع تنظیم کرد که URL های نوع را به تعاریف پیام نگاشت می‌کند:\n\n* اگر طرحی ارائه نشود، `https` فرض می‌شود.\n* یک HTTP GET روی URL باید مقدار [google.protobuf.Type][] را\n  به فرمت باینری ارائه دهد، یا خطا تولید کند.\n* برنامه‌ها مجاز هستند نتایج جستجو را بر اساس\n  URL کش کنند، یا آنها را در باینری پیش‌کامپایل کنند تا از هر\n  جستجویی جلوگیری کنند. بنابراین، سازگاری باینری باید در\n  تغییرات انواع حفظ شود. (از نام‌های نوع نسخه‌دار برای مدیریت\n  تغییرات شکست‌آور استفاده کنید.)\n\nتوجه: این قابلیت در حال حاضر در نسخه رسمی\nprotobuf در دسترس نیست، و برای URL های نوع که با\ntype.googleapis.com شروع می‌شوند استفاده نمی‌شود.\n\nطرح‌های غیر از `http`، `https` (یا طرح خالی) ممکن است\nبا معناشناسی خاص پیاده‌سازی استفاده شوند.","type":"string"}},"type":"object","title":"protobufAny"},"type":"array"},"message":{"type":"string"}},"type":"object","title":"googlerpcStatus"}}},"description":"پاسخ خطای غیرمنتظره."}}}
+>
+  
+</StatusCodes>
+
+
+      
