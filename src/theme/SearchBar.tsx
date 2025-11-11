@@ -16,5 +16,5 @@ export default function SearchBar() {
 		button-style="rounded"
 		header-title={headerTitle}
 
-	>جستوجو</biel-search-button>;
+	>جستجو</biel-search-button>;
 }
