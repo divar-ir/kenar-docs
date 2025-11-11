@@ -4,7 +4,7 @@ const sidebar: SidebarsConfig = {
   apisidebar: [
     {
       type: "doc",
-      id: "openapi-doc/kenar-api",
+      id: "openapi-doc/api-کنار",
     },
     {
       type: "category",
@@ -137,7 +137,13 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-publish-user-post",
-          label: "Pay for user post submission on behalf of provider",
+          label: "پرداخت هزینه ثبت آگهی کاربر از طرف ارائه‌دهنده",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/payment-renew-post",
+          label: "Payment_RenewPost",
           className: "api-method post",
         },
         {
@@ -422,6 +428,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/post-get-user-post",
+          label: "Post_GetUserPost",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-upload-ur-ls-v-2",
+          label: "دریافت URL آپلود تصویر",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/post-edit-post-v-2",
           label: "ویرایش آگهی با پشتیبانی از فیلد ماسک",
           className: "api-method put",
@@ -576,6 +594,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/getpostpricingresponserenew",
+          label: "GetPostPricingResponseRenew",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/getpostpricingresponsereorder",
           label: "GetPostPricingResponseReorder",
           className: "schema",
@@ -602,6 +626,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/getservicetypesresponseservicetypedata",
           label: "GetServiceTypesResponseServiceTypeData",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/getuploadurlsv-2-responseuploadformat",
+          label: "GetUploadURLsV2ResponseUploadFormat",
           className: "schema",
         },
         {
@@ -686,6 +716,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/paymentpublishuserpostbody",
           label: "PaymentPublishUserPostBody",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentrenewpostbody",
+          label: "PaymentRenewPostBody",
           className: "schema",
         },
         {
@@ -828,8 +864,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/action",
-          label: "Action",
+          id: "openapi-doc/schemas/عملیات",
+          label: "عملیات",
           className: "schema",
         },
         {
@@ -864,8 +900,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/and-post-is-selected-by-this-selector-if-all-of-the-following-conditions-matches",
-          label: "(AND) post is selected by this selector if all of the following conditions\nmatches",
+          id: "openapi-doc/schemas/and-آگهی-توسط-این-انتخابگر-انتخاب-می-شود-اگر-تمام-شرایط-زیر-برقرار-باشند",
+          label: "(AND) آگهی توسط این انتخابگر انتخاب می‌شود اگر تمام شرایط زیر\nبرقرار باشند",
           className: "schema",
         },
         {
@@ -960,8 +996,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/get-dynamic-action",
-          label: "Get Dynamic Action",
+          id: "openapi-doc/schemas/دریافت-اکشن-پویا",
+          label: "دریافت اکشن پویا",
           className: "schema",
         },
         {
@@ -1002,20 +1038,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/open-post-manage-page",
-          label: "Open Post Manage Page",
+          id: "openapi-doc/schemas/باز-کردن-صفحه-مدیریت-آگهی",
+          label: "باز کردن صفحه مدیریت آگهی",
           className: "schema",
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/open-post-page",
-          label: "Open Post Page",
+          id: "openapi-doc/schemas/باز-کردن-صفحه-آگهی",
+          label: "باز کردن صفحه آگهی",
           className: "schema",
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/open-server-link",
-          label: "Open Server Link",
+          id: "openapi-doc/schemas/باز-کردن-لینک-سرور",
+          label: "باز کردن لینک سرور",
           className: "schema",
         },
         {
@@ -1464,6 +1500,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "openapi-doc/schemas/open-platformposthttpmethod",
+          label: "open_platformpostHTTPMethod",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/open-platformpostpoststate",
+          label: "open_platformpostPostState",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "openapi-doc/schemas/open-platformpostservicesfields",
           label: "open_platformpostServicesFields",
           className: "schema",
@@ -1520,6 +1568,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/paymentpublishuserpostresponse",
           label: "paymentPublishUserPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/paymentrenewpostresponse",
+          label: "paymentRenewPostResponse",
           className: "schema",
         },
         {
@@ -1670,6 +1724,24 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "openapi-doc/schemas/postgetpoststatsresponse",
           label: "postGetPostStatsResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postgetuploadurlsv-2-response",
+          label: "postGetUploadURLsV2Response",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postgetuserpostresponse",
+          label: "postGetUserPostResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/schemas/postgetuserpostresponsebusinessdata",
+          label: "postGetUserPostResponseBusinessData",
           className: "schema",
         },
         {

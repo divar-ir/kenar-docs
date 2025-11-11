@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"app_slug":{"description":"The slug of the app that created the transaction","type":"string"},"cost_rials":{"description":"هزینه تراکنش به ریال برای اپلیکیشن شما","format":"int64","type":"string"},"created_at":{"description":"The time when the transaction was created","format":"date-time","type":"string"},"extra_details":{"description":"همان جزئیات اضافی که در درخواست ارسال کردید","type":"string"},"id":{"description":"همان uuid هنگام ایجاد تراکنش","type":"string"},"state":{"enum":["TRANSACTION_STATE_PENDING","TRANSACTION_STATE_COMPLETED","TRANSACTION_STATE_FAILED","TRANSACTION_STATE_REFUNDED"],"type":"string","title":"paymentTransactionState"},"type":{"enum":["TRANSACTION_TYPE_REORDER","TRANSACTION_TYPE_SUBMIT"],"type":"string","title":"paymentTransactionType"}},"type":"object","title":"paymentTransaction"}}
+  schema={{"properties":{"app_slug":{"description":"شناسه اپلیکیشنی که تراکنش را ایجاد کرده است","type":"string"},"cost_rials":{"description":"هزینه تراکنش به ریال برای اپلیکیشن شما","format":"int64","type":"string"},"created_at":{"description":"زمان ایجاد تراکنش","format":"date-time","type":"string"},"extra_details":{"description":"همان جزئیات اضافی که در درخواست ارسال کردید","type":"string"},"id":{"description":"همان uuid هنگام ایجاد تراکنش","type":"string"},"state":{"enum":["TRANSACTION_STATE_PENDING","TRANSACTION_STATE_COMPLETED","TRANSACTION_STATE_FAILED","TRANSACTION_STATE_REFUNDED"],"type":"string","title":"paymentTransactionState"},"type":{"enum":["TRANSACTION_TYPE_REORDER","TRANSACTION_TYPE_SUBMIT","TRANSACTION_TYPE_RENEW"],"type":"string","title":"paymentTransactionType"}},"type":"object","title":"paymentTransaction"}}
   schemaType={"response"}
 >
   
