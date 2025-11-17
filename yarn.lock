@@ -5132,11 +5132,6 @@ dns-packet@^5.2.2:
   dependencies:
     "@leichtgewicht/ip-codec" "^2.0.1"
 
-docusaurus-biel@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/docusaurus-biel/-/docusaurus-biel-1.0.6.tgz#0bba229042c8089ec65d50931004f24ac03a1c9e"
-  integrity sha512-XdCvq7JE2oyT1nGi3z0QJpkkHJnH2V5BUPBhSVu6k8+ldtNHtTBNPV9y2OZujrsAnEFcRgIYj+9V5KK/0lwZGA==
-
 docusaurus-plugin-openapi-docs@^4.5.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/docusaurus-plugin-openapi-docs/-/docusaurus-plugin-openapi-docs-4.5.1.tgz#b1133b0e03e284a6ade47fa2c3fcf5eab8ec6911"
