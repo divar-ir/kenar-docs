@@ -171,6 +171,15 @@ const config: Config = {
         }
       },
     ],
+    [
+      'docusaurus-biel',
+      {
+        project: 'mxzem86g2j',
+        headerTitle: 'دستیار هوش مصنوعی',
+        version: 'latest',
+        bielButtonText: 'از هوش مصنوعی بپرس',
+      }
+    ],
   ],
 
   // Internationalization settings
