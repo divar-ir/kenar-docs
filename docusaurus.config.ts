@@ -371,10 +371,14 @@ const config: Config = {
       externalUrlRegex: 'divar.ir/kenar',
 
       // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
-      replaceSearchResultPathname: {
-        from: '/docs/', // or as RegExp: /\/docs\//
-        to: '/',
-      },
+      // Remove /kenar-docs/ prefix for production domain (kenar.divar.dev where baseUrl = "/")
+      // Keep the prefix for GitHub Pages (divar-ir.github.io/kenar-docs where baseUrl = "/kenar-docs/")
+      ...(pathPrefix === '/' ? {
+        replaceSearchResultPathname: {
+          from: /^\/kenar-docs\// as any, // Remove /kenar-docs/ prefix from the start of paths when on production
+          to: '/',
+        },
+      } : {}),
 
       // Optional: path for search page that enabled by default (`false` to disable it)
       searchPagePath: 'search',
