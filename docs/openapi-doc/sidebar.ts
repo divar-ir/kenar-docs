@@ -131,7 +131,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-get-balance",
-          label: "Payment_GetBalance",
+          label: "دریافت موجودی اپلیکیشن",
           className: "api-method get",
         },
         {
@@ -143,43 +143,43 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-renew-post",
-          label: "Payment_RenewPost",
+          label: "تمدید آگهی",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-reorder-post",
-          label: "Payment_ReorderPost",
+          label: "نردبان آگهی",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-list-transactions",
-          label: "Payment_ListTransactions",
+          label: "لیست تراکنش‌ها",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-get-transaction",
-          label: "Payment_GetTransaction",
+          label: "دریافت جزئیات تراکنش",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-commit-wallet-transaction",
-          label: "Payment_CommitWalletTransaction",
+          label: "تایید تراکنش کیف پول",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-create-wallet-payment",
-          label: "Payment_CreateWalletPayment",
+          label: "ایجاد پرداخت کیف پول",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-retrieve-wallet-transaction",
-          label: "Payment_RetrieveWalletTransaction",
+          label: "بازیابی تراکنش کیف پول",
           className: "api-method get",
         },
         {
@@ -429,7 +429,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/post-get-user-post",
-          label: "Post_GetUserPost",
+          label: "دریافت آگهی با توکن",
           className: "api-method get",
         },
         {

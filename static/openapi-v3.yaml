@@ -1337,7 +1337,8 @@
           "SUBMIT_USER_PAYMENT",
           "USER_SET_CUSTOMIZED_BUTTON",
           "BUSINESS_CREATE_CUSTOMIZED_BUTTON",
-          "DELETE_USER_POST"
+          "DELETE_USER_POST",
+          "EDIT_USER_POST"
         ],
         "type": "string"
       },
@@ -1415,7 +1416,7 @@
       "PostEditPostV2Body": {
         "properties": {
           "category_data": {
-            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/",
+            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
           },
           "general_data": {
@@ -3777,7 +3778,7 @@
           "business_data": {
             "$ref": "#/components/schemas/postGetUserPostResponseBusinessData"
           },
-          "category_fields": {
+          "category_data": {
             "type": "object"
           },
           "general_data": {
@@ -3889,7 +3890,7 @@
       "postPostGeneralData": {
         "properties": {
           "category_slug": {
-            "description": "نام دسته‌بندی هدف. دسته‌بندی‌های موجود را در این آدرس بیابید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-categories/",
+            "description": "نام دسته‌بندی هدف. دسته‌بندی‌های موجود را در این آدرس بیابید: https://kenar.divar.dev/openapi-doc/assets-get-categories/",
             "example": "apartment-sell",
             "type": "string"
           },
@@ -4089,7 +4090,7 @@
       "postSubmitPostV2Request": {
         "properties": {
           "category_fields": {
-            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/",
+            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
           },
           "general_data": {
@@ -4116,7 +4117,7 @@
       "postSubmitUserPostRequest": {
         "properties": {
           "category_fields": {
-            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/",
+            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
           },
           "general_data": {
@@ -4396,6 +4397,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "دریافت موجودی اپلیکیشن",
         "tags": [
           "Payment"
         ]
@@ -4834,6 +4836,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "تمدید آگهی",
         "tags": [
           "Payment"
         ]
@@ -4885,6 +4888,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "نردبان آگهی",
         "tags": [
           "Payment"
         ]
@@ -5206,6 +5210,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "لیست تراکنش‌ها",
         "tags": [
           "Payment"
         ]
@@ -5248,6 +5253,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "دریافت جزئیات تراکنش",
         "tags": [
           "Payment"
         ]
@@ -5363,6 +5369,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "تایید تراکنش کیف پول",
         "tags": [
           "Payment"
         ]
@@ -5404,6 +5411,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "ایجاد پرداخت کیف پول",
         "tags": [
           "Payment"
         ]
@@ -5446,6 +5454,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "بازیابی تراکنش کیف پول",
         "tags": [
           "Payment"
         ]
@@ -6825,6 +6834,7 @@
     },
     "/v1/open-platform/user-post/{token}": {
       "get": {
+        "description": "این API به شما امکان دریافت اطلاعات دقیق درباره یک آگهی خاص با استفاده از توکن آن را می‌دهد.\nاین نقطه پایانی آگهی‌های ثبت شده توسط کاربران احراز هویت شده از طریق پلتفرم باز را برمی‌گرداند، شامل داده‌های کسب‌وکار، وضعیت و دلایل رد.\nاین API به مجوز `GET_USER_POST` نیاز دارد.\nاین API به دامنه OAuth `USER_POSTS_GET` نیاز دارد.",
         "operationId": "Post_GetUserPost",
         "parameters": [
           {
@@ -6858,6 +6868,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "summary": "دریافت آگهی با توکن",
         "tags": [
           "Post"
         ]
@@ -7206,7 +7217,7 @@
     },
     "/v2/open-platform/post/{post_token}": {
       "put": {
-        "description": "این API به شما امکان ویرایش آگهی با استفاده از احراز هویت OAuth را می‌دهد.\nتوکن دسترسی از یک کاربر با اسکوپ OAuth `POST_EDIT.{post_token}` مورد نیاز است.\n\nمی‌توانید عنوان، توضیحات، تصاویر، موقعیت، فیلدهای مخصوص دسته‌بندی و سایر ویژگی‌های آگهی را ویرایش کنید. فیلدهای مخصوص دسته‌بندی باید از قالب دسته‌بندی آگهی پیروی کنند. قالب را از اینجا دریافت کنید: https://divar-ir.github.io/kenar-docs/openapi-doc/assets-get-submit-schema/\n\nاز فیلد update_mask برای مشخص کردن فیلدهایی که می‌خواهید به‌روزرسانی کنید استفاده کنید.",
+        "description": "این API به شما امکان ویرایش آگهی با استفاده از احراز هویت OAuth را می‌دهد.\nتوکن دسترسی از یک کاربر با اسکوپ OAuth `POST_EDIT.{post_token}` یا `EDIT_USER_POST` مورد نیاز است.\n\nمی‌توانید عنوان، توضیحات، تصاویر، موقعیت، فیلدهای مخصوص دسته‌بندی و سایر ویژگی‌های آگهی را ویرایش کنید. فیلدهای مخصوص دسته‌بندی باید از قالب دسته‌بندی آگهی پیروی کنند. قالب را از اینجا دریافت کنید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/\n\nاز فیلد update_mask برای مشخص کردن فیلدهایی که می‌خواهید به‌روزرسانی کنید استفاده کنید.",
         "operationId": "Post_EditPostV2",
         "parameters": [
           {
