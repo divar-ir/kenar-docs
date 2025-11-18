@@ -53,7 +53,7 @@ jobs:
 
       - name: Sync to S3
         run: |
-          aws s3 sync ./build s3://${{ secrets.KISE_BUCKET }} \
+          aws s3 sync ./build s3://${{ vars.KISE_BUCKET }} \
             --endpoint-url ${{ secrets.KISE_HOST }} \
             --acl public-read \
             --delete
