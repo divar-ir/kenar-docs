@@ -1,0 +1,63 @@
+name: Auto-generate OpenAPI Docs
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate-and-commit:
+    name: Generate and Commit OpenAPI Docs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push commits
+
+    # Skip if the commit was made by this workflow (to avoid infinite loops)
+    # For workflow_dispatch, head_commit is null, so we always run
+    if: "github.event.head_commit == null || github.event.head_commit.message != 'chore: regenerate OpenAPI documentation files'"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate OpenAPI documentation
+        run: yarn generate
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          git add docs/openapi-doc/
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected in generated files"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in generated files"
+            git diff --cached --stat
+          fi
+
+      - name: Configure Git
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git commit -m "chore: regenerate OpenAPI documentation files"
+
+      - name: Push changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git push
