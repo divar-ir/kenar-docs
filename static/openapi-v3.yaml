@@ -1020,7 +1020,8 @@
           "PAINT_BRUSH",
           "VIDEO_LIBRARY",
           "MAGNIFIER_SPARKLE",
-          "PIN_VARIANT"
+          "PIN_VARIANT",
+          "MORE_HORIZONTAL_O"
         ],
         "type": "string"
       },
@@ -1427,6 +1428,7 @@
             "example": [
               "general_data.title",
               "general_data.description",
+              "general_data.video",
               "category_data.price"
             ],
             "items": {
@@ -1437,6 +1439,32 @@
         },
         "required": [
           "update_mask"
+        ],
+        "type": "object"
+      },
+      "PostGeneralDataPostVideo": {
+        "properties": {
+          "duration": {
+            "description": "Duration of the video in seconds",
+            "example": 34,
+            "format": "uint64",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the video, retrieved from `video_name` field in the response of upload video endpoint",
+            "example": "raw/4786eb10-eac6-4077-b622-78c1c42855c7.mp4",
+            "type": "string"
+          },
+          "thumbnail_name": {
+            "description": "Thumbnail of the video, retrieved from `thumbnail_name` field in the response of upload video endpoint. It will be the first frame of the uploaded video",
+            "example": "thumbnail/4786eb10-eac6-4077-b622-78c1c42855c7.jpg",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "thumbnail_name",
+          "duration"
         ],
         "type": "object"
       },
@@ -1590,6 +1618,23 @@
           "USER",
           "POST"
         ],
+        "type": "string"
+      },
+      "ServicesFieldsCategory": {
+        "description": "زیردسته‌بندی سرویس",
+        "enum": [
+          "CATEGORY_CAR_AND_MOTOR",
+          "CATEGORY_CATERING",
+          "CATEGORY_COMPUTER_AND_MOBILE",
+          "CATEGORY_ACCOUNTING_AND_FINANCE",
+          "CATEGORY_TRANSPORT",
+          "CATEGORY_CRAFTSMEN",
+          "CATEGORY_BEAUTY_AND_HAIRCARE",
+          "CATEGORY_CLEANING",
+          "CATEGORY_GARDEN_AND_LANDSCAPING",
+          "CATEGORY_TEACHING"
+        ],
+        "example": "CATEGORY_CAR_AND_MOTOR",
         "type": "string"
       },
       "TemporaryResidenceFieldsComfortAmenity": {
@@ -3281,7 +3326,7 @@
       "open_platformpostServicesFields": {
         "properties": {
           "category": {
-            "$ref": "#/components/schemas/postServicesFieldsCategory"
+            "$ref": "#/components/schemas/ServicesFieldsCategory"
           },
           "expertise_ids": {
             "description": "فهرست شناسه‌های تخصص",
@@ -3944,6 +3989,9 @@
             "description": "عنوان آگهی",
             "example": "Temporary Residence for Rent in Tehran",
             "type": "string"
+          },
+          "video": {
+            "$ref": "#/components/schemas/PostGeneralDataPostVideo"
           }
         },
         "required": [
@@ -3969,23 +4017,6 @@
           "ROOMS_COUNT_5_OR_MORE"
         ],
         "example": "ROOMS_COUNT_2",
-        "type": "string"
-      },
-      "postServicesFieldsCategory": {
-        "description": "زیردسته‌بندی سرویس",
-        "enum": [
-          "CATEGORY_CAR_AND_MOTOR",
-          "CATEGORY_CATERING",
-          "CATEGORY_COMPUTER_AND_MOBILE",
-          "CATEGORY_ACCOUNTING_AND_FINANCE",
-          "CATEGORY_TRANSPORT",
-          "CATEGORY_CRAFTSMEN",
-          "CATEGORY_BEAUTY_AND_HAIRCARE",
-          "CATEGORY_CLEANING",
-          "CATEGORY_GARDEN_AND_LANDSCAPING",
-          "CATEGORY_TEACHING"
-        ],
-        "example": "CATEGORY_CAR_AND_MOTOR",
         "type": "string"
       },
       "postSetPostCustomizedButtonResponse": {
@@ -4332,6 +4363,7 @@
             "refreshUrl": "oauth.divar.ir/oauth2/token",
             "scopes": {
               "BUSINESS_ADDON_CREATE.resource_id": "BUSINESS_ADDON_CREATE.resource_id",
+              "BUSINESS_CREATE_CUSTOMIZED_BUTTON.resource_id": "BUSINESS_CREATE_CUSTOMIZED_BUTTON.resource_id",
               "CHAT_BOT_USER_MESSAGE_SEND": "CHAT_BOT_USER_MESSAGE_SEND",
               "CHAT_CONVERSATION_READ.resource_id": "CHAT_CONVERSATION_READ.resource_id",
               "CHAT_MESSAGE_SEND.resource_id": "CHAT_MESSAGE_SEND.resource_id",
@@ -4340,20 +4372,29 @@
               "CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND": "CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND",
               "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ": "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ",
               "CONVERSATION_SEND_MESSAGE.resource_id": "CONVERSATION_SEND_MESSAGE.resource_id",
+              "CREATE_WALLET_PAYMENT": "CREATE_WALLET_PAYMENT",
+              "DELETE_USER_POST": "DELETE_USER_POST",
+              "EDIT_USER_POST": "EDIT_USER_POST",
               "MANAGEMENT_APPS_READ.resource_id": "MANAGEMENT_APPS_READ.resource_id",
               "MANAGEMENT_APPS_WRITE.resource_id": "MANAGEMENT_APPS_WRITE.resource_id",
               "NOTIFICATION_ACCESS_REVOCATION": "NOTIFICATION_ACCESS_REVOCATION",
               "PAYMENT_ALL_POSTS_PRICING_READ": "PAYMENT_ALL_POSTS_PRICING_READ",
+              "PAYMENT_ALL_POSTS_RENEW": "PAYMENT_ALL_POSTS_RENEW",
               "PAYMENT_ALL_POSTS_REORDER": "PAYMENT_ALL_POSTS_REORDER",
               "POST_ADDON_CREATE.resource_id": "POST_ADDON_CREATE.resource_id",
               "POST_EDIT.resource_id": "POST_EDIT.resource_id",
               "POST_ONGOING_IMAGES_GET.resource_id": "POST_ONGOING_IMAGES_GET.resource_id",
               "POST_SEMANTIC_CREATE.resource_id": "POST_SEMANTIC_CREATE.resource_id",
+              "SEND_EVENT": "SEND_EVENT",
+              "SUBMIT_USER_PAYMENT": "SUBMIT_USER_PAYMENT",
+              "SUBMIT_USER_POST": "SUBMIT_USER_POST",
               "USER_ADDON_CREATE": "USER_ADDON_CREATE",
               "USER_ID": "USER_ID",
               "USER_PHONE": "USER_PHONE",
               "USER_POSTS_ADDON_CREATE": "USER_POSTS_ADDON_CREATE",
               "USER_POSTS_GET": "USER_POSTS_GET",
+              "USER_POSTS_STATS_READ": "USER_POSTS_STATS_READ",
+              "USER_SET_CUSTOMIZED_BUTTON": "USER_SET_CUSTOMIZED_BUTTON",
               "USER_VERIFICATION_CREATE": "USER_VERIFICATION_CREATE",
               "offline_access": "offline_access",
               "openid": "openid"
@@ -7281,32 +7322,32 @@
   ],
   "tags": [
     {
+      "name": "Semantic"
+    },
+    {
       "name": "PaymentTicket"
-    },
-    {
-      "name": "Finder"
-    },
-    {
-      "name": "Addons"
     },
     {
       "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
       "name": "Payment"
     },
     {
-      "name": "Semantic"
+      "name": "Post"
+    },
+    {
+      "name": "Finder"
     },
     {
       "name": "Events"
     },
     {
+      "name": "ChatAPI"
+    },
+    {
       "name": "Assets"
     },
     {
-      "name": "Post"
-    },
-    {
-      "name": "ChatAPI"
+      "name": "Addons"
     }
   ]
 }
