@@ -1,0 +1,33 @@
+---
+id: postgeneraldatapostvideo
+title: "PostGeneralDataPostVideo"
+description: ""
+sidebar_label: "PostGeneralDataPostVideo"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"duration":34,"name":"raw/4786eb10-eac6-4077-b622-78c1c42855c7.mp4","thumbnail_name":"thumbnail/4786eb10-eac6-4077-b622-78c1c42855c7.jpg"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"PostGeneralDataPostVideo"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"properties":{"duration":{"description":"Duration of the video in seconds","example":34,"format":"uint64","type":"string"},"name":{"description":"Name of the video, retrieved from `video_name` field in the response of upload video endpoint","example":"raw/4786eb10-eac6-4077-b622-78c1c42855c7.mp4","type":"string"},"thumbnail_name":{"description":"Thumbnail of the video, retrieved from `thumbnail_name` field in the response of upload video endpoint. It will be the first frame of the uploaded video","example":"thumbnail/4786eb10-eac6-4077-b622-78c1c42855c7.jpg","type":"string"}},"required":["name","thumbnail_name","duration"],"type":"object","title":"PostGeneralDataPostVideo"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
