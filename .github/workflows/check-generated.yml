@@ -24,12 +24,12 @@ jobs:
 
       - name: Check git diff
         run: |
-          # Exclude openapi-v3.yaml since it's downloaded at build time
-          if git diff --quiet -- . ':!static/openapi-v3.yaml'; then
+          # Exclude openapi-v3.json since it's downloaded at build time
+          if git diff --quiet -- . ':!static/openapi-v3.json'; then
             echo "No changes detected in generated files"
             exit 0
           else
             echo "Changes detected in generated files"
-            git diff -- . ':!static/openapi-v3.yaml'
+            git diff -- . ':!static/openapi-v3.json'
             exit 1
           fi

@@ -157,7 +157,7 @@ const config: Config = {
         docsPluginId: "classic", // configured for preset-classic
         config: {
           kenarDocs: {
-            specPath: "static/openapi-v3.yaml",
+            specPath: "static/openapi-v3.json",
             outputDir: "docs/openapi-doc",
             sidebarOptions: {
               groupPathsBy: "tag",
@@ -165,7 +165,7 @@ const config: Config = {
             },
             baseUrl: "/openapi-doc/",
             downloadUrl:
-              "https://raw.githubusercontent.com/divar-ir/kenar-docs/main/static/openapi-v3.yaml",
+              "https://raw.githubusercontent.com/divar-ir/kenar-docs/main/static/openapi-v3.json",
             showSchemas: true,
           } satisfies OpenApiPlugin.Options,
         }
