@@ -1,90 +1,25 @@
+این پروژه یک افزونه نمونه وردپرس/ووکامرس است که هدف آن فراهم کردن امکان ارسال محصولات فروشگاه ووکامرس به پلتفرم دیوار به صورت Bulk (چند محصول همزمان) می‌باشد. 
 
-<div align="center">
+ایده اصلی این است که کاربران بتوانند محصولات ساده و متغیر خود را با تمام ویژگی‌ها (قیمت، رنگ، وضعیت، نوع محصول و غیره) به دیوار ارسال کنند، بدون نیاز به ثبت دستی هر محصول. 
 
-# 📚 مستندات کنار ([kenar.divar.dev](https://kenar.divar.dev))
+⚠️ توجه: این ایده در حال حاضر به درستی کار نمی‌کند و دلیل آن مشخص نیست. این نسخه صرفاً برای نشان دادن ساختار و منطق ارسال است و کلید API یا اطلاعات واقعی ندارد. توسعه‌دهندگان می‌توانند آن را با API واقعی دیوار تست و اصلاح کنند.
 
-<a href="https://kenar.divar.dev" target="_blank">
-  <img src="./static/img/logo.svg" alt="Kenar Logo" width="200"/>
-</a>
+ویژگی‌ها:
+- پشتیبانی از محصولات ساده و متغیر ووکامرس
+- حلقه روی هر variation برای ثبت جداگانه
+- قابلیت Bulk Action در لیست محصولات
+- ذخیره لاگ نمونه در فایل برای دیباگ
 
-### مستندات سرویس‌های کنار دیوار
 
-[![GitHub Stars](https://img.shields.io/github/stars/divar-ir/kenar-docs?style=for-the-badge&logo=github&color=yellow)](https://github.com/divar-ir/kenar-docs/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/divar-ir/kenar-docs?style=for-the-badge&logo=github&color=blue)](https://github.com/divar-ir/kenar-docs/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/divar-ir/kenar-docs?style=for-the-badge&logo=github&color=red)](https://github.com/divar-ir/kenar-docs/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/divar-ir/kenar-docs?style=for-the-badge&logo=github&color=green)](https://github.com/divar-ir/kenar-docs/pulls)
 
-[![Contributors](https://img.shields.io/github/contributors/divar-ir/kenar-docs?style=for-the-badge&logo=github)](https://github.com/divar-ir/kenar-docs/graphs/contributors)
-[![Last Commit](https://img.shields.io/github/last-commit/divar-ir/kenar-docs?style=for-the-badge&logo=github)](https://github.com/divar-ir/kenar-docs/commits)
+This project is a sample WordPress/WooCommerce plugin that aims to enable sending WooCommerce products to the Divar platform in bulk (multiple products at once).
 
----
+The main idea is to allow users to send their simple and variable products with all attributes (price, color, condition, product type, etc.) to Divar without manually posting each product.
 
-<a href="https://kenar.divar.dev" target="_blank">
-  <img src="https://img.shields.io/badge/📖%20Documentation-kenar.divar.dev-2E86AB?style=for-the-badge&logoColor=white" alt="View Documentation" />
-</a>
+⚠️ Note: This idea currently does not work correctly, and the reason is unknown. This version is only for demonstrating the structure and logic, without real API keys or personal data. Developers can test and adjust it with the real Divar API.
 
-</div>
-
-<div dir="rtl" align="right">
-
-## 🚀 دسترسی سریع
-
-### 📖 [👈 مشاهده مستندات کامل](https://kenar.divar.dev)
-
-**لینک‌های مفید:**
-
-- 🏠 [صفحه اصلی کنار](https://divar.ir/kenar)
-- 🛠️ [پنل مدیریت توسعه‌دهندگان](https://divar.ir/kenar/management)
-- 🎫 [گزارش مشکل](https://divar.ir/kenar/management/issues/new)
-- 💬 [انجمن توسعه‌دهندگان](https://t.me/kenar_community)
-- 📢 [کانال اعلانات فنی](https://t.me/divar_kenar_news)
-
-> 💡 **نکته مهم:** برای دریافت کلید API و شروع توسعه، ابتدا در پنل کنار ثبت‌نام کنید.
-
-</div>
-
----
-
-<div align="center">
-  
-## 🎁 جوایز مشارکت
-
-<img src="https://img.icons8.com/color/96/000000/coffee-to-go.png" alt="Coffee" width="100"/>
-
-مشارکت شما برای ما ارزشمند است! با بهبود دادن مستندات و مشارکت مفید، یک فنجان قهوه مهمان ما باشید.
-اگر مشارکت شما فوق‌العاده باشد، از طرف تیم کنار دعوت خواهید شد تا از ساختمان ما به عنوان مهمان بازدید کنید و با اعضای تیم آشنا شوید! ☕️🏢
-
-## 👥 مشارکت کنندگان برتر
-
-<a href="https://github.com/divar-ir/kenar-docs/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=divar-ir/kenar-docs&max=6" />
-</a>
-
-### 🙏 سپاس ویژه از تمام مشارکت کنندگان
-
-[![Contributors](https://contributors-img.web.app/image?repo=divar-ir/kenar-docs)](https://github.com/divar-ir/kenar-docs/graphs/contributors)
-
-</div>
-
----
-
-<div align="center">
-
-### 💖 حمایت از پروژه
-
-اگر این پروژه برای شما مفید بوده است، لطفاً با دادن ⭐ از آن حمایت کنید!
-
-[![GitHub Stars](https://img.shields.io/github/stars/divar-ir/kenar-docs?style=social)](https://github.com/divar-ir/kenar-docs/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/divar-ir/kenar-docs?style=social)](https://github.com/divar-ir/kenar-docs/network/members)
-
----
-
-### ⭐ نمودار رشد ستاره‌ها
-
-![Star History Chart](https://api.star-history.com/svg?repos=divar-ir/kenar-docs&type=Date)
-
----
-
-**ساخته شده با ❤️ توسط تیم کنار دیوار**
-
-</div>
+Features:
+- Support for simple and variable WooCommerce products
+- Loop through each variation for separate posting
+- Bulk Action support in product list
+- Sample log file for debugging
