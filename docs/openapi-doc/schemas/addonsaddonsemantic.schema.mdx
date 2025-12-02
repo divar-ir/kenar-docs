@@ -1,7 +1,7 @@
 ---
 id: addonsaddonsemantic
 title: "addonsAddonSemantic"
-description: "این پیام استخراج شده توسط OpenPlatform از اطلاعات معنایی"
+description: "پیام استخراج‌شده توسط OpenPlatform از semantic ارائه‌دهنده سرویس."
 sidebar_label: "addonsAddonSemantic"
 hide_title: true
 hide_table_of_contents: true
@@ -22,16 +22,14 @@ import Heading from "@theme/Heading";
 
 
 
-این پیام استخراج شده توسط OpenPlatform از اطلاعات معنایی
-ارائه‌دهنده سرویس است. راهنماها:
- - همیشه بررسی کنید که آیا فیلد یا مقدار enum مناسبی قبل از
- افزودن وجود دارد.
- - مقدار صفر هر enum باید \{ENUM_NAME\}_UNSPECIFIED باشد.
- - مقادیر Enum نباید با هیچ آگهی خاص یا صفت شخص
- مطابقت داشته باشد.
+پیام استخراج‌شده توسط OpenPlatform از semantic ارائه‌دهنده سرویس.
+راهنما:
+- قبل از افزودن enum جدید، بررسی کنید که آیا مقدار مناسبی وجود دارد.
+- مقدار صفر هر enum باید \{ENUM_NAME\}_UNSPECIFIED باشد.
+- مقادیر Enum نباید مختص آگهی یا شخص خاصی باشند.
 
 <Schema
-  schema={{"description":"این پیام استخراج شده توسط OpenPlatform از اطلاعات معنایی\nارائه‌دهنده سرویس است. راهنماها:\n - همیشه بررسی کنید که آیا فیلد یا مقدار enum مناسبی قبل از\n افزودن وجود دارد.\n - مقدار صفر هر enum باید {ENUM_NAME}_UNSPECIFIED باشد.\n - مقادیر Enum نباید با هیچ آگهی خاص یا صفت شخص\n مطابقت داشته باشد.","properties":{"car_verification_failure_reason":{"enum":["CARVERIFICATIONSTAGE_NOT_STARTED","CARVERIFICATIONSTAGE_SHAHKAR","CAR_CARD_VERIFICATION","CAR_MODEL_VERIFICATION"],"type":"string","title":"AddonSemanticCarVerificationStage"},"car_verification_last_successful_stage":{"enum":["CARVERIFICATIONSTAGE_NOT_STARTED","CARVERIFICATIONSTAGE_SHAHKAR","CAR_CARD_VERIFICATION","CAR_MODEL_VERIFICATION"],"type":"string","title":"AddonSemanticCarVerificationStage"},"identity_verification_failure_reason":{"enum":["IDENTITYVERIFICATIONSTAGE_NOT_STARTED","NATIONAL_INFO_VERIFICATION","IMAGE_VERIFICATION","VIDEO_VERIFICATION"],"type":"string","title":"AddonSemanticIdentityVerificationStage"},"identity_verification_last_successful_stage":{"enum":["IDENTITYVERIFICATIONSTAGE_NOT_STARTED","NATIONAL_INFO_VERIFICATION","IMAGE_VERIFICATION","VIDEO_VERIFICATION"],"type":"string","title":"AddonSemanticIdentityVerificationStage"},"identity_verification_result":{"enum":["FACE_AND_ID_MATCHED"],"title":"- FACE_AND_ID_MATCHED: ID به معنای کارت ملی است، این مقدار منجر به نشان در تطبیق می‌شود","type":"string"},"inspection_result":{"enum":["INSPECTION_APPROVED"],"type":"string","title":"AddonSemanticInspectionResult"},"new_face_verification_result":{"enum":["NEW_FACE_VERIFICATION_FAILED"],"type":"string","title":"AddonSemanticNewFaceVerificationResult"},"online_reservation_capability":{"enum":["ONLINE_RESERVATION_AVAILABLE"],"type":"string","title":"AddonSemanticOnlineReservationCapability"},"ownership_result":{"enum":["OWNERSHIP_CONFIRMED","OWNERSHIP_DELEGATION_CONFIRMED"],"type":"string","title":"AddonSemanticOwnershipResult"},"payment_method":{"enum":["SECURE"],"title":"- SECURE: این مقدار منجر به نشان در تطبیق می‌شود","type":"string"},"post_verification_result":{"enum":["POST_INFORMATION_MATCHED"],"type":"string","title":"AddonSemanticPostVerificationResult"},"status":{"enum":["SUCCEEDED","FAILED","EXPIRED","PENDING"],"type":"string","title":"addonsAddonSemanticStatus"}},"type":"object","title":"addonsAddonSemantic"}}
+  schema={{"description":"پیام استخراج‌شده توسط OpenPlatform از semantic ارائه‌دهنده سرویس.\nراهنما:\n- قبل از افزودن enum جدید، بررسی کنید که آیا مقدار مناسبی وجود دارد.\n- مقدار صفر هر enum باید {ENUM_NAME}_UNSPECIFIED باشد.\n- مقادیر Enum نباید مختص آگهی یا شخص خاصی باشند.","properties":{"car_verification_failure_reason":{"enum":["CARVERIFICATIONSTAGE_NOT_STARTED","CARVERIFICATIONSTAGE_SHAHKAR","CAR_CARD_VERIFICATION","CAR_MODEL_VERIFICATION"],"type":"string","title":"AddonSemanticCarVerificationStage"},"car_verification_last_successful_stage":{"enum":["CARVERIFICATIONSTAGE_NOT_STARTED","CARVERIFICATIONSTAGE_SHAHKAR","CAR_CARD_VERIFICATION","CAR_MODEL_VERIFICATION"],"type":"string","title":"AddonSemanticCarVerificationStage"},"identity_verification_failure_reason":{"enum":["IDENTITYVERIFICATIONSTAGE_NOT_STARTED","NATIONAL_INFO_VERIFICATION","IMAGE_VERIFICATION","VIDEO_VERIFICATION"],"type":"string","title":"AddonSemanticIdentityVerificationStage"},"identity_verification_last_successful_stage":{"enum":["IDENTITYVERIFICATIONSTAGE_NOT_STARTED","NATIONAL_INFO_VERIFICATION","IMAGE_VERIFICATION","VIDEO_VERIFICATION"],"type":"string","title":"AddonSemanticIdentityVerificationStage"},"identity_verification_result":{"enum":["FACE_AND_ID_MATCHED"],"title":"- FACE_AND_ID_MATCHED: ID به معنای کارت ملی است، این مقدار منجر به نشان در تطبیق می‌شود","type":"string"},"inspection_result":{"enum":["INSPECTION_APPROVED"],"type":"string","title":"AddonSemanticInspectionResult"},"new_face_verification_result":{"enum":["NEW_FACE_VERIFICATION_FAILED"],"type":"string","title":"AddonSemanticNewFaceVerificationResult"},"online_reservation_capability":{"enum":["ONLINE_RESERVATION_AVAILABLE"],"type":"string","title":"AddonSemanticOnlineReservationCapability"},"ownership_result":{"enum":["OWNERSHIP_CONFIRMED","OWNERSHIP_DELEGATION_CONFIRMED"],"type":"string","title":"AddonSemanticOwnershipResult"},"payment_method":{"enum":["SECURE"],"title":"- SECURE: این مقدار منجر به نشان در تطبیق می‌شود","type":"string"},"post_verification_result":{"enum":["POST_INFORMATION_MATCHED"],"type":"string","title":"AddonSemanticPostVerificationResult"},"status":{"enum":["SUCCEEDED","FAILED","EXPIRED","PENDING"],"type":"string","title":"addonsAddonSemanticStatus"}},"type":"object","title":"addonsAddonSemantic"}}
   schemaType={"response"}
 >
   

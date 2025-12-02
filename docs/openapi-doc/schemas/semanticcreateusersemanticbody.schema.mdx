@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"cost":{"format":"int32","type":"integer"},"phone":{"type":"string"},"semantic":{"additionalProperties":{"type":"string"},"type":"object"},"ticket_uuid":{"type":"string"}},"type":"object","title":"SemanticCreateUserSemanticBody"}}
+  schema={{"properties":{"cost":{"description":"هزینه مرتبط با عملیات","format":"int32","type":"integer"},"phone":{"description":"شماره موبایل کاربر","type":"string"},"semantic":{"additionalProperties":{"type":"string"},"description":"مپ key-value اطلاعات معنایی برای ذخیره","type":"object"},"ticket_uuid":{"description":"UUID تیکت پرداخت (اختیاری)","type":"string"}},"required":["phone","semantic"],"type":"object","title":"SemanticCreateUserSemanticBody"}}
   schemaType={"response"}
 >
   

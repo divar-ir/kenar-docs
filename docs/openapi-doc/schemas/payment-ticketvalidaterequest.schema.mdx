@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"properties":{"phone_number":{"type":"string"},"service_cost":{"format":"int32","type":"integer"},"ticket_uuid":{"type":"string"},"user_id":{"type":"string"}},"type":"object","title":"payment_ticketValidateRequest"}}
+  schema={{"properties":{"phone_number":{"description":"شماره تلفن کاربر (به جای آن از user_id استفاده کنید)","type":"string"},"service_cost":{"description":"هزینه سرویس به ریال","format":"int32","type":"integer"},"ticket_uuid":{"description":"شناسه منحصر به فرد تیکت پرداخت","type":"string"},"user_id":{"description":"شناسه منحصر به فرد کاربر","type":"string"}},"required":["ticket_uuid","service_cost"],"type":"object","title":"payment_ticketValidateRequest"}}
   schemaType={"response"}
 >
   

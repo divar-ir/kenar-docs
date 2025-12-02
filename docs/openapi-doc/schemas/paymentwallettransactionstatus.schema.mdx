@@ -1,7 +1,7 @@
 ---
 id: paymentwallettransactionstatus
 title: "paymentWalletTransactionStatus"
-description: "وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم."
+description: "وضعیت‌های مختلف تراکنش کیف پول: UNKNOWN (پیش‌فرض - نباید استفاده شود)، CREATED (در انتظار پرداخت)، EXPIRED (منقضی شده)، PAID (پرداخت شده، در انتظار تایید نهایی)، COMMITTED (نهایی شده)."
 sidebar_label: "paymentWalletTransactionStatus"
 hide_title: true
 hide_table_of_contents: true
@@ -22,10 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم.
+وضعیت‌های مختلف تراکنش کیف پول: UNKNOWN (پیش‌فرض - نباید استفاده شود)، CREATED (در انتظار پرداخت)، EXPIRED (منقضی شده)، PAID (پرداخت شده، در انتظار تایید نهایی)، COMMITTED (نهایی شده).
 
 <Schema
-  schema={{"description":"وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم.","enum":["CREATED","EXPIRED","PAID","COMMITTED"],"type":"string","title":"paymentWalletTransactionStatus"}}
+  schema={{"description":"وضعیت‌های مختلف تراکنش کیف پول: UNKNOWN (پیش‌فرض - نباید استفاده شود)، CREATED (در انتظار پرداخت)، EXPIRED (منقضی شده)، PAID (پرداخت شده، در انتظار تایید نهایی)، COMMITTED (نهایی شده).","enum":["CREATED","EXPIRED","PAID","COMMITTED"],"type":"string","title":"paymentWalletTransactionStatus"}}
   schemaType={"response"}
 >
   
