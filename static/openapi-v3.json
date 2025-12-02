@@ -4425,6 +4425,7 @@
             "tokenUrl": "oauth.divar.ir/oauth2/token"
           }
         },
+        "name": "ACCESS_KEY",
         "type": "oauth2"
       }
     }
