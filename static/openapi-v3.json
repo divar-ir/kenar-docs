@@ -159,7 +159,7 @@
             "$ref": "#/components/schemas/chatapiChatButtonGrid"
           },
           "media_token": {
-            "description": "توکن برای مدیای ضمیمه شده (در صورت وجود)",
+            "description": "توکن فایل ضمیمه شده (در صورت وجود)",
             "example": "media_token_12345",
             "type": "string"
           },
@@ -182,7 +182,7 @@
       "ChatAPIConversationSendMessageBody": {
         "properties": {
           "media_token": {
-            "description": "توکن برای مدیای ضمیمه شده (در صورت وجود)",
+            "description": "توکن فایل ضمیمه شده (در صورت وجود)",
             "example": "media_token_12345",
             "type": "string"
           },
@@ -1070,7 +1070,7 @@
       "GetPostStatsResponseDailyStats": {
         "properties": {
           "count": {
-            "description": "تعداد روزانه‌ی آمار مورد نظر (مثلا بازدید)",
+            "description": "تعداد روزانه آمار (مثلاً بازدید)",
             "example": 239,
             "format": "int32",
             "type": "integer"
@@ -1086,14 +1086,14 @@
       "GetPostStatsResponsePostStats": {
         "properties": {
           "daily": {
-            "description": "مقدار آمار مورد نظر در هفت روز اخیر",
+            "description": "مقدار روزانه آمار در هفت روز گذشته",
             "items": {
               "$ref": "#/components/schemas/GetPostStatsResponseDailyStats"
             },
             "type": "array"
           },
           "total": {
-            "description": "تعداد کلی آمار (مثلا بازدید)",
+            "description": "مجموع آمار (مثلاً بازدید)",
             "example": 239,
             "format": "int32",
             "type": "integer"
@@ -1346,11 +1346,11 @@
       "PaymentPublishUserPostBody": {
         "properties": {
           "extra_details": {
-            "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
+            "description": "اطلاعات تکمیلی که می‌خواهید به کنار ارسال کنید. این فیلد اختیاری است و برای رفع مغایرت‌های احتمالی در تراکنش کاربرد دارد.",
             "type": "string"
           },
           "id": {
-            "description": "یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.",
+            "description": "یک UUID نسخه ۴ که باید برای هر پرداخت یکتا باشد. این UUID باید در سمت شما ساخته شده و در درخواست ارسال شود. اگر id ارسال‌شده قبلاً تراکنش موفق یا نیمه‌موفقی در کنار داشته باشد، خطا دریافت می‌کنید.",
             "type": "string"
           }
         },
@@ -1359,11 +1359,11 @@
       "PaymentRenewPostBody": {
         "properties": {
           "extra_details": {
-            "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
+            "description": "اطلاعات تکمیلی که می‌خواهید به کنار ارسال کنید. این فیلد اختیاری است و برای رفع مغایرت‌های احتمالی در تراکنش کاربرد دارد.",
             "type": "string"
           },
           "id": {
-            "description": "یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.",
+            "description": "یک UUID نسخه ۴ که باید برای هر پرداخت یکتا باشد. این UUID باید در سمت شما ساخته شده و در درخواست ارسال شود. اگر id ارسال‌شده قبلاً تراکنش موفق یا نیمه‌موفقی در کنار داشته باشد، خطا دریافت می‌کنید.",
             "type": "string"
           }
         },
@@ -1372,11 +1372,11 @@
       "PaymentReorderPostBody": {
         "properties": {
           "extra_details": {
-            "description": "جزئیات اضافی که می‌خواهید به سمت کنار ارسال کنید. این فیلد اختیاری است و می‌تواند برای حل ناسازگاری‌ها در تراکنش استفاده شود.",
+            "description": "اطلاعات تکمیلی که می‌خواهید به کنار ارسال کنید. این فیلد اختیاری است و برای رفع مغایرت‌های احتمالی در تراکنش کاربرد دارد.",
             "type": "string"
           },
           "id": {
-            "description": "یک uuid نسخه 4 که باید برای هر پرداخت منحصر به فرد باشد. این uuid باید در سمت شما تولید شده و در درخواست ارسال شود. اگر id ای ارسال شود که تراکنش موفق یا نیمه موفقی در سمت کنار داشته باشد، خطا دریافت خواهید کرد.",
+            "description": "یک UUID نسخه ۴ که باید برای هر پرداخت یکتا باشد. این UUID باید در سمت شما ساخته شده و در درخواست ارسال شود. اگر id ارسال‌شده قبلاً تراکنش موفق یا نیمه‌موفقی در کنار داشته باشد، خطا دریافت می‌کنید.",
             "type": "string"
           }
         },
@@ -1417,14 +1417,14 @@
       "PostEditPostV2Body": {
         "properties": {
           "category_data": {
-            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
+            "description": "فیلدهای مختص دسته‌بندی که باید مطابق schema تکمیل شوند. schema را اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
           },
           "general_data": {
             "$ref": "#/components/schemas/postPostGeneralData"
           },
           "update_mask": {
-            "description": "فیلد ماسک مشخص می‌کند کدام فیلدها به‌روزرسانی شوند. از مسیرهای تو در تو برای هر دو general_data و category_data استفاده کنید (مثلاً، 'general_data.title'، 'category_data.price'). این امکان تمایز بین حذف یک فیلد و به‌روزرسانی نکردن آن را فراهم می‌کند.",
+            "description": "مشخص می‌کند کدام فیلدها به‌روزرسانی شوند. از مسیرهای تودرتو مانند 'general_data.title' یا 'category_data.price' استفاده کنید. این کار تمایز بین پاک کردن یک فیلد و تغییر ندادن آن را ممکن می‌سازد.",
             "example": [
               "general_data.title",
               "general_data.description",
@@ -1445,18 +1445,18 @@
       "PostGeneralDataPostVideo": {
         "properties": {
           "duration": {
-            "description": "Duration of the video in seconds",
+            "description": "زمان ویدیو به ثانیه",
             "example": 34,
             "format": "uint64",
             "type": "string"
           },
           "name": {
-            "description": "Name of the video, retrieved from `video_name` field in the response of upload video endpoint",
+            "description": "نام ویدیو (از فیلد `video_name` در پاسخ آپلود)",
             "example": "raw/4786eb10-eac6-4077-b622-78c1c42855c7.mp4",
             "type": "string"
           },
           "thumbnail_name": {
-            "description": "Thumbnail of the video, retrieved from `thumbnail_name` field in the response of upload video endpoint. It will be the first frame of the uploaded video",
+            "description": "کاور ویدیو (از فیلد `thumbnail_name` در پاسخ آپلود). فریم اول ویدیوی آپلود‌شده است.",
             "example": "thumbnail/4786eb10-eac6-4077-b622-78c1c42855c7.jpg",
             "type": "string"
           }
@@ -1577,6 +1577,7 @@
       "SemanticCreatePostSemanticBody": {
         "properties": {
           "cost": {
+            "description": "هزینه مرتبط با عملیات",
             "format": "int32",
             "type": "integer"
           },
@@ -1584,33 +1585,46 @@
             "additionalProperties": {
               "type": "string"
             },
+            "description": "مپ key-value اطلاعات معنایی برای ذخیره",
             "type": "object"
           },
           "ticket_uuid": {
+            "description": "UUID تیکت پرداخت (اختیاری)",
             "type": "string"
           }
         },
+        "required": [
+          "semantic"
+        ],
         "type": "object"
       },
       "SemanticCreateUserSemanticBody": {
         "properties": {
           "cost": {
+            "description": "هزینه مرتبط با عملیات",
             "format": "int32",
             "type": "integer"
           },
           "phone": {
+            "description": "شماره موبایل کاربر",
             "type": "string"
           },
           "semantic": {
             "additionalProperties": {
               "type": "string"
             },
+            "description": "مپ key-value اطلاعات معنایی برای ذخیره",
             "type": "object"
           },
           "ticket_uuid": {
+            "description": "UUID تیکت پرداخت (اختیاری)",
             "type": "string"
           }
         },
+        "required": [
+          "phone",
+          "semantic"
+        ],
         "type": "object"
       },
       "SendEventRequestTargetType": {
@@ -1621,7 +1635,7 @@
         "type": "string"
       },
       "ServicesFieldsCategory": {
-        "description": "زیردسته‌بندی سرویس",
+        "description": "دسته‌بندی فرعی سرویس",
         "enum": [
           "CATEGORY_CAR_AND_MOTOR",
           "CATEGORY_CATERING",
@@ -1683,7 +1697,7 @@
         "type": "string"
       },
       "TemporaryResidenceFieldsPetsAllowed": {
-        "description": "سیاست نگهداری حیوان خانگی برای اقامتگاه",
+        "description": "شرایط پذیرش حیوان خانگی در اقامتگاه",
         "enum": [
           "PETS_ALLOWED_YES",
           "PETS_ALLOWED_NO",
@@ -1703,13 +1717,13 @@
         "type": "string"
       },
       "addonsAction": {
-        "description": "نمایان‌گر یک عملیات که می‌تواند انجام شود",
+        "description": "نمایانگر یک Action که می‌تواند انجام شود",
         "properties": {
           "get_dynamic_action": {
             "$ref": "#/components/schemas/addonsGetDynamicAction"
           },
           "open_direct_link": {
-            "description": "عملیاتی برای ارسال کاربر به URL شما به صورت مستقیم با فقط یک شناسه منبع (در صورت وجود)",
+            "description": "عملیاتی برای هدایت مستقیم کاربر به URL شما (در صورت وجود resource id)",
             "example": "https://your-site.com/some-path",
             "type": "string"
           },
@@ -1830,7 +1844,7 @@
         "type": "object"
       },
       "addonsAddonSemantic": {
-        "description": "این پیام استخراج شده توسط OpenPlatform از اطلاعات معنایی\nارائه‌دهنده سرویس است. راهنماها:\n - همیشه بررسی کنید که آیا فیلد یا مقدار enum مناسبی قبل از\n افزودن وجود دارد.\n - مقدار صفر هر enum باید {ENUM_NAME}_UNSPECIFIED باشد.\n - مقادیر Enum نباید با هیچ آگهی خاص یا صفت شخص\n مطابقت داشته باشد.",
+        "description": "پیام استخراج‌شده توسط OpenPlatform از semantic ارائه‌دهنده سرویس.\nراهنما:\n- قبل از افزودن enum جدید، بررسی کنید که آیا مقدار مناسبی وجود دارد.\n- مقدار صفر هر enum باید {ENUM_NAME}_UNSPECIFIED باشد.\n- مقادیر Enum نباید مختص آگهی یا شخص خاصی باشند.",
         "properties": {
           "car_verification_failure_reason": {
             "$ref": "#/components/schemas/AddonSemanticCarVerificationStage"
@@ -2051,17 +2065,17 @@
         "type": "object"
       },
       "addonsGetDynamicAction": {
-        "description": "نمایان‌گر یک اکشن پویا که می‌تواند در دستگاه کاربر دریافت و اجرا شود",
+        "description": "نمایانگر یک Action پویا که می‌تواند در دستگاه کاربر دریافت و اجرا شود",
         "properties": {
           "data": {
-            "description": "داده‌ای که می‌توانید تنظیم کنید و پس از کلیک کاربر برای شناسایی عملیات به شما برگردانده می‌شود",
+            "description": "داده‌ای که می‌توانید مقداردهی کنید و هنگام کلیک کاربر به شما برگردانده می‌شود",
             "example": {
               "your-internal-id": "something"
             },
             "type": "object"
           }
         },
-        "title": "دریافت اکشن پویا",
+        "title": "دریافت Action پویا",
         "type": "object"
       },
       "addonsGetPostAddonsResponse": {
@@ -2167,10 +2181,10 @@
         "type": "object"
       },
       "addonsOpenServerLink": {
-        "description": "عملیاتی برای ارسال داده‌های کامل نشست و دریافت مکان هدایت از سرور شما در هر عملیات کاربر",
+        "description": "عملیاتی برای ارسال داده‌های کامل session و دریافت آدرس redirect از سرور شما",
         "properties": {
           "data": {
-            "description": "داده‌ای که می‌توانید تنظیم کنید و پس از کلیک کاربر برای شناسایی عملیات به شما برگردانده می‌شود",
+            "description": "داده‌ای که می‌توانید مقداردهی کنید و هنگام کلیک کاربر به شما برگردانده می‌شود",
             "example": {
               "your-internal-id": "something"
             },
@@ -2740,7 +2754,7 @@
             "$ref": "#/components/schemas/OAuthScopeScope"
           }
         },
-        "title": "دامنه oauth استاندارد تجزیه شده با استفاده از رشته فرمت\n`PERMISSION_ENUM__{resource_id}` را نمایش می‌دهد. مثال: EDIT_POST__AZrOi1eL",
+        "title": "OAuth اسکوپ استاندارد با فرمت `PERMISSION_ENUM__{resource_id}`.\nمثال: EDIT_POST__AZrOi1eL",
         "type": "object"
       },
       "chatapiChatBotSendMessageResponse": {
@@ -2833,7 +2847,7 @@
       "chatapiGenerateUploadTokenResponse": {
         "properties": {
           "token": {
-            "description": "توکن کدگذاری شده base64 ایمن برای URL که می‌تواند در نقطه پایانی آپلود استفاده شود",
+            "description": "توکن با کدگذاری base64 که می‌توان در endpoint آپلود از آن استفاده کرد",
             "example": "some_random_base64",
             "readOnly": true,
             "type": "string"
@@ -2934,7 +2948,7 @@
             "$ref": "#/components/schemas/addonsAction"
           },
           "title": {
-            "description": "متن برای نمایش روی دکمه",
+            "description": "متن دکمه",
             "type": "string"
           }
         },
@@ -3252,7 +3266,7 @@
             "items": {
               "type": "string"
             },
-            "title": "نیاز به دامنه OAuth: USER_PHONE",
+            "title": "نیاز به OAuth اسکوپ: USER_PHONE",
             "type": "array"
           },
           "user_id": {
@@ -3375,7 +3389,7 @@
       "paymentCommitWalletTransactionRequest": {
         "properties": {
           "token": {
-            "description": "توکن تراکنشی که می‌خواهید commit کنید",
+            "description": "توکن تراکنشی که می‌خواهید نهایی کنید",
             "type": "string"
           }
         },
@@ -3464,7 +3478,7 @@
             "type": "string"
           },
           "transactions": {
-            "description": "شناسه مرجع فاکتور یا تراکنش",
+            "description": "فهرست تراکنش‌هایی که با درخواست مطابقت دارند",
             "items": {
               "$ref": "#/components/schemas/paymentTransaction"
             },
@@ -3514,12 +3528,12 @@
       "paymentSubmitUserPaymentRequest": {
         "properties": {
           "amount_rials": {
-            "description": "کل مبلغ پرداختی توسط کاربر، به ریال",
+            "description": "مبلغ کل پرداختی کاربر به ریال",
             "format": "uint64",
             "type": "string"
           },
           "profit_rials": {
-            "description": "بخشی از مبلغ پرداختی که به شما تعلق می‌گیرد، به ریال. به عنوان مثال در افزونه‌های پرداخت امن بخش اعظم مبلغ پرداختی سهم فروشنده آگهی هست و این پارامتر باید برابر بخشی از مبلغ پرداختی که مربوط به کمیسیون سرویس‌دهنده پرداخت امن است قرار بگیرد. در صورتی که چنین مفهومی در فرایند پرداخت شما وجود ندارد مقدار این پارامتر را دقیقا برابر amount_rials ارسال کنید.",
+            "description": "سود یا کمیسیون شما از این تراکنش، به ریال. اگر چنین مفهومی در فرایند پرداخت شما وجود ندارد، مقدار این پارامتر را برابر amount_rials قرار دهید.",
             "format": "uint64",
             "type": "string"
           },
@@ -3528,7 +3542,7 @@
             "type": "string"
           },
           "services": {
-            "description": "لیست شناسه خدماتی که کاربر برای آنها پرداخت انجام داده است (مثلاً «banner»، «title_refinement» و ...). توصیه می‌شود از نام‌های انگلیسی کوتاه و توصیفی به‌عنوان شناسه خدمت استفاده شود.",
+            "description": "لیست slug خدماتی که کاربر برای آنها پرداخت کرده (مثلاً 'banner'، 'title_refinement')",
             "items": {
               "type": "string"
             },
@@ -3612,7 +3626,7 @@
         "type": "object"
       },
       "paymentWalletTransactionStatus": {
-        "description": "وضعیت‌های مختلفی که یک تراکنش کیف پول می‌تواند در طول چرخه حیات خود داشته باشد. UNKNOWN: وضعیت پیش‌فرض/مقداردهی اولیه نشده - نباید در عملیات عادی استفاده شود. CREATED: تراکنش ایجاد شده و در انتظار پرداخت یا پردازش بیشتر است. EXPIRED: تراکنش ایجاد شد اما قبل از تکمیل منقضی شد (مثل timeout پرداخت). PAID: تراکنش پرداخت/تامین مالی شده و هنوز در انتظار تایید نهایی است. COMMITTED: تراکنش با موفقیت commit و نهایی شده در سیستم.",
+        "description": "وضعیت‌های مختلف تراکنش کیف پول: UNKNOWN (پیش‌فرض - نباید استفاده شود)، CREATED (در انتظار پرداخت)، EXPIRED (منقضی شده)، PAID (پرداخت شده، در انتظار تایید نهایی)، COMMITTED (نهایی شده).",
         "enum": [
           "CREATED",
           "EXPIRED",
@@ -3632,24 +3646,33 @@
       "payment_ticketValidateRequest": {
         "properties": {
           "phone_number": {
+            "description": "شماره تلفن کاربر (به جای آن از user_id استفاده کنید)",
             "type": "string"
           },
           "service_cost": {
+            "description": "هزینه سرویس به ریال",
             "format": "int32",
             "type": "integer"
           },
           "ticket_uuid": {
+            "description": "شناسه منحصر به فرد تیکت پرداخت",
             "type": "string"
           },
           "user_id": {
+            "description": "شناسه منحصر به فرد کاربر",
             "type": "string"
           }
         },
+        "required": [
+          "ticket_uuid",
+          "service_cost"
+        ],
         "type": "object"
       },
       "payment_ticketValidateResponse": {
         "properties": {
           "issuer_payload": {
+            "description": "داده payload ارائه شده توسط صادرکننده تیکت",
             "type": "object"
           }
         },
@@ -3669,7 +3692,7 @@
             "type": "boolean"
           },
           "has_own_image": {
-            "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
+            "description": "آیا تصاویر واقعی ملک هستند (نه تزئینی)",
             "example": true,
             "type": "boolean"
           },
@@ -3884,7 +3907,7 @@
             "type": "integer"
           },
           "has_own_image": {
-            "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
+            "description": "آیا تصاویر واقعی ملک هستند (نه تزئینی)",
             "example": true,
             "type": "boolean"
           },
@@ -3935,12 +3958,12 @@
       "postPostGeneralData": {
         "properties": {
           "category_slug": {
-            "description": "نام دسته‌بندی هدف. دسته‌بندی‌های موجود را در این آدرس بیابید: https://kenar.divar.dev/openapi-doc/assets-get-categories/",
+            "description": "slug دسته‌بندی. لیست دسته‌بندی‌ها: https://kenar.divar.dev/openapi-doc/assets-get-categories/",
             "example": "apartment-sell",
             "type": "string"
           },
           "chat_enabled": {
-            "description": "امکان چت فعال باشد",
+            "description": "فعال بودن چت",
             "example": true,
             "type": "boolean"
           },
@@ -3960,7 +3983,7 @@
             "type": "string"
           },
           "hide_phone": {
-            "description": "عدم نمایش شماره تماس به کاربران",
+            "description": "مخفی کردن شماره تماس از کاربران",
             "example": true,
             "type": "boolean"
           },
@@ -4028,7 +4051,7 @@
             "$ref": "#/components/schemas/postApartmentSellFields"
           },
           "chat_enabled": {
-            "description": "امکان چت فعال باشد",
+            "description": "فعال بودن چت",
             "example": true,
             "type": "boolean"
           },
@@ -4048,7 +4071,7 @@
             "type": "string"
           },
           "hide_phone": {
-            "description": "عدم نمایش شماره تماس به کاربران",
+            "description": "مخفی کردن شماره تماس از کاربران",
             "example": true,
             "type": "boolean"
           },
@@ -4121,7 +4144,7 @@
       "postSubmitPostV2Request": {
         "properties": {
           "category_fields": {
-            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
+            "description": "فیلدهای مختص دسته‌بندی که باید مطابق schema تکمیل شوند. schema را اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
           },
           "general_data": {
@@ -4148,7 +4171,7 @@
       "postSubmitUserPostRequest": {
         "properties": {
           "category_fields": {
-            "description": "فیلدهای ویژه هر دسته‌بندی که باید مطابق قالب مشخص شده تکمیل شوند. قالب را از اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
+            "description": "فیلدهای مختص دسته‌بندی که باید مطابق schema تکمیل شوند. schema را اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
           },
           "general_data": {
@@ -4208,7 +4231,7 @@
             "type": "boolean"
           },
           "has_own_image": {
-            "description": "تصاویر مربوط به خود ملک بوده و تزئینی نیستند.",
+            "description": "آیا تصاویر واقعی ملک هستند (نه تزئینی)",
             "example": true,
             "type": "boolean"
           },
@@ -4414,7 +4437,7 @@
   "paths": {
     "/experimental/open-platform/balance": {
       "get": {
-        "description": "(محدود) با استفاده از این API می‌توانید موجودی فعلی اپلیکیشن خود را دریافت کنید.",
+        "description": "این API امکان دریافت موجودی فعلی اپلیکیشن شما به ریال را فراهم می‌کند. برای نظارت بر موجودی حساب قبل از انجام عملیات‌های پولی استفاده کنید.\n\n**نکات مهم**:\n- این قابلیت فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- موجودی به ریال ایران برگردانده می‌شود\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `BALANCE_RETRIEVE`",
         "operationId": "Payment_GetBalance",
         "responses": {
           "200": {
@@ -4438,6 +4461,11 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "دریافت موجودی اپلیکیشن",
         "tags": [
           "Payment"
@@ -4446,7 +4474,7 @@
     },
     "/experimental/open-platform/business/{business_token}/customized-button": {
       "delete": {
-        "description": "این API دکمه اختصاصی را از تمام آگهی‌های کسب‌وکار حذف می‌کند. این API به مجوز `BUSINESS_CUSTOMIZED_BUTTON_CREATE` نیاز دارد.\n",
+        "description": "این API تنظیمات دکمه اختصاصی را از تمام آگهی‌های کسب‌وکار حذف می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `BUSINESS_CUSTOMIZED_BUTTON_CREATE`",
         "operationId": "Post_DeleteBusinessCustomizedButton",
         "parameters": [
           {
@@ -4480,13 +4508,18 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "حذف دکمه اختصاصی از آگهی‌های کسب‌و‌کار",
         "tags": [
           "Post"
         ]
       },
       "post": {
-        "description": "این API برای ایجاد دکمه اختصاصی برای تمام آگهی‌های کسب‌وکار استفاده می‌شود.\nاین API به مجوز `BUSINESS_CUSTOMIZED_BUTTON_CREATE` و دامنه OAuth `BUSINESS_CREATE_CUSTOMIZED_BUTTON.{business_ref}` نیاز دارد.\n",
+        "description": "این API تنظیمات دکمه اختصاصی را برای تمام آگهی‌های کسب‌وکار ایجاد می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `BUSINESS_CUSTOMIZED_BUTTON_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `BUSINESS_CREATE_CUSTOMIZED_BUTTON.business_token`",
         "operationId": "Post_CreateBusinessCustomizedButton",
         "parameters": [
           {
@@ -4530,7 +4563,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌و‌کار",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "BUSINESS_CREATE_CUSTOMIZED_BUTTON.business_token"
+            ]
+          }
+        ],
+        "summary": "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌وکار",
         "tags": [
           "Post"
         ]
@@ -4538,7 +4579,7 @@
     },
     "/experimental/open-platform/chat/bot/conversations/{conversation_id}/messages": {
       "post": {
-        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage5",
         "parameters": [
           {
@@ -4576,6 +4617,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_BOT_USER_MESSAGE_SEND"
+            ]
+          }
+        ],
         "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
@@ -4584,7 +4633,7 @@
     },
     "/experimental/open-platform/chat/bot/users/{user_id}/messages": {
       "post": {
-        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage4",
         "parameters": [
           {
@@ -4622,6 +4671,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_BOT_USER_MESSAGE_SEND"
+            ]
+          }
+        ],
         "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
@@ -4630,7 +4687,7 @@
     },
     "/experimental/open-platform/chat/upload": {
       "post": {
-        "description": "این API برای تولید توکن آپلود برای آپلود فایل‌های رسانه‌ای استفاده می‌شود.",
+        "description": "این API توکن آپلود برای بارگذاری فایل‌های رسانه‌ای در پیام‌های چت تولید می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_UPLOAD_MEDIA`",
         "operationId": "ChatAPI_GenerateUploadToken",
         "requestBody": {
           "content": {
@@ -4664,6 +4721,11 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "تولید توکن آپلود",
         "tags": [
           "ChatAPI"
@@ -4672,7 +4734,7 @@
     },
     "/experimental/open-platform/chatbot-conversations/{conversation_id}/messages": {
       "post": {
-        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage3",
         "parameters": [
           {
@@ -4710,6 +4772,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_BOT_USER_MESSAGE_SEND"
+            ]
+          }
+        ],
         "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
@@ -4718,7 +4788,7 @@
     },
     "/experimental/open-platform/events/send": {
       "post": {
-        "description": "با استفاده از این API، می‌توانید رویدادی به کاربر ارسال کنید. رویداد می‌تواند مربوط به یک آگهی خاص یا عمومی باشد. رویداد می‌تواند شامل دکمه‌هایی با عملیات سفارشی باشد که به کاربران اجازه می‌دهد با برنامه شما تعامل داشته باشند.",
+        "description": "این API امکان ارسال اعلان رویداد به یک کاربر را فراهم می‌کند. رویداد می‌تواند به یک کاربر خاص یا یک آگهی هدف‌گیری شود. رویدادها می‌توانند شامل دکمه‌هایی با اقدامات سفارشی باشند که به کاربران امکان تعامل با اپلیکیشن شما را می‌دهند.\n\n**نکات مهم**:\n- عنوان دکمه‌ها باید بین 5 تا 50 کاراکتر باشد\n- هنگام هدف‌گیری کاربر، target_resource_id باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- هنگام هدف‌گیری آگهی، آگهی باید متعلق به کاربر احراز هویت شده باشد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `EVENTS_SEND`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SEND_EVENT`",
         "operationId": "Events_SendEvent",
         "parameters": [
           {
@@ -4742,7 +4812,7 @@
             }
           },
           {
-            "description": "شناسه هدف. وقتی نوع هدف USER است، باید شناسه کاربر دیوار آن کاربر باشد و وقتی نوع هدف POST است، باید توکن آگهی باشد.",
+            "description": "شناسه هدف. اگر نوع هدف USER است، باید شناسه کاربر دیوار باشد و اگر POST است، باید توکن آگهی باشد.",
             "in": "query",
             "name": "target_resource_id",
             "schema": {
@@ -4772,7 +4842,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "ارسال رویداد به کاربر با استفاده از API",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "SEND_EVENT"
+            ]
+          }
+        ],
+        "summary": "ارسال رویداد به کاربر",
         "tags": [
           "Events"
         ]
@@ -4780,7 +4858,7 @@
     },
     "/experimental/open-platform/post/{post_token}/publish": {
       "post": {
-        "description": "این API به ارائه‌دهندگان امکان پرداخت هزینه ثبت آگهی کاربر را می‌دهد. post_token باید از API SubmitUserPost در مجموعه آگهی‌ها دریافت شود.",
+        "description": "این API امکان پرداخت هزینه انتشار آگهی ثبت شده توسط کاربر از طرف اپلیکیشن شما را فراهم می‌کند. هزینه از موجودی اپلیکیشن شما کسر می‌شود و آگهی منتشر می‌شود.\n\n**نکات مهم**:\n- ابتدا آگهی باید با API `SubmitUserPost` ایجاد شده باشد\n- یک `id` منحصر به فرد (UUID v4) برای جلوگیری از تکرار ارسال کنید\n- آگهی باید در وضعیت نیازمند پرداخت (WAITING_FOR_PAYMENT) باشد\n- از کافی بودن موجودی اپلیکیشن خود اطمینان حاصل کنید\n- هزینه‌ها بر اساس دسته‌بندی و شهر آگهی متفاوت است\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `PUBLISH_USER_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SUBMIT_USER_POST`",
         "operationId": "Payment_PublishUserPost",
         "parameters": [
           {
@@ -4825,7 +4903,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "پرداخت هزینه ثبت آگهی کاربر از طرف ارائه‌دهنده",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "SUBMIT_USER_POST"
+            ]
+          }
+        ],
+        "summary": "انتشار آگهی کاربر (پرداخت توسط ارائه‌دهنده)",
         "tags": [
           "Payment"
         ]
@@ -4833,7 +4919,7 @@
     },
     "/experimental/open-platform/post/{post_token}/renew": {
       "post": {
-        "description": "(محدود) از این API برای تمدید آگهی استفاده کنید که دوره نمایش آن را تمدید می‌کند. قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
+        "description": "این API امکان تمدید آگهی را فراهم می‌کند که دوره نمایش آن در دیوار را افزایش می‌دهد. هزینه از موجودی اپلیکیشن شما کسر می‌شود.\n\n**نکات مهم**:\n- این قابلیت فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- قبل از تمدید، از `GetPostPricing` برای بررسی هزینه استفاده کنید\n- یک `id` منحصر به فرد (UUID v4) برای جلوگیری از تکرار ارسال کنید\n- آگهی باید در وضعیت PUBLISHED و واجد شرایط تمدید باشد\n- از کافی بودن موجودی اپلیکیشن خود اطمینان حاصل کنید\n- هزینه‌ها بر اساس دسته‌بندی و شهر آگهی متفاوت است\n- تمدید، نمایش آگهی را افزایش داده و عمر آن را بازنشانی می‌کند\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `POST_RENEW`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PAYMENT_ALL_POSTS_RENEW`",
         "operationId": "Payment_RenewPost",
         "parameters": [
           {
@@ -4877,6 +4963,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "PAYMENT_ALL_POSTS_RENEW"
+            ]
+          }
+        ],
         "summary": "تمدید آگهی",
         "tags": [
           "Payment"
@@ -4885,7 +4979,7 @@
     },
     "/experimental/open-platform/post/{post_token}/reorder": {
       "post": {
-        "description": "(محدود) قبل از فراخوانی این API، از API GetPostPricing برای دریافت هزینه سرویس استفاده کنید.",
+        "description": "این API امکان نردبان کردن آگهی به بالای لیست را فراهم می‌کند. هزینه از موجودی اپلیکیشن شما کسر می‌شود.\n\n**نکات مهم**:\n- این قابلیت فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- قبل از نردبان، از `GetPostPricing` برای بررسی هزینه استفاده کنید\n- یک `id` منحصر به فرد (UUID v4) برای جلوگیری از تکرار ارسال کنید\n- آگهی باید در وضعیت PUBLISHED باشد\n- از کافی بودن موجودی اپلیکیشن خود اطمینان حاصل کنید\n- هزینه‌ها بر اساس دسته‌بندی و شهر آگهی متفاوت است\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `POST_REORDER`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PAYMENT_ALL_POSTS_REORDER`",
         "operationId": "Payment_ReorderPost",
         "parameters": [
           {
@@ -4929,6 +5023,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "PAYMENT_ALL_POSTS_REORDER"
+            ]
+          }
+        ],
         "summary": "نردبان آگهی",
         "tags": [
           "Payment"
@@ -4937,7 +5039,8 @@
     },
     "/experimental/open-platform/posts/new": {
       "post": {
-        "description": "این API به شما امکان ثبت آگهی را می‌دهد. این نیاز به دامنه OAuth `SUBMIT_POST` دارد.\nمی‌توانید آگهی را با عنوان، توضیحات، تصاویر و سایر فیلدها ثبت کنید. فیلدهای عمومی و فیلدهای مخصوص دسته‌بندی وجود دارند.",
+        "deprecated": true,
+        "description": "این API امکان ثبت آگهی با فیلدهای پایه برای دسته‌بندی‌های خاص را فراهم می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_POST`",
         "operationId": "Post_SubmitPost",
         "requestBody": {
           "content": {
@@ -4971,7 +5074,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "ثبت آگهی",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "ثبت آگهی (منسوخ شده)",
         "tags": [
           "Post"
         ]
@@ -4979,7 +5087,7 @@
     },
     "/experimental/open-platform/posts/new-v2": {
       "post": {
-        "description": "این API به شما امکان ثبت آگهی با استفاده از اعتبارسنجی قالب JSON را می‌دهد. این به مجوز `SUBMIT_POST` نیاز دارد.\nشما داده‌های کامل آگهی را به عنوان یک رشته JSON ارائه می‌دهید که با احترام به قالب ثبت برای دسته‌بندی مشخص شده موجود در دارایی‌ها اعتبارسنجی خواهد شد.",
+        "description": "این API امکان ثبت آگهی با استفاده از اعتبارسنجی JSON schema را فراهم می‌کند. داده‌های آگهی در برابر قالب دسته‌بندی مشخص شده اعتبارسنجی می‌شوند.\n\n**نکات مهم**:\n- فیلدهای ویژه دسته‌بندی باید از [قالب](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) پیروی کنند\n- تمام فیلدهای اجباری ذکر شده در قالب باید ارسال شوند، در غیر این صورت ثبت ناموفق خواهد بود\n- این برای ثبت در سطح اپلیکیشن است (آگهی‌های ارائه‌دهنده)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_POST`",
         "operationId": "Post_SubmitPostV2",
         "requestBody": {
           "content": {
@@ -5013,7 +5121,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "ثبت آگهی با استفاده از اعتبارسنجی قالب JSON",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "ثبت آگهی",
         "tags": [
           "Post"
         ]
@@ -5021,7 +5134,7 @@
     },
     "/experimental/open-platform/posts/{post_token}/customized-button": {
       "delete": {
-        "description": "این API دکمه اختصاصی را از آگهی ثبت شده توسط سرویس شما حذف می‌کند. این API نیاز به مجوز `SET_CUSTOMIZED_BUTTON` دارد.\n",
+        "description": "این API تنظیمات دکمه اختصاصی را از یک آگهی حذف می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SET_CUSTOMIZED_BUTTON`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_SET_CUSTOMIZED_BUTTON`",
         "operationId": "Post_DeletePostCustomizedButton",
         "parameters": [
           {
@@ -5055,13 +5168,21 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_SET_CUSTOMIZED_BUTTON"
+            ]
+          }
+        ],
         "summary": "حذف دکمه اختصاصی از آگهی",
         "tags": [
           "Post"
         ]
       },
       "post": {
-        "description": "این API برای تنظیم دکمه اختصاصی برای یک آگهی استفاده می‌شود. اگر دکمه‌ای وجود نداشته باشد، ایجاد خواهد شد. اگر از قبل وجود داشته باشد، داده‌های آن به‌روزرسانی خواهد شد. این API به مجوز `SET_CUSTOMIZED_BUTTON` نیاز دارد.\nاگر این آگهی توسط کاربر ثبت شده باشد، این API به توکن دسترسی کاربر در هدرهای درخواست با دامنه OAuth `USER_SET_CUSTOMIZED_BUTTON` نیاز دارد.",
+        "description": "این API تنظیمات دکمه اختصاصی را برای یک آگهی تعیین می‌کند. اگر دکمه وجود نداشته باشد، ایجاد می‌شود. اگر از قبل وجود داشته باشد، داده‌های آن به‌روزرسانی می‌شوند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SET_CUSTOMIZED_BUTTON`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_SET_CUSTOMIZED_BUTTON`",
         "operationId": "Post_SetPostCustomizedButton",
         "parameters": [
           {
@@ -5105,7 +5226,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "تنظیم دکمه اختصاصی بر روی آگهی ثبت شده",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_SET_CUSTOMIZED_BUTTON"
+            ]
+          }
+        ],
+        "summary": "تنظیم دکمه اختصاصی روی آگهی",
         "tags": [
           "Post"
         ]
@@ -5113,7 +5242,7 @@
     },
     "/experimental/open-platform/posts/{post_token}/stats": {
       "get": {
-        "description": "از این api برای مشاهده‌ی آمارهای یک آگهی (مانند تعداد بازدید‌های آگهی) استفاده کنید. ",
+        "description": "این API امکان دریافت آمار یک آگهی شامل بازدیدها، نمایش‌ها و چت‌ها را فراهم می‌کند. آمار روزانه برای 7 روز اخیر و تعداد کل برمی‌گردد.\n\n**نکات مهم**:\n- فقط آمار آگهی‌های متعلق به کاربر احراز هویت شده برگردانده می‌شود\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `POST_STATS_RETRIEVE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_POSTS_STATS_READ`",
         "operationId": "Post_GetPostStats",
         "parameters": [
           {
@@ -5148,6 +5277,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_POSTS_STATS_READ"
+            ]
+          }
+        ],
         "summary": "دریافت آمارهای آگهی",
         "tags": [
           "Post"
@@ -5156,10 +5293,11 @@
     },
     "/experimental/open-platform/semantic/post/{token}": {
       "post": {
-        "description": "در برخی موارد، ذخیره اطلاعات مربوط به آگهی در دیوار بدون افزودن افزونه ضروری است.\nاین API توکن دسترسی با دامنه `POST_SEMANTIC_CREATE` را انتظار دارد.\n",
+        "description": "این API امکان ذخیره اطلاعات درباره یک آگهی در دیوار بدون افزودن افزونه را فراهم می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `POST_SEMANTIC_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `POST_SEMANTIC_CREATE.post_token`",
         "operationId": "Semantic_CreatePostSemantic",
         "parameters": [
           {
+            "description": "توکن آگهی",
             "in": "path",
             "name": "token",
             "required": true,
@@ -5200,6 +5338,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "POST_SEMANTIC_CREATE.post_token"
+            ]
+          }
+        ],
         "summary": "ایجاد اطلاعات معنایی آگهی",
         "tags": [
           "Semantic"
@@ -5208,11 +5354,11 @@
     },
     "/experimental/open-platform/transactions": {
       "get": {
-        "description": "(محدود) با استفاده از این api میتوانید لیست تراکنش‌های اپ را مشاهده کنید. برای مشاهده‌ی تمام تراکنش‌ها، صفحات را دنبال کنید.",
+        "description": "این API امکان دریافت لیست صفحه‌بندی شده از تراکنش‌های اپلیکیشن شما را فراهم می‌کند. برای تاریخچه تراکنش، ممیزی و تسویه حساب استفاده کنید.\n\n**نکات مهم**:\n- این قابلیت فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- نتایج صفحه‌بندی شده هستند - از `page_size` برای کنترل تعداد آیتم‌ها در هر صفحه استفاده کنید\n- از `page_token` در پاسخ برای دریافت صفحه بعدی استفاده کنید\n- تراکنش‌ها بر اساس زمان ایجاد مرتب می‌شوند (جدیدترین اول)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `TRANSACTION_LIST`",
         "operationId": "Payment_ListTransactions",
         "parameters": [
           {
-            "description": "تعداد تراکنش‌ها برای برگرداندن در هر صفحه",
+            "description": "تعداد تراکنش‌ها در هر صفحه",
             "in": "query",
             "name": "page_size",
             "schema": {
@@ -5251,6 +5397,11 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "لیست تراکنش‌ها",
         "tags": [
           "Payment"
@@ -5259,7 +5410,7 @@
     },
     "/experimental/open-platform/transactions/{id}": {
       "get": {
-        "description": "(محدود) با استفاده از این API می‌توانید جزئیات تراکنش را دریافت کنید.",
+        "description": "این API امکان دریافت اطلاعات دقیق یک تراکنش خاص با شناسه آن را فراهم می‌کند. برای پیگیری وضعیت تراکنش، هزینه‌ها و متادیتا استفاده کنید.\n\n**نکات مهم**:\n- این قابلیت فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- شناسه تراکنش همان UUID است که هنگام ایجاد تراکنش ارسال کردید\n- وضعیت‌های تراکنش: PENDING، COMPLETED، FAILED، REFUNDED\n- انواع تراکنش: REORDER، SUBMIT، RENEW\n- برای تایید تکمیل تراکنش پس از عملیات‌های پولی استفاده کنید\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `TRANSACTION_RETRIEVE`",
         "operationId": "Payment_GetTransaction",
         "parameters": [
           {
@@ -5294,6 +5445,11 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "دریافت جزئیات تراکنش",
         "tags": [
           "Payment"
@@ -5302,7 +5458,7 @@
     },
     "/experimental/open-platform/user-posts/can-submit": {
       "get": {
-        "description": "با این API میتوانید بررسی کنید آیا کاربر می‌تواند آگهی ارسال کند یا خیر.این API انتظار دارد توکن کاربر در درخواست با اسکوپ `SUBMIT_USER_POST` موجود باشد.",
+        "description": "این API بررسی می‌کند که آیا کاربر واجد شرایط ثبت آگهی است. تایید می‌کند که کاربر در لیست سیاه نیست، متخلف نیست و احراز هویت شده است.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CAN_USER_SUBMIT_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SUBMIT_USER_POST`",
         "operationId": "Post_CanUserSubmitPost",
         "responses": {
           "200": {
@@ -5326,6 +5482,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "SUBMIT_USER_POST"
+            ]
+          }
+        ],
         "summary": "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
         "tags": [
           "Post"
@@ -5334,7 +5498,7 @@
     },
     "/experimental/open-platform/user-posts/new": {
       "post": {
-        "description": "این API به شما امکان ثبت آگهی از طرف یک کاربر احراز هویت شده با استفاده از اعتبارسنجی قالب JSON را می‌دهد. این به احراز هویت OAuth با توکن دسترسی معتبر و دامنه OAuth `SUBMIT_USER_POST` نیاز دارد.\nبر خلاف SubmitPostV2 که آگهی‌ها را به عنوان ارائه‌دهنده ثبت می‌کند، این نقطه پایانی آگهی‌ها را به عنوان کاربر مرتبط با توکن دسترسی ارائه شده ثبت می‌کند. آگهی متعلق به کاربر احراز هویت شده خواهد بود.\nشما داده‌های کامل آگهی را به عنوان یک رشته JSON ارائه می‌دهید که با احترام به قالب ثبت برای دسته‌بندی مشخص شده موجود در دارایی‌ها اعتبارسنجی خواهد شد.",
+        "description": "این API امکان ثبت آگهی از طرف کاربر احراز هویت شده با استفاده از اعتبارسنجی JSON schema را فراهم می‌کند. آگهی متعلق به کاربر احراز هویت شده خواهد بود و می‌توان از طریق APIهای مختص کاربر مدیریت کرد.\n\n**نکات مهم**:\n- فیلدهای ویژه دسته‌بندی باید از [قالب](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) پیروی کنند\n- تمام فیلدهای اجباری ذکر شده در قالب باید ارسال شوند، در غیر این صورت ثبت ناموفق خواهد بود\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_USER_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SUBMIT_USER_POST`",
         "operationId": "Post_SubmitUserPost",
         "requestBody": {
           "content": {
@@ -5368,6 +5532,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "SUBMIT_USER_POST"
+            ]
+          }
+        ],
         "summary": "ثبت آگهی به عنوان کاربر",
         "tags": [
           "Post"
@@ -5376,7 +5548,7 @@
     },
     "/experimental/open-platform/wallet/payments/commit": {
       "post": {
-        "description": "(محدود) با استفاده از این API می‌توانید یک پرداخت موفق را commit کنید. این API idempotent است و می‌توانید چندین بار آن را فراخوانی کنید.",
+        "description": "این API تراکنش پرداخت کیف پول را پس از پرداخت موفق نهایی می‌کند.\n\n**نکات مهم**:\n- این قابلیت آزمایشی است و فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- فقط تراکنش‌هایی که در وضعیت PAID هستند را نهایی کنید\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `WALLET_PAYMENT`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CREATE_WALLET_PAYMENT`",
         "operationId": "Payment_CommitWalletTransaction",
         "requestBody": {
           "content": {
@@ -5410,7 +5582,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "تایید تراکنش کیف پول",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CREATE_WALLET_PAYMENT"
+            ]
+          }
+        ],
+        "summary": "نهایی کردن تراکنش کیف پول",
         "tags": [
           "Payment"
         ]
@@ -5418,7 +5598,7 @@
     },
     "/experimental/open-platform/wallet/payments/create": {
       "post": {
-        "description": "(محدود) با استفاده از این API می‌توانید یک تراکنش پرداخت از کیف پول کاربران شروع کنید.",
+        "description": "این API امکان شروع تراکنش پرداخت از کیف پول دیوار کاربر را فراهم می‌کند. کاربر برای تکمیل پرداخت هدایت می‌شود و می‌توانید وضعیت تراکنش را پیگیری کنید.\n\n**نکات مهم**:\n- این قابلیت آزمایشی است و فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- کاربر برای تکمیل تراکنش به آدرس پرداخت هدایت می‌شود\n- پس از پرداخت، کاربر به `redirect_url` مشخص شده شما هدایت می‌شود\n- از `RetrieveWalletTransaction` برای بررسی وضعیت پرداخت استفاده کنید\n- از `CommitWalletTransaction` برای نهایی کردن تراکنش پس از پرداخت موفق استفاده کنید\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `WALLET_PAYMENT`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CREATE_WALLET_PAYMENT`",
         "operationId": "Payment_CreateWalletPayment",
         "requestBody": {
           "content": {
@@ -5452,6 +5632,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CREATE_WALLET_PAYMENT"
+            ]
+          }
+        ],
         "summary": "ایجاد پرداخت کیف پول",
         "tags": [
           "Payment"
@@ -5460,11 +5648,11 @@
     },
     "/experimental/open-platform/wallet/payments/{token}": {
       "get": {
-        "description": "(محدود) با استفاده از این API می‌توانید یک تراکنش و وضعیت آن را بازیابی کنید. از این API برای اعتبارسنجی پرداخت قبل از commit استفاده کنید.",
+        "description": "این API امکان دریافت وضعیت فعلی و جزئیات تراکنش پرداخت کیف پول را فراهم می‌کند. برای تایید تکمیل پرداخت قبل از commit کردن تراکنش استفاده کنید.\n\n**نکات مهم**:\n- این قابلیت آزمایشی است و فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- وضعیت‌های تراکنش: UNKNOWN، CREATED، EXPIRED، PAID، COMMITTED\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `WALLET_PAYMENT`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CREATE_WALLET_PAYMENT`",
         "operationId": "Payment_RetrieveWalletTransaction",
         "parameters": [
           {
-            "description": "توکن تراکنشی که می‌خواهید بازیابی کنید",
+            "description": "توکن تراکنشی که می‌خواهید دریافت کنید",
             "in": "path",
             "name": "token",
             "required": true,
@@ -5495,7 +5683,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "بازیابی تراکنش کیف پول",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CREATE_WALLET_PAYMENT"
+            ]
+          }
+        ],
+        "summary": "دریافت تراکنش کیف پول",
         "tags": [
           "Payment"
         ]
@@ -5503,7 +5699,7 @@
     },
     "/v1/open-platform/add-ons/post/{token}": {
       "delete": {
-        "description": "فقط می‌توانید افزونه‌هایی را حذف کنید که توسط اپلیکیشن شما ایجاد شده‌اند.",
+        "description": "این API امکان حذف افزونه از یک آگهی را فراهم می‌کند. تمام افزونه‌های ایجاد شده توسط اپلیکیشن شما برای توکن آگهی مشخص شده حذف می‌شوند.\n\n**نکات مهم**:\n- فقط افزونه‌های ایجاد شده توسط اپلیکیشن شما قابل حذف هستند\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `ADD_ON_DELETE`",
         "operationId": "Addons_DeletePostAddon",
         "parameters": [
           {
@@ -5537,7 +5733,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "حذف افزونه از آگهی",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "حذف افزونه آگهی",
         "tags": [
           "Addons"
         ]
@@ -5545,7 +5746,7 @@
     },
     "/v1/open-platform/addons/business/{business_token}": {
       "post": {
-        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه جدیدی به آگهی‌های کسب‌و‌کار متصل کنید.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه خود استفاده کنید.\nاین API به توکن دسترسی با یکی از دامنه‌های زیر نیاز دارد:\n- BUSINESS_ADDON_CREATE.{business_token}",
+        "description": "این API امکان ایجاد افزونه کسب‌وکار را فراهم می‌کند که روی تمام آگهی‌های منتشر شده یک کسب‌وکار نمایش داده می‌شود.\n\n**نکات مهم**:\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n- مالکیت کسب‌وکار قبل از ایجاد افزونه بررسی می‌شود\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `BUSINESS_ADDON_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `BUSINESS_ADDON_CREATE.business_token`",
         "operationId": "Addons_CreateBusinessAddon",
         "parameters": [
           {
@@ -5589,7 +5790,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "افزودن افزونه جدید به آگهی‌های کسب‌و‌کار",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "BUSINESS_ADDON_CREATE.business_token"
+            ]
+          }
+        ],
+        "summary": "ایجاد افزونه کسب‌وکار",
         "tags": [
           "Addons"
         ]
@@ -5597,7 +5806,7 @@
     },
     "/v1/open-platform/addons/post/{token}": {
       "delete": {
-        "description": "فقط می‌توانید افزونه‌هایی را حذف کنید که توسط اپلیکیشن شما ایجاد شده‌اند.",
+        "description": "این API امکان حذف افزونه از یک آگهی را فراهم می‌کند. تمام افزونه‌های ایجاد شده توسط اپلیکیشن شما برای توکن آگهی مشخص شده حذف می‌شوند.\n\n**نکات مهم**:\n- فقط افزونه‌های ایجاد شده توسط اپلیکیشن شما قابل حذف هستند\n",
         "operationId": "Addons_DeletePostAddon2",
         "parameters": [
           {
@@ -5631,7 +5840,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "حذف افزونه از آگهی",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "حذف افزونه آگهی",
         "tags": [
           "Addons"
         ]
@@ -5639,7 +5853,7 @@
     },
     "/v1/open-platform/addons/user/{id}": {
       "delete": {
-        "description": "این تمام افزونه‌های مرتبط با تمام آگهی‌های کاربر را حذف می‌کند.\nفقط می‌توانید افزونه‌هایی را حذف کنید که توسط اپلیکیشن شما ایجاد شده‌اند.",
+        "description": "این API امکان حذف افزونه کاربر با شناسه را فراهم می‌کند. این کار افزونه کاربر و تمام افزونه‌های آگهی مرتبط را حذف می‌کند.\n\n**نکات مهم**:\n- فقط افزونه‌های کاربر ایجاد شده توسط اپلیکیشن شما قابل حذف هستند\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_ADDON_DELETE`",
         "operationId": "Addons_DeleteUserAddon",
         "parameters": [
           {
@@ -5673,6 +5887,11 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "حذف افزونه کاربر",
         "tags": [
           "Addons"
@@ -5681,7 +5900,7 @@
     },
     "/v1/open-platform/assets/body-status": {
       "get": {
-        "description": "دریافت تمام گزینه‌های وضعیت بدنه موجود در دسته‌بندی‌های خودرو دیوار. این ترجمه فارسی برای هر گزینه وضعیت بدنه که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت گزینه‌های وضعیت بدنه موجود برای دسته‌بندی‌های خودرو را فراهم می‌کند.",
         "operationId": "Assets_GetBodyStatuses",
         "responses": {
           "200": {
@@ -5705,7 +5924,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت گزینه‌های وضعیت بدنه موجود در دسته‌بندی‌های خودرو دیوار",
+        "summary": "لیست گزینه‌های وضعیت بدنه",
         "tags": [
           "Assets"
         ]
@@ -5713,7 +5932,7 @@
     },
     "/v1/open-platform/assets/brand-model/{category}": {
       "get": {
-        "description": "دریافت تمام مدل‌های برند دیوار در دسته‌بندی مشخص شده. این ترجمه فارسی برای هر مدل برند که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت مدل برندها برای یک دسته‌بندی خاص را فراهم می‌کند. دسته‌بندی‌های پشتیبانی شده: `light` (خودرو) و `mobile-phones`.\n\n**نکات مهم**:\n- مدل برندها با نام‌های فارسی برگردانده می‌شوند\n- دسته‌بندی باید یکی از دسته‌بندی‌های پشتیبانی شده باشد، در غیر این صورت خطا برمی‌گردد",
         "operationId": "Assets_GetBrandModels",
         "parameters": [
           {
@@ -5747,7 +5966,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت مدل‌های برند در دسته‌بندی دیوار",
+        "summary": "لیست مدل برندها بر اساس دسته‌بندی",
         "tags": [
           "Assets"
         ]
@@ -5755,7 +5974,7 @@
     },
     "/v1/open-platform/assets/category": {
       "get": {
-        "description": "دریافت تمام دسته‌بندی‌های دیوار. این ترجمه فارسی برای هر دسته‌بندی که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت همه دسته‌بندی‌های دیوار را فراهم می‌کند. شناسه دسته‌بندی‌ها و نام‌های فارسی آنها برای استفاده در ثبت و جستجوی آگهی برمی‌گردد.",
         "operationId": "Assets_GetCategories",
         "responses": {
           "200": {
@@ -5779,7 +5998,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت دسته‌بندی‌های دیوار",
+        "summary": "لیست همه دسته‌بندی‌ها",
         "tags": [
           "Assets"
         ]
@@ -5787,7 +6006,7 @@
     },
     "/v1/open-platform/assets/city": {
       "get": {
-        "description": "دریافت تمام شهرهای دیوار. این ترجمه فارسی برای هر شهر که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت همه شهرهای دیوار را فراهم می‌کند. شناسه شهرها و نام‌های فارسی آنها برای استفاده در ثبت و جستجوی آگهی برمی‌گردد.",
         "operationId": "Assets_GetCities",
         "responses": {
           "200": {
@@ -5811,7 +6030,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت شهرهای دیوار",
+        "summary": "لیست همه شهرها",
         "tags": [
           "Assets"
         ]
@@ -5819,7 +6038,7 @@
     },
     "/v1/open-platform/assets/color/{category}": {
       "get": {
-        "description": "دریافت تمام رنگ‌های دیوار در دسته‌بندی مشخص شده. این ترجمه فارسی برای هر رنگ که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت رنگ‌های موجود برای یک دسته‌بندی خاص را فراهم می‌کند. دسته‌بندی‌های پشتیبانی شده: `light` (خودرو) و `mobile-phones`.\n\n**نکات مهم**:\n- رنگ‌ها با نام‌های فارسی برگردانده می‌شوند\n- دسته‌بندی باید یکی از دسته‌بندی‌های پشتیبانی شده باشد، در غیر این صورت خطا برمی‌گردد",
         "operationId": "Assets_GetColors",
         "parameters": [
           {
@@ -5853,7 +6072,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت رنگ‌ها در دسته‌بندی دیوار",
+        "summary": "لیست رنگ‌ها بر اساس دسته‌بندی",
         "tags": [
           "Assets"
         ]
@@ -5861,7 +6080,7 @@
     },
     "/v1/open-platform/assets/district": {
       "get": {
-        "description": "دریافت تمام مناطق دیوار. این ترجمه فارسی برای هر منطقه که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت محله‌های دیوار را فراهم می‌کند. می‌توان بدون پارامتر برای دریافت همه محله‌ها یا با city_slug برای دریافت محله‌های یک شهر خاص فراخوانی کرد.",
         "operationId": "Assets_GetDistricts",
         "parameters": [
           {
@@ -5894,7 +6113,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت مناطق دیوار",
+        "summary": "لیست محله‌ها",
         "tags": [
           "Assets"
         ]
@@ -5902,7 +6121,7 @@
     },
     "/v1/open-platform/assets/district/{city_slug}": {
       "get": {
-        "description": "دریافت تمام مناطق دیوار. این ترجمه فارسی برای هر منطقه که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت محله‌های دیوار را فراهم می‌کند. می‌توان بدون پارامتر برای دریافت همه محله‌ها یا با city_slug برای دریافت محله‌های یک شهر خاص فراخوانی کرد.",
         "operationId": "Assets_GetDistricts2",
         "parameters": [
           {
@@ -5936,7 +6155,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت مناطق دیوار",
+        "summary": "لیست محله‌ها",
         "tags": [
           "Assets"
         ]
@@ -5944,7 +6163,7 @@
     },
     "/v1/open-platform/assets/internal-storage": {
       "get": {
-        "description": "دریافت تمام گزینه‌های حافظه داخلی موجود در دسته‌بندی‌های موبایل دیوار. این ترجمه فارسی برای هر گزینه حافظه داخلی که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت گزینه‌های حافظه داخلی موجود برای دسته‌بندی‌های موبایل، تبلت و لپ‌تاپ را فراهم می‌کند.",
         "operationId": "Assets_GetInternalStorages",
         "responses": {
           "200": {
@@ -5968,7 +6187,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت گزینه‌های حافظه داخلی موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار",
+        "summary": "لیست گزینه‌های حافظه داخلی",
         "tags": [
           "Assets"
         ]
@@ -5976,7 +6195,7 @@
     },
     "/v1/open-platform/assets/oauth-scope": {
       "get": {
-        "description": "اینها دامنه‌های موجود برای OAuth2.0 کنار دیوار هستند.\nاز دامنه‌ها در جریان OAuth برای درخواست دسترسی به داده‌های کاربر یا انجام اقدامات از طرف آنها استفاده کنید.",
+        "description": "این API لیست OAuth اسکوپ‌های موجود برای کنار دیوار را برمی‌گرداند. از این اسکوپ‌ها در جریان OAuth برای درخواست دسترسی به داده‌های کاربر استفاده کنید.\n\n**نکات مهم**:\n- هر اسکوپ شامل وضعیت چرخه حیات است (آزمایشی، فعال، در حال منسوخ شدن، منسوخ شده)\n- برخی اسکوپ‌ها نیاز به resource id دارند (مثلاً توکن آگهی، شناسه مکالمه)",
         "operationId": "Assets_GetOAuthScopes",
         "responses": {
           "200": {
@@ -6000,7 +6219,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت دامنه‌های OAuth کنار دیوار",
+        "summary": "لیست دامنه‌های OAuth",
         "tags": [
           "Assets"
         ]
@@ -6008,7 +6227,7 @@
     },
     "/v1/open-platform/assets/permission": {
       "get": {
-        "description": "این مجوزها برای کنترل دسترسی در اپلیکیشن‌های کنار دیوار استفاده می‌شوند. آنها را با دامنه‌های OAuth اشتباه نگیرید.\nانتظار می‌رود اپلیکیشن‌ها نسبت به این مجوزها کور باشند. اینها فقط برای استفاده‌های داخلی ایجاد شده‌اند، اما در صورت نیاز آزادانه درخواست فعال‌سازی برای اپلیکیشن خود را ارائه دهید.",
+        "description": "این API امکان دریافت مجوزهای موجود کنار دیوار را فراهم می‌کند. این مجوزها برای کنترل دسترسی در اپلیکیشن‌های کنار دیوار استفاده می‌شوند و با دامنه‌های OAuth متفاوت هستند.\n\n**نکات مهم**:\n- مجوزها برای استفاده داخلی هستند و اپلیکیشن‌ها نباید مستقیماً به آنها وابسته باشند\n- هر مجوز شامل وضعیت چرخه حیات آن است (آزمایشی، فعال، در حال منسوخ شدن، منسوخ شده)",
         "operationId": "Assets_GetPermissions",
         "responses": {
           "200": {
@@ -6032,7 +6251,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت مجوزهای کنار دیوار",
+        "summary": "لیست مجوزهای کنار دیوار",
         "tags": [
           "Assets"
         ]
@@ -6040,7 +6259,7 @@
     },
     "/v1/open-platform/assets/ram-memory": {
       "get": {
-        "description": "دریافت تمام گزینه‌های حافظه رم موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار. این ترجمه فارسی برای هر گزینه حافظه رم که در آگهی‌ها استفاده می‌شود، ارائه می‌دهد.",
+        "description": "این API امکان دریافت گزینه‌های حافظه RAM موجود برای دسته‌بندی‌های موبایل، تبلت و لپ‌تاپ را فراهم می‌کند.",
         "operationId": "Assets_GetRamMemories",
         "responses": {
           "200": {
@@ -6064,7 +6283,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت گزینه‌های حافظه رم موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار",
+        "summary": "لیست گزینه‌های حافظه RAM",
         "tags": [
           "Assets"
         ]
@@ -6072,7 +6291,7 @@
     },
     "/v1/open-platform/assets/service-type": {
       "get": {
-        "description": "این انواع سرویس برای گروه‌بندی سرویس‌های مشابه در کنار دیوار استفاده می‌شود.\nهر ایده جدید با انواع سرویس جدید خوشامد است. در صورت نیاز آزادانه درخواست دهید.",
+        "description": "این API امکان دریافت انواع سرویس موجود در کنار دیوار را فراهم می‌کند. انواع سرویس برای گروه‌بندی سرویس‌های مشابه استفاده می‌شوند.\n\n**نکات مهم**:\n- می‌توان انواع سرویس جدید را در صورت نیاز درخواست داد",
         "operationId": "Assets_GetServiceTypes",
         "responses": {
           "200": {
@@ -6096,7 +6315,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت انواع سرویس موجود در کنار دیوار",
+        "summary": "لیست انواع سرویس",
         "tags": [
           "Assets"
         ]
@@ -6138,7 +6357,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت قالب ثبت",
+        "summary": "دریافت schema ثبت آگهی برای دسته‌بندی",
         "tags": [
           "Assets"
         ]
@@ -6146,7 +6365,7 @@
     },
     "/v1/open-platform/chat/bot/conversations/{conversation_id}/messages": {
       "post": {
-        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage",
         "parameters": [
           {
@@ -6184,6 +6403,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_BOT_USER_MESSAGE_SEND"
+            ]
+          }
+        ],
         "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
@@ -6192,7 +6419,7 @@
     },
     "/v1/open-platform/chat/bot/users/{user_id}/messages": {
       "post": {
-        "description": "می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\nفراخوانی با user_id نیاز به access_token با دامنه CHAT_BOT_USER_MESSAGE_SEND دارد. این به شما امکان شروع مکالمه با کاربر از ChatBot را می‌دهد.",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage2",
         "parameters": [
           {
@@ -6230,6 +6457,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_BOT_USER_MESSAGE_SEND"
+            ]
+          }
+        ],
         "summary": "ارسال پیام به مکالمه ChatBot",
         "tags": [
           "ChatAPI"
@@ -6238,7 +6473,7 @@
     },
     "/v1/open-platform/chat/conversations/{conversation_id}": {
       "get": {
-        "description": "این API برای دریافت مکالمه و پیام‌های یک مکالمه با شناسه آن استفاده می‌شود. این API توکن دسترسی با دامنه `CHAT_CONVERSATION_READ` را انتظار دارد.",
+        "description": "این API امکان دریافت مکالمه و پیام‌های آن با شناسه مکالمه را فراهم می‌کند. جزئیات مکالمه و پیام‌های متنی تا زمان انقضای توکن OAuth برمی‌گردد.\n\n**نکات مهم**:\n- فقط پیام‌های متنی برگردانده می‌شوند (سایر انواع پیام فیلتر می‌شوند)\n- پیام‌ها به ترتیب صعودی برگردانده می‌شوند\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_READ_CONVERSATION`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_CONVERSATION_READ.conversation_id`",
         "operationId": "ChatAPI_GetConversation",
         "parameters": [
           {
@@ -6273,7 +6508,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت مکالمه با شناسه آن",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_CONVERSATION_READ.conversation_id"
+            ]
+          }
+        ],
+        "summary": "دریافت مکالمه",
         "tags": [
           "ChatAPI"
         ]
@@ -6281,7 +6524,7 @@
     },
     "/v1/open-platform/events/subscriptions": {
       "post": {
-        "description": "این درخواست به شما امکان اشتراک در رویداد را می‌دهد.\nباید access-token را در این API ارسال کنید تا دسترسی شما بررسی شود.\nبرای اشتراک در `NEW_MESSAGE_ON_POST` به یکی از این دامنه‌ها نیاز دارید:\n- CHAT_POST_CONVERSATIONS_READ.{post_token}\n- CHAT_SUPPLIER_ALL_CONVERSATIONS_READ\nبرای اشتراک در `POST_UPDATE` به دامنه `USER_POSTS_GET` نیاز دارید.\nپس از فراخوانی این API، هنگام وقوع رویداد مربوطه در webhook خود مطلع خواهید شد.\nمطمئن شوید URL webhook در پنل ارائه‌دهندگان برای اپلیکیشن شما تنظیم شده است.\nبرخی رویدادها به طور پیش‌فرض فعال هستند و نیازی به اشتراک ندارند (مثل پیام‌های chatbot).",
+        "description": "این API امکان اشتراک در رویدادها برای دریافت اعلان‌ها از طریق webhook هنگام وقوع رویدادها را فراهم می‌کند. پس از اشتراک، هنگام وقوع رویداد مربوطه در آدرس webhook شما مطلع خواهید شد.\n\n**نکات مهم**:\n- برای رویداد `NEW_MESSAGE_ON_POST`: نیاز به اسکوپ `CHAT_POST_CONVERSATIONS_READ.post_token` یا `CHAT_SUPPLIER_ALL_CONVERSATIONS_READ`\n- برای رویداد `POST_UPDATE`: نیاز به اسکوپ `USER_POSTS_GET`\n- آدرس webhook باید در پنل ارائه‌دهندگان برای اپلیکیشن شما تنظیم شده باشد\n- برخی رویدادها به صورت پیش‌فرض فعال هستند و نیازی به اشتراک ندارند (مثل پیام‌های ربات چت)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `EVENTS_REGISTER_SUBSCRIPTION`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_POST_CONVERSATIONS_READ.post_token` یا `CHAT_SUPPLIER_ALL_CONVERSATIONS_READ` یا `USER_POSTS_GET`",
         "operationId": "Events_RegisterEventSubscription",
         "requestBody": {
           "content": {
@@ -6315,6 +6558,16 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_POST_CONVERSATIONS_READ.post_token",
+              "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ",
+              "USER_POSTS_GET"
+            ]
+          }
+        ],
         "summary": "اشتراک در رویداد",
         "tags": [
           "Events"
@@ -6323,7 +6576,7 @@
     },
     "/v1/open-platform/finder/post/{token}": {
       "get": {
-        "description": "این API به شما امکان دریافت جزئیات آگهی دیوار با استفاده از توکن آن را می‌دهد.\nمی‌توانید از توکن برای دریافت داده‌های آگهی و وضعیت آن استفاده کنید",
+        "description": "این API امکان دریافت داده‌های عمومی آگهی با توکن را فراهم می‌کند. جزئیات آگهی شامل داده‌های دسته‌بندی، موقعیت، وضعیت، زمان‌ها و اطلاعات کسب‌وکار برمی‌گردد.\n\n**نکات مهم**:\n- فقط داده‌های عمومی آگهی برگردانده می‌شوند (فیلدهای خصوصی حذف می‌شوند)\n- می‌توان هر آگهی منتشر شده‌ای را دریافت کرد، محدود به آگهی‌های خود کاربر نیست\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_POST`",
         "operationId": "Finder_GetPost",
         "parameters": [
           {
@@ -6357,6 +6610,11 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "دریافت آگهی دیوار",
         "tags": [
           "Finder"
@@ -6365,7 +6623,7 @@
     },
     "/v1/open-platform/finder/user-posts": {
       "get": {
-        "description": "این API به شما امکان دریافت تمام آگهی‌های یک کاربر را می‌دهد.\nمی‌توانید از این API برای نمایش آگهی‌های کاربر در سرویس خود استفاده کنید.",
+        "description": "این API امکان دریافت لیست آگهی‌های متعلق به کاربر احراز هویت شده را فراهم می‌کند. اطلاعات پایه شامل توکن، عنوان، تصاویر، دسته‌بندی و وضعیت نمایش شماره تلفن برمی‌گردد.\n\n**نکات مهم**:\n- فقط آگهی‌های متعلق به کاربر احراز هویت شده برگردانده می‌شوند\n- آگهی‌ها در وضعیت‌های مختلف برگردانده می‌شوند: منتشر شده، در انتظار پرداخت، در انتظار بررسی یا نیازمند اصلاح\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_USER_POSTS`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_POSTS_GET`",
         "operationId": "Finder_GetUserPosts",
         "responses": {
           "200": {
@@ -6389,6 +6647,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_POSTS_GET"
+            ]
+          }
+        ],
         "summary": "دریافت آگهی‌های کاربر",
         "tags": [
           "Finder"
@@ -6397,7 +6663,7 @@
     },
     "/v1/open-platform/get-user-id-by-phone": {
       "post": {
-        "description": "با استفاده از این API می‌توانید شناسه‌ی دیوار یک کاربر را با استفاده از شماره تلفن دریافت کنید. این اجازه مختص برنامه‌هایی است که دسترسی به شماره تماس کاربر ندارند و برای ارائه‌ی خدمات پشتیبانی به کاربران، نیاز به تبدیل شماره به شناسه‌ی دیوار دارند.",
+        "description": "این API امکان پیدا کردن شناسه کاربر با شماره تلفن را می‌دهد. مناسب برای یکپارچه‌سازی با سیستم‌های CRM یا پشتیبانی.\n\n**نکات مهم**:\n- شناسه مبهم‌شده برمی‌گردد (یکتا برای هر اپلیکیشن، نه شناسه واقعی کاربر دیوار)\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_USER_ID_BY_PHONE`",
         "operationId": "Finder_GetUserIDByPhone",
         "requestBody": {
           "content": {
@@ -6431,7 +6697,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت شناسه دیوار کاربر با شماره تلفن",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "دریافت شناسه کاربر دیوار با شماره تلفن",
         "tags": [
           "Finder"
         ]
@@ -6439,7 +6710,7 @@
     },
     "/v1/open-platform/payment-ticket/validate": {
       "post": {
-        "description": "بلیط‌های پرداخت برای یکپارچه‌سازی اپلیکیشن‌های کنار با تیم‌های داخلی دیوار طراحی شده‌اند.\nبا استفاده از این API می‌توانید بلیط پرداخت را اعتبارسنجی کرده و payload صادرکننده را دریافت کنید.",
+        "description": "این API امکان اعتبارسنجی تیکت پرداخت و دریافت payload صادرکننده آن را فراهم می‌کند. برای تایید تیکت‌های ارائه شده توسط کاربران جهت یکپارچه‌سازی با سرویس‌های دیوار استفاده کنید.\n\n**نکات مهم**:\n- این API توسط اپلیکیشن‌های کنار برای اعتبارسنجی تیکت‌ها استفاده می‌شود\n- پاسخ شامل payload ارائه شده توسط صادرکننده است\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `PAYMENT_TICKET_VALIDATE`",
         "operationId": "PaymentTicket_Validate",
         "requestBody": {
           "content": {
@@ -6473,7 +6744,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "اعتبارسنجی بلیط پرداخت",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "اعتبارسنجی تیکت پرداخت",
         "tags": [
           "PaymentTicket"
         ]
@@ -6481,7 +6757,8 @@
     },
     "/v1/open-platform/post/image-upload-url": {
       "get": {
-        "description": "This API allows you to get an upload URL for uploading images of a post.\nYou can upload images to the returned URL using a POST request with binary encoding.\nUse https://kenar.divar.dev/openapi-doc/post-get-upload-urls-v2/ instead",
+        "deprecated": true,
+        "description": "این API آدرس آپلود برای بارگذاری تصاویر آگهی را برمی‌گرداند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `UPLOAD_POST_IMAGE`",
         "operationId": "Post_GetImageUploadURL",
         "responses": {
           "200": {
@@ -6505,7 +6782,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get image upload URL (Deprecated)",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "دریافت آدرس اپلود تصاویر آگهی (منسوخ شده)",
         "tags": [
           "Post"
         ]
@@ -6513,7 +6795,7 @@
     },
     "/v1/open-platform/post/{post_token}": {
       "delete": {
-        "description": "این API به شما امکان حذف آگهی را می‌دهد. این نیاز به اسکوپ OAuth `DELETE_USER_POST` دارد.",
+        "description": "این API امکان حذف آگهی را فراهم می‌کند. فقط آگهی‌های متعلق به کاربر احراز هویت شده قابل حذف هستند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `DELETE_USER_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `DELETE_USER_POST`",
         "operationId": "Post_DeleteUserPost",
         "parameters": [
           {
@@ -6548,13 +6830,22 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "DELETE_USER_POST"
+            ]
+          }
+        ],
         "summary": "حذف آگهی",
         "tags": [
           "Post"
         ]
       },
       "put": {
-        "description": "این API به شما امکان ویرایش آگهی را می‌دهد. این نیاز به دامنه OAuth `POST_EDIT.{post_token}` دارد.\nدر حال حاضر فقط می‌توانید عنوان، توضیحات و تصاویر آگهی را ویرایش کنید.",
+        "deprecated": true,
+        "description": "این API امکان ویرایش آگهی را فراهم می‌کند. می‌توانید عنوان، توضیحات و تصاویر آگهی را به‌روزرسانی کنید.\n\n**نکات مهم**:\n- عنوان باید بین 3 تا 50 کاراکتر باشد\n- آگهی نباید منقضی شده باشد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `EDIT_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `POST_EDIT.post_token`",
         "operationId": "Post_EditPost",
         "parameters": [
           {
@@ -6598,6 +6889,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "POST_EDIT.post_token"
+            ]
+          }
+        ],
         "summary": "ویرایش آگهی",
         "tags": [
           "Post"
@@ -6606,7 +6905,7 @@
     },
     "/v1/open-platform/post/{post_token}/pricing": {
       "get": {
-        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید قیمت سرویس‌های مختلف مانند نردبان، تمدید و ثبت را دریافت کنید. قیمت این API لزوماً با قیمت در دیوار یکسان نیست و ممکن است متفاوت باشد. از این API برای دریافت قیمت قبل از اعمال سرویس‌ها (مانند نردبان آگهی، تمدید آگهی یا ثبت آگهی) استفاده کنید.",
+        "description": "این API امکان دریافت اطلاعات قیمت‌گذاری برای خدمات مرتبط با آگهی را فراهم می‌کند. قبل از انجام عملیات‌های پولی مانند نردبان، تمدید یا ثبت آگهی از این برای بررسی هزینه‌ها استفاده کنید.\n\n**نکات مهم**:\n- قیمت‌گذاری مختص اپلیکیشن شما است و ممکن است با قیمت‌گذاری استاندارد دیوار متفاوت باشد\n- قیمت‌ها ممکن است بر اساس دسته‌بندی و شهر آگهی متفاوت باشند\n- فلگ `available` نشان می‌دهد که آیا سرویس برای این آگهی قابل اعمال است\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `POST_PRICING_RETRIEVE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PAYMENT_ALL_POSTS_PRICING_READ`",
         "operationId": "Payment_GetPostPricing",
         "parameters": [
           {
@@ -6641,7 +6940,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت هزینه سرویس",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "PAYMENT_ALL_POSTS_PRICING_READ"
+            ]
+          }
+        ],
+        "summary": "دریافت قیمت خدمات آگهی",
         "tags": [
           "Payment"
         ]
@@ -6649,10 +6956,11 @@
     },
     "/v1/open-platform/semantic/user/{phone}": {
       "delete": {
-        "description": "می‌توانید اطلاعات معنایی یک کاربر را با فراخوانی این API حذف کنید.",
+        "description": "این API امکان حذف اطلاعات معنایی یک کاربر را فراهم می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_SEMANTIC_DELETE`",
         "operationId": "Semantic_DeleteUserSemantic",
         "parameters": [
           {
+            "description": "شماره موبایل کاربر",
             "in": "path",
             "name": "phone",
             "required": true,
@@ -6661,6 +6969,7 @@
             }
           },
           {
+            "description": "شناسه کاربر دیوار",
             "in": "query",
             "name": "divar_user_id",
             "schema": {
@@ -6690,16 +6999,22 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "حذف اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
         ]
       },
       "post": {
-        "description": "در برخی موارد، ذخیره اطلاعات مربوط به کاربر در دیوار بدون افزودن افزونه ضروری است.\nنام کاربری در دیوار همان شماره موبایل است.\nاین API توکن دسترسی با دامنه `USER_VERIFICATION_CREATE` را انتظار دارد.\nاز APIهای اطلاعات معنایی کاربر برای این منظور استفاده کنید. این سرویس امکان ارسال اطلاعات معنایی و بلیط پرداخت اختیاری را فراهم می‌کند.",
+        "description": "این API امکان ایجاد یا به‌روزرسانی semantic کاربر بدون افزودن افزونه را می‌دهد.\n\n**نکات مهم**:\n- امکان ارسال اطلاعات معنایی و تیکت پرداخت (اختیاری) وجود دارد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_SEMANTIC_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_VERIFICATION_CREATE`",
         "operationId": "Semantic_CreateUserSemantic",
         "parameters": [
           {
+            "description": "شماره موبایل کاربر",
             "in": "path",
             "name": "phone",
             "required": true,
@@ -6733,6 +7048,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_VERIFICATION_CREATE"
+            ]
+          }
+        ],
         "summary": "ایجاد اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
@@ -6741,10 +7064,11 @@
     },
     "/v1/open-platform/semantic/users/{divar_user_id}": {
       "delete": {
-        "description": "می‌توانید اطلاعات معنایی یک کاربر را با فراخوانی این API حذف کنید.",
+        "description": "این API امکان حذف اطلاعات معنایی یک کاربر را فراهم می‌کند.",
         "operationId": "Semantic_DeleteUserSemantic2",
         "parameters": [
           {
+            "description": "شناسه کاربر دیوار",
             "in": "path",
             "name": "divar_user_id",
             "required": true,
@@ -6753,8 +7077,10 @@
             }
           },
           {
+            "description": "شماره موبایل کاربر",
             "in": "query",
             "name": "phone",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -6782,16 +7108,22 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
         "summary": "حذف اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
         ]
       },
       "post": {
-        "description": "در برخی موارد، ذخیره اطلاعات مربوط به کاربر در دیوار بدون افزودن افزونه ضروری است.\nنام کاربری در دیوار همان شماره موبایل است.\nاین API توکن دسترسی با دامنه `USER_VERIFICATION_CREATE` را انتظار دارد.\nاز APIهای اطلاعات معنایی کاربر برای این منظور استفاده کنید. این سرویس امکان ارسال اطلاعات معنایی و بلیط پرداخت اختیاری را فراهم می‌کند.",
+        "description": "این API امکان ایجاد یا به‌روزرسانی semantic کاربر بدون افزودن افزونه را می‌دهد.\n\n**نکات مهم**:\n- امکان ارسال اطلاعات معنایی و تیکت پرداخت (اختیاری) وجود دارد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_VERIFICATION_CREATE`",
         "operationId": "Semantic_CreateUserSemantic2",
         "parameters": [
           {
+            "description": "شناسه کاربر دیوار",
             "in": "path",
             "name": "divar_user_id",
             "required": true,
@@ -6825,6 +7157,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_VERIFICATION_CREATE"
+            ]
+          }
+        ],
         "summary": "ایجاد اطلاعات معنایی کاربر",
         "tags": [
           "Semantic"
@@ -6833,7 +7173,7 @@
     },
     "/v1/open-platform/user-payments": {
       "post": {
-        "description": "با استفاده از این API، باید پرداخت کاربر را ثبت کنید. ضروری است که از این API برای ثبت پرداخت کاربر همراه با مبلغ دریافت شده استفاده کنید. این API به توکن دسترسی با دامنه OAuth `SUBMIT_USER_PAYMENT` نیاز دارد.",
+        "description": "این API امکان گزارش پرداخت انجام شده توسط کاربر به سرویس شما را فراهم می‌کند. از این برای اطلاع‌رسانی دیوار درباره تراکنش‌هایی که کاربران از طریق پلتفرم شما پرداخت می‌کنند استفاده کنید.\n\n**نکات مهم**:\n- باید پرداخت‌ها را در بازه زمانی توافق شده گزارش دهید\n- `reference_id` باید برای هر تراکنش منحصر به فرد باشد (برای تسویه حساب استفاده می‌شود)\n- شناسه خدماتی که کاربر برای آنها پرداخت کرده را لیست کنید (مثلاً 'banner', 'title_refinement')\n- این داده‌ها برای تقسیم درآمد و گزارش مالی استفاده می‌شوند\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_USER_PAYMENT`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SUBMIT_USER_PAYMENT`",
         "operationId": "Payment_SubmitUserPayment",
         "requestBody": {
           "content": {
@@ -6867,7 +7207,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "ثبت پرداخت کاربر",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "SUBMIT_USER_PAYMENT"
+            ]
+          }
+        ],
+        "summary": "ثبت رکورد پرداخت کاربر",
         "tags": [
           "Payment"
         ]
@@ -6875,7 +7223,7 @@
     },
     "/v1/open-platform/user-post/{token}": {
       "get": {
-        "description": "این API به شما امکان دریافت اطلاعات دقیق درباره یک آگهی خاص با استفاده از توکن آن را می‌دهد.\nاین نقطه پایانی آگهی‌های ثبت شده توسط کاربران احراز هویت شده از طریق پلتفرم باز را برمی‌گرداند، شامل داده‌های کسب‌وکار، وضعیت و دلایل رد.\nاین API به مجوز `GET_USER_POST` نیاز دارد.\nاین API به دامنه OAuth `USER_POSTS_GET` نیاز دارد.",
+        "description": "این API امکان دریافت اطلاعات دقیق یک آگهی شامل داده‌های عمومی، داده‌های دسته‌بندی، داده‌های کسب‌وکار، وضعیت و دلیل رد را فراهم می‌کند. فقط آگهی‌های متعلق به کاربر احراز هویت شده قابل دریافت هستند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_USER_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_POSTS_GET`",
         "operationId": "Post_GetUserPost",
         "parameters": [
           {
@@ -6909,6 +7257,14 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_POSTS_GET"
+            ]
+          }
+        ],
         "summary": "دریافت آگهی با توکن",
         "tags": [
           "Post"
@@ -6917,7 +7273,7 @@
     },
     "/v1/open-platform/users": {
       "get": {
-        "description": "پس از دریافت توکن دسترسی، می‌توانید از این API برای دریافت اطلاعات کاربر استفاده کنید.\nبا scope `USER_PHONE` می‌توانید شماره تلفن کاربر را دریافت کنید.\nبا scope `USER_ID` می‌توانید شناسه کاربر را دریافت کرده و می‌توانید روی منحصر به فرد بودن این شناسه تکیه کنید.\n",
+        "description": "این API اطلاعات کاربر احراز هویت شده را برمی‌گرداند. داده‌های برگشتی به OAuth اسکوپ‌های اعطا شده بستگی دارد.\n\n**نکات مهم**:\n- با اسکوپ `USER_PHONE`: شماره تلفن کاربر برمی‌گردد\n- با اسکوپ `USER_ID`: شناسه مبهم‌شده کاربر برمی‌گردد (یکتا برای هر اپلیکیشن)\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ID` یا `USER_PHONE`",
         "operationId": "Finder_GetUser2",
         "responses": {
           "200": {
@@ -6941,13 +7297,22 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_ID",
+              "USER_PHONE"
+            ]
+          }
+        ],
         "summary": "دریافت اطلاعات کاربر",
         "tags": [
           "Finder"
         ]
       },
       "post": {
-        "description": "پس از دریافت توکن دسترسی، می‌توانید از این API برای دریافت اطلاعات کاربر استفاده کنید.\nبا scope `USER_PHONE` می‌توانید شماره تلفن کاربر را دریافت کنید.\nبا scope `USER_ID` می‌توانید شناسه کاربر را دریافت کرده و می‌توانید روی منحصر به فرد بودن این شناسه تکیه کنید.\n",
+        "description": "این API اطلاعات کاربر احراز هویت شده را برمی‌گرداند. داده‌های برگشتی به OAuth اسکوپ‌های اعطا شده بستگی دارد.\n\n**نکات مهم**:\n- با اسکوپ `USER_PHONE`: شماره تلفن کاربر برمی‌گردد\n- با اسکوپ `USER_ID`: شناسه مبهم‌شده کاربر برمی‌گردد (یکتا برای هر اپلیکیشن)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_RETRIEVE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ID` یا `USER_PHONE`",
         "operationId": "Finder_GetUser",
         "requestBody": {
           "content": {
@@ -6981,6 +7346,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_ID",
+              "USER_PHONE"
+            ]
+          }
+        ],
         "summary": "دریافت اطلاعات کاربر",
         "tags": [
           "Finder"
@@ -6989,7 +7363,7 @@
     },
     "/v2/open-platform/addons/post/{token}": {
       "post": {
-        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه جدیدی به آگهی متصل کنید.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه خود استفاده کنید.\nاین API به توکن دسترسی با یکی از دامنه‌های زیر نیاز دارد:\n- USER_POSTS_ADDON_CREATE\n- POST_ADDON_CREATE.{post_token}",
+        "description": "این API امکان ایجاد افزونه متصل به یک آگهی خاص را فراهم می‌کند. افزونه در صفحه جزئیات آگهی نمایش داده می‌شود.\n\n**نکات مهم**:\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n- مسیرهای معنایی از ویجت‌ها برای دسته‌بندی استخراج می‌شوند\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `ADD_ON_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `POST_ADDON_CREATE.post_token` یا `USER_POSTS_ADDON_CREATE`",
         "operationId": "Addons_CreatePostAddonV2",
         "parameters": [
           {
@@ -7033,7 +7407,16 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "افزودن افزونه جدید به آگهی",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "POST_ADDON_CREATE.post_token",
+              "USER_POSTS_ADDON_CREATE"
+            ]
+          }
+        ],
+        "summary": "ایجاد افزونه آگهی",
         "tags": [
           "Addons"
         ]
@@ -7041,7 +7424,7 @@
     },
     "/v2/open-platform/addons/user/{phone}": {
       "post": {
-        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه کاربر ایجاد کنید.\nافزونه کاربر به تمام آگهی‌های آینده کاربر متصل می‌شود و همچنین 30 آگهی آخر گذشته را پر می‌کند.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه کاربر خود استفاده کنید.\nاین API به توکن دسترسی با دامنه `USER_ADDON_CREATE` نیاز دارد",
+        "description": "این API امکان ایجاد افزونه کاربر را فراهم می‌کند که به صورت خودکار به تمام آگهی‌های کاربر متصل می‌شود. افزونه برای آگهی‌های آینده اعمال شده و همچنین تا 30 آگهی اخیر به عقب برمی‌گردد.\n\n**نکات مهم**:\n- می‌توان دسته‌بندی‌ها را برای فیلتر کردن آگهی‌هایی که افزونه دریافت می‌کنند مشخص کرد\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_ADDON_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ADDON_CREATE`",
         "operationId": "Addons_CreateUserAddonV2",
         "parameters": [
           {
@@ -7078,7 +7461,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "افزودن افزونه جدید به کاربر",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_ADDON_CREATE"
+            ]
+          }
+        ],
+        "summary": "ایجاد افزونه کاربر",
         "tags": [
           "Addons"
         ]
@@ -7086,7 +7477,7 @@
     },
     "/v2/open-platform/addons/users/{divar_user_id}": {
       "post": {
-        "description": "با استفاده از این API و با مجوز کاربر، می‌توانید افزونه کاربر ایجاد کنید.\nافزونه کاربر به تمام آگهی‌های آینده کاربر متصل می‌شود و همچنین 30 آگهی آخر گذشته را پر می‌کند.\nمی‌توانید از ویجت‌های موجود برای طراحی افزونه کاربر خود استفاده کنید.\nاین API به توکن دسترسی با دامنه `USER_ADDON_CREATE` نیاز دارد",
+        "description": "این API امکان ایجاد افزونه کاربر را فراهم می‌کند که به صورت خودکار به تمام آگهی‌های کاربر متصل می‌شود. افزونه برای آگهی‌های آینده اعمال شده و همچنین تا 30 آگهی اخیر به عقب برمی‌گردد.\n\n**نکات مهم**:\n- می‌توان دسته‌بندی‌ها را برای فیلتر کردن آگهی‌هایی که افزونه دریافت می‌کنند مشخص کرد\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ADDON_CREATE`",
         "operationId": "Addons_CreateUserAddonV22",
         "parameters": [
           {
@@ -7123,7 +7514,15 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "افزودن افزونه جدید به کاربر",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_ADDON_CREATE"
+            ]
+          }
+        ],
+        "summary": "ایجاد افزونه کاربر",
         "tags": [
           "Addons"
         ]
@@ -7131,7 +7530,7 @@
     },
     "/v2/open-platform/conversations/{conversation_id}/messages": {
       "post": {
-        "description": "این API برای ارسال پیام به مکالمه استفاده می‌شود.\nبرای فراخوانی این API به یکی از دامنه‌های زیر نیاز دارید:\n- CONVERSATION_SEND_MESSAGE.{conversation_id}\n- CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND\n- CHAT_POST_CONVERSATIONS_MESSAGE_SEND.{post_token}\n",
+        "description": "این API امکان ارسال پیام متنی یا رسانه به یک مکالمه را فراهم می‌کند. اگر مکالمه وجود نداشته باشد، به صورت خودکار ایجاد می‌شود.\n\n**نکات مهم**:\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را برای فرستنده و گیرنده ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_SEND_MESSAGE_OAUTH`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_POST_CONVERSATIONS_MESSAGE_SEND.post_token` یا `CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND` یا `CONVERSATION_SEND_MESSAGE.conversation_id`",
         "operationId": "ChatAPI_ConversationSendMessage",
         "parameters": [
           {
@@ -7176,6 +7575,16 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "CHAT_POST_CONVERSATIONS_MESSAGE_SEND.post_token",
+              "CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND",
+              "CONVERSATION_SEND_MESSAGE.conversation_id"
+            ]
+          }
+        ],
         "summary": "ارسال پیام به مکالمه",
         "tags": [
           "ChatAPI"
@@ -7184,7 +7593,7 @@
     },
     "/v2/open-platform/finder/post": {
       "post": {
-        "description": "این API به شما امکان جستجو آگهی‌های دیوار با برخی فیلترها را می‌دهد.\nمی‌توانید آگهی‌ها را بر اساس دسته‌بندی، شهر، منطقه و برخی فیلترهای دیگر جستجو کنید.\nآگهی‌ها بر اساس زمان آنها مرتب می‌شوند.\n",
+        "description": "این API امکان جستجوی آگهی‌های منتشر شده دیوار با فیلتر را فراهم می‌کند. می‌توانید بر اساس دسته‌بندی، شهر، محله و فیلدهای ویژه دسته‌بندی مانند محدوده قیمت، متراژ، تعداد اتاق و سال تولید فیلتر کنید.\n\n**نکات مهم**:\n- آگهی‌ها بر اساس زمان آخرین تغییر مرتب می‌شوند\n- فقط آگهی‌های منتشر شده برگردانده می‌شوند\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SEARCH_POST`",
         "operationId": "Finder_SearchPostV2",
         "requestBody": {
           "content": {
@@ -7218,7 +7627,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "جستجو آگهی‌های دیوار با فیلترهایی",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "جستجوی آگهی‌های دیوار",
         "tags": [
           "Finder"
         ]
@@ -7226,7 +7640,7 @@
     },
     "/v2/open-platform/post/upload-urls": {
       "get": {
-        "description": "این API به شما امکان دریافت URL آپلود برای آپلود تصاویر و ویدیوهای آگهی را می‌دهد.\nمی‌توانید تصاویر/ویدیوها را با استفاده از درخواست POST یا PUT با کدگذاری باینری به URL برگشتی آپلود کنید. آدرس برگشتی این API به api-key شما برای آپلود نیاز دارد. لطفاً توجه داشته باشید که آدرس برگشتی ممکن است بدون اطلاع قبلی تغییر کند.",
+        "description": "این API امکان دریافت آدرس‌های آپلود برای بارگذاری تصاویر و ویدیوهای آگهی را فراهم می‌کند. می‌توانید تصاویر/ویدیوها را با درخواست POST یا PUT با کدگذاری باینری به آدرس برگشتی آپلود کنید.\n\n**نکات مهم**:\n- آدرس برگشتی برای آپلود نیاز به api-key شما دارد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `UPLOAD_POST_IMAGE`",
         "operationId": "Post_GetUploadURLsV2",
         "responses": {
           "200": {
@@ -7250,7 +7664,12 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "Get Upload URL for Post Images and Videos",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "summary": "دریافت آدرس آپلود تصاویر و ویدیو",
         "tags": [
           "Post"
         ]
@@ -7258,7 +7677,7 @@
     },
     "/v2/open-platform/post/{post_token}": {
       "put": {
-        "description": "این API به شما امکان ویرایش آگهی با استفاده از احراز هویت OAuth را می‌دهد.\nتوکن دسترسی از یک کاربر با اسکوپ OAuth `POST_EDIT.{post_token}` یا `EDIT_USER_POST` مورد نیاز است.\n\nمی‌توانید عنوان، توضیحات، تصاویر، موقعیت، فیلدهای مخصوص دسته‌بندی و سایر ویژگی‌های آگهی را ویرایش کنید. فیلدهای مخصوص دسته‌بندی باید از قالب دسته‌بندی آگهی پیروی کنند. قالب را از اینجا دریافت کنید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/\n\nاز فیلد update_mask برای مشخص کردن فیلدهایی که می‌خواهید به‌روزرسانی کنید استفاده کنید.",
+        "description": "این API امکان ویرایش آگهی با پشتیبانی از field mask را فراهم می‌کند. می‌توانید عنوان، توضیحات، تصاویر، موقعیت، فیلدهای ویژه دسته‌بندی و سایر ویژگی‌ها را به‌روزرسانی کنید.\n\n**نکات مهم**:\n- فیلدهای ویژه دسته‌بندی باید از [قالب](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) پیروی کنند\n- از `update_mask` برای مشخص کردن فیلدهای مورد به‌روزرسانی استفاده کنید\n- هنگام استفاده از اسکوپ `EDIT_USER_POST`، آگهی باید متعلق به کاربر احراز هویت شده باشد\n- آگهی نباید منقضی شده باشد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `EDIT_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `EDIT_USER_POST` یا `POST_EDIT.post_token`",
         "operationId": "Post_EditPostV2",
         "parameters": [
           {
@@ -7303,7 +7722,16 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "ویرایش آگهی با پشتیبانی از فیلد ماسک",
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "EDIT_USER_POST",
+              "POST_EDIT.post_token"
+            ]
+          }
+        ],
+        "summary": "ویرایش آگهی (پیشرفته)",
         "tags": [
           "Post"
         ]
@@ -7322,32 +7750,41 @@
   ],
   "tags": [
     {
-      "name": "Addons"
+      "name": "Addons",
+      "x-displayName": "افزونه‌ها"
     },
     {
-      "name": "Assets"
+      "name": "Assets",
+      "x-displayName": "اطلاعات پایه"
     },
     {
-      "name": "ChatAPI"
+      "name": "ChatAPI",
+      "x-displayName": "چت"
     },
     {
-      "name": "Events"
+      "name": "Events",
+      "x-displayName": "رویدادها"
     },
     {
-      "name": "Finder"
+      "name": "Finder",
+      "x-displayName": "جستجوگر"
     },
     {
-      "name": "Post"
+      "description": "APIهای پرداخت و تراکنش برای مدیریت موجودی اپلیکیشن، خدمات مرتبط با آگهی (نردبان، تمدید، انتشار) و پرداخت‌های کیف پول. برخی APIها محدود به اپلیکیشن‌های تایید شده هستند - برای دسترسی با تیم دیوار تماس بگیرید.",
+      "name": "Payment",
+      "x-displayName": "پرداخت"
     },
     {
-      "description": "برخی از APIها محدود هستند. اگر نیاز به استفاده از آن‌ها دارید، تیکت ثبت کنید.",
-      "name": "Payment"
+      "name": "PaymentTicket",
+      "x-displayName": "تیکت پرداخت"
     },
     {
-      "name": "PaymentTicket"
+      "name": "Post",
+      "x-displayName": "آگهی"
     },
     {
-      "name": "Semantic"
+      "name": "Semantic",
+      "x-displayName": "اطلاعات معنایی"
     }
   ]
 }

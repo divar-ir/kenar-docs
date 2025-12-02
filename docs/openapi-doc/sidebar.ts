@@ -8,7 +8,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Addons",
+      label: "افزونه‌ها",
       link: {
         type: "doc",
         id: "openapi-doc/addons",
@@ -17,19 +17,19 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/addons-delete-post-addon",
-          label: "حذف افزونه از آگهی",
+          label: "حذف افزونه آگهی",
           className: "api-method delete",
         },
         {
           type: "doc",
           id: "openapi-doc/addons-create-business-addon",
-          label: "افزودن افزونه جدید به آگهی‌های کسب‌و‌کار",
+          label: "ایجاد افزونه کسب‌وکار",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "openapi-doc/addons-delete-post-addon-2",
-          label: "حذف افزونه از آگهی",
+          label: "حذف افزونه آگهی",
           className: "api-method delete",
         },
         {
@@ -41,26 +41,26 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/addons-create-post-addon-v-2",
-          label: "افزودن افزونه جدید به آگهی",
+          label: "ایجاد افزونه آگهی",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "openapi-doc/addons-create-user-addon-v-2",
-          label: "افزودن افزونه جدید به کاربر",
+          label: "ایجاد افزونه کاربر",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "openapi-doc/addons-create-user-addon-v-22",
-          label: "افزودن افزونه جدید به کاربر",
+          label: "ایجاد افزونه کاربر",
           className: "api-method post",
         },
       ],
     },
     {
       type: "category",
-      label: "Assets",
+      label: "اطلاعات پایه",
       link: {
         type: "doc",
         id: "openapi-doc/assets",
@@ -69,86 +69,86 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/assets-get-body-statuses",
-          label: "دریافت گزینه‌های وضعیت بدنه موجود در دسته‌بندی‌های خودرو دیوار",
+          label: "لیست گزینه‌های وضعیت بدنه",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-brand-models",
-          label: "دریافت مدل‌های برند در دسته‌بندی دیوار",
+          label: "لیست مدل برندها بر اساس دسته‌بندی",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-categories",
-          label: "دریافت دسته‌بندی‌های دیوار",
+          label: "لیست همه دسته‌بندی‌ها",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-cities",
-          label: "دریافت شهرهای دیوار",
+          label: "لیست همه شهرها",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-colors",
-          label: "دریافت رنگ‌ها در دسته‌بندی دیوار",
+          label: "لیست رنگ‌ها بر اساس دسته‌بندی",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-districts",
-          label: "دریافت مناطق دیوار",
+          label: "لیست محله‌ها",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-districts-2",
-          label: "دریافت مناطق دیوار",
+          label: "لیست محله‌ها",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-internal-storages",
-          label: "دریافت گزینه‌های حافظه داخلی موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار",
+          label: "لیست گزینه‌های حافظه داخلی",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-o-auth-scopes",
-          label: "دریافت دامنه‌های OAuth کنار دیوار",
+          label: "لیست دامنه‌های OAuth",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-permissions",
-          label: "دریافت مجوزهای کنار دیوار",
+          label: "لیست مجوزهای کنار دیوار",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-ram-memories",
-          label: "دریافت گزینه‌های حافظه رم موجود در دسته‌بندی‌های موبایل/تبلت/لپ‌تاپ دیوار",
+          label: "لیست گزینه‌های حافظه RAM",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-service-types",
-          label: "دریافت انواع سرویس موجود در کنار دیوار",
+          label: "لیست انواع سرویس",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/assets-get-submit-schema",
-          label: "دریافت قالب ثبت",
+          label: "دریافت schema ثبت آگهی برای دسته‌بندی",
           className: "api-method get",
         },
       ],
     },
     {
       type: "category",
-      label: "ChatAPI",
+      label: "چت",
       link: {
         type: "doc",
         id: "openapi-doc/chat-api",
@@ -193,7 +193,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/chat-api-get-conversation",
-          label: "دریافت مکالمه با شناسه آن",
+          label: "دریافت مکالمه",
           className: "api-method get",
         },
         {
@@ -206,7 +206,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Events",
+      label: "رویدادها",
       link: {
         type: "doc",
         id: "openapi-doc/events",
@@ -215,7 +215,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/events-send-event",
-          label: "ارسال رویداد به کاربر با استفاده از API",
+          label: "ارسال رویداد به کاربر",
           className: "api-method post",
         },
         {
@@ -228,7 +228,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Finder",
+      label: "جستجوگر",
       link: {
         type: "doc",
         id: "openapi-doc/finder",
@@ -249,7 +249,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/finder-get-user-id-by-phone",
-          label: "دریافت شناسه دیوار کاربر با شماره تلفن",
+          label: "دریافت شناسه کاربر دیوار با شماره تلفن",
           className: "api-method post",
         },
         {
@@ -267,114 +267,14 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/finder-search-post-v-2",
-          label: "جستجو آگهی‌های دیوار با فیلترهایی",
+          label: "جستجوی آگهی‌های دیوار",
           className: "api-method post",
         },
       ],
     },
     {
       type: "category",
-      label: "Post",
-      link: {
-        type: "doc",
-        id: "openapi-doc/post",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "openapi-doc/post-delete-business-customized-button",
-          label: "حذف دکمه اختصاصی از آگهی‌های کسب‌و‌کار",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-create-business-customized-button",
-          label: "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌و‌کار",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-post",
-          label: "ثبت آگهی",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-post-v-2",
-          label: "ثبت آگهی با استفاده از اعتبارسنجی قالب JSON",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-delete-post-customized-button",
-          label: "حذف دکمه اختصاصی از آگهی",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-set-post-customized-button",
-          label: "تنظیم دکمه اختصاصی بر روی آگهی ثبت شده",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-post-stats",
-          label: "دریافت آمارهای آگهی",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-can-user-submit-post",
-          label: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-submit-user-post",
-          label: "ثبت آگهی به عنوان کاربر",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-image-upload-url",
-          label: "Get image upload URL (Deprecated)",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-delete-user-post",
-          label: "حذف آگهی",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-edit-post",
-          label: "ویرایش آگهی",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-user-post",
-          label: "دریافت آگهی با توکن",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-get-upload-ur-ls-v-2",
-          label: "Get Upload URL for Post Images and Videos",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "openapi-doc/post-edit-post-v-2",
-          label: "ویرایش آگهی با پشتیبانی از فیلد ماسک",
-          className: "api-method put",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Payment",
+      label: "پرداخت",
       link: {
         type: "doc",
         id: "openapi-doc/payment",
@@ -389,7 +289,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-publish-user-post",
-          label: "پرداخت هزینه ثبت آگهی کاربر از طرف ارائه‌دهنده",
+          label: "انتشار آگهی کاربر (پرداخت توسط ارائه‌دهنده)",
           className: "api-method post",
         },
         {
@@ -419,7 +319,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-commit-wallet-transaction",
-          label: "تایید تراکنش کیف پول",
+          label: "نهایی کردن تراکنش کیف پول",
           className: "api-method post",
         },
         {
@@ -431,26 +331,26 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-retrieve-wallet-transaction",
-          label: "بازیابی تراکنش کیف پول",
+          label: "دریافت تراکنش کیف پول",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-get-post-pricing",
-          label: "دریافت هزینه سرویس",
+          label: "دریافت قیمت خدمات آگهی",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "openapi-doc/payment-submit-user-payment",
-          label: "ثبت پرداخت کاربر",
+          label: "ثبت رکورد پرداخت کاربر",
           className: "api-method post",
         },
       ],
     },
     {
       type: "category",
-      label: "PaymentTicket",
+      label: "تیکت پرداخت",
       link: {
         type: "doc",
         id: "openapi-doc/payment-ticket",
@@ -459,14 +359,114 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "openapi-doc/payment-ticket-validate",
-          label: "اعتبارسنجی بلیط پرداخت",
+          label: "اعتبارسنجی تیکت پرداخت",
           className: "api-method post",
         },
       ],
     },
     {
       type: "category",
-      label: "Semantic",
+      label: "آگهی",
+      link: {
+        type: "doc",
+        id: "openapi-doc/post",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "openapi-doc/post-delete-business-customized-button",
+          label: "حذف دکمه اختصاصی از آگهی‌های کسب‌و‌کار",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-create-business-customized-button",
+          label: "ایجاد دکمه اختصاصی برای آگهی‌های کسب‌وکار",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-post",
+          label: "ثبت آگهی (منسوخ شده)",
+          className: "menu__list-item--deprecated api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-post-v-2",
+          label: "ثبت آگهی",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-delete-post-customized-button",
+          label: "حذف دکمه اختصاصی از آگهی",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-set-post-customized-button",
+          label: "تنظیم دکمه اختصاصی روی آگهی",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-post-stats",
+          label: "دریافت آمارهای آگهی",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-can-user-submit-post",
+          label: "بررسی اینکه آیا کاربر می‌تواند آگهی ارسال کند",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-submit-user-post",
+          label: "ثبت آگهی به عنوان کاربر",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-image-upload-url",
+          label: "دریافت آدرس اپلود تصاویر آگهی (منسوخ شده)",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-delete-user-post",
+          label: "حذف آگهی",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-edit-post",
+          label: "ویرایش آگهی",
+          className: "menu__list-item--deprecated api-method put",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-user-post",
+          label: "دریافت آگهی با توکن",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-get-upload-ur-ls-v-2",
+          label: "دریافت آدرس آپلود تصاویر و ویدیو",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "openapi-doc/post-edit-post-v-2",
+          label: "ویرایش آگهی (پیشرفته)",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "اطلاعات معنایی",
       link: {
         type: "doc",
         id: "openapi-doc/semantic",
@@ -1008,8 +1008,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/دریافت-اکشن-پویا",
-          label: "دریافت اکشن پویا",
+          id: "openapi-doc/schemas/دریافت-action-پویا",
+          label: "دریافت Action پویا",
           className: "schema",
         },
         {
@@ -1278,8 +1278,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "openapi-doc/schemas/دامنه-oauth-استاندارد-تجزیه-شده-با-استفاده-از-رشته-فرمت-permission-enum-resource-id-را-نمایش-می-دهد-مثال-edit-post-azroi-1-el",
-          label: "دامنه oauth استاندارد تجزیه شده با استفاده از رشته فرمت\n`PERMISSION_ENUM__{resource_id}` را نمایش می‌دهد. مثال: EDIT_POST__AZrOi1eL",
+          id: "openapi-doc/schemas/oauth-اسکوپ-استاندارد-با-فرمت-permission-enum-resource-id-مثال-edit-post-azroi-1-el",
+          label: "OAuth اسکوپ استاندارد با فرمت `PERMISSION_ENUM__{resource_id}`.\nمثال: EDIT_POST__AZrOi1eL",
           className: "schema",
         },
         {
