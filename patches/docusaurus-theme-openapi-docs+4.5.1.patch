@@ -1,0 +1,13 @@
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+index 2639633..f681be4 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+@@ -123,7 +123,7 @@ function CodeSnippets({ postman, codeSamples }) {
+         const comboAuthId = Object.keys(obj).join(" and ");
+         const authOptions =
+           clonedAuth?.options?.[key] ?? clonedAuth?.options?.[comboAuthId];
+-        placeholder = authOptions?.[0]?.name;
++        placeholder = authOptions?.find((opt) => opt.key === key)?.name;
+         obj[key] = cleanCredentials(obj[key]);
+       } else {
+         obj[key] = `<${placeholder ?? key}>`;
