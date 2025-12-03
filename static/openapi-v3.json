@@ -4425,7 +4425,7 @@
             "tokenUrl": "oauth.divar.ir/oauth2/token"
           }
         },
-        "name": "ACCESS_KEY",
+        "name": "ACCESS_TOKEN",
         "type": "oauth2"
       }
     }
@@ -4580,7 +4580,7 @@
     },
     "/experimental/open-platform/chat/bot/conversations/{conversation_id}/messages": {
       "post": {
-        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage5",
         "parameters": [
           {
@@ -4634,7 +4634,7 @@
     },
     "/experimental/open-platform/chat/bot/users/{user_id}/messages": {
       "post": {
-        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage4",
         "parameters": [
           {
@@ -4735,7 +4735,7 @@
     },
     "/experimental/open-platform/chatbot-conversations/{conversation_id}/messages": {
       "post": {
-        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage3",
         "parameters": [
           {
@@ -5807,7 +5807,7 @@
     },
     "/v1/open-platform/addons/post/{token}": {
       "delete": {
-        "description": "این API امکان حذف افزونه از یک آگهی را فراهم می‌کند. تمام افزونه‌های ایجاد شده توسط اپلیکیشن شما برای توکن آگهی مشخص شده حذف می‌شوند.\n\n**نکات مهم**:\n- فقط افزونه‌های ایجاد شده توسط اپلیکیشن شما قابل حذف هستند\n",
+        "description": "این API امکان حذف افزونه از یک آگهی را فراهم می‌کند. تمام افزونه‌های ایجاد شده توسط اپلیکیشن شما برای توکن آگهی مشخص شده حذف می‌شوند.\n\n**نکات مهم**:\n- فقط افزونه‌های ایجاد شده توسط اپلیکیشن شما قابل حذف هستند\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `ADD_ON_DELETE`",
         "operationId": "Addons_DeletePostAddon2",
         "parameters": [
           {
@@ -6420,7 +6420,7 @@
     },
     "/v1/open-platform/chat/bot/users/{user_id}/messages": {
       "post": {
-        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
+        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
         "operationId": "ChatAPI_ChatBotSendMessage2",
         "parameters": [
           {
@@ -7065,7 +7065,7 @@
     },
     "/v1/open-platform/semantic/users/{divar_user_id}": {
       "delete": {
-        "description": "این API امکان حذف اطلاعات معنایی یک کاربر را فراهم می‌کند.",
+        "description": "این API امکان حذف اطلاعات معنایی یک کاربر را فراهم می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_SEMANTIC_DELETE`",
         "operationId": "Semantic_DeleteUserSemantic2",
         "parameters": [
           {
@@ -7120,7 +7120,7 @@
         ]
       },
       "post": {
-        "description": "این API امکان ایجاد یا به‌روزرسانی semantic کاربر بدون افزودن افزونه را می‌دهد.\n\n**نکات مهم**:\n- امکان ارسال اطلاعات معنایی و تیکت پرداخت (اختیاری) وجود دارد\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_VERIFICATION_CREATE`",
+        "description": "این API امکان ایجاد یا به‌روزرسانی semantic کاربر بدون افزودن افزونه را می‌دهد.\n\n**نکات مهم**:\n- امکان ارسال اطلاعات معنایی و تیکت پرداخت (اختیاری) وجود دارد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_SEMANTIC_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_VERIFICATION_CREATE`",
         "operationId": "Semantic_CreateUserSemantic2",
         "parameters": [
           {
@@ -7274,7 +7274,7 @@
     },
     "/v1/open-platform/users": {
       "get": {
-        "description": "این API اطلاعات کاربر احراز هویت شده را برمی‌گرداند. داده‌های برگشتی به OAuth اسکوپ‌های اعطا شده بستگی دارد.\n\n**نکات مهم**:\n- با اسکوپ `USER_PHONE`: شماره تلفن کاربر برمی‌گردد\n- با اسکوپ `USER_ID`: شناسه مبهم‌شده کاربر برمی‌گردد (یکتا برای هر اپلیکیشن)\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ID` یا `USER_PHONE`",
+        "description": "این API اطلاعات کاربر احراز هویت شده را برمی‌گرداند. داده‌های برگشتی به OAuth اسکوپ‌های اعطا شده بستگی دارد.\n\n**نکات مهم**:\n- با اسکوپ `USER_PHONE`: شماره تلفن کاربر برمی‌گردد\n- با اسکوپ `USER_ID`: شناسه مبهم‌شده کاربر برمی‌گردد (یکتا برای هر اپلیکیشن)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_RETRIEVE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ID` یا `USER_PHONE`",
         "operationId": "Finder_GetUser2",
         "responses": {
           "200": {
