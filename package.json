@@ -10,7 +10,9 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
-    "generate": "curl -o static/openapi-v3.json https://panel.kenar.divarcdn.com/openapi-v3.json && docusaurus clean-api-docs all && docusaurus gen-api-docs all",
+    "generate": "docusaurus clean-api-docs all && docusaurus gen-api-docs all",
+    "fetch-openapi": "curl -o static/openapi-v3.json https://panel.kenar.divarcdn.com/openapi-v3.json",
+    "generate:full": "yarn fetch-openapi && yarn generate",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"

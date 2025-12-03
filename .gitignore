@@ -45,3 +45,6 @@ Temporary Items
 .docusaurus
 node_modules
 build
+
+# Auto-generated OpenAPI docs
+docs/openapi-doc
