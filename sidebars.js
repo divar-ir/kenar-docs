@@ -22,10 +22,10 @@ const sidebars = {
   tutorialSidebar: [
     {
       type: "category",
-      label: "مستندات API",
+      label: "مستندات فنی API",
       link: {
         type: "generated-index",
-        title: "مستندات API(Swgger)",
+        title: "مستندات فنی API",
         slug: "/openapi-doc",
         keywords: ["api", "api doc", "openapi"]
       },
