@@ -13,8 +13,8 @@ const config: Config = {
     // Enables all upcoming breaking changes for Docusaurus v4, preparing the site for future updates.
     v4: true,
   },
-  title: 'مستندات کنار دیوار',
-  tagline: 'مستندات فنی پلتفرم کنار دیوار - راهنمای توسعه‌دهندگان',
+  title: 'راهنمای کنار دیوار',
+  tagline: 'راهنمای توسعه‌دهندگان پلتفرم کنار دیوار',
   favicon: 'img/favicon.ico',
 
   baseUrl: pathPrefix,
@@ -60,7 +60,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         property: 'og:site_name',
-        content: 'کنار دیوار - مستندات فنی',
+        content: 'کنار دیوار - راهنما',
       },
     },
     {
@@ -120,7 +120,7 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'TechArticle',
-        headline: 'مستندات فنی کنار دیوار',
+        headline: 'راهنمای کنار دیوار',
         description: 'راهنمای کامل توسعه‌دهندگان برای استفاده از API های کنار دیوار',
         author: {
           '@type': 'Organization',
@@ -247,7 +247,7 @@ const config: Config = {
     // Social card image
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: '| مستندات فنی',
+      title: '| راهنمای کنار دیوار',
       logo: {
         alt: 'کنار دیوار',
         src: 'img/logo.svg',
@@ -256,13 +256,13 @@ const config: Config = {
       items: [
         // Add any additional navbar items here
         {
-          href: 'https://github.com/divar-ir/kenar-docs',
-          label: 'GitHub',
+          to: '/openapi-doc',
+          label: 'مستندات فنی API',
           position: 'left', // Adjust position as needed
         },
         {
-          to: '/openapi-doc',
-          label: 'مستندات API(Swagger)',
+          href: 'https://github.com/divar-ir/kenar-docs',
+          label: 'گیت‌هاب',
           position: 'left', // Adjust position as needed
         },
         {
@@ -309,7 +309,7 @@ const config: Config = {
       },
       {
         property: 'og:title',
-        content: 'کنار دیوار - مستندات فنی',
+        content: 'کنار دیوار - راهنما',
       },
       {
         property: 'og:description',
@@ -329,7 +329,7 @@ const config: Config = {
       },
       {
         name: 'twitter:title',
-        content: 'کنار دیوار - مستندات فنی',
+        content: 'کنار دیوار - راهنما',
       },
       {
         name: 'twitter:description',
