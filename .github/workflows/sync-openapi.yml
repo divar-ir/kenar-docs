@@ -1,0 +1,62 @@
+name: Sync OpenAPI Spec
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Run every 15 minutes
+  workflow_dispatch: true  # Allow manual trigger
+
+concurrency:
+  group: sync-openapi
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Check and Sync OpenAPI Spec
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Fetch latest OpenAPI spec
+        id: fetch
+        run: |
+          if yarn fetch-openapi; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "Failed to fetch OpenAPI spec"
+            echo "success=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Check for changes
+        if: steps.fetch.outputs.success == 'true'
+        id: diff
+        run: |
+          if git diff --quiet static/openapi-v3.json; then
+            echo "No changes detected"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in OpenAPI spec"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
+          git add static/openapi-v3.json
+          git commit -m "chore: update OpenAPI spec [automated]"
+          git push

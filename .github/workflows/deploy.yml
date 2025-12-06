@@ -1,0 +1,101 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch: true  # Allow manual trigger
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate API docs
+        run: yarn generate
+
+      - name: Build for GitHub Pages
+        run: yarn build
+        env:
+          PATH_PREFIX: "/kenar-docs/"
+          DEPLOY_PRIME_URL: "https://divar-ir.github.io"
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+      - name: Build for Kenar
+        run: yarn build
+        env:
+          PATH_PREFIX: "/"
+          DEPLOY_PRIME_URL: "https://kenar.divar.dev"
+
+      - name: Upload Kenar artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kenar-build
+          path: build
+          retention-days: 1
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  deploy-kenar:
+    name: Deploy to Kenar
+    needs: build
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Download Kenar artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: kenar-build
+          path: build
+
+      - name: Sync to S3
+        id: sync
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          retry_wait_seconds: 60
+          command: |
+            aws s3 sync ./build s3://${{ vars.KISE_BUCKET }} \
+              --endpoint-url ${{ secrets.KISE_HOST }} \
+              --acl public-read \
+              --delete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.KISE_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.KISE_SECRET_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
