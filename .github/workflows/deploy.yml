@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch: true  # Allow manual trigger
+  workflow_dispatch:  # Allow manual trigger
 
 concurrency:
   group: deploy-${{ github.ref }}
