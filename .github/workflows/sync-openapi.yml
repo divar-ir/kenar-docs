@@ -56,7 +56,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
           git add static/openapi-v3.json
           git commit -m "chore: update OpenAPI spec [automated]"
+          git pull --rebase
           git push
