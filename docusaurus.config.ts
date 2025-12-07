@@ -87,6 +87,14 @@ const config: Config = {
     {
       tagName: 'link',
       attributes: {
+        href: 'https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css',
+        rel: 'stylesheet',
+        type: 'text/css',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
         rel: 'manifest',
         href: '/kenar-docs/manifest.json',
       },
