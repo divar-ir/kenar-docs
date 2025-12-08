@@ -3888,6 +3888,7 @@
               "SUBMIT_USER_PAYMENT": "SUBMIT_USER_PAYMENT",
               "SUBMIT_USER_POST": "SUBMIT_USER_POST",
               "USER_ADDON_CREATE": "USER_ADDON_CREATE",
+              "USER_BUSINESSES_READ": "USER_BUSINESSES_READ",
               "USER_ID": "USER_ID",
               "USER_PHONE": "USER_PHONE",
               "USER_POSTS_ADDON_CREATE": "USER_POSTS_ADDON_CREATE",
@@ -6632,7 +6633,7 @@
     },
     "/v1/open-platform/user/businesses": {
       "get": {
-        "description": "این API امکان دریافت تمام کسب‌وکارهای مرتبط با کاربر احراز هویت شده را فراهم می‌کند، همراه با نقش کاربر در هر کسب‌وکار.\n\n**نکات مهم**:\n- تمام کسب‌وکارهایی که کاربر در آنها نقش دارد (مثلاً مالک یا همکار) را برمی‌گرداند\n- شامل اطلاعات کسب‌وکار مانند business_token، business_type، brand_name و نقش کاربر است\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_BUSINESSES_READ`",
+        "description": "این API امکان دریافت تمام کسب‌وکارهای مرتبط با کاربر احراز هویت شده را فراهم می‌کند، همراه با نقش کاربر در هر کسب‌وکار.\n\n**نکات مهم**:\n- تمام کسب‌وکارهایی که کاربر در آنها نقش دارد (مثلاً مالک یا همکار) را برمی‌گرداند\n- شامل اطلاعات کسب‌وکار مانند business_token، business_type، brand_name و نقش کاربر است\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_USER_BUSINESSES`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_BUSINESSES_READ`",
         "operationId": "Finder_GetUserBusinesses",
         "responses": {
           "200": {
