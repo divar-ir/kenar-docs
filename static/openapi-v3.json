@@ -1123,75 +1123,6 @@
         },
         "type": "object"
       },
-      "HomePresellFieldsConstructionPhase": {
-        "description": "وضعیت فعلی پروژه",
-        "enum": [
-          "CONSTRUCTION_PHASE_PERMIT_AND_LAND_PREPARATION",
-          "CONSTRUCTION_PHASE_EXCAVATION",
-          "CONSTRUCTION_PHASE_FOUNDATION",
-          "CONSTRUCTION_PHASE_STRUCTURE",
-          "CONSTRUCTION_PHASE_ROOFING",
-          "CONSTRUCTION_PHASE_MASONRY",
-          "CONSTRUCTION_PHASE_MEP_ROUGH_IN",
-          "CONSTRUCTION_PHASE_INTERIOR_PLASTERING",
-          "CONSTRUCTION_PHASE_FACADE",
-          "CONSTRUCTION_PHASE_TILING_AND_FLOORING",
-          "CONSTRUCTION_PHASE_PAINTING_AND_INTERIOR_DECORATION",
-          "CONSTRUCTION_PHASE_DOOR_AND_WINDOW_INSTALLATION",
-          "CONSTRUCTION_PHASE_FINAL_MEP_INSTALLATION",
-          "CONSTRUCTION_PHASE_LANDSCAPING",
-          "CONSTRUCTION_PHASE_COMPLETION_CERTIFICATE",
-          "CONSTRUCTION_PHASE_FINAL_DELIVERY"
-        ],
-        "example": "CONSTRUCTION_PHASE_EXCAVATION",
-        "type": "string"
-      },
-      "HomePresellFieldsDeliveryMonth": {
-        "description": "ماه تحویل (تقویم شمسی)",
-        "enum": [
-          "DELIVERY_MONTH_FARVARDIN",
-          "DELIVERY_MONTH_ORDIBEHESHT",
-          "DELIVERY_MONTH_KHORDAD",
-          "DELIVERY_MONTH_TIR",
-          "DELIVERY_MONTH_MORDAD",
-          "DELIVERY_MONTH_SHAHRIVAR",
-          "DELIVERY_MONTH_MEHR",
-          "DELIVERY_MONTH_ABAN",
-          "DELIVERY_MONTH_AZAR",
-          "DELIVERY_MONTH_DEY",
-          "DELIVERY_MONTH_BAHMAN",
-          "DELIVERY_MONTH_ESFAND"
-        ],
-        "example": "DELIVERY_MONTH_TIR",
-        "type": "string"
-      },
-      "HomePresellFieldsDeliveryYear": {
-        "description": "سال تحویل (تقویم شمسی)",
-        "enum": [
-          "DELIVERY_YEAR_1404",
-          "DELIVERY_YEAR_1405",
-          "DELIVERY_YEAR_1406",
-          "DELIVERY_YEAR_1407",
-          "DELIVERY_YEAR_1408",
-          "DELIVERY_YEAR_1409",
-          "DELIVERY_YEAR_1410",
-          "DELIVERY_YEAR_1411",
-          "DELIVERY_YEAR_1412",
-          "DELIVERY_YEAR_1413",
-          "DELIVERY_YEAR_1414"
-        ],
-        "example": "DELIVERY_YEAR_1405",
-        "type": "string"
-      },
-      "HomePresellFieldsUnitType": {
-        "description": "نوع واحدهای ارائه شده در پروژه",
-        "enum": [
-          "UNIT_TYPE_RESIDENTIAL_APARTMENT",
-          "UNIT_TYPE_COMMERCIAL_UNIT",
-          "UNIT_TYPE_OFFICE_UNIT"
-        ],
-        "type": "string"
-      },
       "ImageCarouselRowImageItem": {
         "properties": {
           "description": {
@@ -1339,7 +1270,8 @@
           "USER_SET_CUSTOMIZED_BUTTON",
           "BUSINESS_CREATE_CUSTOMIZED_BUTTON",
           "DELETE_USER_POST",
-          "EDIT_USER_POST"
+          "EDIT_USER_POST",
+          "USER_BUSINESSES_READ"
         ],
         "type": "string"
       },
@@ -1626,95 +1558,6 @@
           "semantic"
         ],
         "type": "object"
-      },
-      "SendEventRequestTargetType": {
-        "enum": [
-          "USER",
-          "POST"
-        ],
-        "type": "string"
-      },
-      "ServicesFieldsCategory": {
-        "description": "دسته‌بندی فرعی سرویس",
-        "enum": [
-          "CATEGORY_CAR_AND_MOTOR",
-          "CATEGORY_CATERING",
-          "CATEGORY_COMPUTER_AND_MOBILE",
-          "CATEGORY_ACCOUNTING_AND_FINANCE",
-          "CATEGORY_TRANSPORT",
-          "CATEGORY_CRAFTSMEN",
-          "CATEGORY_BEAUTY_AND_HAIRCARE",
-          "CATEGORY_CLEANING",
-          "CATEGORY_GARDEN_AND_LANDSCAPING",
-          "CATEGORY_TEACHING"
-        ],
-        "example": "CATEGORY_CAR_AND_MOTOR",
-        "type": "string"
-      },
-      "TemporaryResidenceFieldsComfortAmenity": {
-        "description": "فهرست امکانات رفاهی موجود در اقامتگاه",
-        "enum": [
-          "COMFORT_AMENITY_TV",
-          "COMFORT_AMENITY_AUDIO_SYSTEM",
-          "COMFORT_AMENITY_REFRIGERATOR",
-          "COMFORT_AMENITY_HIGH_SPEED_INTERNET",
-          "COMFORT_AMENITY_WASHING_MACHINE",
-          "COMFORT_AMENITY_GAS_STOVE",
-          "COMFORT_AMENITY_MICROWAVE",
-          "COMFORT_AMENITY_COOKING_UTENSILS",
-          "COMFORT_AMENITY_CLEAN_SHEETS_TOWELS",
-          "COMFORT_AMENITY_IRON",
-          "COMFORT_AMENITY_HAIR_DRYER",
-          "COMFORT_AMENITY_AIR_CONDITIONER",
-          "COMFORT_AMENITY_PRIVATE_PARKING",
-          "COMFORT_AMENITY_BALCONY",
-          "COMFORT_AMENITY_PRIVATE_BATHROOM",
-          "COMFORT_AMENITY_WORK_SPACE",
-          "COMFORT_AMENITY_ELEVATOR_ACCESS",
-          "COMFORT_AMENITY_SECURITY_SYSTEM",
-          "COMFORT_AMENITY_COFFEE_MAKER",
-          "COMFORT_AMENITY_AIR_CONDITIONING_SYSTEM",
-          "COMFORT_AMENITY_CENTRAL_HEATING",
-          "COMFORT_AMENITY_DISHWASHER",
-          "COMFORT_AMENITY_POOL",
-          "COMFORT_AMENITY_OUTDOOR_SPACE"
-        ],
-        "type": "string"
-      },
-      "TemporaryResidenceFieldsHeatingCoolingSystem": {
-        "description": "فهرست سیستم‌های گرمایش و سرمایش موجود",
-        "enum": [
-          "HEATING_COOLING_SYSTEM_EVAPORATIVE_COOLER",
-          "HEATING_COOLING_SYSTEM_RADIATOR",
-          "HEATING_COOLING_SYSTEM_SPLIT",
-          "HEATING_COOLING_SYSTEM_PACKAGE",
-          "HEATING_COOLING_SYSTEM_GAS_HEATER",
-          "HEATING_COOLING_SYSTEM_FAN_COIL",
-          "HEATING_COOLING_SYSTEM_CHAUFFAGE",
-          "HEATING_COOLING_SYSTEM_AIR_CONDITIONER",
-          "HEATING_COOLING_SYSTEM_UNDERFLOOR_HEATING"
-        ],
-        "type": "string"
-      },
-      "TemporaryResidenceFieldsPetsAllowed": {
-        "description": "شرایط پذیرش حیوان خانگی در اقامتگاه",
-        "enum": [
-          "PETS_ALLOWED_YES",
-          "PETS_ALLOWED_NO",
-          "PETS_ALLOWED_WITH_AGREEMENT"
-        ],
-        "example": "PETS_ALLOWED_YES",
-        "type": "string"
-      },
-      "TemporaryResidenceFieldsRentalPeriod": {
-        "description": "نوع دوره اجاره (روزانه، هفتگی، ماهانه)",
-        "enum": [
-          "RENTAL_PERIOD_DAILY",
-          "RENTAL_PERIOD_WEEKLY",
-          "RENTAL_PERIOD_MONTHLY"
-        ],
-        "example": "RENTAL_PERIOD_DAILY",
-        "type": "string"
       },
       "addonsAction": {
         "description": "نمایانگر یک Action که می‌تواند انجام شود",
@@ -2757,6 +2600,18 @@
         "title": "OAuth اسکوپ استاندارد با فرمت `PERMISSION_ENUM__{resource_id}`.\nمثال: EDIT_POST__AZrOi1eL",
         "type": "object"
       },
+      "baseBusinessType": {
+        "enum": [
+          "REAL_ESTATE_BUSINESS",
+          "CAR_BUSINESS",
+          "MARKETPLACE_BUSINESS",
+          "CAR_CONCIERGE_SALE",
+          "PERSONAL",
+          "JOBS_BUSINESS",
+          "PREMIUM_PANEL"
+        ],
+        "type": "string"
+      },
       "chatapiChatBotSendMessageResponse": {
         "properties": {
           "conversation_id": {
@@ -2942,29 +2797,6 @@
         ],
         "type": "string"
       },
-      "eventsEventButton": {
-        "properties": {
-          "action": {
-            "$ref": "#/components/schemas/addonsAction"
-          },
-          "title": {
-            "description": "متن دکمه",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "eventsEventButtonList": {
-        "properties": {
-          "items": {
-            "items": {
-              "$ref": "#/components/schemas/eventsEventButton"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
       "eventsRegisterEventSubscriptionRequest": {
         "properties": {
           "event_resource_id": {
@@ -2987,9 +2819,6 @@
         "type": "string"
       },
       "eventsRegisterEventSubscriptionResponse": {
-        "type": "object"
-      },
-      "eventsSendEventResponse": {
         "type": "object"
       },
       "finderGetAllDevelopmentPostsResponse": {
@@ -3054,6 +2883,44 @@
           },
           "business_type": {
             "$ref": "#/components/schemas/PremiumPanelBusinessDataSubBusinessType"
+          }
+        },
+        "type": "object"
+      },
+      "finderGetUserBusinessesResponse": {
+        "properties": {
+          "businesses": {
+            "description": "فهرست کسب‌وکارهای مرتبط با کاربر احراز هویت شده",
+            "items": {
+              "$ref": "#/components/schemas/finderGetUserBusinessesResponseBusiness"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "finderGetUserBusinessesResponseBusiness": {
+        "properties": {
+          "brand_description": {
+            "description": "توضیحات کسب‌وکار",
+            "example": "Business description",
+            "type": "string"
+          },
+          "brand_name": {
+            "description": "نام کسب‌وکار/برند",
+            "example": "My Business",
+            "type": "string"
+          },
+          "business_token": {
+            "description": "شناسه توکن کسب‌وکار",
+            "example": "xYzAbC123",
+            "type": "string"
+          },
+          "business_type": {
+            "$ref": "#/components/schemas/baseBusinessType"
+          },
+          "user_role": {
+            "$ref": "#/components/schemas/premium_panelUserRole"
           }
         },
         "type": "object"
@@ -3336,55 +3203,6 @@
           "POST_STATE_RETIRED"
         ],
         "type": "string"
-      },
-      "open_platformpostServicesFields": {
-        "properties": {
-          "category": {
-            "$ref": "#/components/schemas/ServicesFieldsCategory"
-          },
-          "expertise_ids": {
-            "description": "فهرست شناسه‌های تخصص",
-            "example": [
-              "1",
-              "2"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "work_hours_end": {
-            "description": "ساعت پایان کار به فرمت 24 ساعته (مثلاً 18 برای 18:00). فقط در صورتی اعمال می‌شود که `works_24_7` false باشد.",
-            "example": 18,
-            "format": "int32",
-            "type": "integer"
-          },
-          "work_hours_start": {
-            "description": "ساعت شروع کار به فرمت 24 ساعته (مثلاً 9 برای 9:00). فقط در صورتی اعمال می‌شود که `works_24_7` false باشد.",
-            "example": 9,
-            "format": "int32",
-            "type": "integer"
-          },
-          "work_on_holidays": {
-            "description": "آیا ارائه‌دهنده سرویس در تعطیلات کار می‌کند",
-            "example": true,
-            "type": "boolean"
-          },
-          "works_24_7": {
-            "description": "آیا ارائه‌دهنده سرویس به صورت 24/7 در دسترس است. اگر true باشد، `work_hours_start` و `work_hours_end` نادیده گرفته می‌شوند.",
-            "example": false,
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "category",
-          "expertise_ids",
-          "work_on_holidays",
-          "works_24_7",
-          "work_hours_start",
-          "work_hours_end"
-        ],
-        "type": "object"
       },
       "paymentCommitWalletTransactionRequest": {
         "properties": {
@@ -3678,69 +3496,6 @@
         },
         "type": "object"
       },
-      "postApartmentSellFields": {
-        "properties": {
-          "floor": {
-            "description": "طبقه ملک. از -1 برای زیرزمین و 0 برای همکف استفاده کنید. از 1 برای طبقه اول و غیره.",
-            "example": 1,
-            "format": "int32",
-            "type": "integer"
-          },
-          "has_elevator": {
-            "description": "آیا ملک آسانسور دارد",
-            "example": true,
-            "type": "boolean"
-          },
-          "has_own_image": {
-            "description": "آیا تصاویر واقعی ملک هستند (نه تزئینی)",
-            "example": true,
-            "type": "boolean"
-          },
-          "has_parking": {
-            "description": "آیا ملک پارکینگ دارد",
-            "example": true,
-            "type": "boolean"
-          },
-          "has_warehouse": {
-            "description": "آیا ملک انباری دارد",
-            "example": true,
-            "type": "boolean"
-          },
-          "price": {
-            "description": "قیمت ملک به تومان",
-            "example": 1000000000,
-            "format": "int64",
-            "type": "string"
-          },
-          "rooms_count": {
-            "$ref": "#/components/schemas/postRoomsCount"
-          },
-          "size": {
-            "description": "مساحت ملک بر حسب متر مربع",
-            "example": 100,
-            "format": "int32",
-            "type": "integer"
-          },
-          "year_built": {
-            "description": "سال ساخت ملک (تقویم شمسی)",
-            "example": 1404,
-            "format": "int32",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "rooms_count",
-          "has_own_image",
-          "year_built",
-          "floor",
-          "size",
-          "has_elevator",
-          "has_parking",
-          "has_warehouse",
-          "price"
-        ],
-        "type": "object"
-      },
       "postCanUserSubmitPostResponse": {
         "properties": {
           "can_submit": {
@@ -3872,79 +3627,6 @@
         },
         "type": "object"
       },
-      "postHomePresellFields": {
-        "properties": {
-          "base_price_per_square_meter": {
-            "description": "قیمت پایه هر متر مربع به تومان",
-            "example": 50000000,
-            "format": "int64",
-            "type": "string"
-          },
-          "construction_phase": {
-            "$ref": "#/components/schemas/HomePresellFieldsConstructionPhase"
-          },
-          "delivery_month": {
-            "$ref": "#/components/schemas/HomePresellFieldsDeliveryMonth"
-          },
-          "delivery_payment_percentage": {
-            "description": "درصد پرداخت مورد نیاز در زمان تحویل",
-            "example": 60,
-            "format": "int32",
-            "type": "integer"
-          },
-          "delivery_year": {
-            "$ref": "#/components/schemas/HomePresellFieldsDeliveryYear"
-          },
-          "developer_company_name": {
-            "description": "نام شرکت سازنده",
-            "example": "Mehr Construction Group",
-            "type": "string"
-          },
-          "down_payment_percentage": {
-            "description": "درصد پیش پرداخت اولیه",
-            "example": 40,
-            "format": "int32",
-            "type": "integer"
-          },
-          "has_own_image": {
-            "description": "آیا تصاویر واقعی ملک هستند (نه تزئینی)",
-            "example": true,
-            "type": "boolean"
-          },
-          "min_unit_size": {
-            "description": "حداقل مساحت واحد بر حسب متر مربع",
-            "example": 60,
-            "format": "int32",
-            "type": "integer"
-          },
-          "project_name": {
-            "description": "نام پروژه پیش‌فروش مسکن",
-            "example": "Paradise Tower",
-            "type": "string"
-          },
-          "project_physical_progress_percentage": {
-            "description": "درصد پیشرفت فیزیکی پروژه",
-            "example": 10,
-            "format": "int32",
-            "type": "integer"
-          },
-          "unit_types_offered": {
-            "description": "فهرست انواع واحد ارائه شده در پروژه",
-            "example": [
-              "UNIT_TYPE_RESIDENTIAL_APARTMENT",
-              "UNIT_TYPE_COMMERCIAL_UNIT"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/HomePresellFieldsUnitType"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "has_own_image"
-        ],
-        "type": "object"
-      },
       "postLocationType": {
         "description": "نوع موقعیت",
         "enum": [
@@ -4029,108 +3711,7 @@
         ],
         "type": "object"
       },
-      "postRoomsCount": {
-        "description": "تعداد اتاق‌های اقامتگاه",
-        "enum": [
-          "ROOMS_COUNT_0",
-          "ROOMS_COUNT_1",
-          "ROOMS_COUNT_2",
-          "ROOMS_COUNT_3",
-          "ROOMS_COUNT_4",
-          "ROOMS_COUNT_5_OR_MORE"
-        ],
-        "example": "ROOMS_COUNT_2",
-        "type": "string"
-      },
       "postSetPostCustomizedButtonResponse": {
-        "type": "object"
-      },
-      "postSubmitPostRequest": {
-        "properties": {
-          "apartment_sell": {
-            "$ref": "#/components/schemas/postApartmentSellFields"
-          },
-          "chat_enabled": {
-            "description": "فعال بودن چت",
-            "example": true,
-            "type": "boolean"
-          },
-          "city": {
-            "description": "شهر آگهی",
-            "example": "tehran",
-            "type": "string"
-          },
-          "description": {
-            "description": "توضیحات آگهی",
-            "example": "I'm available only in chat.",
-            "type": "string"
-          },
-          "district": {
-            "description": "محله آگهی",
-            "example": "abshar",
-            "type": "string"
-          },
-          "hide_phone": {
-            "description": "مخفی کردن شماره تماس از کاربران",
-            "example": true,
-            "type": "boolean"
-          },
-          "home_presell": {
-            "$ref": "#/components/schemas/postHomePresellFields"
-          },
-          "images": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "landline_numbers": {
-            "description": "شماره‌های ثابت برای افزودن به آگهی",
-            "example": [
-              "02188888888",
-              "02188888889"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "latitude": {
-            "description": "عرض جغرافیایی آگهی",
-            "example": 35.7152,
-            "format": "double",
-            "type": "number"
-          },
-          "location_type": {
-            "$ref": "#/components/schemas/postLocationType"
-          },
-          "longitude": {
-            "description": "طول جغرافیایی آگهی",
-            "example": 51.4043,
-            "format": "double",
-            "type": "number"
-          },
-          "services": {
-            "$ref": "#/components/schemas/open_platformpostServicesFields"
-          },
-          "temporary_residence": {
-            "$ref": "#/components/schemas/postTemporaryResidenceFields"
-          },
-          "title": {
-            "description": "عنوان آگهی",
-            "example": "Temporary Residence for Rent in Tehran",
-            "type": "string"
-          }
-        },
-        "required": [
-          "title",
-          "description",
-          "images",
-          "city",
-          "location_type",
-          "hide_phone",
-          "chat_enabled"
-        ],
         "type": "object"
       },
       "postSubmitPostResponse": {
@@ -4143,6 +3724,11 @@
       },
       "postSubmitPostV2Request": {
         "properties": {
+          "business_token": {
+            "description": "توکن کسب‌وکاری که این آگهی متعلق به آن می‌شود",
+            "example": "xYzAbC123",
+            "type": "string"
+          },
           "category_fields": {
             "description": "فیلدهای مختص دسته‌بندی که باید مطابق schema تکمیل شوند. schema را اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
@@ -4164,12 +3750,18 @@
         },
         "required": [
           "category_fields",
-          "general_data"
+          "general_data",
+          "business_token"
         ],
         "type": "object"
       },
       "postSubmitUserPostRequest": {
         "properties": {
+          "business_token": {
+            "description": "توکن کسب‌وکاری که این آگهی متعلق به آن می‌شود",
+            "example": "xYzAbC123",
+            "type": "string"
+          },
           "category_fields": {
             "description": "فیلدهای مختص دسته‌بندی که باید مطابق schema تکمیل شوند. schema را اینجا ببینید: https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/",
             "type": "object"
@@ -4180,134 +3772,18 @@
         },
         "required": [
           "category_fields",
-          "general_data"
+          "general_data",
+          "business_token"
         ],
         "type": "object"
       },
-      "postTemporaryResidenceFields": {
-        "properties": {
-          "area": {
-            "description": "متراژ اقامتگاه به متر مربع",
-            "example": 100,
-            "format": "int32",
-            "type": "integer"
-          },
-          "check_in_time": {
-            "description": "زمان ورود",
-            "example": "08:00",
-            "type": "string"
-          },
-          "check_out_time": {
-            "description": "زمان خروج",
-            "example": "20:00",
-            "type": "string"
-          },
-          "comfort_amenities": {
-            "example": [
-              "COMFORT_AMENITY_TV",
-              "COMFORT_AMENITY_WASHING_MACHINE",
-              "COMFORT_AMENITY_AIR_CONDITIONER"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/TemporaryResidenceFieldsComfortAmenity"
-            },
-            "type": "array"
-          },
-          "damage_deposit": {
-            "description": "مبلغ ودیعه خسارت به تومان",
-            "example": 2000000,
-            "format": "int64",
-            "type": "string"
-          },
-          "extra_person_capacity": {
-            "description": "تعداد افراد اضافه مجاز در اقامتگاه",
-            "example": 2,
-            "format": "int32",
-            "type": "integer"
-          },
-          "fully_furnished": {
-            "description": "آیا اقامتگاه کاملاً مبله است",
-            "example": true,
-            "type": "boolean"
-          },
-          "has_own_image": {
-            "description": "آیا تصاویر واقعی ملک هستند (نه تزئینی)",
-            "example": true,
-            "type": "boolean"
-          },
-          "heating_cooling_system": {
-            "example": [
-              "HEATING_COOLING_SYSTEM_SPLIT",
-              "HEATING_COOLING_SYSTEM_RADIATOR"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/TemporaryResidenceFieldsHeatingCoolingSystem"
-            },
-            "type": "array"
-          },
-          "house_rules": {
-            "description": "قوانین و مقررات خانه",
-            "example": "no smoking",
-            "type": "string"
-          },
-          "minimum_stay": {
-            "description": "حداقل تعداد روزهای مورد نیاز برای اقامت",
-            "example": 3,
-            "format": "int32",
-            "type": "integer"
-          },
-          "pets_allowed": {
-            "$ref": "#/components/schemas/TemporaryResidenceFieldsPetsAllowed"
-          },
-          "price_cost_per_extra_person": {
-            "description": "هزینه هر نفر اضافه به ازای هر شب به تومان",
-            "example": 150000,
-            "format": "int64",
-            "type": "string"
-          },
-          "price_regular_days": {
-            "description": "قیمت اقامتگاه در روزهای عادی (شنبه تا سه‌شنبه) به تومان",
-            "example": 1000000,
-            "format": "int64",
-            "type": "string"
-          },
-          "price_special_days": {
-            "description": "قیمت اقامتگاه در روزهای خاص (تعطیلات و مناسبت‌ها) به تومان",
-            "example": 1500000,
-            "format": "int64",
-            "type": "string"
-          },
-          "price_weekends": {
-            "description": "قیمت اقامتگاه در آخر هفته (چهارشنبه تا جمعه) به تومان",
-            "example": 1200000,
-            "format": "int64",
-            "type": "string"
-          },
-          "regular_person_capacity": {
-            "description": "ظرفیت استاندارد افراد در اقامتگاه",
-            "example": 4,
-            "format": "int32",
-            "type": "integer"
-          },
-          "rental_period": {
-            "$ref": "#/components/schemas/TemporaryResidenceFieldsRentalPeriod"
-          },
-          "rooms_count": {
-            "$ref": "#/components/schemas/postRoomsCount"
-          }
-        },
-        "required": [
-          "rooms_count",
-          "area",
-          "has_own_image",
-          "regular_person_capacity",
-          "extra_person_capacity",
-          "price_regular_days",
-          "price_weekends",
-          "price_special_days",
-          "price_cost_per_extra_person"
+      "premium_panelUserRole": {
+        "enum": [
+          "ROLE_ADMIN",
+          "ROLE_AGENT",
+          "ROLE_OWNER"
         ],
-        "type": "object"
+        "type": "string"
       },
       "protobufAny": {
         "additionalProperties": {},
@@ -4787,76 +4263,6 @@
         ]
       }
     },
-    "/experimental/open-platform/events/send": {
-      "post": {
-        "description": "این API امکان ارسال اعلان رویداد به یک کاربر را فراهم می‌کند. رویداد می‌تواند به یک کاربر خاص یا یک آگهی هدف‌گیری شود. رویدادها می‌توانند شامل دکمه‌هایی با اقدامات سفارشی باشند که به کاربران امکان تعامل با اپلیکیشن شما را می‌دهند.\n\n**نکات مهم**:\n- عنوان دکمه‌ها باید بین 5 تا 50 کاراکتر باشد\n- هنگام هدف‌گیری کاربر، target_resource_id باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- هنگام هدف‌گیری آگهی، آگهی باید متعلق به کاربر احراز هویت شده باشد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `EVENTS_SEND`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SEND_EVENT`",
-        "operationId": "Events_SendEvent",
-        "parameters": [
-          {
-            "description": "پیام رویداد برای نمایش به کاربر",
-            "in": "query",
-            "name": "message",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "هدف رویداد؛ USER یا POST",
-            "in": "query",
-            "name": "target_type",
-            "schema": {
-              "enum": [
-                "USER",
-                "POST"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "شناسه هدف. اگر نوع هدف USER است، باید شناسه کاربر دیوار باشد و اگر POST است، باید توکن آگهی باشد.",
-            "in": "query",
-            "name": "target_resource_id",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/eventsSendEventResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "SEND_EVENT"
-            ]
-          }
-        ],
-        "summary": "ارسال رویداد به کاربر",
-        "tags": [
-          "Events"
-        ]
-      }
-    },
     "/experimental/open-platform/post/{post_token}/publish": {
       "post": {
         "description": "این API امکان پرداخت هزینه انتشار آگهی ثبت شده توسط کاربر از طرف اپلیکیشن شما را فراهم می‌کند. هزینه از موجودی اپلیکیشن شما کسر می‌شود و آگهی منتشر می‌شود.\n\n**نکات مهم**:\n- ابتدا آگهی باید با API `SubmitUserPost` ایجاد شده باشد\n- یک `id` منحصر به فرد (UUID v4) برای جلوگیری از تکرار ارسال کنید\n- آگهی باید در وضعیت نیازمند پرداخت (WAITING_FOR_PAYMENT) باشد\n- از کافی بودن موجودی اپلیکیشن خود اطمینان حاصل کنید\n- هزینه‌ها بر اساس دسته‌بندی و شهر آگهی متفاوت است\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `PUBLISH_USER_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SUBMIT_USER_POST`",
@@ -5038,57 +4444,9 @@
         ]
       }
     },
-    "/experimental/open-platform/posts/new": {
-      "post": {
-        "deprecated": true,
-        "description": "این API امکان ثبت آگهی با فیلدهای پایه برای دسته‌بندی‌های خاص را فراهم می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_POST`",
-        "operationId": "Post_SubmitPost",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/postSubmitPostRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/postSubmitPostResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": []
-          }
-        ],
-        "summary": "ثبت آگهی (منسوخ شده)",
-        "tags": [
-          "Post"
-        ]
-      }
-    },
     "/experimental/open-platform/posts/new-v2": {
       "post": {
-        "description": "این API امکان ثبت آگهی با استفاده از اعتبارسنجی JSON schema را فراهم می‌کند. داده‌های آگهی در برابر قالب دسته‌بندی مشخص شده اعتبارسنجی می‌شوند.\n\n**نکات مهم**:\n- فیلدهای ویژه دسته‌بندی باید از [قالب](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) پیروی کنند\n- تمام فیلدهای اجباری ذکر شده در قالب باید ارسال شوند، در غیر این صورت ثبت ناموفق خواهد بود\n- این برای ثبت در سطح اپلیکیشن است (آگهی‌های ارائه‌دهنده)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_POST`",
+        "description": "این API امکان ثبت آگهی با استفاده از اعتبارسنجی JSON schema را فراهم می‌کند. داده‌های آگهی در برابر قالب دسته‌بندی مشخص شده اعتبارسنجی می‌شوند.\n\n**نکات مهم**:\n- فیلدهای ویژه دسته‌بندی باید از [قالب](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) پیروی کنند\n- تمام فیلدهای اجباری ذکر شده در قالب باید ارسال شوند، در غیر این صورت ثبت ناموفق خواهد بود\n- این برای ثبت در سطح اپلیکیشن است (آگهی‌های ارائه‌دهنده)\n- آگهی‌های ثبت شده توسط ارائه‌دهندگان باید آگهی‌های کسب‌وکار باشند، بنابراین توکن کسب‌وکار الزامی است\n- کاربر احراز هویت شده باید به کسب‌وکار دسترسی داشته باشد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_POST`",
         "operationId": "Post_SubmitPostV2",
         "requestBody": {
           "content": {
@@ -5499,7 +4857,7 @@
     },
     "/experimental/open-platform/user-posts/new": {
       "post": {
-        "description": "این API امکان ثبت آگهی از طرف کاربر احراز هویت شده با استفاده از اعتبارسنجی JSON schema را فراهم می‌کند. آگهی متعلق به کاربر احراز هویت شده خواهد بود و می‌توان از طریق APIهای مختص کاربر مدیریت کرد.\n\n**نکات مهم**:\n- فیلدهای ویژه دسته‌بندی باید از [قالب](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) پیروی کنند\n- تمام فیلدهای اجباری ذکر شده در قالب باید ارسال شوند، در غیر این صورت ثبت ناموفق خواهد بود\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_USER_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SUBMIT_USER_POST`",
+        "description": "این API امکان ثبت آگهی از طرف کاربر احراز هویت شده با استفاده از اعتبارسنجی JSON schema را فراهم می‌کند. آگهی متعلق به کاربر احراز هویت شده خواهد بود و می‌توان از طریق APIهای مختص کاربر مدیریت کرد.\n\n**نکات مهم**:\n- فیلدهای ویژه دسته‌بندی باید از [قالب](https://kenar.divar.dev/openapi-doc/assets-get-submit-schema/) پیروی کنند\n- تمام فیلدهای اجباری ذکر شده در قالب باید ارسال شوند، در غیر این صورت ثبت ناموفق خواهد بود\n- آگهی‌های ثبت شده توسط ارائه‌دهندگان باید آگهی‌های کسب‌وکار باشند، بنابراین توکن کسب‌وکار الزامی است\n- کاربر احراز هویت شده باید به کسب‌وکار دسترسی داشته باشد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `SUBMIT_USER_POST`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `SUBMIT_USER_POST`",
         "operationId": "Post_SubmitUserPost",
         "requestBody": {
           "content": {
@@ -6358,7 +5716,7 @@
             "description": "پاسخ خطای غیرمنتظره."
           }
         },
-        "summary": "دریافت schema ثبت آگهی برای دسته‌بندی",
+        "summary": "دریافت schema ثبت آگهی",
         "tags": [
           "Assets"
         ]
@@ -6703,7 +6061,7 @@
             "APIKey": []
           }
         ],
-        "summary": "دریافت شناسه کاربر دیوار با شماره تلفن",
+        "summary": "دریافت شناسه کاربر",
         "tags": [
           "Finder"
         ]
@@ -7269,6 +6627,46 @@
         "summary": "دریافت آگهی با توکن",
         "tags": [
           "Post"
+        ]
+      }
+    },
+    "/v1/open-platform/user/businesses": {
+      "get": {
+        "description": "این API امکان دریافت تمام کسب‌وکارهای مرتبط با کاربر احراز هویت شده را فراهم می‌کند، همراه با نقش کاربر در هر کسب‌وکار.\n\n**نکات مهم**:\n- تمام کسب‌وکارهایی که کاربر در آنها نقش دارد (مثلاً مالک یا همکار) را برمی‌گرداند\n- شامل اطلاعات کسب‌وکار مانند business_token، business_type، brand_name و نقش کاربر است\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_BUSINESSES_READ`",
+        "operationId": "Finder_GetUserBusinesses",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/finderGetUserBusinessesResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "USER_BUSINESSES_READ"
+            ]
+          }
+        ],
+        "summary": "دریافت کسب‌وکارهای کاربر",
+        "tags": [
+          "Finder"
         ]
       }
     },
