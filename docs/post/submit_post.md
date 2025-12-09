@@ -61,6 +61,24 @@ API های ثبت آگهی به شما این امکان را می‌دهند ک
 **نکته مهم:** استفاده شخصی از این API قابل قبول نیست و انتظار می‌رود ارزش ایجاد شده برای کاربران دیوار باشد.
 :::
 
+## کسب‌وکار و توکن کسب‌وکار
+
+:::important الزامی بودن کسب‌وکار
+**تمام ثبت‌های آگهی باید از طریق یک کسب‌وکار انجام شوند.** قبل از ثبت آگهی، باید یک کسب‌وکار داشته باشید و از توکن (business_token) آن استفاده کنید.
+:::
+
+## توکن کسب‌وکار
+
+برای ثبت آگهی نیاز به توکن کسب‌وکار دارید.
+
+### ایجاد کسب‌وکار جدید
+
+اگر هنوز کسب‌وکاری ندارید، از [صفحه ایجاد](https://divar.ir/pro/new) برای ساخت کسب‌وکار جدید استفاده کنید.
+
+### دریافت توکن
+
+برای دریافت توکن از [API دریافت کسب‌وکارهای کاربر](/openapi-doc/finder-get-user-businesses) استفاده کنید:
+
 ## مراحل ثبت آگهی
 
 ### مرحله ۰: آپلود تصاویر (پیش‌نیاز)
@@ -122,6 +140,7 @@ Content-Type: application/json
 x-api-key: {{apikey}}
 
 {
+  "business_token": "xYzAbC123",
   "general_data": {
     "category_slug": "apartment-rent",
     "title": "اجاره آپارتمان 100 متری در تهران",
@@ -430,13 +449,25 @@ const uploadImageResponse = await fetch(upload_url, {
 
 const { path } = await uploadImageResponse.json();
 
-// ۱. دریافت قالب
+// ۱. دریافت توکن کسب‌وکار
+const businessesResponse = await fetch(
+  'https://open-api.divar.ir/v1/open-platform/user/businesses',
+  {
+    headers: {
+      'Authorization': `Bearer ${USER_ACCESS_TOKEN}`
+    }
+  }
+);
+const { businesses } = await businessesResponse.json();
+const businessToken = businesses[0].business_token; // استفاده از اولین کسب‌وکار
+
+// ۲. دریافت قالب
 const schema = await fetch(
   'https://open-api.divar.ir/v1/open-platform/assets/submit-schema/apartment-rent',
   { headers: { 'x-api-key': API_KEY } }
 );
 
-// ۲. ثبت آگهی
+// ۳. ثبت آگهی
 const submitResponse = await fetch(
   'https://open-api.divar.ir/experimental/open-platform/posts/new-v2',
   {
@@ -446,6 +477,7 @@ const submitResponse = await fetch(
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      business_token: businessToken,
       general_data: {
         category_slug: 'apartment-rent',
         title: 'اجاره آپارتمان',
@@ -461,20 +493,21 @@ const submitResponse = await fetch(
         size: 100,
         rooms: 'دو',
         rent: 15000000
-      }
+      },
+      landline_numbers: ['02188888888']
     })
   }
 );
 
 const { post_token } = await submitResponse.json();
 
-// ۳. دریافت قیمت
+// ۴. دریافت قیمت
 const pricing = await fetch(
   `https://open-api.divar.ir/v1/open-platform/post/${post_token}/pricing`,
   { headers: { 'x-api-key': API_KEY } }
 );
 
-// ۴. پرداخت و انتشار
+// ۵. پرداخت و انتشار
 const publishResponse = await fetch(
   `https://open-api.divar.ir/experimental/open-platform/post/${post_token}/publish`,
   {
@@ -506,4 +539,3 @@ console.log('آگهی با موفقیت منتشر شد!');
 - از تصاویر با کیفیت مناسب استفاده کنید
 - توضیحات کامل و واضح برای آگهی بنویسید
 :::
-
