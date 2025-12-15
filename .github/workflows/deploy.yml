@@ -4,12 +4,8 @@ on:
   push:
     branches:
       - master
-  workflow_run:
-    workflows: ["Sync OpenAPI Spec"]
-    types:
-      - completed
-    branches:
-      - master
+  repository_dispatch:
+    types: [deploy-trigger]
   workflow_dispatch:  # Allow manual trigger
 
 concurrency:
