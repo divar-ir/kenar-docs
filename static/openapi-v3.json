@@ -3523,11 +3523,12 @@
         "type": "object"
       },
       "postCustomizedButtonType": {
-        "description": "نوع دکمه اختصاصی که هدف و رفتار آن را تعیین می‌کند. ویژگی‌هایی مانند عنوان دکمه بر اساس نوع آن تعیین می‌شوند.\n\nانواع موجود:\n- `ACCOMMODATION_BOOKING`: برای رزرو اقامتگاه\n- `EXTERNAL_PRODUCT_STORE`: برای مشاهده و خرید محصولات در فروشگاه‌های آنلاین\n- `RESUME_SUBMISSION`: برای ارسال رزومه\n",
+        "description": "Type of the customized button that determines its purpose and behavior. Properties like the button title are derived from the type.\n\nAvailable types:\n- `ACCOMMODATION_BOOKING`: For booking accommodation\n- `EXTERNAL_PRODUCT_STORE`: Used for viewing and purchasing products on external online stores\n- `RESUME_SUBMISSION`: For submitting resume\n- `ONLINE_CALL`: For making online call to seller\n",
         "enum": [
           "ACCOMMODATION_BOOKING",
           "EXTERNAL_PRODUCT_STORE",
-          "RESUME_SUBMISSION"
+          "RESUME_SUBMISSION",
+          "ONLINE_CALL"
         ],
         "type": "string"
       },
