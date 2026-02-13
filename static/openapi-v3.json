@@ -20,16 +20,6 @@
           }
         },
         "required": true
-      },
-      "SemanticCreateUserSemanticBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/SemanticCreateUserSemanticBody"
-            }
-          }
-        },
-        "required": true
       }
     },
     "schemas": {
@@ -132,7 +122,7 @@
             "format": "int32",
             "type": "integer"
           },
-          "phone": {
+          "divar_user_id": {
             "type": "string"
           },
           "semantic": {
@@ -158,6 +148,11 @@
           "buttons": {
             "$ref": "#/components/schemas/chatapiChatButtonGrid"
           },
+          "conversation_id": {
+            "description": "شناسه منحصر به فرد برای مکالمه",
+            "example": "conv_123456",
+            "type": "string"
+          },
           "media_token": {
             "description": "توکن فایل ضمیمه شده (در صورت وجود)",
             "example": "media_token_12345",
@@ -166,11 +161,6 @@
           "text_message": {
             "description": "محتوای پیام متنی برای ارسال توسط ربات",
             "example": "Thank you for your inquiry. How can I help you?",
-            "type": "string"
-          },
-          "user_id": {
-            "description": "شناسه منحصر به فرد کاربر برای شروع یا ادامه مکالمه",
-            "example": "user_789012",
             "type": "string"
           }
         },
@@ -1021,7 +1011,8 @@
           "VIDEO_LIBRARY",
           "MAGNIFIER_SPARKLE",
           "PIN_VARIANT",
-          "MORE_HORIZONTAL_O"
+          "MORE_HORIZONTAL_O",
+          "HEART"
         ],
         "type": "string"
       },
@@ -1160,26 +1151,6 @@
         },
         "type": "object"
       },
-      "MessageImageData": {
-        "properties": {
-          "height_px": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "link": {
-            "type": "string"
-          },
-          "size_bytes": {
-            "format": "uint64",
-            "type": "string"
-          },
-          "width_px": {
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
       "MessageLocationData": {
         "properties": {
           "latitude": {
@@ -1202,21 +1173,6 @@
           },
           "type": {
             "$ref": "#/components/schemas/chatapiMessageSenderType"
-          }
-        },
-        "type": "object"
-      },
-      "MessageVideoData": {
-        "properties": {
-          "link": {
-            "type": "string"
-          },
-          "size_bytes": {
-            "format": "uint64",
-            "type": "string"
-          },
-          "thumbnail_link": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -1271,7 +1227,8 @@
           "BUSINESS_CREATE_CUSTOMIZED_BUTTON",
           "DELETE_USER_POST",
           "EDIT_USER_POST",
-          "USER_BUSINESSES_READ"
+          "USER_BUSINESSES_READ",
+          "PRO_USER_PROFILE_IMAGE_READ"
         ],
         "type": "string"
       },
@@ -2744,7 +2701,7 @@
             "type": "string"
           },
           "image_data": {
-            "$ref": "#/components/schemas/MessageImageData"
+            "$ref": "#/components/schemas/chatapiMessageImageData"
           },
           "location_data": {
             "$ref": "#/components/schemas/MessageLocationData"
@@ -2763,10 +2720,30 @@
             "$ref": "#/components/schemas/chatapiMessageType"
           },
           "video_data": {
-            "$ref": "#/components/schemas/MessageVideoData"
+            "$ref": "#/components/schemas/chatapiMessageVideoData"
           },
           "voice_data": {
             "$ref": "#/components/schemas/MessageVoiceData"
+          }
+        },
+        "type": "object"
+      },
+      "chatapiMessageImageData": {
+        "properties": {
+          "height_px": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "link": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "format": "uint64",
+            "type": "string"
+          },
+          "width_px": {
+            "format": "int64",
+            "type": "integer"
           }
         },
         "type": "object"
@@ -2796,6 +2773,21 @@
           "CONTACT"
         ],
         "type": "string"
+      },
+      "chatapiMessageVideoData": {
+        "properties": {
+          "link": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "format": "uint64",
+            "type": "string"
+          },
+          "thumbnail_link": {
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "eventsRegisterEventSubscriptionRequest": {
         "properties": {
@@ -2887,6 +2879,21 @@
         },
         "type": "object"
       },
+      "finderGetProUserProfileImageResponse": {
+        "properties": {
+          "image_id": {
+            "description": "ID of the pro user's profile image",
+            "example": "abc123",
+            "type": "string"
+          },
+          "image_url": {
+            "description": "URL of the pro user's profile image",
+            "example": "https://abc.jpg",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "finderGetUserBusinessesResponse": {
         "properties": {
           "businesses": {
@@ -2973,9 +2980,6 @@
             "type": "string"
           }
         },
-        "type": "object"
-      },
-      "finderGetUserRequest": {
         "type": "object"
       },
       "finderPostExtState": {
@@ -3885,6 +3889,7 @@
               "POST_EDIT.resource_id": "POST_EDIT.resource_id",
               "POST_ONGOING_IMAGES_GET.resource_id": "POST_ONGOING_IMAGES_GET.resource_id",
               "POST_SEMANTIC_CREATE.resource_id": "POST_SEMANTIC_CREATE.resource_id",
+              "PRO_USER_PROFILE_IMAGE_READ": "PRO_USER_PROFILE_IMAGE_READ",
               "SEND_EVENT": "SEND_EVENT",
               "SUBMIT_USER_PAYMENT": "SUBMIT_USER_PAYMENT",
               "SUBMIT_USER_POST": "SUBMIT_USER_POST",
@@ -4056,114 +4061,6 @@
         ]
       }
     },
-    "/experimental/open-platform/chat/bot/conversations/{conversation_id}/messages": {
-      "post": {
-        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
-        "operationId": "ChatAPI_ChatBotSendMessage5",
-        "parameters": [
-          {
-            "description": "شناسه منحصر به فرد برای مکالمه",
-            "in": "path",
-            "name": "conversation_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/ChatAPIChatBotSendMessageBody"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chatapiChatBotSendMessageResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "CHAT_BOT_USER_MESSAGE_SEND"
-            ]
-          }
-        ],
-        "summary": "ارسال پیام به مکالمه چت‌بات",
-        "tags": [
-          "ChatAPI"
-        ]
-      }
-    },
-    "/experimental/open-platform/chat/bot/users/{user_id}/messages": {
-      "post": {
-        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
-        "operationId": "ChatAPI_ChatBotSendMessage4",
-        "parameters": [
-          {
-            "description": "شناسه منحصر به فرد کاربر برای شروع یا ادامه مکالمه",
-            "in": "path",
-            "name": "user_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/ChatAPIChatBotSendMessageBody"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chatapiChatBotSendMessageResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "CHAT_BOT_USER_MESSAGE_SEND"
-            ]
-          }
-        ],
-        "summary": "ارسال پیام به مکالمه چت‌بات",
-        "tags": [
-          "ChatAPI"
-        ]
-      }
-    },
     "/experimental/open-platform/chat/upload": {
       "post": {
         "description": "این API توکن آپلود برای بارگذاری فایل‌های رسانه‌ای در پیام‌های چت تولید می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_UPLOAD_MEDIA`",
@@ -4206,60 +4103,6 @@
           }
         ],
         "summary": "تولید توکن آپلود",
-        "tags": [
-          "ChatAPI"
-        ]
-      }
-    },
-    "/experimental/open-platform/chatbot-conversations/{conversation_id}/messages": {
-      "post": {
-        "description": "این API امکان ارسال پیام از ربات چت شما به یک مکالمه یا کاربر را فراهم می‌کند. می‌توانید این API را با conversation_id یا user_id فراخوانی کنید.\n\n**نکات مهم**:\n- هنگام استفاده از user_id، باید با شناسه مبهم شده کاربر احراز هویت شده مطابقت داشته باشد\n- یا پیام متنی یا توکن رسانه باید ارسال شود (نه هر دو)\n- می‌توان شبکه دکمه‌ها را به پیام ضمیمه کرد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `CHAT_BOT_SEND_MESSAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_BOT_USER_MESSAGE_SEND`",
-        "operationId": "ChatAPI_ChatBotSendMessage3",
-        "parameters": [
-          {
-            "description": "شناسه منحصر به فرد برای مکالمه",
-            "in": "path",
-            "name": "conversation_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/ChatAPIChatBotSendMessageBody"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chatapiChatBotSendMessageResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "CHAT_BOT_USER_MESSAGE_SEND"
-            ]
-          }
-        ],
-        "summary": "ارسال پیام به مکالمه چت‌بات",
         "tags": [
           "ChatAPI"
         ]
@@ -5058,53 +4901,6 @@
         ]
       }
     },
-    "/v1/open-platform/add-ons/post/{token}": {
-      "delete": {
-        "description": "این API امکان حذف افزونه از یک آگهی را فراهم می‌کند. تمام افزونه‌های ایجاد شده توسط اپلیکیشن شما برای توکن آگهی مشخص شده حذف می‌شوند.\n\n**نکات مهم**:\n- فقط افزونه‌های ایجاد شده توسط اپلیکیشن شما قابل حذف هستند\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `ADD_ON_DELETE`",
-        "operationId": "Addons_DeletePostAddon",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": []
-          }
-        ],
-        "summary": "حذف افزونه آگهی",
-        "tags": [
-          "Addons"
-        ]
-      }
-    },
     "/v1/open-platform/addons/business/{business_token}": {
       "post": {
         "description": "این API امکان ایجاد افزونه کسب‌وکار را فراهم می‌کند که روی تمام آگهی‌های منتشر شده یک کسب‌وکار نمایش داده می‌شود.\n\n**نکات مهم**:\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n- مالکیت کسب‌وکار قبل از ایجاد افزونه بررسی می‌شود\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `BUSINESS_ADDON_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `BUSINESS_ADDON_CREATE.business_token`",
@@ -5168,7 +4964,7 @@
     "/v1/open-platform/addons/post/{token}": {
       "delete": {
         "description": "این API امکان حذف افزونه از یک آگهی را فراهم می‌کند. تمام افزونه‌های ایجاد شده توسط اپلیکیشن شما برای توکن آگهی مشخص شده حذف می‌شوند.\n\n**نکات مهم**:\n- فقط افزونه‌های ایجاد شده توسط اپلیکیشن شما قابل حذف هستند\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `ADD_ON_DELETE`",
-        "operationId": "Addons_DeletePostAddon2",
+        "operationId": "Addons_DeletePostAddon",
         "parameters": [
           {
             "in": "path",
@@ -6315,24 +6111,65 @@
         ]
       }
     },
-    "/v1/open-platform/semantic/user/{phone}": {
+    "/v1/open-platform/pro-user/profile-image": {
+      "get": {
+        "description": "This API allows you to retrieve the profile image of the authenticated pro user.\n\n**Important Notes**:\n- Returns the pro user's profile image URL if available\n- Requires proper OAuth scope for pro user profile access\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_PRO_USER_PROFILE_IMAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PRO_USER_PROFILE_IMAGE_READ`",
+        "operationId": "Finder_GetProUserProfileImage",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/finderGetProUserProfileImageResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googlerpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "PRO_USER_PROFILE_IMAGE_READ"
+            ]
+          }
+        ],
+        "summary": "Get pro user profile image",
+        "tags": [
+          "Finder"
+        ]
+      }
+    },
+    "/v1/open-platform/semantic/users/{divar_user_id}": {
       "delete": {
         "description": "این API امکان حذف اطلاعات معنایی یک کاربر را فراهم می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_SEMANTIC_DELETE`",
         "operationId": "Semantic_DeleteUserSemantic",
         "parameters": [
           {
-            "description": "شماره موبایل کاربر",
+            "description": "شناسه کاربر دیوار",
             "in": "path",
-            "name": "phone",
+            "name": "divar_user_id",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "description": "شناسه کاربر دیوار",
+            "description": "شماره موبایل کاربر",
             "in": "query",
-            "name": "divar_user_id",
+            "name": "phone",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -6375,115 +6212,6 @@
         "operationId": "Semantic_CreateUserSemantic",
         "parameters": [
           {
-            "description": "شماره موبایل کاربر",
-            "in": "path",
-            "name": "phone",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/SemanticCreateUserSemanticBody"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/semanticCreateUserSemanticResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "USER_VERIFICATION_CREATE"
-            ]
-          }
-        ],
-        "summary": "ایجاد اطلاعات معنایی کاربر",
-        "tags": [
-          "Semantic"
-        ]
-      }
-    },
-    "/v1/open-platform/semantic/users/{divar_user_id}": {
-      "delete": {
-        "description": "این API امکان حذف اطلاعات معنایی یک کاربر را فراهم می‌کند.\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_SEMANTIC_DELETE`",
-        "operationId": "Semantic_DeleteUserSemantic2",
-        "parameters": [
-          {
-            "description": "شناسه کاربر دیوار",
-            "in": "path",
-            "name": "divar_user_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "شماره موبایل کاربر",
-            "in": "query",
-            "name": "phone",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/semanticDeleteUserSemanticResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": []
-          }
-        ],
-        "summary": "حذف اطلاعات معنایی کاربر",
-        "tags": [
-          "Semantic"
-        ]
-      },
-      "post": {
-        "description": "این API امکان ایجاد یا به‌روزرسانی semantic کاربر بدون افزودن افزونه را می‌دهد.\n\n**نکات مهم**:\n- امکان ارسال اطلاعات معنایی و تیکت پرداخت (اختیاری) وجود دارد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_SEMANTIC_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_VERIFICATION_CREATE`",
-        "operationId": "Semantic_CreateUserSemantic2",
-        "parameters": [
-          {
             "description": "شناسه کاربر دیوار",
             "in": "path",
             "name": "divar_user_id",
@@ -6494,7 +6222,14 @@
           }
         ],
         "requestBody": {
-          "$ref": "#/components/requestBodies/SemanticCreateUserSemanticBody"
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SemanticCreateUserSemanticBody"
+              }
+            }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6675,56 +6410,7 @@
     "/v1/open-platform/users": {
       "get": {
         "description": "این API اطلاعات کاربر احراز هویت شده را برمی‌گرداند. داده‌های برگشتی به OAuth اسکوپ‌های اعطا شده بستگی دارد.\n\n**نکات مهم**:\n- با اسکوپ `USER_PHONE`: شماره تلفن کاربر برمی‌گردد\n- با اسکوپ `USER_ID`: شناسه مبهم‌شده کاربر برمی‌گردد (یکتا برای هر اپلیکیشن)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_RETRIEVE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ID` یا `USER_PHONE`",
-        "operationId": "Finder_GetUser2",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/finderUser"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "USER_ID",
-              "USER_PHONE"
-            ]
-          }
-        ],
-        "summary": "دریافت اطلاعات کاربر",
-        "tags": [
-          "Finder"
-        ]
-      },
-      "post": {
-        "description": "این API اطلاعات کاربر احراز هویت شده را برمی‌گرداند. داده‌های برگشتی به OAuth اسکوپ‌های اعطا شده بستگی دارد.\n\n**نکات مهم**:\n- با اسکوپ `USER_PHONE`: شماره تلفن کاربر برمی‌گردد\n- با اسکوپ `USER_ID`: شناسه مبهم‌شده کاربر برمی‌گردد (یکتا برای هر اپلیکیشن)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_RETRIEVE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ID` یا `USER_PHONE`",
         "operationId": "Finder_GetUser",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/finderGetUserRequest"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "content": {
@@ -6825,8 +6511,8 @@
     },
     "/v2/open-platform/addons/user/{phone}": {
       "post": {
-        "description": "این API امکان ایجاد افزونه کاربر را فراهم می‌کند که به صورت خودکار به تمام آگهی‌های کاربر متصل می‌شود. افزونه برای آگهی‌های آینده اعمال شده و همچنین تا 30 آگهی اخیر به عقب برمی‌گردد.\n\n**نکات مهم**:\n- می‌توان دسته‌بندی‌ها را برای فیلتر کردن آگهی‌هایی که افزونه دریافت می‌کنند مشخص کرد\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_ADDON_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ADDON_CREATE`",
-        "operationId": "Addons_CreateUserAddonV2",
+        "description": "این API امکان ایجاد افزونه کاربر را فراهم می‌کند که به صورت خودکار به تمام آگهی‌های کاربر متصل می‌شود. افزونه برای آگهی‌های آینده اعمال شده و همچنین تا 30 آگهی اخیر به عقب برمی‌گردد.\n\n**نکات مهم**:\n- می‌توان دسته‌بندی‌ها را برای فیلتر کردن آگهی‌هایی که افزونه دریافت می‌کنند مشخص کرد\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ADDON_CREATE`",
+        "operationId": "Addons_CreateUserAddonV22",
         "parameters": [
           {
             "in": "path",
@@ -6878,8 +6564,8 @@
     },
     "/v2/open-platform/addons/users/{divar_user_id}": {
       "post": {
-        "description": "این API امکان ایجاد افزونه کاربر را فراهم می‌کند که به صورت خودکار به تمام آگهی‌های کاربر متصل می‌شود. افزونه برای آگهی‌های آینده اعمال شده و همچنین تا 30 آگهی اخیر به عقب برمی‌گردد.\n\n**نکات مهم**:\n- می‌توان دسته‌بندی‌ها را برای فیلتر کردن آگهی‌هایی که افزونه دریافت می‌کنند مشخص کرد\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n\n#### دسترسی‌ها:\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ADDON_CREATE`",
-        "operationId": "Addons_CreateUserAddonV22",
+        "description": "این API امکان ایجاد افزونه کاربر را فراهم می‌کند که به صورت خودکار به تمام آگهی‌های کاربر متصل می‌شود. افزونه برای آگهی‌های آینده اعمال شده و همچنین تا 30 آگهی اخیر به عقب برمی‌گردد.\n\n**نکات مهم**:\n- می‌توان دسته‌بندی‌ها را برای فیلتر کردن آگهی‌هایی که افزونه دریافت می‌کنند مشخص کرد\n- ویجت‌ها باید معتبر بوده و از مشخصات فرمت ویجت پیروی کنند\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `USER_ADDON_CREATE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `USER_ADDON_CREATE`",
+        "operationId": "Addons_CreateUserAddonV2",
         "parameters": [
           {
             "in": "path",
