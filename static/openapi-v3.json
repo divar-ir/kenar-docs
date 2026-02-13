@@ -2882,12 +2882,12 @@
       "finderGetProUserProfileImageResponse": {
         "properties": {
           "image_id": {
-            "description": "ID of the pro user's profile image",
+            "description": "شناسهٔ منحصر به فرد تصویر پروفایل کاربر حرفه‌ای",
             "example": "abc123",
             "type": "string"
           },
           "image_url": {
-            "description": "URL of the pro user's profile image",
+            "description": "آدرس تصویر پروفایل کاربر حرفه‌ای (در صورت موجود بودن)",
             "example": "https://abc.jpg",
             "type": "string"
           }
@@ -6145,7 +6145,7 @@
             ]
           }
         ],
-        "summary": "Get pro user profile image",
+        "summary": "دریافت عکس پروفایل کاربر حرفه‌ای",
         "tags": [
           "Finder"
         ]
