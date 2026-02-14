@@ -6113,7 +6113,7 @@
     },
     "/v1/open-platform/pro-user/profile-image": {
       "get": {
-        "description": "This API allows you to retrieve the profile image of the authenticated pro user.\n\n**Important Notes**:\n- Returns the pro user's profile image URL if available\n- Requires proper OAuth scope for pro user profile access\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_PRO_USER_PROFILE_IMAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PRO_USER_PROFILE_IMAGE_READ`",
+        "description": "این API امکان دریافت تصویر پروفایل کاربر حرفه‌ای را فراهم می‌کند.\n\n**نکات مهم**:\n- در صورت موجود بودن، URL تصویر پروفایل کاربر حرفه‌ای را برمی‌گرداند\n- نیاز به OAuth اسکوپ مناسب برای دسترسی به پروفایل کاربر حرفه‌ای دارد\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_PRO_USER_PROFILE_IMAGE`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PRO_USER_PROFILE_IMAGE_READ`",
         "operationId": "Finder_GetProUserProfileImage",
         "responses": {
           "200": {
