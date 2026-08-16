@@ -957,7 +957,10 @@
           "PIN_VARIANT",
           "MORE_HORIZONTAL_O",
           "HEART",
-          "BALE"
+          "BALE",
+          "CAT_HOME_KITCHEN",
+          "CAT_TOOLS_MATERIALS_EQUIPMENT",
+          "PASSKEY"
         ],
         "type": "string"
       },
@@ -1260,7 +1263,6 @@
           "POST_SEMANTIC_CREATE",
           "NOTIFICATION_ACCESS_REVOCATION",
           "SEND_EVENT",
-          "CREATE_WALLET_PAYMENT",
           "SUBMIT_USER_POST",
           "SUBMIT_USER_PAYMENT",
           "USER_SET_CUSTOMIZED_BUTTON",
@@ -1268,9 +1270,30 @@
           "DELETE_USER_POST",
           "EDIT_USER_POST",
           "USER_BUSINESSES_READ",
-          "PRO_USER_PROFILE_IMAGE_READ"
+          "PRO_USER_PROFILE_IMAGE_READ",
+          "PAY_USER_POST_PROMOTION"
         ],
         "type": "string"
+      },
+      "PaymentPayPostPromotionBody": {
+        "properties": {
+          "id": {
+            "description": "Version 4 UUID idempotency key. Generate on your side; reuse it to safely retry without double-charging.",
+            "type": "string"
+          },
+          "is_personal": {
+            "description": "true = charge the user's personal BazaarPay wallet; false = charge the business/panel wallet.",
+            "type": "boolean"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/paymentPromotionOperation"
+          }
+        },
+        "required": [
+          "operation",
+          "id"
+        ],
+        "type": "object"
       },
       "PaymentPublishUserPostBody": {
         "properties": {
@@ -2674,59 +2697,6 @@
         ],
         "type": "string"
       },
-      "paymentCommitWalletTransactionRequest": {
-        "properties": {
-          "token": {
-            "description": "توکن تراکنشی که می‌خواهید نهایی کنید",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "paymentCommitWalletTransactionResponse": {
-        "properties": {
-          "transaction": {
-            "$ref": "#/components/schemas/paymentWalletTransaction"
-          }
-        },
-        "type": "object"
-      },
-      "paymentCreateWalletPaymentRequest": {
-        "properties": {
-          "amount_rials": {
-            "description": "مبلغ تراکنش به ریال",
-            "format": "int64",
-            "type": "string"
-          },
-          "description": {
-            "description": "توضیحات تراکنش",
-            "type": "string"
-          },
-          "redirect_url": {
-            "description": "آدرسی که کاربر باید بعد از پرداخت مبلغ به آن هدایت شود",
-            "type": "string"
-          }
-        },
-        "required": [
-          "amount_rials",
-          "description",
-          "redirect_url"
-        ],
-        "type": "object"
-      },
-      "paymentCreateWalletPaymentResponse": {
-        "properties": {
-          "payment_url": {
-            "description": "آدرسی که باید کاربر را به آن هدایت کنید",
-            "type": "string"
-          },
-          "token": {
-            "description": "توکن تراکنش. برای عملیات‌های بعدی استفاده می‌شود",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "paymentGetBalanceResponse": {
         "properties": {
           "balance_rials": {
@@ -2775,6 +2745,44 @@
         },
         "type": "object"
       },
+      "paymentPayPostPromotionResponse": {
+        "properties": {
+          "amount_rials": {
+            "description": "Total amount charged from the wallet in rials (real Divar price, no provider markup).",
+            "format": "int64",
+            "type": "string"
+          },
+          "order_id": {
+            "description": "The created pardakht_invoice token.",
+            "type": "string"
+          },
+          "paid_at": {
+            "description": "When the payment was completed (set when status=PAID).",
+            "format": "date-time",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/paymentPayStatus"
+          }
+        },
+        "type": "object"
+      },
+      "paymentPayStatus": {
+        "enum": [
+          "PAY_STATUS_PAID",
+          "PAY_STATUS_FAILED",
+          "PAY_STATUS_RECONCILING"
+        ],
+        "type": "string"
+      },
+      "paymentPromotionOperation": {
+        "enum": [
+          "PROMOTION_OPERATION_PUBLISH",
+          "PROMOTION_OPERATION_REORDER",
+          "PROMOTION_OPERATION_RENEW"
+        ],
+        "type": "string"
+      },
       "paymentPublishUserPostResponse": {
         "properties": {
           "transaction": {
@@ -2801,14 +2809,6 @@
           "id": {
             "description": "همان uuid هنگام ایجاد تراکنش",
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "paymentRetrieveWalletTransactionResponse": {
-        "properties": {
-          "transaction": {
-            "$ref": "#/components/schemas/paymentWalletTransaction"
           }
         },
         "type": "object"
@@ -2886,31 +2886,6 @@
           "TRANSACTION_TYPE_REORDER",
           "TRANSACTION_TYPE_SUBMIT",
           "TRANSACTION_TYPE_RENEW"
-        ],
-        "type": "string"
-      },
-      "paymentWalletTransaction": {
-        "properties": {
-          "amount_rials": {
-            "format": "int64",
-            "type": "string"
-          },
-          "status": {
-            "$ref": "#/components/schemas/paymentWalletTransactionStatus"
-          },
-          "token": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "paymentWalletTransactionStatus": {
-        "description": "وضعیت‌های مختلف تراکنش کیف پول: UNKNOWN (پیش‌فرض - نباید استفاده شود)، CREATED (در انتظار پرداخت)، EXPIRED (منقضی شده)، PAID (پرداخت شده، در انتظار تایید نهایی)، COMMITTED (نهایی شده).",
-        "enum": [
-          "CREATED",
-          "EXPIRED",
-          "PAID",
-          "COMMITTED"
         ],
         "type": "string"
       },
@@ -3298,7 +3273,6 @@
               "CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND": "CHAT_SUPPLIER_ALL_CONVERSATIONS_MESSAGE_SEND",
               "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ": "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ",
               "CONVERSATION_SEND_MESSAGE.resource_id": "CONVERSATION_SEND_MESSAGE.resource_id",
-              "CREATE_WALLET_PAYMENT": "CREATE_WALLET_PAYMENT",
               "DELETE_USER_POST": "DELETE_USER_POST",
               "EDIT_USER_POST": "EDIT_USER_POST",
               "MANAGEMENT_APPS_READ.resource_id": "MANAGEMENT_APPS_READ.resource_id",
@@ -3307,6 +3281,7 @@
               "PAYMENT_ALL_POSTS_PRICING_READ": "PAYMENT_ALL_POSTS_PRICING_READ",
               "PAYMENT_ALL_POSTS_RENEW": "PAYMENT_ALL_POSTS_RENEW",
               "PAYMENT_ALL_POSTS_REORDER": "PAYMENT_ALL_POSTS_REORDER",
+              "PAY_USER_POST_PROMOTION": "PAY_USER_POST_PROMOTION",
               "POST_ADDON_CREATE.resource_id": "POST_ADDON_CREATE.resource_id",
               "POST_EDIT.resource_id": "POST_EDIT.resource_id",
               "POST_ONGOING_IMAGES_GET.resource_id": "POST_ONGOING_IMAGES_GET.resource_id",
@@ -3527,6 +3502,67 @@
         "summary": "تولید توکن آپلود",
         "tags": [
           "ChatAPI"
+        ]
+      }
+    },
+    "/experimental/open-platform/post/{post_token}/pay-promotion": {
+      "post": {
+        "description": "Pays a post's promotion price (publish / reorder / renew) directly from the user's BazaarPay wallet. The provider supplies only the post token and the operation; Kenar resolves pricing and charges the user's wallet.\n\n**Important Notes**:\n- This API is experimental and limited to approved apps only\n- `is_personal=true` charges the user's personal wallet; `false` charges the business/panel wallet\n- `id` is a UUID v4 idempotency key; reuse it to safely retry without double-charging\n- On ambiguous charge failures the response returns `status=RECONCILING` with the `order_id` for reconciliation\n- Read prices first via GetPostPricing\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `PAY_POST_PROMOTION`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PAY_USER_POST_PROMOTION`",
+        "operationId": "Payment_PayPostPromotion",
+        "parameters": [
+          {
+            "description": "Post token (8-9 char identifier) the provider already holds.",
+            "in": "path",
+            "name": "post_token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentPayPostPromotionBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentPayPostPromotionResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googleRpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "security": [
+          {
+            "APIKey": [],
+            "OAuth": [
+              "PAY_USER_POST_PROMOTION"
+            ]
+          }
+        ],
+        "summary": "Pay post promotion from user wallet",
+        "tags": [
+          "Payment"
         ]
       }
     },
@@ -4169,157 +4205,6 @@
         "summary": "ثبت آگهی به عنوان کاربر",
         "tags": [
           "Post"
-        ]
-      }
-    },
-    "/experimental/open-platform/wallet/payments/commit": {
-      "post": {
-        "description": "این API تراکنش پرداخت کیف پول را پس از پرداخت موفق نهایی می‌کند.\n\n**نکات مهم**:\n- این قابلیت آزمایشی است و فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- فقط تراکنش‌هایی که در وضعیت PAID هستند را نهایی کنید\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `WALLET_PAYMENT`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CREATE_WALLET_PAYMENT`",
-        "operationId": "Payment_CommitWalletTransaction",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/paymentCommitWalletTransactionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/paymentCommitWalletTransactionResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googleRpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "CREATE_WALLET_PAYMENT"
-            ]
-          }
-        ],
-        "summary": "نهایی کردن تراکنش کیف پول",
-        "tags": [
-          "Payment"
-        ]
-      }
-    },
-    "/experimental/open-platform/wallet/payments/create": {
-      "post": {
-        "description": "این API امکان شروع تراکنش پرداخت از کیف پول دیوار کاربر را فراهم می‌کند. کاربر برای تکمیل پرداخت هدایت می‌شود و می‌توانید وضعیت تراکنش را پیگیری کنید.\n\n**نکات مهم**:\n- این قابلیت آزمایشی است و فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- کاربر برای تکمیل تراکنش به آدرس پرداخت هدایت می‌شود\n- پس از پرداخت، کاربر به `redirect_url` مشخص شده شما هدایت می‌شود\n- از `RetrieveWalletTransaction` برای بررسی وضعیت پرداخت استفاده کنید\n- از `CommitWalletTransaction` برای نهایی کردن تراکنش پس از پرداخت موفق استفاده کنید\n\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `WALLET_PAYMENT`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CREATE_WALLET_PAYMENT`",
-        "operationId": "Payment_CreateWalletPayment",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/paymentCreateWalletPaymentRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/paymentCreateWalletPaymentResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googleRpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "CREATE_WALLET_PAYMENT"
-            ]
-          }
-        ],
-        "summary": "ایجاد پرداخت کیف پول",
-        "tags": [
-          "Payment"
-        ]
-      }
-    },
-    "/experimental/open-platform/wallet/payments/{token}": {
-      "get": {
-        "description": "این API امکان دریافت وضعیت فعلی و جزئیات تراکنش پرداخت کیف پول را فراهم می‌کند. برای تایید تکمیل پرداخت قبل از commit کردن تراکنش استفاده کنید.\n\n**نکات مهم**:\n- این قابلیت آزمایشی است و فقط برای اپلیکیشن‌های تایید شده در دسترس است\n- وضعیت‌های تراکنش: UNKNOWN، CREATED، EXPIRED، PAID، COMMITTED\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `WALLET_PAYMENT`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CREATE_WALLET_PAYMENT`",
-        "operationId": "Payment_RetrieveWalletTransaction",
-        "parameters": [
-          {
-            "description": "توکن تراکنشی که می‌خواهید دریافت کنید",
-            "in": "path",
-            "name": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/paymentRetrieveWalletTransactionResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googleRpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "CREATE_WALLET_PAYMENT"
-            ]
-          }
-        ],
-        "summary": "دریافت تراکنش کیف پول",
-        "tags": [
-          "Payment"
         ]
       }
     },
@@ -6316,7 +6201,7 @@
       "x-displayName": "جستجوگر"
     },
     {
-      "description": ":::warning\nلطفاً قبل از شروع توسعه برنامه، تیکت پشتیبانی ایجاد کنید و ایده کسب‌وکار خود را با تیم کنار دیوار در میان بگذارید تا از همسویی برنامه شما با سیاست‌ها و اهداف کنار دیوار اطمینان حاصل شود.\n:::\n\nAPIهای پرداخت و تراکنش برای مدیریت موجودی اپلیکیشن، خدمات مرتبط با آگهی (نردبان، تمدید، انتشار) و پرداخت‌های کیف پول. برخی APIها محدود به اپلیکیشن‌های تایید شده هستند - برای دسترسی با تیم دیوار تماس بگیرید.",
+      "description": ":::warning\nلطفاً قبل از شروع توسعه برنامه، تیکت پشتیبانی ایجاد کنید و ایده کسب‌وکار خود را با تیم کنار دیوار در میان بگذارید تا از همسویی برنامه شما با سیاست‌ها و اهداف کنار دیوار اطمینان حاصل شود.\n:::\n\nPayment and transaction APIs for managing app balance and post-related services (reorder, renew, publish, promotion). Some APIs are limited to approved apps - contact Divar team for access.",
       "name": "Payment",
       "x-displayName": "پرداخت"
     },
