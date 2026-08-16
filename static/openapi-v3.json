@@ -23,62 +23,6 @@
       }
     },
     "schemas": {
-      "AddonSemanticCarVerificationStage": {
-        "enum": [
-          "CARVERIFICATIONSTAGE_NOT_STARTED",
-          "CARVERIFICATIONSTAGE_SHAHKAR",
-          "CAR_CARD_VERIFICATION",
-          "CAR_MODEL_VERIFICATION"
-        ],
-        "type": "string"
-      },
-      "AddonSemanticIdentityVerificationResult": {
-        "enum": [
-          "FACE_AND_ID_MATCHED"
-        ],
-        "title": "- FACE_AND_ID_MATCHED: ID به معنای کارت ملی است، این مقدار منجر به نشان در تطبیق می‌شود",
-        "type": "string"
-      },
-      "AddonSemanticIdentityVerificationStage": {
-        "enum": [
-          "IDENTITYVERIFICATIONSTAGE_NOT_STARTED",
-          "NATIONAL_INFO_VERIFICATION",
-          "IMAGE_VERIFICATION",
-          "VIDEO_VERIFICATION"
-        ],
-        "type": "string"
-      },
-      "AddonSemanticInspectionResult": {
-        "enum": [
-          "INSPECTION_APPROVED"
-        ],
-        "type": "string"
-      },
-      "AddonSemanticNewFaceVerificationResult": {
-        "enum": [
-          "NEW_FACE_VERIFICATION_FAILED"
-        ],
-        "type": "string"
-      },
-      "AddonSemanticOnlineReservationCapability": {
-        "enum": [
-          "ONLINE_RESERVATION_AVAILABLE"
-        ],
-        "type": "string"
-      },
-      "AddonSemanticOwnershipResult": {
-        "enum": [
-          "OWNERSHIP_CONFIRMED",
-          "OWNERSHIP_DELEGATION_CONFIRMED"
-        ],
-        "type": "string"
-      },
-      "AddonSemanticPostVerificationResult": {
-        "enum": [
-          "POST_INFORMATION_MATCHED"
-        ],
-        "type": "string"
-      },
       "AddonsCreateBusinessAddonBody": {
         "properties": {
           "widgets": {
@@ -1012,9 +956,21 @@
           "MAGNIFIER_SPARKLE",
           "PIN_VARIANT",
           "MORE_HORIZONTAL_O",
-          "HEART"
+          "HEART",
+          "BALE"
         ],
         "type": "string"
+      },
+      "EvaluationRowSection": {
+        "properties": {
+          "section_color": {
+            "$ref": "#/components/schemas/addonsWidgetColor"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "GetPostPricingResponseRenew": {
         "properties": {
@@ -1103,12 +1059,61 @@
         },
         "type": "object"
       },
-      "GetUploadURLsV2ResponseUploadFormat": {
+      "GetUserBusinessesResponseBusiness": {
         "properties": {
-          "http_method": {
-            "$ref": "#/components/schemas/open_platformpostHTTPMethod"
+          "brand_description": {
+            "description": "توضیحات کسب‌وکار",
+            "example": "Business description",
+            "type": "string"
           },
-          "url": {
+          "brand_name": {
+            "description": "نام کسب‌وکار/برند",
+            "example": "My Business",
+            "type": "string"
+          },
+          "business_token": {
+            "description": "شناسه توکن کسب‌وکار",
+            "example": "xYzAbC123",
+            "type": "string"
+          },
+          "business_type": {
+            "$ref": "#/components/schemas/baseBusinessType"
+          },
+          "user_role": {
+            "$ref": "#/components/schemas/premium_panelUserRole"
+          }
+        },
+        "type": "object"
+      },
+      "GetUserPostsResponsePost": {
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "images": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "is_phone_hidden": {
+            "type": "boolean"
+          },
+          "title": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GroupInfoRowGroupInfoItem": {
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "value": {
             "type": "string"
           }
         },
@@ -1151,6 +1156,26 @@
         },
         "type": "object"
       },
+      "MessageImageData": {
+        "properties": {
+          "height_px": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "link": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "format": "uint64",
+            "type": "string"
+          },
+          "width_px": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
       "MessageLocationData": {
         "properties": {
           "latitude": {
@@ -1173,6 +1198,21 @@
           },
           "type": {
             "$ref": "#/components/schemas/chatapiMessageSenderType"
+          }
+        },
+        "type": "object"
+      },
+      "MessageVideoData": {
+        "properties": {
+          "link": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "format": "uint64",
+            "type": "string"
+          },
+          "thumbnail_link": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -1379,6 +1419,13 @@
         ],
         "type": "string"
       },
+      "RegisterEventSubscriptionRequestEventType": {
+        "enum": [
+          "NEW_MESSAGE_ON_POST",
+          "POST_UPDATE"
+        ],
+        "type": "string"
+      },
       "SearchPostItemCommunityFields": {
         "type": "object"
       },
@@ -1516,6 +1563,15 @@
         ],
         "type": "object"
       },
+      "TransactionState": {
+        "enum": [
+          "TRANSACTION_STATE_PENDING",
+          "TRANSACTION_STATE_COMPLETED",
+          "TRANSACTION_STATE_FAILED",
+          "TRANSACTION_STATE_REFUNDED"
+        ],
+        "type": "string"
+      },
       "addonsAction": {
         "description": "نمایانگر یک Action که می‌تواند انجام شود",
         "properties": {
@@ -1540,184 +1596,6 @@
         "title": "عملیات",
         "type": "object"
       },
-      "addonsAddonLinkage": {
-        "enum": [
-          "POST_DETAILS",
-          "POST_MANAGEMENT"
-        ],
-        "type": "string"
-      },
-      "addonsAddonMetaData": {
-        "properties": {
-          "app": {
-            "$ref": "#/components/schemas/appsApp"
-          },
-          "created_at": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "last_modified": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "service_tags": {
-            "items": {
-              "$ref": "#/components/schemas/appsServiceTag"
-            },
-            "type": "array"
-          },
-          "status": {
-            "$ref": "#/components/schemas/addonsStatus"
-          }
-        },
-        "type": "object"
-      },
-      "addonsAddonSecondaryLinkage": {
-        "properties": {
-          "position": {
-            "$ref": "#/components/schemas/addonsAddonSecondaryLinkagePosition"
-          },
-          "widgets": {
-            "$ref": "#/components/schemas/addonsWidgets"
-          }
-        },
-        "type": "object"
-      },
-      "addonsAddonSecondaryLinkagePosition": {
-        "enum": [
-          "POST_SPEC_HEAD",
-          "POST_SPEC_TAIL",
-          "POST_PRICE_SPEC",
-          "POST_DESC_TAIL"
-        ],
-        "type": "string"
-      },
-      "addonsAddonSecondaryLinks": {
-        "properties": {
-          "secondary_linkages": {
-            "items": {
-              "$ref": "#/components/schemas/addonsAddonSecondaryLinkage"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "addonsAddonSelector": {
-        "properties": {
-          "brand_models": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "cities": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "districts": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "tokens": {
-            "items": {
-              "type": "string"
-            },
-            "title": "(OR) آگهی انتخاب می‌شود اگر آرایه زیر شامل فیلد مربوطه باشد",
-            "type": "array"
-          }
-        },
-        "title": "(AND) آگهی توسط این انتخابگر انتخاب می‌شود اگر تمام شرایط زیر\nبرقرار باشند",
-        "type": "object"
-      },
-      "addonsAddonSemantic": {
-        "description": "پیام استخراج‌شده توسط OpenPlatform از semantic ارائه‌دهنده سرویس.\nراهنما:\n- قبل از افزودن enum جدید، بررسی کنید که آیا مقدار مناسبی وجود دارد.\n- مقدار صفر هر enum باید {ENUM_NAME}_UNSPECIFIED باشد.\n- مقادیر Enum نباید مختص آگهی یا شخص خاصی باشند.",
-        "properties": {
-          "car_verification_failure_reason": {
-            "$ref": "#/components/schemas/AddonSemanticCarVerificationStage"
-          },
-          "car_verification_last_successful_stage": {
-            "$ref": "#/components/schemas/AddonSemanticCarVerificationStage"
-          },
-          "identity_verification_failure_reason": {
-            "$ref": "#/components/schemas/AddonSemanticIdentityVerificationStage"
-          },
-          "identity_verification_last_successful_stage": {
-            "$ref": "#/components/schemas/AddonSemanticIdentityVerificationStage"
-          },
-          "identity_verification_result": {
-            "$ref": "#/components/schemas/AddonSemanticIdentityVerificationResult"
-          },
-          "inspection_result": {
-            "$ref": "#/components/schemas/AddonSemanticInspectionResult"
-          },
-          "new_face_verification_result": {
-            "$ref": "#/components/schemas/AddonSemanticNewFaceVerificationResult"
-          },
-          "online_reservation_capability": {
-            "$ref": "#/components/schemas/AddonSemanticOnlineReservationCapability"
-          },
-          "ownership_result": {
-            "$ref": "#/components/schemas/AddonSemanticOwnershipResult"
-          },
-          "payment_method": {
-            "$ref": "#/components/schemas/addonsAddonSemanticPaymentMethod"
-          },
-          "post_verification_result": {
-            "$ref": "#/components/schemas/AddonSemanticPostVerificationResult"
-          },
-          "status": {
-            "$ref": "#/components/schemas/addonsAddonSemanticStatus"
-          }
-        },
-        "type": "object"
-      },
-      "addonsAddonSemanticPaymentMethod": {
-        "enum": [
-          "SECURE"
-        ],
-        "title": "- SECURE: این مقدار منجر به نشان در تطبیق می‌شود",
-        "type": "string"
-      },
-      "addonsAddonSemanticStatus": {
-        "enum": [
-          "SUCCEEDED",
-          "FAILED",
-          "EXPIRED",
-          "PENDING"
-        ],
-        "type": "string"
-      },
-      "addonsBackFillBusinessAddonResponse": {
-        "type": "object"
-      },
-      "addonsBusinessAddon": {
-        "properties": {
-          "business_ref": {
-            "type": "string"
-          },
-          "meta_data": {
-            "$ref": "#/components/schemas/addonsAddonMetaData"
-          },
-          "widgets": {
-            "$ref": "#/components/schemas/addonsWidgets"
-          }
-        },
-        "type": "object"
-      },
       "addonsButtonBar": {
         "properties": {
           "action": {
@@ -1733,39 +1611,6 @@
         "properties": {
           "id": {
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "addonsCreatePostAddonRequest": {
-        "properties": {
-          "link_in_spec": {
-            "type": "string"
-          },
-          "notes": {
-            "title": "داده‌های دلخواه ارائه شده توسط سازنده افزونه",
-            "type": "string"
-          },
-          "selector": {
-            "$ref": "#/components/schemas/addonsAddonSelector"
-          },
-          "semantic": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "semantic_sensitives": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "token": {
-            "type": "string"
-          },
-          "widgets": {
-            "$ref": "#/components/schemas/addonsWidgets"
           }
         },
         "type": "object"
@@ -1808,24 +1653,13 @@
             "type": "string"
           },
           "left": {
-            "$ref": "#/components/schemas/addonsEvaluationRowSection"
+            "$ref": "#/components/schemas/EvaluationRowSection"
           },
           "middle": {
-            "$ref": "#/components/schemas/addonsEvaluationRowSection"
+            "$ref": "#/components/schemas/EvaluationRowSection"
           },
           "right": {
-            "$ref": "#/components/schemas/addonsEvaluationRowSection"
-          }
-        },
-        "type": "object"
-      },
-      "addonsEvaluationRowSection": {
-        "properties": {
-          "section_color": {
-            "$ref": "#/components/schemas/addonsWidgetColor"
-          },
-          "text": {
-            "type": "string"
+            "$ref": "#/components/schemas/EvaluationRowSection"
           }
         },
         "type": "object"
@@ -1853,17 +1687,6 @@
         },
         "type": "object"
       },
-      "addonsGetBusinessAddonsResponse": {
-        "properties": {
-          "addons": {
-            "items": {
-              "$ref": "#/components/schemas/addonsBusinessAddon"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
       "addonsGetDynamicAction": {
         "description": "نمایانگر یک Action پویا که می‌تواند در دستگاه کاربر دریافت و اجرا شود",
         "properties": {
@@ -1878,39 +1701,6 @@
         "title": "دریافت Action پویا",
         "type": "object"
       },
-      "addonsGetPostAddonsResponse": {
-        "properties": {
-          "addons": {
-            "items": {
-              "$ref": "#/components/schemas/addonsPostAddon"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "addonsGetUserAddonsResponse": {
-        "properties": {
-          "user_addons": {
-            "items": {
-              "$ref": "#/components/schemas/addonsUserAddon"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "addonsGetUserPostAddonsResponse": {
-        "properties": {
-          "addons": {
-            "items": {
-              "$ref": "#/components/schemas/addonsPostAddon"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
       "addonsGroupInfoRow": {
         "properties": {
           "has_divider": {
@@ -1918,20 +1708,9 @@
           },
           "items": {
             "items": {
-              "$ref": "#/components/schemas/addonsGroupInfoRowGroupInfoItem"
+              "$ref": "#/components/schemas/GroupInfoRowGroupInfoItem"
             },
             "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "addonsGroupInfoRowGroupInfoItem": {
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -1994,62 +1773,6 @@
         "title": "باز کردن لینک سرور",
         "type": "object"
       },
-      "addonsPostAddon": {
-        "properties": {
-          "app": {
-            "$ref": "#/components/schemas/appsApp"
-          },
-          "linkage": {
-            "$ref": "#/components/schemas/addonsAddonLinkage"
-          },
-          "meta_data": {
-            "$ref": "#/components/schemas/addonsAddonMetaData"
-          },
-          "score": {
-            "format": "int64",
-            "type": "string"
-          },
-          "secondary_links": {
-            "$ref": "#/components/schemas/addonsAddonSecondaryLinks"
-          },
-          "selector": {
-            "$ref": "#/components/schemas/addonsAddonSelector"
-          },
-          "semantic": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "title": "منسوخ شده",
-            "type": "object"
-          },
-          "semantic_data": {
-            "$ref": "#/components/schemas/addonsAddonSemantic"
-          },
-          "semantic_sensitives": {
-            "items": {
-              "type": "string"
-            },
-            "title": "منسوخ شده",
-            "type": "array"
-          },
-          "sensitive_semantic": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "token": {
-            "type": "string"
-          },
-          "widgets": {
-            "$ref": "#/components/schemas/addonsWidgets"
-          },
-          "widgets_semantic": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
       "addonsScoreRow": {
         "properties": {
           "action": {
@@ -2097,17 +1820,6 @@
         },
         "type": "object"
       },
-      "addonsSendAddonDeletionEventsResponse": {
-        "type": "object"
-      },
-      "addonsStatus": {
-        "enum": [
-          "ACTIVE",
-          "HIDDEN",
-          "DELETED"
-        ],
-        "type": "string"
-      },
       "addonsSubtitleRow": {
         "properties": {
           "has_divider": {
@@ -2126,57 +1838,6 @@
           },
           "text": {
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "addonsUserAddon": {
-        "properties": {
-          "divar_user_id": {
-            "type": "string"
-          },
-          "filters": {
-            "$ref": "#/components/schemas/addonsUserAddonFilters"
-          },
-          "meta_data": {
-            "$ref": "#/components/schemas/addonsAddonMetaData"
-          },
-          "phone": {
-            "title": "منسوخ شده. از divar_user_id استفاده کنید",
-            "type": "string"
-          },
-          "semantic": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "title": "منسوخ شده",
-            "type": "object"
-          },
-          "semantic_data": {
-            "$ref": "#/components/schemas/addonsAddonSemantic"
-          },
-          "sensitive_semantic": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "type": "object"
-          },
-          "widgets": {
-            "$ref": "#/components/schemas/addonsWidgets"
-          },
-          "widgets_semantic": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "addonsUserAddonFilters": {
-        "properties": {
-          "categories": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
           }
         },
         "type": "object"
@@ -2229,71 +1890,6 @@
           "ERROR_PRIMARY",
           "SUCCESS_PRIMARY",
           "SUCCESS_SECONDARY"
-        ],
-        "type": "string"
-      },
-      "addonsWidgets": {
-        "type": "object"
-      },
-      "appsApp": {
-        "properties": {
-          "avatar": {
-            "type": "string"
-          },
-          "display": {
-            "type": "string"
-          },
-          "divar_identification_key": {
-            "type": "string"
-          },
-          "service_tags": {
-            "items": {
-              "$ref": "#/components/schemas/appsServiceTag"
-            },
-            "title": "منسوخ شده - از AddonMetaData.service_tags استفاده کنید",
-            "type": "array"
-          },
-          "service_type": {
-            "$ref": "#/components/schemas/appsServiceType"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "status": {
-            "$ref": "#/components/schemas/appsAppStatus"
-          }
-        },
-        "type": "object"
-      },
-      "appsAppStatus": {
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/appsAppStatusStatus"
-          }
-        },
-        "type": "object"
-      },
-      "appsAppStatusStatus": {
-        "enum": [
-          "ACTIVE",
-          "INACTIVE",
-          "SUSPENDED",
-          "DEVELOPMENT"
-        ],
-        "type": "string"
-      },
-      "appsServiceTag": {
-        "enum": [
-          "VERIFIED",
-          "IDENTITY_VERIFIED",
-          "POST_VERIFIED",
-          "SECURE_PAYMENT",
-          "POST_OWNERSHIP_VERIFIED",
-          "EXPERT_INSPECTED",
-          "CAR_EXPERT_INSPECTED",
-          "HOME_EXPERT_INSPECTED",
-          "MOBILE_EXPERT_INSPECTED",
-          "ONLINE_RESERVATION"
         ],
         "type": "string"
       },
@@ -2420,6 +2016,31 @@
         },
         "type": "object"
       },
+      "assetsGetMediaUploadURLsResponse": {
+        "properties": {
+          "addon_images": {
+            "$ref": "#/components/schemas/assetsGetMediaUploadURLsResponseUploadFormat"
+          },
+          "submit_post_images": {
+            "$ref": "#/components/schemas/assetsGetMediaUploadURLsResponseUploadFormat"
+          },
+          "submit_post_videos": {
+            "$ref": "#/components/schemas/assetsGetMediaUploadURLsResponseUploadFormat"
+          }
+        },
+        "type": "object"
+      },
+      "assetsGetMediaUploadURLsResponseUploadFormat": {
+        "properties": {
+          "http_method": {
+            "$ref": "#/components/schemas/assetsHTTPMethod"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "assetsGetOAuthScopesResponse": {
         "properties": {
           "scopes": {
@@ -2524,38 +2145,17 @@
         },
         "type": "object"
       },
-      "authorizationAPICallerInfo": {
-        "properties": {
-          "api_key_id": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "api_key_id_v2": {
-            "type": "string"
-          },
-          "app": {
-            "$ref": "#/components/schemas/appsApp"
-          },
-          "scopes": {
-            "items": {
-              "$ref": "#/components/schemas/authorizationOAuthScope"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "authorizationOAuthScope": {
-        "properties": {
-          "resource_id": {
-            "type": "string"
-          },
-          "scope": {
-            "$ref": "#/components/schemas/OAuthScopeScope"
-          }
-        },
-        "title": "OAuth اسکوپ استاندارد با فرمت `PERMISSION_ENUM__{resource_id}`.\nمثال: EDIT_POST__AZrOi1eL",
-        "type": "object"
+      "assetsHTTPMethod": {
+        "enum": [
+          "GET",
+          "POST",
+          "PUT",
+          "DELETE",
+          "PATCH",
+          "HEAD",
+          "OPTIONS"
+        ],
+        "type": "string"
       },
       "baseBusinessType": {
         "enum": [
@@ -2701,7 +2301,7 @@
             "type": "string"
           },
           "image_data": {
-            "$ref": "#/components/schemas/chatapiMessageImageData"
+            "$ref": "#/components/schemas/MessageImageData"
           },
           "location_data": {
             "$ref": "#/components/schemas/MessageLocationData"
@@ -2720,30 +2320,10 @@
             "$ref": "#/components/schemas/chatapiMessageType"
           },
           "video_data": {
-            "$ref": "#/components/schemas/chatapiMessageVideoData"
+            "$ref": "#/components/schemas/MessageVideoData"
           },
           "voice_data": {
             "$ref": "#/components/schemas/MessageVoiceData"
-          }
-        },
-        "type": "object"
-      },
-      "chatapiMessageImageData": {
-        "properties": {
-          "height_px": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "link": {
-            "type": "string"
-          },
-          "size_bytes": {
-            "format": "uint64",
-            "type": "string"
-          },
-          "width_px": {
-            "format": "int64",
-            "type": "integer"
           }
         },
         "type": "object"
@@ -2774,28 +2354,13 @@
         ],
         "type": "string"
       },
-      "chatapiMessageVideoData": {
-        "properties": {
-          "link": {
-            "type": "string"
-          },
-          "size_bytes": {
-            "format": "uint64",
-            "type": "string"
-          },
-          "thumbnail_link": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "eventsRegisterEventSubscriptionRequest": {
         "properties": {
           "event_resource_id": {
             "type": "string"
           },
           "event_type": {
-            "$ref": "#/components/schemas/eventsRegisterEventSubscriptionRequestEventType"
+            "$ref": "#/components/schemas/RegisterEventSubscriptionRequestEventType"
           },
           "metadata": {
             "type": "object"
@@ -2803,25 +2368,7 @@
         },
         "type": "object"
       },
-      "eventsRegisterEventSubscriptionRequestEventType": {
-        "enum": [
-          "NEW_MESSAGE_ON_POST",
-          "POST_UPDATE"
-        ],
-        "type": "string"
-      },
       "eventsRegisterEventSubscriptionResponse": {
-        "type": "object"
-      },
-      "finderGetAllDevelopmentPostsResponse": {
-        "properties": {
-          "development_posts": {
-            "items": {
-              "$ref": "#/components/schemas/managementDevelopmentPost"
-            },
-            "type": "array"
-          }
-        },
         "type": "object"
       },
       "finderGetPostResponse": {
@@ -2899,35 +2446,9 @@
           "businesses": {
             "description": "فهرست کسب‌وکارهای مرتبط با کاربر احراز هویت شده",
             "items": {
-              "$ref": "#/components/schemas/finderGetUserBusinessesResponseBusiness"
+              "$ref": "#/components/schemas/GetUserBusinessesResponseBusiness"
             },
             "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "finderGetUserBusinessesResponseBusiness": {
-        "properties": {
-          "brand_description": {
-            "description": "توضیحات کسب‌وکار",
-            "example": "Business description",
-            "type": "string"
-          },
-          "brand_name": {
-            "description": "نام کسب‌وکار/برند",
-            "example": "My Business",
-            "type": "string"
-          },
-          "business_token": {
-            "description": "شناسه توکن کسب‌وکار",
-            "example": "xYzAbC123",
-            "type": "string"
-          },
-          "business_type": {
-            "$ref": "#/components/schemas/baseBusinessType"
-          },
-          "user_role": {
-            "$ref": "#/components/schemas/premium_panelUserRole"
           }
         },
         "type": "object"
@@ -2952,32 +2473,9 @@
         "properties": {
           "posts": {
             "items": {
-              "$ref": "#/components/schemas/finderGetUserPostsResponsePost"
+              "$ref": "#/components/schemas/GetUserPostsResponsePost"
             },
             "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "finderGetUserPostsResponsePost": {
-        "properties": {
-          "category": {
-            "type": "string"
-          },
-          "images": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "is_phone_hidden": {
-            "type": "boolean"
-          },
-          "title": {
-            "type": "string"
-          },
-          "token": {
-            "type": "string"
           }
         },
         "type": "object"
@@ -3146,7 +2644,7 @@
         },
         "type": "object"
       },
-      "googlerpcStatus": {
+      "googleRpcStatus": {
         "properties": {
           "code": {
             "format": "int32",
@@ -3164,25 +2662,7 @@
         },
         "type": "object"
       },
-      "managementDevelopmentPost": {
-        "properties": {
-          "category": {
-            "type": "string"
-          },
-          "created_at": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "mng_token": {
-            "type": "string"
-          },
-          "token": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "open_platformpostHTTPMethod": {
+      "open_platformPostHTTPMethod": {
         "enum": [
           "GET",
           "POST",
@@ -3191,20 +2671,6 @@
           "PATCH",
           "HEAD",
           "OPTIONS"
-        ],
-        "type": "string"
-      },
-      "open_platformpostPostState": {
-        "enum": [
-          "POST_STATE_IN_PUBLISH_QUEUE",
-          "POST_STATE_PUBLISHED",
-          "POST_STATE_WAITING_FOR_EDIT",
-          "POST_STATE_WAITING_FOR_PAYMENT",
-          "POST_STATE_WAITING_FOR_REVIEW",
-          "POST_STATE_PUBLISHED_AND_EDIT_REJECTED",
-          "POST_STATE_REJECTED",
-          "POST_STATE_DELETED",
-          "POST_STATE_RETIRED"
         ],
         "type": "string"
       },
@@ -3407,22 +2873,13 @@
             "type": "string"
           },
           "state": {
-            "$ref": "#/components/schemas/paymentTransactionState"
+            "$ref": "#/components/schemas/TransactionState"
           },
           "type": {
             "$ref": "#/components/schemas/paymentTransactionType"
           }
         },
         "type": "object"
-      },
-      "paymentTransactionState": {
-        "enum": [
-          "TRANSACTION_STATE_PENDING",
-          "TRANSACTION_STATE_COMPLETED",
-          "TRANSACTION_STATE_FAILED",
-          "TRANSACTION_STATE_REFUNDED"
-        ],
-        "type": "string"
       },
       "paymentTransactionType": {
         "enum": [
@@ -3456,14 +2913,6 @@
           "COMMITTED"
         ],
         "type": "string"
-      },
-      "payment_ticketGenerateResponse": {
-        "properties": {
-          "ticket_uuid": {
-            "type": "string"
-          }
-        },
-        "type": "object"
       },
       "payment_ticketValidateRequest": {
         "properties": {
@@ -3539,9 +2988,6 @@
       "postDeleteBusinessCustomizedButtonResponse": {
         "type": "object"
       },
-      "postDeleteCustomizedButtonsOffloadedResponse": {
-        "type": "object"
-      },
       "postDeletePostCustomizedButtonResponse": {
         "type": "object"
       },
@@ -3549,23 +2995,6 @@
         "type": "object"
       },
       "postEditPostResponse": {
-        "type": "object"
-      },
-      "postGetBusinessCustomizedButtonResponse": {
-        "properties": {
-          "app_name": {
-            "type": "string"
-          },
-          "app_slug": {
-            "type": "string"
-          },
-          "is_active": {
-            "type": "boolean"
-          },
-          "type": {
-            "$ref": "#/components/schemas/postCustomizedButtonType"
-          }
-        },
         "type": "object"
       },
       "postGetImageUploadURLResponse": {
@@ -3593,10 +3022,21 @@
       "postGetUploadURLsV2Response": {
         "properties": {
           "image": {
-            "$ref": "#/components/schemas/GetUploadURLsV2ResponseUploadFormat"
+            "$ref": "#/components/schemas/postGetUploadURLsV2ResponseUploadFormat"
           },
           "video": {
-            "$ref": "#/components/schemas/GetUploadURLsV2ResponseUploadFormat"
+            "$ref": "#/components/schemas/postGetUploadURLsV2ResponseUploadFormat"
+          }
+        },
+        "type": "object"
+      },
+      "postGetUploadURLsV2ResponseUploadFormat": {
+        "properties": {
+          "http_method": {
+            "$ref": "#/components/schemas/open_platformPostHTTPMethod"
+          },
+          "url": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -3616,7 +3056,7 @@
             "type": "string"
           },
           "state": {
-            "$ref": "#/components/schemas/open_platformpostPostState"
+            "$ref": "#/components/schemas/postPostState"
           }
         },
         "type": "object"
@@ -3715,6 +3155,20 @@
           "chat_enabled"
         ],
         "type": "object"
+      },
+      "postPostState": {
+        "enum": [
+          "POST_STATE_IN_PUBLISH_QUEUE",
+          "POST_STATE_PUBLISHED",
+          "POST_STATE_WAITING_FOR_EDIT",
+          "POST_STATE_WAITING_FOR_PAYMENT",
+          "POST_STATE_WAITING_FOR_REVIEW",
+          "POST_STATE_PUBLISHED_AND_EDIT_REJECTED",
+          "POST_STATE_REJECTED",
+          "POST_STATE_DELETED",
+          "POST_STATE_RETIRED"
+        ],
+        "type": "string"
       },
       "postSetPostCustomizedButtonResponse": {
         "type": "object"
@@ -3818,38 +3272,6 @@
       },
       "semanticDeleteUserSemanticResponse": {
         "type": "object"
-      },
-      "semanticPostSemanticDeleted": {
-        "properties": {
-          "app_slug": {
-            "type": "string"
-          },
-          "post_token": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "semanticSendSemanticDeletionEventsResponse": {
-        "type": "object"
-      },
-      "semanticUserSemanticDeleted": {
-        "properties": {
-          "app_slug": {
-            "type": "string"
-          },
-          "divar_user_id": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "phone": {
-            "title": "منسوخ شده. از divar_user_id استفاده کنید",
-            "type": "string"
-          }
-        },
-        "type": "object"
       }
     },
     "securitySchemes": {
@@ -3938,7 +3360,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -3985,7 +3407,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4040,7 +3462,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4090,7 +3512,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4148,7 +3570,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4208,7 +3630,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4268,7 +3690,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4318,7 +3740,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4365,7 +3787,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4423,7 +3845,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4474,7 +3896,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4535,7 +3957,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4594,7 +4016,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4642,7 +4064,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4679,7 +4101,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4729,7 +4151,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4779,7 +4201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4829,7 +4251,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4880,7 +4302,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4940,7 +4362,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -4990,7 +4412,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5037,7 +4459,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5074,7 +4496,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5116,7 +4538,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5148,7 +4570,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5180,7 +4602,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5222,7 +4644,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5263,7 +4685,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5305,7 +4727,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5337,7 +4759,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5345,6 +4767,38 @@
           }
         },
         "summary": "لیست گزینه‌های حافظه داخلی",
+        "tags": [
+          "Assets"
+        ]
+      }
+    },
+    "/v1/open-platform/assets/media-upload-urls": {
+      "get": {
+        "description": "This API returns the upload address for various use-cases like addon images or post image and videos. It is recommended that you call this API once a day.",
+        "operationId": "Assets_GetMediaUploadURLs",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/assetsGetMediaUploadURLsResponse"
+                }
+              }
+            },
+            "description": "پاسخ موفقیت‌آمیز."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/googleRpcStatus"
+                }
+              }
+            },
+            "description": "پاسخ خطای غیرمنتظره."
+          }
+        },
+        "summary": "دریافت schema ثبت آگهی",
         "tags": [
           "Assets"
         ]
@@ -5369,7 +4823,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5401,7 +4855,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5433,7 +4887,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5465,7 +4919,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5507,7 +4961,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5553,7 +5007,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5607,7 +5061,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5658,7 +5112,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5708,7 +5162,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5760,7 +5214,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5797,7 +5251,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5847,7 +5301,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5894,7 +5348,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5932,7 +5386,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -5980,7 +5434,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6039,7 +5493,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6090,7 +5544,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6130,7 +5584,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6190,7 +5644,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6246,7 +5700,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6296,7 +5750,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6346,7 +5800,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6386,7 +5840,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6426,7 +5880,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6487,7 +5941,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6541,7 +5995,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6594,7 +6048,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6655,7 +6109,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6707,7 +6161,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6744,7 +6198,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
@@ -6802,7 +6256,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/googlerpcStatus"
+                  "$ref": "#/components/schemas/googleRpcStatus"
                 }
               }
             },
