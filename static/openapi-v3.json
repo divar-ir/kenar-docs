@@ -1278,11 +1278,11 @@
       "PaymentPayPostPromotionBody": {
         "properties": {
           "id": {
-            "description": "Version 4 UUID idempotency key. Generate on your side; reuse it to safely retry without double-charging.",
+            "description": "کلید idempotency به‌صورت UUID نسخه ۴. در سمت خود تولید کنید؛ برای تلاش مجدد امن و بدون پرداخت مضاعف، از آن استفاده مجدد کنید.",
             "type": "string"
           },
           "is_personal": {
-            "description": "true = charge the user's personal BazaarPay wallet; false = charge the business/panel wallet.",
+            "description": "true = شارژ کیف پول شخصی BazaarPay کاربر؛ false = شارژ کیف پول کسب‌وکار/پنل.",
             "type": "boolean"
           },
           "operation": {
@@ -2748,16 +2748,16 @@
       "paymentPayPostPromotionResponse": {
         "properties": {
           "amount_rials": {
-            "description": "Total amount charged from the wallet in rials (real Divar price, no provider markup).",
+            "description": "مبلغ کل کسرشده از کیف پول به ریال (قیمت واقعی دیوار، بدون حاشیه سود ارائه‌دهنده).",
             "format": "int64",
             "type": "string"
           },
           "order_id": {
-            "description": "The created pardakht_invoice token.",
+            "description": "توکن پرداخت ایجادشده.",
             "type": "string"
           },
           "paid_at": {
-            "description": "When the payment was completed (set when status=PAID).",
+            "description": "زمان تکمیل پرداخت (تنظیم‌شده هنگام status=PAID).",
             "format": "date-time",
             "type": "string"
           },
@@ -3507,11 +3507,11 @@
     },
     "/experimental/open-platform/post/{post_token}/pay-promotion": {
       "post": {
-        "description": "Pays a post's promotion price (publish / reorder / renew) directly from the user's BazaarPay wallet. The provider supplies only the post token and the operation; Kenar resolves pricing and charges the user's wallet.\n\n**Important Notes**:\n- This API is experimental and limited to approved apps only\n- `is_personal=true` charges the user's personal wallet; `false` charges the business/panel wallet\n- `id` is a UUID v4 idempotency key; reuse it to safely retry without double-charging\n- On ambiguous charge failures the response returns `status=RECONCILING` with the `order_id` for reconciliation\n- Read prices first via GetPostPricing\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `PAY_POST_PROMOTION`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PAY_USER_POST_PROMOTION`",
+        "description": "مبلغ خدمات مستقیما از کیف پول کاربر صاحب آگهی کسر میشود.\n\n**نکات مهم**:\n- این API آزمایشی است و فقط برای اپلیکیشن‌های تأییدشده در دسترس است\n- `is_personal=true` از کیف پول شخصی کاربر کسر میکند؛ `false` از کیف پول کسب و کار کسر میکند\n- `id` یک کلید idempotency به‌صورت UUID نسخه ۴ است؛ برای تلاش مجدد امن و بدون پرداخت مضاعف، از آن استفاده مجدد کنید\n- در صورت شکست مبهم عملیات، پاسخ با `status=RECONCILING` و `order_id` برای رفع مغایرت برگردانده می‌شود\n- ابتدا قیمت‌ها را از طریق GetPostPricing دریافت کنید\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `PAY_POST_PROMOTION`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `PAY_USER_POST_PROMOTION`",
         "operationId": "Payment_PayPostPromotion",
         "parameters": [
           {
-            "description": "Post token (8-9 char identifier) the provider already holds.",
+            "description": "توکن آگهی (شناسه ۸-۹ کاراکتری) که ارائه‌دهنده از قبل در اختیار دارد.",
             "in": "path",
             "name": "post_token",
             "required": true,
@@ -3560,7 +3560,7 @@
             ]
           }
         ],
-        "summary": "Pay post promotion from user wallet",
+        "summary": "پرداخت خدمات آگهی از کیف پول کاربر",
         "tags": [
           "Payment"
         ]
@@ -3573,6 +3573,7 @@
         "parameters": [
           {
             "description": "توکن آگهی دریافت شده از RPC SubmitUserPost. شناسه منحصر به فرد 8-9 کاراکتری برای آگهی ثبت شده توسط کاربر.",
+            "example": "AaEB0vbO",
             "in": "path",
             "name": "post_token",
             "required": true,
@@ -3909,6 +3910,7 @@
         "parameters": [
           {
             "description": "توکن آگهی",
+            "example": "AaEB0vbO",
             "in": "path",
             "name": "post_token",
             "required": true,
@@ -4866,6 +4868,7 @@
         "parameters": [
           {
             "description": "شناسه منحصر به فرد برای مکالمه",
+            "example": "conv_123456",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -4920,6 +4923,7 @@
         "parameters": [
           {
             "description": "شناسه منحصر به فرد کاربر برای شروع یا ادامه مکالمه",
+            "example": "user_789012",
             "in": "path",
             "name": "user_id",
             "required": true,
@@ -4974,6 +4978,7 @@
         "parameters": [
           {
             "description": "شناسه منحصر به فرد برای مکالمه",
+            "example": "conv_123456",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -5296,6 +5301,7 @@
         "parameters": [
           {
             "description": "توکن آگهی برای حذف",
+            "example": "AaEB0vbO",
             "in": "path",
             "name": "post_token",
             "required": true,
@@ -5961,6 +5967,7 @@
         "parameters": [
           {
             "description": "شناسه منحصر به فرد برای مکالمه",
+            "example": "conv_123456",
             "in": "path",
             "name": "conversation_id",
             "required": true,
@@ -6108,6 +6115,7 @@
         "parameters": [
           {
             "description": "توکن آگهی",
+            "example": "AaEB0vbO",
             "in": "path",
             "name": "post_token",
             "required": true,
