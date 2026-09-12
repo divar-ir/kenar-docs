@@ -1233,6 +1233,7 @@
         "type": "object"
       },
       "OAuthScopeScope": {
+        "description": " - MCP_POSTS_READ: MCP (Model Context Protocol) scopes. Wire strings use the `mcp:` prefix\n(e.g. `mcp:posts.read`); see internal/hydra/scope.go mcpScopeMap.\n - MCP_POSTS_SEARCH: MCP (Model Context Protocol) scope for the search_post tool; see\ninternal/hydra/scope.go mcpScopeMap.\n - MCP_GET_ASSETS: MCP (Model Context Protocol) scope for the read-only assets tools.\n - MCP_SUBMIT_POST: MCP (Model Context Protocol) scope for submitting a post on behalf of\nthe authenticated user via the open-platform MCP server.\n - MCP_PAY_PROMOTION: MCP (Model Context Protocol) scope for quoting and paying to promote a\npost on behalf of the authenticated user via the open-platform MCP server.\n - MCP_EDIT_POST: MCP (Model Context Protocol) scope for editing an existing post on\nbehalf of the authenticated user via the open-platform MCP server.",
         "enum": [
           "POST_ADDON_CREATE",
           "USER_PHONE",
@@ -1271,7 +1272,13 @@
           "EDIT_USER_POST",
           "USER_BUSINESSES_READ",
           "PRO_USER_PROFILE_IMAGE_READ",
-          "PAY_USER_POST_PROMOTION"
+          "PAY_USER_POST_PROMOTION",
+          "MCP_POSTS_READ",
+          "MCP_POSTS_SEARCH",
+          "MCP_GET_ASSETS",
+          "MCP_SUBMIT_POST",
+          "MCP_PAY_PROMOTION",
+          "MCP_EDIT_POST"
         ],
         "type": "string"
       },
@@ -1439,13 +1446,6 @@
           "MARKETPLACE",
           "SERVICES",
           "PERSONAL"
-        ],
-        "type": "string"
-      },
-      "RegisterEventSubscriptionRequestEventType": {
-        "enum": [
-          "NEW_MESSAGE_ON_POST",
-          "POST_UPDATE"
         ],
         "type": "string"
       },
@@ -2377,23 +2377,6 @@
         ],
         "type": "string"
       },
-      "eventsRegisterEventSubscriptionRequest": {
-        "properties": {
-          "event_resource_id": {
-            "type": "string"
-          },
-          "event_type": {
-            "$ref": "#/components/schemas/RegisterEventSubscriptionRequestEventType"
-          },
-          "metadata": {
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "eventsRegisterEventSubscriptionResponse": {
-        "type": "object"
-      },
       "finderGetPostResponse": {
         "properties": {
           "business_data": {
@@ -3282,6 +3265,12 @@
               "EDIT_USER_POST": "EDIT_USER_POST",
               "MANAGEMENT_APPS_READ.resource_id": "MANAGEMENT_APPS_READ.resource_id",
               "MANAGEMENT_APPS_WRITE.resource_id": "MANAGEMENT_APPS_WRITE.resource_id",
+              "MCP_EDIT_POST": "MCP_EDIT_POST",
+              "MCP_GET_ASSETS": "MCP_GET_ASSETS",
+              "MCP_PAY_PROMOTION": "MCP_PAY_PROMOTION",
+              "MCP_POSTS_READ": "MCP_POSTS_READ",
+              "MCP_POSTS_SEARCH": "MCP_POSTS_SEARCH",
+              "MCP_SUBMIT_POST": "MCP_SUBMIT_POST",
               "NOTIFICATION_ACCESS_REVOCATION": "NOTIFICATION_ACCESS_REVOCATION",
               "PAYMENT_ALL_POSTS_PRICING_READ": "PAYMENT_ALL_POSTS_PRICING_READ",
               "PAYMENT_ALL_POSTS_RENEW": "PAYMENT_ALL_POSTS_RENEW",
@@ -5028,58 +5017,6 @@
         ]
       }
     },
-    "/v1/open-platform/events/subscriptions": {
-      "post": {
-        "description": "این API امکان اشتراک در رویدادها برای دریافت اعلان‌ها از طریق webhook هنگام وقوع رویدادها را فراهم می‌کند. پس از اشتراک، هنگام وقوع رویداد مربوطه در آدرس webhook شما مطلع خواهید شد.\n\n**نکات مهم**:\n- برای رویداد `NEW_MESSAGE_ON_POST`: نیاز به اسکوپ `CHAT_POST_CONVERSATIONS_READ.post_token` یا `CHAT_SUPPLIER_ALL_CONVERSATIONS_READ`\n- برای رویداد `POST_UPDATE`: نیاز به اسکوپ `USER_POSTS_GET`\n- آدرس webhook باید در پنل ارائه‌دهندگان برای اپلیکیشن شما تنظیم شده باشد\n- برخی رویدادها به صورت پیش‌فرض فعال هستند و نیازی به اشتراک ندارند (مثل پیام‌های ربات چت)\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `EVENTS_REGISTER_SUBSCRIPTION`\n\n##### OAuth اسکوپ موردنیاز:\n\n- `CHAT_POST_CONVERSATIONS_READ.post_token` یا `CHAT_SUPPLIER_ALL_CONVERSATIONS_READ` یا `USER_POSTS_GET`",
-        "operationId": "Events_RegisterEventSubscription",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/eventsRegisterEventSubscriptionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/eventsRegisterEventSubscriptionResponse"
-                }
-              }
-            },
-            "description": "پاسخ موفقیت‌آمیز."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/googleRpcStatus"
-                }
-              }
-            },
-            "description": "پاسخ خطای غیرمنتظره."
-          }
-        },
-        "security": [
-          {
-            "APIKey": [],
-            "OAuth": [
-              "CHAT_POST_CONVERSATIONS_READ.post_token",
-              "CHAT_SUPPLIER_ALL_CONVERSATIONS_READ",
-              "USER_POSTS_GET"
-            ]
-          }
-        ],
-        "summary": "اشتراک در رویداد",
-        "tags": [
-          "Events"
-        ]
-      }
-    },
     "/v1/open-platform/finder/post/{token}": {
       "get": {
         "description": "این API امکان دریافت داده‌های عمومی آگهی با توکن را فراهم می‌کند. جزئیات آگهی شامل داده‌های دسته‌بندی، موقعیت، وضعیت، زمان‌ها و اطلاعات کسب‌وکار برمی‌گردد.\n\n**نکات مهم**:\n- فقط داده‌های عمومی آگهی برگردانده می‌شوند (فیلدهای خصوصی حذف می‌شوند)\n- می‌توان هر آگهی منتشر شده‌ای را دریافت کرد، محدود به آگهی‌های خود کاربر نیست\n\n#### دسترسی‌ها:\n\n##### مجوزهای API Key مورد نیاز:\n\n- `GET_POST`",
@@ -6202,11 +6139,6 @@
       "description": ":::warning\nلطفاً قبل از شروع توسعه برنامه، تیکت پشتیبانی ایجاد کنید و ایده کسب‌وکار خود را با تیم کنار دیوار در میان بگذارید تا از همسویی برنامه شما با سیاست‌ها و اهداف کنار دیوار اطمینان حاصل شود.\n:::",
       "name": "ChatAPI",
       "x-displayName": "چت"
-    },
-    {
-      "description": ":::warning\nلطفاً قبل از شروع توسعه برنامه، تیکت پشتیبانی ایجاد کنید و ایده کسب‌وکار خود را با تیم کنار دیوار در میان بگذارید تا از همسویی برنامه شما با سیاست‌ها و اهداف کنار دیوار اطمینان حاصل شود.\n:::",
-      "name": "Events",
-      "x-displayName": "رویدادها"
     },
     {
       "description": ":::warning\nلطفاً قبل از شروع توسعه برنامه، تیکت پشتیبانی ایجاد کنید و ایده کسب‌وکار خود را با تیم کنار دیوار در میان بگذارید تا از همسویی برنامه شما با سیاست‌ها و اهداف کنار دیوار اطمینان حاصل شود.\n:::",
