@@ -132,8 +132,8 @@
 - [SCORE_ROW](./score_row.md)
   ![SCORE_ROW](doc-images/score_row_percentage.png)
   ![SCORE_ROW](doc-images/score_row_descriptive.png)
-- [IMAGE_CAROUSEL_ROW](./score_row.md)
-  ![SCORE_ROW](doc-images/image_carousel_row.png)
+- [IMAGE_CAROUSEL_ROW](./image_carousel_row.md)
+  ![IMAGE_CAROUSEL_ROW](doc-images/image_carousel_row.png)
 
 ### فایل فیگمای ویجت‌ها و آیکون‌ها
 
