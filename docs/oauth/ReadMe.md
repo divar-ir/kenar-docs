@@ -227,7 +227,7 @@ x-api-key: {{api_key}}
 > برای دریافت شماره‌ی تلفن کاربر، پس از طی مراحل کسب اجازه از کاربر، درخواستی به شکل زیر ارسال نمایید. لازم به ذکر است، می‌بایست این درخواست به صورت فرم ارسال گردد:
 >
 > ```http request
-> POST https://open-api.divar.ir/v1/open-platform/users
+> GET https://open-api.divar.ir/v1/open-platform/users
 > Content-Type: application/json
 > x-api-key: {{api_key}}
 > Authorization: Bearer {{access_token}}
@@ -237,7 +237,7 @@ x-api-key: {{api_key}}
 >
 > ```json
 > {
->   "phone_numbers": ["09990000000"]
+>   "phone_number": "09990000000"
 > }
 > ```
 >
